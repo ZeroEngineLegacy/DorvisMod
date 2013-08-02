@@ -25,10 +25,10 @@ GameSession =
 	LockStepMouse = 
 	{
 	},
-	LockStepKeyboard = 
+	LockStepGamepads = 
 	{
 	},
-	LockStepGamepads = 
+	LockStepKeyboard = 
 	{
 	},
 },
