@@ -28,6 +28,38 @@ Folder =
 		{
 			uint64 Value = 519e4cbc821af76f,
 		},
+		Node = 
+		{
+			uint64 Value = 519e4a92b38ab8a6,
+		},
+		Node = 
+		{
+			uint64 Value = 519e45e379f286e6,
+		},
+		Node = 
+		{
+			uint64 Value = 519e5cfaa4b9c3f4,
+		},
+		Node = 
+		{
+			uint64 Value = 519e75174d0f5fa8,
+		},
+		Node = 
+		{
+			uint64 Value = 519e4653e0a46070,
+		},
+		Node = 
+		{
+			uint64 Value = 519e474cd082c55b,
+		},
+		Node = 
+		{
+			uint64 Value = 519e474cd084ef8c,
+		},
+		Node = 
+		{
+			uint64 Value = 519e465fe21e2dce,
+		},
 	},
 	Folder = 
 	{
@@ -43,6 +75,10 @@ Folder =
 		Node = 
 		{
 			uint64 Value = 519e7015a6750302,
+		},
+		Node = 
+		{
+			uint64 Value = 519e74c9087e821d,
 		},
 	},
 	Folder = 
@@ -70,7 +106,7 @@ Folder =
 		},
 		Node = 
 		{
-			uint64 Value = 519e4a4cbf1dfe67,
+			uint64 Value = 519e4747caf9f899,
 		},
 		Node = 
 		{
@@ -83,6 +119,10 @@ Folder =
 		Node = 
 		{
 			uint64 Value = 519e78743985ea52,
+		},
+		Node = 
+		{
+			uint64 Value = 519e77340c506773,
 		},
 	},
 	Folder = 
@@ -108,6 +148,54 @@ Folder =
 		{
 			uint64 Value = 519e756944b0440c,
 		},
+		Node = 
+		{
+			uint64 Value = 519e4bfa807cc4a0,
+		},
+		Node = 
+		{
+			uint64 Value = 519e47bcd479a060,
+		},
+		Node = 
+		{
+			uint64 Value = 519e47bcd47be71b,
+		},
+		Node = 
+		{
+			uint64 Value = 519e4a3a88c1206a,
+		},
+		Node = 
+		{
+			uint64 Value = 519e47bcd4783b27,
+		},
+		Node = 
+		{
+			uint64 Value = 519e734b64186543,
+		},
+		Node = 
+		{
+			uint64 Value = 519e7061535b71f9,
+		},
+		Node = 
+		{
+			uint64 Value = 519e7066524a33f2,
+		},
+		Node = 
+		{
+			uint64 Value = 519e4a3a88c28cd0,
+		},
+		Node = 
+		{
+			uint64 Value = 519e47bcd47acb0d,
+		},
+		Node = 
+		{
+			uint64 Value = 519e4513413133eb,
+		},
+		Node = 
+		{
+			uint64 Value = 519e70c64cace7fa,
+		},
 	},
 	Folder = 
 	{
@@ -124,6 +212,34 @@ Folder =
 		{
 			uint64 Value = 519e4d15c46fea70,
 		},
+		Node = 
+		{
+			uint64 Value = 519e4bef9e1064cf,
+		},
+		Node = 
+		{
+			uint64 Value = 519e70f3443bfe6b,
+		},
+		Node = 
+		{
+			uint64 Value = 519e474cd163de2d,
+		},
+		Node = 
+		{
+			uint64 Value = 519e4604fb1820d8,
+		},
+		Node = 
+		{
+			uint64 Value = 519e464be637e064,
+		},
+		Node = 
+		{
+			uint64 Value = 519e474cd1646fd3,
+		},
+		Node = 
+		{
+			uint64 Value = 519e45b1746657f8,
+		},
 	},
 	Folder = 
 	{
@@ -139,6 +255,62 @@ Folder =
 		Node = 
 		{
 			uint64 Value = 519e4cbc821d66d4,
+		},
+		Node = 
+		{
+			uint64 Value = 519e458e6220b09d,
+		},
+		Node = 
+		{
+			uint64 Value = 519e4ba4886088bf,
+		},
+		Node = 
+		{
+			uint64 Value = 519e474cd17d0f63,
+		},
+		Node = 
+		{
+			uint64 Value = 519e474cd17a0b50,
+		},
+	},
+	Folder = 
+	{
+		string Name = "PhysicsMesh",
+		Node = 
+		{
+			uint64 Value = 519e474cd17d0f69,
+		},
+		Node = 
+		{
+			uint64 Value = 519e474cd17a0b54,
+		},
+	},
+	Folder = 
+	{
+		string Name = "Shader",
+		Node = 
+		{
+			uint64 Value = 519e4a3a88c1088e,
+		},
+	},
+	Folder = 
+	{
+		string Name = "SampleCurve",
+		Node = 
+		{
+			uint64 Value = 519e48aec117892a,
+		},
+	},
+	Folder = 
+	{
+		string Name = "PyScript",
+		Node = 
+		{
+			uint64 Value = 519e4807d00b7e88,
+		},
+		Node = 
+		{
+			uint64 Value = 519e4ebb7ca0152a,
 		},
 	},
 },

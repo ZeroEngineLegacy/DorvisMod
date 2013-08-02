@@ -12,10 +12,16 @@ class Player : ScriptComponent
     var Speed : Real = 10.0;
     [Editable][Serialize]
     var LookSpeed : Real = 1.0;
+    [Editable][Serialize]
+    var JumpVelocity : Real = 1.0;
     
     var RotationAngles : Real2 = local Real2(0.0, 0.0);
     var CameraCog : Cog = null;
     var ToolContainer : Cog = null;
+    
+    var Movement : Real3 = local Real3();
+    
+    var JumpPressed : Boolean = false;
     
     constructor() : base()
     {
@@ -45,37 +51,27 @@ class Player : ScriptComponent
         this.ToolContainer.DispatchEvent("LockStepInit", toSend as Event);
     }
     
+    function AddMovement(e : LockStepKeyEvent, key : Integer, movement : Real3)
+    {
+        if (e.Key == key)
+        {
+            this.Movement += movement;
+        }
+    }
+    
     function OnLogicUpdate(e : UpdateEvent)
     {
         var playerRotation = local Real3(0.0, this.RotationAngles.Y, 0.0);
-        var cameraRotation = local Real3(this.RotationAngles.X, 0.0, 0.0);
+        var cameraRotation = local Real3(this.RotationAngles.X, Math.Pi, 0.0);
         this.Owner.Transform.SetRotationAngles(playerRotation);
         this.CameraCog.Transform.SetRotationAngles(cameraRotation);
         
-        var movement = local Real3(0.0, 0.0, 0.0);
-        if(Zero.Keyboard.KeyIsDown(Keys.A))
+        if(this.JumpPressed)
         {
-            movement.X -= 1.0;
-        }
-        if(Zero.Keyboard.KeyIsDown(Keys.D))
-        {
-            movement.X += 1.0;
-        }
-        if(Zero.Keyboard.KeyIsDown(Keys.W))
-        {
-            movement.Z -= 1.0;
-        }
-        if(Zero.Keyboard.KeyIsDown(Keys.S))
-        {
-            movement.Z += 1.0;
+            this.Owner.RigidBody.ApplyLinearVelocity(local Real3(0.0, this.JumpVelocity, 0.0));
         }
         
-        if(Zero.Keyboard.KeyIsDown(Keys.Space))
-        {
-            this.Owner.RigidBody.ApplyLinearVelocity(local Real3(0.0, 2.0, 0.0));
-        }
-        
-        movement = this.Owner.Transform.TransformNormal(movement);
+        var movement = this.Owner.Transform.TransformNormal(this.Movement);
         movement.Y = 0.0;
         this.Owner.DynamicMotor.MoveInDirection(movement * local Real3(this.Speed), local Real3(0.0, 1.0, 0.0));
     }
@@ -96,10 +92,27 @@ class Player : ScriptComponent
     
     function OnLockStepKeyDown(e : LockStepKeyEvent)
     {
-        //this.Owner.RigidBody.ApplyForce(local Real3(0.0, 150.0, 0.0));
+        this.AddMovement(e, Keys.W, local Real3( 0.0, 0.0,  1.0));
+        this.AddMovement(e, Keys.S, local Real3( 0.0, 0.0, -1.0));
+        this.AddMovement(e, Keys.A, local Real3( 1.0, 0.0,  0.0));
+        this.AddMovement(e, Keys.D, local Real3(-1.0, 0.0,  0.0));
+        
+        if(e.Key == Keys.Space)
+        {
+            this.JumpPressed = true;
+        }
     }
     
     function OnLockStepKeyUp(e : LockStepKeyEvent)
     {
+        this.AddMovement(e, Keys.W, local Real3( 0.0, 0.0, -1.0));
+        this.AddMovement(e, Keys.S, local Real3( 0.0, 0.0,  1.0));
+        this.AddMovement(e, Keys.A, local Real3(-1.0, 0.0,  0.0));
+        this.AddMovement(e, Keys.D, local Real3( 1.0, 0.0,  0.0));
+        
+        if(e.Key == Keys.Space)
+        {
+            this.JumpPressed = false;
+        }
     }
 }

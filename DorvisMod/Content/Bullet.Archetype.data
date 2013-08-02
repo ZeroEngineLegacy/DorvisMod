@@ -1,0 +1,53 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Archetyped = 
+	{
+		string Name = "519e4a92b38ab8a6:Bullet",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-3.01601, 10.2259, -5.90936],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		string MaterialName = "519e4bef9e1064cf:Tracer",
+		string MeshName = "519e4ba4886088bf:Tracer",
+		Vec4 Color = [1, 1, 1, 1],
+		bool Visible = true,
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	CylinderCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = false,
+		string MaterialName = "4faa6050b8692851:HardMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, -0.8, 0],
+		float Radius = 0.4,
+		float Height = 2,
+		uint Direction = 1,
+	},
+	TimedDeath = 
+	{
+		float TimeToDie = 5,
+		uint RemainingCollisions = 0,
+	},
+},

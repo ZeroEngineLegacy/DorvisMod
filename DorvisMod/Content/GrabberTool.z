@@ -167,6 +167,7 @@ class GrabberTool : ScriptComponent
             {
                 this.CreateManipulator(this.SelectedObj,selectedPoint);
             }
+            break;
         }
     }
     
@@ -274,11 +275,11 @@ class GrabberTool : ScriptComponent
     function ComputeWorldPoint(e : LockStepMouseEvent) : Real3
     {
         //get the vector into the screen from where we clicked
-        var viewPlaneNormal = e.WorldDirection;
+        var viewPlaneNormal = this.CameraCog.Orientation.GetWorldForward();
         //we want to keep the point on the object we clicked at a fixed distance from us,
         //so use the viewPlaneNormal to find the point on the sphere defined by the
         //initial picking distance
-        return this.Owner.Transform.Translation + viewPlaneNormal * local Real3(this.Distance);
+        return this.CameraCog.Transform.WorldTranslation + viewPlaneNormal * local Real3(this.Distance);
     }
         
     function UpdateManipulatorPoint(worldPoint : Real3)

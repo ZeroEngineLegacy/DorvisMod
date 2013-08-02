@@ -4,6 +4,9 @@ class GameStartup : ScriptComponent
     
     var MainSpace : Space = null;
     
+    [Editable][Serialized][Level]
+    var Level : String = "MainLevel";
+    
     constructor() : base()
     {
         this.Random.Seed(10239);
@@ -12,13 +15,13 @@ class GameStartup : ScriptComponent
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Owner, Events.LockStepGameStarted, this.OnLockStepGameStarted);
-        
-        this.MainSpace = Zero.Game.CreateSpace("Space");
-        this.MainSpace.LoadLevel("MainLevel");
     }
 
     function OnLockStepGameStarted(e : LockStepGameStartEvent)
     {
+        this.MainSpace = Zero.Game.CreateSpace("Space");
+        this.MainSpace.LoadLevel(this.Level);
+        
         foreach (var peer in e.GetPeers())
         {
             var position = this.Random.Real3(0.0, 200.0);

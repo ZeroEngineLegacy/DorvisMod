@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [4.97529, 19.8654, -2.20134],
+		Vec3 Translation = [-12.9081, 5.4133, -2.7706],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -33,31 +33,21 @@ Cog =
 		Vec3 Velocity = [0, 0, 0],
 		Vec3 AngularVelocity = [0, 0, 0],
 	},
-	BoxCollider = 
-	{
-		bool Ghost = false,
-		bool SendsMessages = true,
-		bool Seamless = true,
-		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-		Vec3 Offset = [0, 0, 0],
-		Vec3 Size = [0.5, 1, 0.5],
-	},
 	Player = 
 	{
 		float Speed = 5,
 	},
-	SpawnTool = 
+	CapsuleCollider = 
 	{
-	},
-	ToolPalette = 
-	{
-	},
-	GrabberTool = 
-	{
-		bool LockRotation = true,
-		float MaxDistance = 100,
-		float MinDistance = 3,
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = false,
+		string MaterialName = "4faa6050b8692851:HardMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		float Radius = 1,
+		float Height = 1,
+		uint Direction = 1,
 	},
 	DynamicMotor = 
 	{
@@ -83,9 +73,9 @@ Cog =
 			Camera = 
 			{
 				ProjectionMode ProjectionMode = Perspective,
-				float FieldOfView = 45,
+				float FieldOfView = 60,
 				float NearPlane = 0.5,
-				float FarPlane = 200,
+				float FarPlane = 2000,
 				float Size = 20,
 			},
 			CameraViewport = 
@@ -97,6 +87,11 @@ Cog =
 				bool Active = false,
 				uint ForwardInputTo = 2,
 				string RendererName = "4de020863e845ab8:RendererEditor",
+			},
+			Orientation = 
+			{
+				Vec3 UpVector = [0, 1, 0],
+				Vec3 ForwardVector = [0, 0, -1],
 			},
 			Hierarchy = 
 			{
@@ -113,7 +108,7 @@ Cog =
 					Transform = 
 					{
 						Vec3 Translation = [0, 0, -1],
-						Vec3 Scale = [0.05, 0.05, 0.05],
+						Vec3 Scale = [0.005, 0.005, 0.005],
 						Quat Rotation = [0, 0, 0, 1],
 					},
 					Model = 
@@ -122,6 +117,72 @@ Cog =
 						string MeshName = "4de0354322b376ae:Sphere",
 						Vec4 Color = [1, 1, 1, 1],
 						bool Visible = true,
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "ToolContainer",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			ToolPalette = 
+			{
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 5,
+					},
+					Named = 
+					{
+						string Name = "BlockSpawnTool",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					SpawnTool = 
+					{
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 6,
+					},
+					Named = 
+					{
+						string Name = "GrabberTool",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					GrabberTool = 
+					{
+						bool LockRotation = true,
+						float MaxDistance = 100,
+						float MinDistance = 3,
 					},
 				},
 			},
