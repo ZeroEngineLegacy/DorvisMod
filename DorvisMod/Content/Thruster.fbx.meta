@@ -1,0 +1,28 @@
+GeometryContent = 
+{
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, -0.5, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [0.5, 1, 0.5],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "Thruster",
+				uint64 ResourceId = 519e4cbc82124da3,
+			},
+		],
+		MeshMode MeshMode = Single,
+		ResourceCompression CompressMesh = None,
+		bool VertexWeights = false,
+		bool VertexColors = false,
+		bool GenerateSurfaceUvs = false,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+},

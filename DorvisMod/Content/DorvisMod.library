@@ -4,6 +4,8 @@ ContentLibrary =
 	Array Files = 
 	[
 		"519e78743985ea52.HeightMapSource.bin",
+		"Chair.Archetype.data",
+		"Chair.fbx",
 		"DiamondDiffuse.Material.data",
 		"DiamondTile2Diffuse.png",
 		"DiamondTile2Emissive.png",
@@ -20,6 +22,8 @@ ContentLibrary =
 		"Space.data",
 		"SpawnTool.z",
 		"ToolPalette.z",
+		"Thruster.Archetype.data",
+		"Thruster.fbx",
 		"Tree.Archetype.data",
 		"Tree.Material.data",
 		"TreeDiffuse.Material.data",
