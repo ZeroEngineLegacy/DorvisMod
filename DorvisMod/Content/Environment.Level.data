@@ -1,0 +1,4937 @@
+Level = 
+{
+	LevelSettings = 
+	{
+		LinkId = 
+		{
+			uint Id = 1,
+		},
+		Named = 
+		{
+			string Name = "LevelSettings",
+		},
+		GravityEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = false,
+			bool LocalSpaceDirection = true,
+			float Strength = 10,
+			Vec3 Direction = [0, -1, 0],
+		},
+		DragEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = false,
+			float Drag = 0.7,
+		},
+		WaterEffect = 
+		{
+			bool Active = true,
+			string MeshName = "4de0354322b33457:Cone",
+			string WaterMaterialName = "4de020863e85bb61:DefaultMaterial",
+			float Height = 0,
+			float Size = -0.00132704,
+		},
+		AmbientLight = 
+		{
+			Vec4 Color = [0.495, 0.495, 0.495, 1],
+		},
+		SkyBox = 
+		{
+			string Texture = "519e4513413133eb:Miramar",
+			Quat Rotation = [0, 0, 0, 1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 2,
+		},
+		Named = 
+		{
+			string Name = "EditorCamera",
+		},
+		Archetyped = 
+		{
+			string Name = "4de020863e840530:EditorCamera",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [49.2163, 37.0014, 58.8723],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [-0.142467, 0.454925, 0.0739913, 0.87594],
+		},
+		Camera = 
+		{
+			ProjectionMode ProjectionMode = Perspective,
+			float FieldOfView = 45,
+			float NearPlane = 0.5,
+			float FarPlane = 5000,
+			float Size = 20,
+		},
+		EditorCameraController = 
+		{
+			ControlMode ControlMode = Orbit,
+			float LookDistance = 103.775,
+			float LookAngle = 0.995592,
+			float LookRotation = -11.9536,
+			Vec3 LookTarget = [-31.3016, 4.11446, 2.26398],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 3,
+		},
+		Named = 
+		{
+			string Name = "HeightMap",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		HeightMap = 
+		{
+			float UnitsPerPatch = 100,
+			string SourceName = "519e77340c506773:519e77340c506773",
+		},
+		HeightMapRenderer = 
+		{
+			string MaterialName = "519e70f3443bfe6b:HeightMapGrass",
+			bool CastShadows = false,
+		},
+		HeightMapCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = false,
+			string MaterialName = "4faa6050b8692851:HardMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			float Thickness = 1,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 4,
+		},
+		Named = 
+		{
+			string Name = "Cube",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 0],
+			Vec3 Scale = [1, 2, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = true,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 5,
+		},
+		Named = 
+		{
+			string Name = "Cube",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-50.5651, 4.09557, -222.551],
+			Vec3 Scale = [105.181, 105.181, 105.181],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = true,
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 6,
+		},
+		Named = 
+		{
+			string Name = "Water",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [239.175, -28.4865, 37.837],
+			Vec3 Scale = [500, 0.377934, 500],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "519e45b1746657f8:WaterMat",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [0.36075, 0.362797, 0.39, 1],
+			bool Visible = true,
+		},
+		BoxCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 7,
+		},
+		Named = 
+		{
+			string Name = "Trees",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Hierarchy = 
+		{
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 8,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-170.572, -1.8725, 107.778],
+					Vec3 Scale = [3.39219, 3.39221, 3.39219],
+					Quat Rotation = [-0.0121857, -0.384438, 0.00100232, 0.92307],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 9,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-188.851, 6.22116, 138.095],
+					Vec3 Scale = [4.18912, 4.19818, 4.18928],
+					Quat Rotation = [-0.0155802, 0.439488, -0.0606887, 0.89606],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 10,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-187.309, 5.63333, 138.827],
+					Vec3 Scale = [4.63373, 4.67661, 4.63362],
+					Quat Rotation = [0.0477615, 0.95315, 6.91127e-005, 0.298703],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 11,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-190.575, 7.74472, 150.146],
+					Vec3 Scale = [2.94937, 2.96923, 2.9493],
+					Quat Rotation = [0.0571643, 0.96858, -4.81065e-005, -0.242041],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 12,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-198.484, 11.6097, 146.402],
+					Vec3 Scale = [2.75155, 2.77609, 2.7518],
+					Quat Rotation = [-0.00483539, 0.610801, -0.0615243, 0.789375],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 13,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-193.616, 8.43604, 137.637],
+					Vec3 Scale = [3.13815, 3.18468, 3.13822],
+					Quat Rotation = [-0.0193484, -0.756218, -0.0341796, 0.653139],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 14,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-184.608, 2.86087, 126.798],
+					Vec3 Scale = [3.02763, 3.02946, 3.02768],
+					Quat Rotation = [-0.0274218, 0.310592, -0.0557293, 0.948512],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 15,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-194.638, 9.67841, 155.436],
+					Vec3 Scale = [2.92845, 2.94631, 2.92859],
+					Quat Rotation = [-0.00171307, -0.598109, -0.0515698, 0.799752],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 16,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-187.945, 4.57675, 129.532],
+					Vec3 Scale = [4.04097, 4.04967, 4.04101],
+					Quat Rotation = [-0.0282444, -0.461856, -0.0411922, 0.885548],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 17,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-195.587, 10.5209, 174.827],
+					Vec3 Scale = [3.17584, 3.18478, 3.17601],
+					Quat Rotation = [-0.00198163, -0.444609, -0.061189, 0.89363],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 18,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-168.619, 1.10223, 192.303],
+					Vec3 Scale = [2.99687, 2.99691, 2.99687],
+					Quat Rotation = [0.00665246, -0.141097, -0.0185563, 0.989799],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 19,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-179.592, 3.04504, 197.194],
+					Vec3 Scale = [3.96601, 3.97797, 3.96599],
+					Quat Rotation = [0.039025, 0.98221, 1.09992e-005, 0.183684],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 20,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-186.007, 5.13531, 205.587],
+					Vec3 Scale = [4.08066, 4.13126, 4.08078],
+					Quat Rotation = [-0.00660154, 0.774999, -0.0377426, 0.630799],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 21,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-177.45, 2.4296, 201.904],
+					Vec3 Scale = [3.76612, 3.78014, 3.76613],
+					Quat Rotation = [0.000550825, -0.760846, -0.0214008, 0.648579],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 22,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-162.828, 14.3333, 249.262],
+					Vec3 Scale = [4.2995, 4.43768, 4.29947],
+					Quat Rotation = [-0.0129076, 0.903899, -9.65731e-005, 0.42755],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 23,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-131.79, 9.50534, 250.031],
+					Vec3 Scale = [3.67929, 3.78369, 3.67902],
+					Quat Rotation = [0.048252, 0.943023, -0.000236196, -0.32921],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 24,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-134.582, 22.1119, 265.733],
+					Vec3 Scale = [3.76679, 4.00328, 3.76464],
+					Quat Rotation = [0.0842436, 0.872381, -0.00142538, -0.481499],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 25,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-116.72, 11.3405, 255.964],
+					Vec3 Scale = [4.66906, 4.66961, 4.66903],
+					Quat Rotation = [-0.0940935, -0.401355, 0.0406425, 0.91017],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 26,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-145.366, 10.9077, 248.036],
+					Vec3 Scale = [2.96888, 2.97152, 2.96885],
+					Quat Rotation = [-0.0765526, 0.491653, -0.0549572, 0.865677],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 27,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-125.213, 15.463, 260.637],
+					Vec3 Scale = [2.88728, 3.06266, 2.88717],
+					Quat Rotation = [-0.0236283, 0.913354, -0.000310097, 0.406479],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 28,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-136.135, 7.14563, 243.272],
+					Vec3 Scale = [3.68328, 3.70773, 3.68311],
+					Quat Rotation = [-0.0837232, 0.775328, -0.0527776, 0.623756],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 29,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-121.571, 21.278, 266.562],
+					Vec3 Scale = [3.00016, 3.02615, 2.99854],
+					Quat Rotation = [-0.189681, -0.68509, 0.0931575, 0.697131],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 30,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-61.2276, 17.9227, 248.255],
+					Vec3 Scale = [3.06905, 3.10771, 3.06817],
+					Quat Rotation = [-0.138977, -0.752401, 0.0807831, 0.638788],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 31,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-47.7384, 14.9334, 241.263],
+					Vec3 Scale = [3.28824, 3.28965, 3.28821],
+					Quat Rotation = [-0.0958943, 0.547146, -0.0390633, 0.830608],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 32,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-48.6713, 13.2643, 238.413],
+					Vec3 Scale = [3.02689, 3.02714, 3.02688],
+					Quat Rotation = [-0.082823, -0.388654, 0.0356447, 0.916961],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 33,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-51.2334, 18.9178, 247.982],
+					Vec3 Scale = [3.18171, 3.29137, 3.18157],
+					Quat Rotation = [0.0318441, 0.882701, -0.000286859, -0.468854],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 34,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-33.0727, 7.96521, 222.428],
+					Vec3 Scale = [3.11809, 3.15959, 3.11806],
+					Quat Rotation = [-0.029062, 0.98981, -2.70782e-005, 0.139395],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 35,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-17.5532, 11.5743, 226.029],
+					Vec3 Scale = [4.83249, 4.91211, 4.83248],
+					Quat Rotation = [-0.00923962, 0.985548, 1.29551e-005, -0.169142],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 36,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-3.55333, 23.3658, 256.378],
+					Vec3 Scale = [4.00121, 4.04778, 3.99775],
+					Quat Rotation = [-0.208897, 0.714971, -0.0916772, 0.660887],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 37,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [17.3386, 18.7019, 234.002],
+					Vec3 Scale = [4.56914, 4.56928, 4.56913],
+					Quat Rotation = [-0.0864168, -0.351985, 0.0293739, 0.931545],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 38,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [3.69588, 18.9908, 238.385],
+					Vec3 Scale = [3.43603, 3.46111, 3.43601],
+					Quat Rotation = [-0.0211242, 0.946397, 2.61751e-005, -0.322315],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 39,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [8.03049, 10.2758, 220.123],
+					Vec3 Scale = [3.43619, 3.43628, 3.43618],
+					Quat Rotation = [-0.0878384, -0.354634, 0.026124, 0.930503],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 40,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [3.45735, 2.77402, 204.675],
+					Vec3 Scale = [3.16601, 3.22403, 3.16601],
+					Quat Rotation = [0.00497094, 0.993319, 5.24093e-006, 0.115294],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 41,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [10.8128, 9.06213, 218.375],
+					Vec3 Scale = [3.94784, 3.94804, 3.94783],
+					Quat Rotation = [-0.0876561, -0.380888, 0.0225444, 0.920181],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 42,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [23.0332, -1.30865, 196.701],
+					Vec3 Scale = [3.38921, 3.38932, 3.38921],
+					Quat Rotation = [-0.0267856, -0.294334, -0.00497111, 0.955314],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 43,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [10.3674, 19.8027, 237.017],
+					Vec3 Scale = [3.58623, 3.68297, 3.58623],
+					Quat Rotation = [-0.00147558, 0.9723, 4.72064e-006, -0.233732],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 44,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [27.0105, 8.01791, 219.289],
+					Vec3 Scale = [4.57727, 4.81539, 4.57725],
+					Quat Rotation = [0.00817666, 0.996099, 1.82828e-005, 0.0878662],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 45,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [32.7563, -2.56497, 194.406],
+					Vec3 Scale = [3.88923, 3.88948, 3.88923],
+					Quat Rotation = [-0.0242895, -0.369895, -0.00481109, 0.928743],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 46,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [31.9807, 19.152, 234.814],
+					Vec3 Scale = [3.16002, 3.18057, 3.15947],
+					Quat Rotation = [-0.136509, 0.7427, -0.0655346, 0.652279],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 47,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [45.3902, -1.62146, 206.282],
+					Vec3 Scale = [3.31363, 3.31857, 3.3136],
+					Quat Rotation = [-0.069416, 0.583773, -0.0512681, 0.807318],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 48,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [64.9366, -5.828, 202.527],
+					Vec3 Scale = [2.86491, 2.88724, 2.86491],
+					Quat Rotation = [0.0167057, 0.994281, 6.87845e-006, 0.105482],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 49,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [74.8787, 1.09787, 218.502],
+					Vec3 Scale = [3.40242, 3.46583, 3.4002],
+					Quat Rotation = [-0.168456, -0.820558, 0.0734594, 0.541216],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 50,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [39.0507, 1.44925, 211.13],
+					Vec3 Scale = [4.148, 4.15597, 4.14791],
+					Quat Rotation = [-0.0866351, 0.61069, -0.0567386, 0.785069],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 51,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [49.3696, -3.09979, 203.569],
+					Vec3 Scale = [4.4809, 4.52809, 4.48085],
+					Quat Rotation = [0.0317497, 0.980465, -3.29587e-005, -0.194115],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 52,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [62.7971, 2.42001, 219.153],
+					Vec3 Scale = [2.81802, 2.81801, 2.818],
+					Quat Rotation = [-0.0984708, -0.075178, -0.0117018, 0.992227],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 53,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [79.5638, 3.3331, 221.243],
+					Vec3 Scale = [3.98935, 4.23361, 3.98926],
+					Quat Rotation = [-0.0192993, 0.986378, -9.49688e-005, 0.163354],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 54,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [85.8219, -4.51508, 211.113],
+					Vec3 Scale = [2.68879, 2.80631, 2.68879],
+					Quat Rotation = [0.00478412, 0.988453, 1.56798e-005, 0.15145],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 55,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [91.2367, -14.1537, 186.653],
+					Vec3 Scale = [4.79844, 4.82355, 4.7984],
+					Quat Rotation = [0.0404459, 0.996353, -7.97116e-006, -0.0751336],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 56,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [76.5412, -10.5047, 184.479],
+					Vec3 Scale = [3.13468, 3.1347, 3.13469],
+					Quat Rotation = [-0.0105041, -0.0534791, -0.0364228, 0.997849],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 57,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [103.631, -11.222, 205.444],
+					Vec3 Scale = [2.83033, 2.88039, 2.83017],
+					Quat Rotation = [0.0516921, 0.928444, -0.000180087, -0.367859],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 58,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [121.649, -13.2746, 209.843],
+					Vec3 Scale = [2.73878, 2.82714, 2.73863],
+					Quat Rotation = [0.0424459, 0.992244, -7.9456e-005, -0.116832],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 59,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [122.927, -15.4266, 205.506],
+					Vec3 Scale = [3.22744, 3.2854, 3.22741],
+					Quat Rotation = [0.0246881, 0.997339, 1.51207e-005, 0.0686004],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 60,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [106.019, -12.0669, 204.801],
+					Vec3 Scale = [2.85948, 2.85963, 2.85946],
+					Quat Rotation = [-0.0630974, -0.169023, -0.0209568, 0.983367],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 61,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [139.035, -10.3895, 218.49],
+					Vec3 Scale = [3.97036, 4.249, 3.97019],
+					Quat Rotation = [-0.0230231, 0.920307, -0.000331347, 0.390519],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 62,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [165.177, -26.599, 185.088],
+					Vec3 Scale = [4.0905, 4.09053, 4.0905],
+					Quat Rotation = [-0.0309166, -0.310229, 0.00406221, 0.95015],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 63,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [176.403, -22.1514, 201.641],
+					Vec3 Scale = [3.74979, 3.75363, 3.74975],
+					Quat Rotation = [-0.0728192, -0.624082, 0.0424769, 0.776798],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 64,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [185.157, -22.278, 198.453],
+					Vec3 Scale = [3.15231, 3.24719, 3.15229],
+					Quat Rotation = [-0.0137508, 0.977104, 4.43089e-005, -0.212317],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 65,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [180.635, -25.7989, 188.843],
+					Vec3 Scale = [3.23722, 3.23723, 3.23722],
+					Quat Rotation = [-0.0323227, -0.231052, 0.0119014, 0.972332],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 66,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [162.535, -23.3675, 198.36],
+					Vec3 Scale = [2.81217, 2.81219, 2.81217],
+					Quat Rotation = [-0.0435055, 0.283204, -0.0171124, 0.957919],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 67,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [157.439, -14.8106, 214.964],
+					Vec3 Scale = [2.76594, 2.76601, 2.76593],
+					Quat Rotation = [-0.114537, -0.281042, 0.0376737, 0.952091],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 68,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [156.244, -24.3804, 193.044],
+					Vec3 Scale = [2.82559, 2.84613, 2.82558],
+					Quat Rotation = [0.0168252, 0.99656, -4.96304e-006, -0.0811477],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 69,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [186.403, -25.7973, 187.335],
+					Vec3 Scale = [4.07051, 4.10906, 4.0705],
+					Quat Rotation = [-0.0106904, 0.998515, 2.69232e-006, -0.0534247],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 70,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [202.549, -12.2096, 200.487],
+					Vec3 Scale = [2.73244, 2.75574, 2.73222],
+					Quat Rotation = [-0.132197, -0.53751, 0.12056, 0.824055],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 71,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [211.061, -21.4589, 179.76],
+					Vec3 Scale = [2.69531, 2.80931, 2.69506],
+					Quat Rotation = [-0.044954, 0.949553, 0.000304868, -0.310363],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 72,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [205.38, -28.9341, 164.542],
+					Vec3 Scale = [2.9417, 2.97317, 2.94166],
+					Quat Rotation = [-0.0378098, 0.996691, -1.45366e-005, 0.0719542],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 73,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [209.788, -28.4793, 162.001],
+					Vec3 Scale = [2.99785, 3.04567, 2.99779],
+					Quat Rotation = [-0.0333956, 0.981173, 5.12939e-005, -0.190223],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 74,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [206.577, -29.6934, 160.731],
+					Vec3 Scale = [2.82022, 2.82165, 2.82021],
+					Quat Rotation = [-0.044021, 0.398957, 0.0169512, 0.915755],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 75,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [234.45, -29.2922, 92.362],
+					Vec3 Scale = [2.70473, 2.78843, 2.70501],
+					Quat Rotation = [-0.0200724, 0.765155, 0.0476959, 0.64176],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 76,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [247.032, -28.3319, 30.7612],
+					Vec3 Scale = [2.90183, 2.9343, 2.90166],
+					Quat Rotation = [-0.0705258, 0.993267, 3.64782e-005, -0.0919011],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 77,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [248.22, -28.2631, 14.9648],
+					Vec3 Scale = [3.7877, 3.79929, 3.78777],
+					Quat Rotation = [0.00253057, -0.553041, 0.0430381, 0.832038],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 78,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [248.374, -32.4521, -3.45176],
+					Vec3 Scale = [3.51286, 3.6816, 3.5137],
+					Quat Rotation = [0.00366762, 0.806588, 0.0548261, 0.588541],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 79,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [244.899, -35.0084, -8.22911],
+					Vec3 Scale = [3.36189, 3.42959, 3.36241],
+					Quat Rotation = [0.00842479, -0.691577, 0.0602644, 0.719733],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 80,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [245.196, -30.4934, -50.3413],
+					Vec3 Scale = [4.61631, 4.6817, 4.61604],
+					Quat Rotation = [-0.0630179, 0.983116, -7.77525e-005, 0.171791],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 81,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [243.69, -30.0403, -30.0469],
+					Vec3 Scale = [4.39623, 4.47048, 4.396],
+					Quat Rotation = [-0.0535062, 0.961335, -0.000126277, 0.270134],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 82,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [241.885, -30.7366, -63.7447],
+					Vec3 Scale = [4.14789, 4.15481, 4.14792],
+					Quat Rotation = [0.0345977, 0.508374, 0.0505618, 0.858954],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 83,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [237.924, -27.6173, -73.6283],
+					Vec3 Scale = [3.83523, 3.84848, 3.8352],
+					Quat Rotation = [-0.0432539, 0.935101, 2.81109e-005, -0.351731],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 84,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [235.262, -27.4588, -103.199],
+					Vec3 Scale = [4.79571, 4.7986, 4.79569],
+					Quat Rotation = [0.0348595, -0.425645, 0.0191817, 0.904015],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 85,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [232.546, -28.3949, -92.3994],
+					Vec3 Scale = [4.48308, 4.48502, 4.48329],
+					Quat Rotation = [0.0338882, -0.18691, 0.0691502, 0.979354],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 86,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [234.826, -27.6778, -94.1396],
+					Vec3 Scale = [4.96645, 4.96973, 4.96653],
+					Quat Rotation = [0.0387058, 0.311429, 0.0609313, 0.947524],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 87,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [220.432, -27.8226, -111.646],
+					Vec3 Scale = [4.50984, 4.6254, 4.5098],
+					Quat Rotation = [-0.0166912, 0.944989, -7.30102e-005, 0.326677],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 88,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [229.344, -25.5812, -109.852],
+					Vec3 Scale = [3.35069, 3.4322, 3.35051],
+					Quat Rotation = [-0.0461773, 0.96684, -0.000144459, 0.251171],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 89,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [231.425, -24.639, -118.214],
+					Vec3 Scale = [4.81572, 4.81577, 4.81567],
+					Quat Rotation = [0.0748217, -0.0978342, 0.0265815, 0.99203],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 90,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [212.908, -26.867, -119.23],
+					Vec3 Scale = [3.15187, 3.15693, 3.15185],
+					Quat Rotation = [0.0593438, 0.572916, 0.0505786, 0.815897],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 91,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [228.546, -18.2305, -124.188],
+					Vec3 Scale = [2.74182, 2.76487, 2.74112],
+					Quat Rotation = [0.133915, -0.753231, -0.0333049, 0.643118],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 92,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [215.52, -11.4397, -138.678],
+					Vec3 Scale = [3.17643, 3.17647, 3.1764],
+					Quat Rotation = [0.0848509, -0.125105, 0.0147791, 0.988398],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 93,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [218.28, -4.95285, -149.208],
+					Vec3 Scale = [4.34473, 4.34835, 4.34467],
+					Quat Rotation = [0.086152, -0.611658, -0.0245467, 0.786034],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 94,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [199.72, -4.61679, -154.979],
+					Vec3 Scale = [4.51263, 4.58751, 4.5112],
+					Quat Rotation = [0.132118, 0.829461, 0.0660559, 0.538681],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 95,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [222.402, 10.9821, -183.248],
+					Vec3 Scale = [3.51417, 3.57648, 3.51365],
+					Quat Rotation = [0.109769, 0.739562, 0.0853272, 0.658569],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 96,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [239.009, 4.09445, -155.075],
+					Vec3 Scale = [2.66635, 2.77626, 2.66586],
+					Quat Rotation = [-0.0620743, 0.916946, -0.000540911, 0.39415],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 97,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [220.148, 6.8757, -176.296],
+					Vec3 Scale = [2.79286, 2.86807, 2.79278],
+					Quat Rotation = [-0.0324786, 0.998806, 1.57709e-005, -0.0364776],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 98,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [236.939, 20.8098, -185.438],
+					Vec3 Scale = [4.49454, 4.67188, 4.49211],
+					Quat Rotation = [0.150414, 0.726828, 0.119628, 0.659347],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 99,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [234.377, 15.179, -180.755],
+					Vec3 Scale = [3.99479, 4.26349, 3.9939],
+					Quat Rotation = [-0.0561187, 0.96002, -0.00052293, 0.274238],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 100,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [220.743, 11.352, -184.968],
+					Vec3 Scale = [3.75294, 3.76325, 3.75286],
+					Quat Rotation = [0.08938, 0.529736, 0.0759109, 0.840017],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 101,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [216.619, 31.8719, -218.66],
+					Vec3 Scale = [4.49307, 4.49622, 4.49281],
+					Quat Rotation = [0.0854512, -0.243168, 0.0554562, 0.96462],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 102,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [202.7, 15.0304, -200.537],
+					Vec3 Scale = [2.83051, 2.83727, 2.83039],
+					Quat Rotation = [0.102516, -0.718984, -0.0405937, 0.686224],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 103,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [216.863, 25.0216, -209.236],
+					Vec3 Scale = [2.76705, 2.76997, 2.76705],
+					Quat Rotation = [0.0886623, 0.314674, 0.0883803, 0.940908],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 104,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [221.989, 56.6422, -241.617],
+					Vec3 Scale = [3.09147, 3.11151, 3.09151],
+					Quat Rotation = [0.0785538, -0.40945, 0.08006, 0.905411],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 105,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [219.399, 18.4952, -197.851],
+					Vec3 Scale = [3.34735, 3.37536, 3.34732],
+					Quat Rotation = [0.0995983, 0.589689, 0.0972462, 0.795543],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 106,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [210.331, 35.9448, -230.467],
+					Vec3 Scale = [4.05585, 4.07389, 4.05537],
+					Quat Rotation = [0.0860332, -0.492546, 0.033757, 0.865365],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 107,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [230.322, 44.2277, -218.896],
+					Vec3 Scale = [2.78294, 2.78983, 2.78337],
+					Quat Rotation = [0.0982087, 0.317294, 0.123498, 0.935108],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 108,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [214.289, 25.7087, -212.061],
+					Vec3 Scale = [3.49892, 3.52647, 3.49882],
+					Quat Rotation = [0.104553, 0.585547, 0.0978951, 0.797884],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 109,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [206.366, 41.405, -243.562],
+					Vec3 Scale = [4.97626, 4.97674, 4.97641],
+					Quat Rotation = [0.0676563, -0.10332, 0.0804812, 0.989075],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 110,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [187.82, 30.4341, -236.722],
+					Vec3 Scale = [3.12674, 3.12729, 3.12672],
+					Quat Rotation = [0.0709556, -0.33685, 0.00263712, 0.938877],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 111,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [204.93, 44.2261, -250.398],
+					Vec3 Scale = [3.0153, 3.01701, 3.01543],
+					Quat Rotation = [0.0666281, 0.21748, 0.0883217, 0.969774],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 112,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [194.026, 69.5386, -290.396],
+					Vec3 Scale = [4.10999, 4.10965, 4.11084],
+					Quat Rotation = [0.0867741, 0.067642, 0.12164, 0.986458],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 113,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [185.868, 41.2786, -257.405],
+					Vec3 Scale = [4.98908, 4.99037, 4.98901],
+					Quat Rotation = [0.083562, -0.378806, -0.00307466, 0.921691],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 114,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [174.038, 47.982, -274.463],
+					Vec3 Scale = [3.4704, 3.49684, 3.47015],
+					Quat Rotation = [0.0965372, 0.728075, 0.0664473, 0.675405],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 115,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [157.679, 57.1619, -308.651],
+					Vec3 Scale = [3.68701, 3.74213, 3.68698],
+					Quat Rotation = [-0.0192519, 0.988016, -2.21499e-005, 0.153149],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 116,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [145.31, 51.6127, -295.485],
+					Vec3 Scale = [4.00869, 4.00963, 4.00869],
+					Quat Rotation = [0.0515011, -0.580523, -0.0138719, 0.812495],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 117,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [167.283, 70.4348, -331.456],
+					Vec3 Scale = [3.1739, 3.1953, 3.17423],
+					Quat Rotation = [0.0996079, 0.486564, 0.11503, 0.86029],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 118,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [156.267, 52.7813, -295.403],
+					Vec3 Scale = [2.79849, 2.79849, 2.79848],
+					Quat Rotation = [0.0450127, -0.0473159, 0.0199237, 0.997666],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 119,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [148.841, 61.9605, -327.627],
+					Vec3 Scale = [3.53623, 3.58934, 3.53619],
+					Quat Rotation = [-0.0266166, 0.999617, 1.49556e-006, -0.00753979],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 120,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [129.067, 53.5953, -308.084],
+					Vec3 Scale = [3.30028, 3.32458, 3.30028],
+					Quat Rotation = [-0.015825, 0.998494, 3.05812e-006, -0.0525262],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 121,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [162.032, 60.1411, -314.582],
+					Vec3 Scale = [3.40324, 3.43757, 3.40305],
+					Quat Rotation = [0.0831761, 0.770656, 0.0602667, 0.628918],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 122,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [147.22, 59.5092, -321.126],
+					Vec3 Scale = [3.55557, 3.56209, 3.55552],
+					Quat Rotation = [0.0695137, -0.74208, -0.0188902, 0.666429],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 123,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [161.199, 60.1225, -315.1],
+					Vec3 Scale = [2.98337, 2.98451, 2.98335],
+					Quat Rotation = [0.0526243, -0.363372, 0.0150382, 0.930035],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 124,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [135.047, 62.7884, -337.382],
+					Vec3 Scale = [3.5063, 3.55278, 3.50627],
+					Quat Rotation = [-0.0276712, 0.997853, 1.08466e-005, -0.0593573],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 125,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [109.588, 60.8232, -342.13],
+					Vec3 Scale = [2.93838, 2.93838, 2.93838],
+					Quat Rotation = [0.0629427, 0.040389, 0.0169998, 0.997055],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 126,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [128.263, 67.6227, -352.219],
+					Vec3 Scale = [2.68791, 2.78145, 2.6879],
+					Quat Rotation = [-0.011538, 0.989883, -2.81904e-005, 0.141415],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 127,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [128.754, 60.9759, -334.997],
+					Vec3 Scale = [3.36298, 3.36465, 3.36297],
+					Quat Rotation = [0.0541872, -0.552357, -0.00526293, 0.831828],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 128,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [120.183, 79.2944, -369.91],
+					Vec3 Scale = [3.24669, 3.50764, 3.24663],
+					Quat Rotation = [-0.0149245, 0.992836, -6.88545e-005, 0.118548],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 129,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [93.6969, 74.7314, -365.15],
+					Vec3 Scale = [4.59362, 4.59367, 4.59359],
+					Quat Rotation = [0.115818, -0.179052, -0.0357792, 0.976344],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 130,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [119.818, 71.8345, -360.698],
+					Vec3 Scale = [3.97005, 3.97345, 3.96993],
+					Quat Rotation = [0.113526, -0.578345, -0.0382029, 0.806951],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 131,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [90.9219, 53.3819, -323.797],
+					Vec3 Scale = [2.92533, 2.9273, 2.92532],
+					Quat Rotation = [0.0321054, 0.736816, 0.0206981, 0.675014],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 132,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [94.4567, 64.7399, -351.93],
+					Vec3 Scale = [2.84636, 2.84883, 2.84631],
+					Quat Rotation = [0.0967269, -0.604388, -0.0446167, 0.789537],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 133,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [95.0525, 53.3111, -322.048],
+					Vec3 Scale = [2.91397, 2.91423, 2.91397],
+					Quat Rotation = [0.0298349, -0.584492, -0.00756184, 0.810815],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 134,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [66.7469, 55.1765, -331.341],
+					Vec3 Scale = [3.48675, 3.4868, 3.48674],
+					Quat Rotation = [0.0471232, -0.322398, -0.019113, 0.945237],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 135,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [78.9612, 54.3542, -329.539],
+					Vec3 Scale = [2.94065, 2.94066, 2.94065],
+					Quat Rotation = [0.0361517, -0.31779, -0.0130123, 0.947382],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 136,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [26.4951, 71.9076, -355.216],
+					Vec3 Scale = [4.18134, 4.60139, 4.18133],
+					Quat Rotation = [-0.00473032, 0.999966, 1.51724e-006, -0.00673901],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 137,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [26.9116, 67.9754, -351.577],
+					Vec3 Scale = [3.77246, 4.08265, 3.77246],
+					Quat Rotation = [-0.00256332, 0.998868, -4.80906e-006, 0.0474922],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 138,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [10.8808, 69.9987, -354.839],
+					Vec3 Scale = [3.82602, 4.14164, 3.82596],
+					Quat Rotation = [0.0136822, 0.951588, 0.000174922, 0.307072],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 139,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [19.4492, 59.4641, -340.784],
+					Vec3 Scale = [3.01407, 3.01419, 3.01406],
+					Quat Rotation = [0.0899701, -0.3746, -0.0273738, 0.922405],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 140,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [21.4161, 57.1996, -336.284],
+					Vec3 Scale = [3.22186, 3.22186, 3.22186],
+					Quat Rotation = [0.0559114, -0.110203, -0.00373962, 0.992328],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 141,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-3.96276, 53.4245, -322.522],
+					Vec3 Scale = [3.24164, 3.24167, 3.24164],
+					Quat Rotation = [0.0218799, 0.444015, 0.00922513, 0.895705],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 142,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-13.8535, 59.0569, -346.838],
+					Vec3 Scale = [4.92766, 4.93884, 4.92755],
+					Quat Rotation = [0.0788526, -0.758663, -0.0246975, 0.646222],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 143,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-46.4794, 53.9457, -332.645],
+					Vec3 Scale = [2.92203, 2.92203, 2.92203],
+					Quat Rotation = [0.0109263, -0.27915, -0.00314638, 0.96018],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 144,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-75.0165, 80.1404, -365.271],
+					Vec3 Scale = [2.59715, 2.85688, 2.5966],
+					Quat Rotation = [-0.0441771, 0.937176, 0.00077791, -0.346036],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 145,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-86.2867, 87.9454, -371.496],
+					Vec3 Scale = [2.9659, 2.96591, 2.9659],
+					Quat Rotation = [0.135722, 0.192722, 0.0296787, 0.971368],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 146,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-102.717, 59.2798, -340.328],
+					Vec3 Scale = [4.04662, 4.10382, 4.0466],
+					Quat Rotation = [0.020801, 0.969975, 3.64845e-005, 0.242314],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 147,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-103.036, 58.0376, -336.721],
+					Vec3 Scale = [3.08807, 3.08811, 3.08807],
+					Quat Rotation = [0.0480782, 0.312292, 0.00774623, 0.948737],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 148,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-109.535, 57.3389, -333.655],
+					Vec3 Scale = [3.53912, 3.53912, 3.53912],
+					Quat Rotation = [0.0420869, 0.1287, 0.000842123, 0.99079],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 149,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-113.298, 69.169, -354.344],
+					Vec3 Scale = [4.01353, 4.01458, 4.01344],
+					Quat Rotation = [0.127581, 0.429886, 0.030915, 0.893289],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 150,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-90.8781, 60.6668, -344.997],
+					Vec3 Scale = [4.37898, 4.49787, 4.37895],
+					Quat Rotation = [-0.0135453, 0.940011, 6.58009e-005, -0.340874],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 151,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-123.091, 58.124, -334.678],
+					Vec3 Scale = [3.4795, 3.52187, 3.47948],
+					Quat Rotation = [0.0190872, 0.949992, 3.7915e-005, 0.311691],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 152,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-116.993, 60.2042, -340.788],
+					Vec3 Scale = [4.53509, 4.64185, 4.53505],
+					Quat Rotation = [0.0185588, 0.98114, 4.23527e-005, 0.192404],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 153,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-132.569, 57.1702, -331.106],
+					Vec3 Scale = [2.85132, 2.85133, 2.85132],
+					Quat Rotation = [0.0455047, 0.259333, 0.0112033, 0.96465],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 154,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-110.905, 53.3989, -318.652],
+					Vec3 Scale = [2.79124, 2.79153, 2.79124],
+					Quat Rotation = [0.0236388, 0.693662, 0.00854718, 0.719862],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 155,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-141.646, 58.8436, -335.728],
+					Vec3 Scale = [3.00355, 3.00378, 3.00355],
+					Quat Rotation = [0.0705165, -0.439497, -0.0283594, 0.895023],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 156,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-140.346, 53.9702, -315.381],
+					Vec3 Scale = [3.43738, 3.43745, 3.43738],
+					Quat Rotation = [0.00679281, 0.289329, -0.00750958, 0.957176],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 157,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-126.05, 60.2223, -339.723],
+					Vec3 Scale = [3.62753, 3.74632, 3.62751],
+					Quat Rotation = [-0.0105787, 0.959728, 4.98591e-005, -0.280732],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 158,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-170.257, 55.5936, -317.104],
+					Vec3 Scale = [2.80322, 2.80326, 2.80322],
+					Quat Rotation = [0.00452821, 0.376256, -0.0040296, 0.926496],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 159,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-173.822, 56.0706, -321.382],
+					Vec3 Scale = [3.75263, 3.75264, 3.75263],
+					Quat Rotation = [0.0186607, 0.189199, -0.00197249, 0.981759],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 160,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-156.506, 55.4814, -299.95],
+					Vec3 Scale = [3.5975, 3.59796, 3.5975],
+					Quat Rotation = [-0.0106993, 0.483429, -0.0153999, 0.875182],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 161,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-187.715, 56.3626, -318.183],
+					Vec3 Scale = [3.59827, 3.59834, 3.59827],
+					Quat Rotation = [-0.00286274, 0.357021, -0.00787566, 0.934059],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 162,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-167.873, 56.8732, -327.457],
+					Vec3 Scale = [2.95732, 2.95788, 2.95732],
+					Quat Rotation = [0.0367787, 0.664781, 0.0140393, 0.746],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 163,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-191.026, 56.9026, -310.816],
+					Vec3 Scale = [4.82208, 4.82611, 4.82208],
+					Quat Rotation = [0.00858684, 0.986541, -5.93734e-007, -0.163286],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 164,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-212.452, 58.4814, -313.264],
+					Vec3 Scale = [3.88326, 3.89388, 3.88326],
+					Quat Rotation = [0.0223965, 0.997278, -2.15577e-006, -0.0702546],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 165,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-209.131, 58.2295, -290.8],
+					Vec3 Scale = [3.8567, 3.85699, 3.8567],
+					Quat Rotation = [-0.0076484, 0.829225, -0.00451457, 0.558845],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 166,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-185.475, 57.5847, -296.38],
+					Vec3 Scale = [3.02984, 3.02984, 3.02984],
+					Quat Rotation = [-0.00603741, 0.0214352, -0.00430335, 0.999743],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 167,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-198.196, 58.3499, -280.383],
+					Vec3 Scale = [3.27111, 3.27116, 3.27111],
+					Quat Rotation = [-0.00460592, -0.800235, 0.00101991, 0.599668],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 168,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-182.254, 56.8181, -306.219],
+					Vec3 Scale = [3.51491, 3.51509, 3.51491],
+					Quat Rotation = [-0.0127182, -0.525832, -0.00121299, 0.850492],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 169,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-210.269, 58.5164, -270.001],
+					Vec3 Scale = [4.56997, 4.56997, 4.56997],
+					Quat Rotation = [0.00102988, -0.694651, -0.000850889, 0.719346],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 170,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-197.253, 57.5828, -303.477],
+					Vec3 Scale = [3.11755, 3.11848, 3.11755],
+					Quat Rotation = [0.00351859, 0.994669, -5.36186e-008, -0.10306],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 171,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-185.24, 58.3553, -267.249],
+					Vec3 Scale = [3.47438, 3.47445, 3.47438],
+					Quat Rotation = [-0.00244907, 0.778155, -0.00239254, 0.628063],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 172,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-213.481, 58.468, -258.46],
+					Vec3 Scale = [3.30147, 3.30149, 3.30147],
+					Quat Rotation = [0.000108109, 0.928442, -9.20817e-011, -0.371478],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 173,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-203.188, 58.471, -263.649],
+					Vec3 Scale = [3.7779, 3.77791, 3.7779],
+					Quat Rotation = [0.000246438, 0.999854, -2.47874e-011, 0.0171082],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 174,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-189.774, 58.439, -258.375],
+					Vec3 Scale = [2.77246, 2.77246, 2.77246],
+					Quat Rotation = [0.00025629, 0.999999, -4.38121e-011, -0.00172775],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 175,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-235.374, 61.9216, -233.994],
+					Vec3 Scale = [3.86302, 3.86343, 3.8633],
+					Quat Rotation = [-0.00769333, 0.0929152, -0.0775199, 0.992622],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 176,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-199.715, 58.4221, -250.965],
+					Vec3 Scale = [3.91182, 3.91182, 3.91182],
+					Quat Rotation = [0.000229038, 0.934674, -7.78448e-012, 0.355505],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 177,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-197.679, 58.2974, -226.169],
+					Vec3 Scale = [2.76608, 2.76608, 2.76608],
+					Quat Rotation = [0.00129131, -0.642018, -0.000589294, 0.766689],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 178,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-223.512, 58.4753, -247.111],
+					Vec3 Scale = [3.12485, 3.12486, 3.12485],
+					Quat Rotation = [0.00161916, 0.391311, -0.00197537, 0.920255],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 179,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-197.252, 58.3872, -240.572],
+					Vec3 Scale = [4.40639, 4.40639, 4.40639],
+					Quat Rotation = [0.00102312, 0.781378, 0.000499241, 0.624057],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 180,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-215.806, 58.3959, -242.859],
+					Vec3 Scale = [2.80934, 2.80935, 2.80934],
+					Quat Rotation = [-0.000155238, 0.980439, -4.08162e-011, -0.196821],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 181,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-227.691, 61.7126, -197.364],
+					Vec3 Scale = [3.99855, 4.02326, 3.99864],
+					Quat Rotation = [-0.0255457, -0.590685, -0.0440154, 0.805295],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 182,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-211.618, 57.5757, -193.087],
+					Vec3 Scale = [3.07658, 3.07659, 3.07658],
+					Quat Rotation = [0.00638294, 0.533871, 0.00358593, 0.845534],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 183,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-235.953, 68.0725, -190.409],
+					Vec3 Scale = [3.21884, 3.40375, 3.21978],
+					Quat Rotation = [-0.0380641, 0.818418, -0.0664903, 0.569467],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 184,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-239.934, 73.7155, -176.314],
+					Vec3 Scale = [3.53026, 3.557, 3.53132],
+					Quat Rotation = [-0.0291461, 0.476586, -0.098515, 0.873103],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 185,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-216.41, 57.546, -171.356],
+					Vec3 Scale = [3.78161, 3.78167, 3.78167],
+					Quat Rotation = [0.00502452, -0.0537786, -0.0541851, 0.997069],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 186,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-226.8, 63.8375, -157.694],
+					Vec3 Scale = [3.21761, 3.2663, 3.21864],
+					Quat Rotation = [-0.00693894, 0.588646, -0.0847898, 0.8039],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 187,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-245.559, 77.0513, -181.443],
+					Vec3 Scale = [2.82099, 2.84755, 2.8213],
+					Quat Rotation = [-0.0254916, -0.555691, -0.064866, 0.828462],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 188,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-222.732, 60.6549, -151.392],
+					Vec3 Scale = [2.79415, 2.85487, 2.79356],
+					Quat Rotation = [0.0948992, 0.958631, 0.000288112, 0.268363],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 189,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-226.94, 63.441, -176.271],
+					Vec3 Scale = [3.37153, 3.50568, 3.37179],
+					Quat Rotation = [-0.017218, -0.824406, -0.0384885, 0.564422],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 190,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-247.224, 81.6687, -168.088],
+					Vec3 Scale = [3.08571, 3.11541, 3.08606],
+					Quat Rotation = [-0.0431497, -0.517766, -0.0700552, 0.851556],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 191,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-214.16, 55.9822, -156.177],
+					Vec3 Scale = [4.41556, 4.43446, 4.41552],
+					Quat Rotation = [0.0454882, 0.963501, 2.66492e-005, 0.263812],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 192,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-235.952, 72.4872, -162.685],
+					Vec3 Scale = [3.07601, 3.12801, 3.07722],
+					Quat Rotation = [-0.0114804, -0.573012, -0.086865, 0.814847],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 193,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-220.358, 59.2227, -168.524],
+					Vec3 Scale = [3.37699, 3.47748, 3.37727],
+					Quat Rotation = [0.00336639, -0.818774, -0.0423907, 0.572536],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 194,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-217.172, 57.1812, -155.416],
+					Vec3 Scale = [3.00085, 3.01522, 3.00099],
+					Quat Rotation = [0.00123899, -0.555105, -0.0547052, 0.829978],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 195,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-223.161, 61.1067, -148.905],
+					Vec3 Scale = [2.77311, 2.90025, 2.77394],
+					Quat Rotation = [-0.0129845, 0.787977, -0.0627216, 0.61235],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 196,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-227.376, 65.5795, -126.116],
+					Vec3 Scale = [3.3853, 3.3853, 3.38643],
+					Quat Rotation = [2.5024e-005, 0.00625009, -0.11258, 0.993623],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 197,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-234.497, 74.2512, -126.027],
+					Vec3 Scale = [3.35376, 3.48727, 3.35114],
+					Quat Rotation = [0.127002, 0.905849, -0.00112444, -0.404098],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 198,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [184.289, -22.9075, -127.257],
+					Vec3 Scale = [3.05705, 3.16709, 3.05698],
+					Quat Rotation = [0.0247172, 0.962329, 0.000123028, 0.270761],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 199,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [194.789, -26.8747, -121.43],
+					Vec3 Scale = [3.1512, 3.1512, 3.1512],
+					Quat Rotation = [0.0511982, -0.0533738, 0.000516838, 0.997261],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 200,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [172.527, -27.3361, -117.966],
+					Vec3 Scale = [2.79469, 2.8134, 2.79445],
+					Quat Rotation = [0.104504, -0.761225, -0.0595003, 0.637241],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 201,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-150.636, 44.2035, -191.242],
+					Vec3 Scale = [2.91058, 3.35369, 2.90808],
+					Quat Rotation = [0.0761654, 0.980285, -0.00100423, -0.182175],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 202,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-181.243, -3.58942, -79.3108],
+					Vec3 Scale = [3.96916, 3.96916, 3.96916],
+					Quat Rotation = [0.000784436, 0.136272, -0.000634584, 0.990671],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 203,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-146.525, -3.54758, -61.3721],
+					Vec3 Scale = [4.28491, 4.28536, 4.28491],
+					Quat Rotation = [-0.00798495, 0.905133, -1.98584e-007, 0.425054],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 204,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-204.897, 52.9263, -132.818],
+					Vec3 Scale = [2.99, 2.99471, 2.98999],
+					Quat Rotation = [0.0286615, 0.974215, 5.18615e-006, 0.223792],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 205,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-117.214, -2.56628, -48.3879],
+					Vec3 Scale = [4.42504, 4.42505, 4.42504],
+					Quat Rotation = [-0.00172378, 0.464341, 0.00140967, 0.885653],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 206,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-156.35, -3.50003, -105.266],
+					Vec3 Scale = [3.3243, 3.3243, 3.3243],
+					Quat Rotation = [0.000492856, 0.0613991, 0.00229617, 0.998111],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 207,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-186.392, -3.60117, 21.875],
+					Vec3 Scale = [4.68462, 4.68462, 4.68462],
+					Quat Rotation = [-0.000279739, 0.975243, -7.46066e-012, -0.221137],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 208,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-131.316, -1.8634, 117.019],
+					Vec3 Scale = [3.32727, 3.32735, 3.32727],
+					Quat Rotation = [-0.00225171, 0.910538, -1.18584e-008, 0.413418],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 209,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.731422, 6.03445, 211.811],
+					Vec3 Scale = [2.88419, 2.88419, 2.88419],
+					Quat Rotation = [-0.0671721, 0.137358, -0.0156396, 0.988117],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 210,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [86.9645, -4.87054, 210.787],
+					Vec3 Scale = [3.41818, 3.42472, 3.41802],
+					Quat Rotation = [-0.112902, -0.66996, 0.0431387, 0.732493],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 211,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [37.5713, -3.18988, 78.7751],
+					Vec3 Scale = [4.92992, 4.92992, 4.92992],
+					Quat Rotation = [-0.007183, 0.0154996, 0.00697251, 0.99983],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 212,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [4.17282, -4.40894, 92.7245],
+					Vec3 Scale = [3.78917, 3.78942, 3.78917],
+					Quat Rotation = [-0.00431543, 0.900588, -7.05146e-008, 0.434652],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 213,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [66.2808, -6.90891, 198.155],
+					Vec3 Scale = [2.88419, 2.89302, 2.88419],
+					Quat Rotation = [-0.0369902, 0.739943, -0.0345504, 0.670762],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 214,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [56.1495, -5.89688, 148.265],
+					Vec3 Scale = [3.64967, 3.6497, 3.64967],
+					Quat Rotation = [0.00625877, 0.0834441, -0.0211652, 0.996268],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 215,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [39.4493, -4.22284, 173.646],
+					Vec3 Scale = [4.1922, 4.19346, 4.1922],
+					Quat Rotation = [0.0122218, 0.998362, -1.02293e-007, -0.0558986],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 216,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [115.351, -24.2099, 113.039],
+					Vec3 Scale = [2.7653, 2.78457, 2.76559],
+					Quat Rotation = [0.0224182, -0.559734, -0.0720692, 0.825228],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 217,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [139.695, -17.8907, -123.993],
+					Vec3 Scale = [2.96653, 2.97568, 2.9664],
+					Quat Rotation = [0.0828177, 0.697264, 0.013328, 0.711889],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 218,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [236.92, -30.1249, -69.1984],
+					Vec3 Scale = [2.74836, 2.78105, 2.7481],
+					Quat Rotation = [-0.0829042, 0.92881, 0.000192005, -0.361164],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 219,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [47.2753, -3.11411, 73.1685],
+					Vec3 Scale = [3.35502, 3.35591, 3.35502],
+					Quat Rotation = [-0.00275715, 0.999964, -2.71039e-009, 0.00797223],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 220,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [64.3897, -4.85141, -57.4684],
+					Vec3 Scale = [4.96089, 4.96089, 4.96089],
+					Quat Rotation = [-0.000679633, 0.01985, 0.000133859, 0.999803],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 221,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-186.125, 1.40237, -101.786],
+					Vec3 Scale = [2.90488, 3.14467, 2.90468],
+					Quat Rotation = [0.0258871, 0.873733, -0.000570759, -0.485714],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 222,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [97.7101, -7.11166, 40.5033],
+					Vec3 Scale = [4.27412, 4.29389, 4.27409],
+					Quat Rotation = [0.0399578, 0.939652, 3.33943e-005, 0.339791],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 223,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [39.2403, -3.00485, 81.2766],
+					Vec3 Scale = [3.41289, 3.41384, 3.41289],
+					Quat Rotation = [-0.00267678, 0.870774, 2.113e-007, -0.491676],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 224,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [93.0496, -3.87088, 63.2981],
+					Vec3 Scale = [3.93116, 3.93146, 3.93116],
+					Quat Rotation = [0.0116182, -0.67193, -0.00857989, 0.740474],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 225,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [87.5867, -4.5289, 40.7385],
+					Vec3 Scale = [4.76467, 4.78615, 4.76468],
+					Quat Rotation = [-0.00410777, -0.814555, -0.0159311, 0.579853],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 226,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [126.985, -21.9989, 7.76697],
+					Vec3 Scale = [3.80412, 3.87335, 3.80454],
+					Quat Rotation = [-0.00746867, -0.704644, -0.0547029, 0.707408],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 227,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-184.297, -1.3432, 105.378],
+					Vec3 Scale = [3.05878, 3.05879, 3.05878],
+					Quat Rotation = [-0.0212424, -0.149814, -0.00628609, 0.988466],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 228,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-195.348, -3.59894, -61.0021],
+					Vec3 Scale = [2.99527, 2.99527, 2.99527],
+					Quat Rotation = [0.000649126, 0.566077, -0.000221449, 0.824352],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 229,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-164.257, -3.61008, -43.2032],
+					Vec3 Scale = [3.35439, 3.35439, 3.35439],
+					Quat Rotation = [-7.53816e-005, 0.838129, -3.13165e-005, 0.545473],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 230,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-148.129, -1.64188, 126.049],
+					Vec3 Scale = [2.97183, 2.97184, 2.97183],
+					Quat Rotation = [-0.00558831, 0.418202, -0.00465677, 0.908325],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 231,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-163.86, 22.937, 259.422],
+					Vec3 Scale = [3.25391, 3.27576, 3.25303],
+					Quat Rotation = [-0.15841, -0.731907, 0.0646805, 0.659572],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 232,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-183.333, 5.00711, 150.216],
+					Vec3 Scale = [3.76778, 3.76892, 3.76782],
+					Quat Rotation = [-0.00628152, 0.245549, -0.0469202, 0.968228],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 233,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-124.992, 0.681854, 221.448],
+					Vec3 Scale = [3.68968, 3.69413, 3.68968],
+					Quat Rotation = [0.00252959, 0.990598, -2.0992e-007, -0.136779],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 234,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [45.3681, 6.02454, -143.735],
+					Vec3 Scale = [3.24554, 3.2457, 3.24554],
+					Quat Rotation = [0.0298335, -0.32426, 0.00447126, 0.945487],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 235,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [7.16355, 12.8311, -200.917],
+					Vec3 Scale = [3.37038, 3.42919, 3.36796],
+					Quat Rotation = [0.172525, -0.819235, -0.0541356, 0.544209],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 236,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [31.6662, 46.2018, -252.45],
+					Vec3 Scale = [3.16185, 3.16251, 3.16184],
+					Quat Rotation = [0.0454349, 0.558212, 0.00915455, 0.828403],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 237,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [12.2177, 5.64914, -186.635],
+					Vec3 Scale = [3.18169, 3.18217, 3.18172],
+					Quat Rotation = [0.036821, 0.174079, 0.0546984, 0.982522],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 238,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [32.1423, 9.39615, -171.241],
+					Vec3 Scale = [4.05404, 4.10306, 4.05402],
+					Quat Rotation = [-0.0163246, 0.868688, -5.59295e-005, 0.495091],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 239,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-8.91562, 27.1993, -218.549],
+					Vec3 Scale = [3.41159, 3.41305, 3.41144],
+					Quat Rotation = [0.145554, 0.428923, 0.0668968, 0.889024],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 240,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [1.28865, 41.4261, -232.572],
+					Vec3 Scale = [3.42944, 3.54688, 3.42922],
+					Quat Rotation = [0.0403041, 0.927797, 0.00027166, 0.3709],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 241,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [19.8992, 39.821, -232.653],
+					Vec3 Scale = [3.03409, 3.122, 3.03402],
+					Quat Rotation = [-0.0252553, 0.882249, 0.000192317, -0.470105],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 242,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [26.0449, 31.963, -220.563],
+					Vec3 Scale = [3.57101, 3.59958, 3.57019],
+					Quat Rotation = [0.143311, -0.762463, -0.0658956, 0.627511],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 243,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-186.3, -3.43265, 62.8115],
+					Vec3 Scale = [3.19924, 3.19927, 3.19923],
+					Quat Rotation = [-0.00356343, 0.768268, -0.000534817, 0.640119],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 244,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-160.084, -3.02374, 28.0023],
+					Vec3 Scale = [3.70508, 3.706, 3.70508],
+					Quat Rotation = [0.0029083, -0.769132, 0.00412203, 0.639069],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 245,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-205.792, -1.9877, 82.0814],
+					Vec3 Scale = [4.06255, 4.08208, 4.06254],
+					Quat Rotation = [-0.0403265, 0.80663, -0.0328645, 0.588763],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 246,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-172.377, -2.99902, 72.4276],
+					Vec3 Scale = [3.08255, 3.08256, 3.08255],
+					Quat Rotation = [-0.00244937, 0.380556, 0.0021621, 0.924752],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 247,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-196.568, -3.6091, -7.32604],
+					Vec3 Scale = [4.53503, 4.53503, 4.53503],
+					Quat Rotation = [2.44454e-006, 0.912966, -4.98099e-013, 0.408035],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 248,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-166.58, -3.61044, -46.6643],
+					Vec3 Scale = [3.55856, 3.55856, 3.55856],
+					Quat Rotation = [-6.8437e-007, 0.985706, -2.63109e-013, 0.168475],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 249,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-231.182, 1.47501, -36.8821],
+					Vec3 Scale = [2.79675, 2.79796, 2.79738],
+					Quat Rotation = [0.0278102, -0.14212, -0.104179, 0.983959],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 250,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-166.316, -3.58594, -30.3963],
+					Vec3 Scale = [3.14386, 3.14386, 3.14386],
+					Quat Rotation = [-0.000950088, 0.542708, 0.000682223, 0.83992],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 251,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-220.453, -2.40799, -49.5935],
+					Vec3 Scale = [3.71607, 3.75442, 3.7161],
+					Quat Rotation = [0.0365856, -0.802887, -0.0410068, 0.593592],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 252,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-191.828, 40.3554, -118.661],
+					Vec3 Scale = [3.0894, 3.52997, 3.08741],
+					Quat Rotation = [0.0659371, 0.949968, -0.00141368, -0.305248],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 253,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-196.726, -3.10693, -78.923],
+					Vec3 Scale = [4.58524, 4.58666, 4.58524],
+					Quat Rotation = [0.0185084, 0.604745, -0.00395401, 0.796194],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 254,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-198.998, 37.4608, -111.586],
+					Vec3 Scale = [4.39032, 4.39079, 4.38926],
+					Quat Rotation = [0.13462, 0.154671, -0.0723983, 0.97607],
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e75af597c0455:Tree",
+				LinkId = 
+				{
+					uint Id = 255,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-159.888, -3.58725, -93.9674],
+					Vec3 Scale = [3.02269, 3.02269, 3.02269],
+					Quat Rotation = [0.000452074, 0.153336, 0.000554659, 0.988174],
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 256,
+		},
+		Named = 
+		{
+			string Name = "Light",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-115.665, 242.517, -280.884],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [-0.906249, 0.0824548, 0.223012, 0.349543],
+		},
+		Light = 
+		{
+			LightType LightType = Directional,
+			bool Active = true,
+			float Range = 2000,
+			float MinRange = 6.1,
+			float Angle = 10,
+			float Intensity = 1,
+			Vec4 Color = [1, 1, 1, 1],
+			float MinRange = 6.1,
+			float Size = 700,
+		},
+		Shadow = 
+		{
+			Quality Quality = VeryHighQuality,
+			bool SoftShadows = true,
+			float Size = 1,
+			Vec4 Color = [0, 0, 0, 1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 257,
+		},
+		Named = 
+		{
+			string Name = "TestTrees",
+		},
+		Archetyped = 
+		{
+			string Name = "4de020863e84941e:Transform",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Hierarchy = 
+		{
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 258,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [9.17952, -2.8894, -174.832],
+					Vec3 Scale = [9.91099, 9.91115, 9.91099],
+					Quat Rotation = [0.00315534, 0.883731, -1.43587e-008, -0.467985],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 259,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-235.589, 60.5532, -278.339],
+					Vec3 Scale = [9.04613, 9.04736, 9.04616],
+					Quat Rotation = [0.0150842, 0.199722, -0.0361759, 0.979069],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 260,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-183.106, 58.331, -266.362],
+					Vec3 Scale = [6.0977, 6.09804, 6.0977],
+					Quat Rotation = [-0.0035263, 0.839887, -0.00293103, 0.542742],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 261,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-164.702, 56.4076, -325.703],
+					Vec3 Scale = [5.88754, 5.88922, 5.88753],
+					Quat Rotation = [0.0379184, -0.592658, -0.0241925, 0.804197],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 262,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-85.5028, 60.015, -344.731],
+					Vec3 Scale = [6.85711, 6.93756, 6.85585],
+					Quat Rotation = [0.118983, -0.812117, -0.0618087, 0.567881],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 263,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [46.9428, 82.6417, -364.417],
+					Vec3 Scale = [6.27209, 6.36055, 6.26681],
+					Quat Rotation = [0.197428, -0.709106, -0.103267, 0.66897],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 264,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [24.477, 94.2337, -372.794],
+					Vec3 Scale = [6.13087, 6.14666, 6.13],
+					Quat Rotation = [0.153719, 0.573071, 0.0827933, 0.800691],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 265,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-28.9696, 54.8525, -336.512],
+					Vec3 Scale = [7.03842, 7.07105, 7.03842],
+					Quat Rotation = [0.00142677, 0.967862, 8.55498e-007, 0.251479],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 266,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [163.193, 64.1337, -323.847],
+					Vec3 Scale = [7.55487, 7.76336, 7.5544],
+					Quat Rotation = [-0.0467093, 0.986765, -0.000100245, 0.155281],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 267,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [158.833, 63.2004, -324.999],
+					Vec3 Scale = [5.7186, 5.71856, 5.71858],
+					Quat Rotation = [0.0512936, 0.0092934, 0.0363685, 0.997978],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 268,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [105.061, 54.6253, -324.842],
+					Vec3 Scale = [5.58184, 5.60515, 5.58182],
+					Quat Rotation = [-0.0210906, 0.981279, 8.57859e-006, -0.191435],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 269,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [162.802, 69.025, -334.226],
+					Vec3 Scale = [8.12738, 8.13597, 8.12795],
+					Quat Rotation = [0.0689237, 0.265816, 0.0955953, 0.956793],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 270,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [76.8895, 61.6869, -347.565],
+					Vec3 Scale = [6.74445, 6.74548, 6.7444],
+					Quat Rotation = [0.0987979, 0.451722, 0.0377627, 0.885867],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 271,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [240.861, 20.5465, -181.446],
+					Vec3 Scale = [5.30749, 5.7605, 5.30592],
+					Quat Rotation = [-0.0555973, 0.925371, -0.000924352, 0.374949],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 272,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [220.011, 18.1853, -196.92],
+					Vec3 Scale = [6.22918, 6.40705, 6.22758],
+					Quat Rotation = [-0.0877257, 0.922392, 0.00050765, -0.376157],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 273,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [240.338, 24.6292, -186.671],
+					Vec3 Scale = [8.24405, 8.54716, 8.24044],
+					Quat Rotation = [0.148735, 0.710215, 0.122783, 0.677016],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 274,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [215.073, 39.6166, -230.555],
+					Vec3 Scale = [7.97035, 8.03909, 7.97108],
+					Quat Rotation = [0.102325, 0.526828, 0.114385, 0.835999],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 275,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [199.646, 28.7068, -227.358],
+					Vec3 Scale = [6.4532, 6.46513, 6.45311],
+					Quat Rotation = [0.0820993, 0.492648, 0.0702939, 0.863491],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 276,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [227.839, 133.755, -293.93],
+					Vec3 Scale = [5.37996, 5.90876, 5.37479],
+					Quat Rotation = [-0.0938214, 0.930324, -0.00168574, 0.354481],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 277,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [210.916, 94.2721, -288.01],
+					Vec3 Scale = [7.13979, 7.46839, 7.12764],
+					Quat Rotation = [-0.166885, 0.872291, 0.00203931, -0.459592],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 278,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [156.866, 43.7227, -270.401],
+					Vec3 Scale = [7.44175, 7.55064, 7.44156],
+					Quat Rotation = [-0.0378169, 0.898503, 0.000133919, -0.437336],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 279,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [165.631, 52.5618, -289.873],
+					Vec3 Scale = [7.9948, 8.08728, 7.99455],
+					Quat Rotation = [-0.0489505, 0.938861, 0.000102448, -0.3408],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 280,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [238.891, -30.946, -136.404],
+					Vec3 Scale = [18.8515, 18.8519, 18.8515],
+					Quat Rotation = [0.0623737, -0.332024, -0.0107654, 0.941145],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 281,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [237.321, -29.7356, -73.4214],
+					Vec3 Scale = [8.85878, 9.03483, 8.85836],
+					Quat Rotation = [-0.0459071, 0.936744, -0.000167673, 0.346992],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 282,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [251.257, 12.3569, -149.011],
+					Vec3 Scale = [6.53329, 6.61235, 6.5322],
+					Quat Rotation = [0.0802282, -0.606196, 0.0377261, 0.790358],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 283,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [284.308, 57.4984, -121.919],
+					Vec3 Scale = [7.645, 8.13622, 7.63099],
+					Quat Rotation = [-0.151078, 0.891486, 0.00230293, -0.427059],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 284,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [225.548, -29.7823, 120.428],
+					Vec3 Scale = [14.4441, 14.4891, 14.4438],
+					Quat Rotation = [-0.0622573, 0.843101, -0.0171441, 0.533863],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 285,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [196.666, -7.47638, 208.408],
+					Vec3 Scale = [6.31136, 7.05476, 6.30941],
+					Quat Rotation = [-0.0510129, 0.969486, 0.00070279, -0.23975],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 286,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [194.454, -25.9284, 168.506],
+					Vec3 Scale = [6.39052, 6.5289, 6.39043],
+					Quat Rotation = [-0.0223951, 0.877784, 0.000130848, -0.478532],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 287,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [210.23, 9.332, 208.497],
+					Vec3 Scale = [8.87538, 9.28392, 8.83907],
+					Quat Rotation = [-0.230882, 0.781101, -0.0438804, 0.578535],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 288,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [237.718, -26.0662, 67.9018],
+					Vec3 Scale = [17.5915, 17.7133, 17.6028],
+					Quat Rotation = [-0.277856, 0.612189, 0.425082, 0.606074],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 289,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [211.61, -44.324, -8.34176],
+					Vec3 Scale = [5.62164, 5.62165, 5.62164],
+					Quat Rotation = [0.00707927, -0.027169, 0.017436, 0.999454],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 290,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [192.974, -41.9756, -39.4026],
+					Vec3 Scale = [7.87556, 7.88012, 7.87557],
+					Quat Rotation = [0.00968446, 0.536885, 0.0240684, 0.843257],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 291,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [242.33, -32.5675, 8.91444],
+					Vec3 Scale = [5.7545, 5.83475, 5.75675],
+					Quat Rotation = [0.00620379, -0.544073, 0.0902656, 0.834143],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 292,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [100.551, -12.8571, 200.027],
+					Vec3 Scale = [7.05269, 7.15936, 7.05245],
+					Quat Rotation = [0.0454187, 0.952633, -0.000107837, -0.300712],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 293,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [128.45, -18.6967, 198.716],
+					Vec3 Scale = [7.94165, 7.94336, 7.94163],
+					Quat Rotation = [-0.042138, -0.342457, -0.0129567, 0.938499],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 294,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [101.675, -16.7799, 184.548],
+					Vec3 Scale = [6.77863, 6.78064, 6.77862],
+					Quat Rotation = [-0.027179, -0.400578, -0.014998, 0.915737],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 295,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [95.2103, -16.898, 168.214],
+					Vec3 Scale = [6.74083, 6.77565, 6.74089],
+					Quat Rotation = [-0.0142925, 0.741905, -0.0326523, 0.669557],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 296,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-16.3397, 14.269, 234.153],
+					Vec3 Scale = [6.79913, 6.84197, 6.79908],
+					Quat Rotation = [-0.0323732, 0.925733, -4.14287e-005, 0.37679],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 297,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-8.42235, 11.98, 224.439],
+					Vec3 Scale = [7.46313, 7.52774, 7.46226],
+					Quat Rotation = [-0.109062, -0.78786, 0.0598438, 0.603159],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 298,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-47.8607, 10.6805, 233.34],
+					Vec3 Scale = [5.5525, 5.66256, 5.55241],
+					Quat Rotation = [0.0251277, 0.872686, -0.000137894, -0.487635],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 299,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-3.79033, 36.4291, 263.847],
+					Vec3 Scale = [5.54646, 5.62698, 5.53744],
+					Quat Rotation = [-0.24523, 0.701652, -0.103128, 0.660987],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 300,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-72.9588, 7.13617, 235.201],
+					Vec3 Scale = [9.75852, 9.7635, 9.75847],
+					Quat Rotation = [-0.0666613, -0.346012, 0.0580961, 0.934054],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 301,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-37.7448, 17.6225, 245.695],
+					Vec3 Scale = [8.47214, 8.73675, 8.47197],
+					Quat Rotation = [-0.023974, 0.931523, -0.000143691, 0.362892],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 302,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-12.9318, 5.42575, 209.901],
+					Vec3 Scale = [7.37178, 7.51268, 7.37174],
+					Quat Rotation = [-0.0150243, 0.983532, -2.6052e-005, 0.180108],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 303,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-173.6, 25.05, 259.886],
+					Vec3 Scale = [6.08214, 6.08263, 6.08204],
+					Quat Rotation = [-0.109394, 0.242164, -0.0505991, 0.96272],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 304,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-177.831, 40.7119, 271.765],
+					Vec3 Scale = [5.90803, 5.91, 5.90774],
+					Quat Rotation = [-0.165407, -0.435941, 0.0509954, 0.883174],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 305,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [5.88074, 21.888, 252.005],
+					Vec3 Scale = [6.3907, 6.39169, 6.39067],
+					Quat Rotation = [-0.0661625, -0.198764, 0.0564058, 0.976183],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 306,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [78.7776, -9.95084, 193.798],
+					Vec3 Scale = [5.55039, 5.55045, 5.55039],
+					Quat Rotation = [-0.0279502, -0.0806781, -0.0280747, 0.995953],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 307,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [36.1075, -3.53177, 187.725],
+					Vec3 Scale = [7.99379, 7.99414, 7.99379],
+					Quat Rotation = [-0.0122583, 0.312608, -0.0162152, 0.949665],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 308,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [94.2116, 5.6705, 223.786],
+					Vec3 Scale = [5.71792, 5.72455, 5.71752],
+					Quat Rotation = [-0.146187, -0.562098, 0.0574849, 0.812016],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 309,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-226.922, 28.1687, 92.8062],
+					Vec3 Scale = [5.98731, 6.27968, 5.97822],
+					Quat Rotation = [0.166619, 0.946593, -0.00118775, -0.27598],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 310,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-217.032, 0.844208, 72.4647],
+					Vec3 Scale = [8.50809, 8.74236, 8.51032],
+					Quat Rotation = [-0.0593919, 0.709256, -0.0889655, 0.69678],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 311,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-173.095, -1.46869, 111.328],
+					Vec3 Scale = [5.67079, 5.67868, 5.67079],
+					Quat Rotation = [0.00627347, 0.957411, 1.31522e-006, 0.288659],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 312,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-211.258, 23.2077, 186.095],
+					Vec3 Scale = [6.54562, 6.71758, 6.54307],
+					Quat Rotation = [0.117904, 0.969209, -0.000345549, -0.216165],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 313,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-206.183, -1.72839, -75.6917],
+					Vec3 Scale = [8.7724, 8.93626, 8.77216],
+					Quat Rotation = [0.0712429, -0.791453, -0.0633831, 0.603745],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 314,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-221.324, -7.04233, -12.4529],
+					Vec3 Scale = [13.1006, 13.1006, 13.1006],
+					Quat Rotation = [0.000403028, 0.845864, -0.000390939, 0.533398],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 315,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-233.94, 15.3604, -50.7508],
+					Vec3 Scale = [8.09003, 9.72102, 8.08971],
+					Quat Rotation = [0.161017, -0.764052, -0.136354, 0.608593],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 316,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-122.162, -3.36963, -193.038],
+					Vec3 Scale = [25.6911, 25.7017, 25.6911],
+					Quat Rotation = [0.00598981, 0.624117, 0.00459398, 0.781295],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 317,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-220.748, -5.04539, 4.47719],
+					Vec3 Scale = [5.70626, 5.70395, 5.70596],
+					Quat Rotation = [0.125428, -0.0242589, -0.117305, 0.984845],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 318,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-174.528, 4.6107, -127.463],
+					Vec3 Scale = [8.0853, 8.08792, 8.08293],
+					Quat Rotation = [0.137808, 0.184768, -0.0731762, 0.970317],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 319,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-162.16, -3.60504, -87.7708],
+					Vec3 Scale = [9.26427, 9.26427, 9.26427],
+					Quat Rotation = [0.000393457, -0.676612, 2.63037e-005, 0.736339],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e465fe21e2dce:Rock2",
+				LinkId = 
+				{
+					uint Id = 320,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-196.712, 53.7055, -152.361],
+					Vec3 Scale = [6.48623, 6.49717, 6.48623],
+					Quat Rotation = [0.0148252, 0.983478, 2.29166e-006, 0.180422],
+				},
+				Named = 
+				{
+					string Name = "rock2",
+				},
+			},
+			ArchetypeInstance = 
+			{
+				string Name = "519e4653e0a46070:Rock1",
+				LinkId = 
+				{
+					uint Id = 321,
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-262.283, 103.286, -153.741],
+					Vec3 Scale = [17.4647, 17.5511, 17.4739],
+					Quat Rotation = [-0.0292024, -0.335008, -0.112637, 0.935002],
+				},
+				Named = 
+				{
+					string Name = "Rock1",
+				},
+			},
+		},
+	},
+},

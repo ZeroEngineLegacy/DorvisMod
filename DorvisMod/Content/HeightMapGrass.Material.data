@@ -1,0 +1,17 @@
+Material = 
+{
+	Lambert = 
+	{
+	},
+	WeightedTextures = 
+	{
+		string Texture0Name = "519e7066524a33f2:Grass",
+		Vec2 Tile0 = [10, 10],
+		string Texture1Name = "519e7061535b71f9:LumpyGrassDiffuse",
+		Vec2 Tile1 = [1, 1],
+		string Texture2Name = "519e70c64cace7fa:Rocks",
+		Vec2 Tile2 = [1, 1],
+		string Texture3Name = "519e734b64186543:Dirt",
+		Vec2 Tile3 = [1, 1],
+	},
+},

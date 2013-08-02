@@ -1,0 +1,45 @@
+GeometryContent = 
+{
+	GeneratedArchetype = 
+	{
+		uint64 ResourceId = 519e474cd084ef8c,
+	},
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, 0, 0],
+		Quat Rotation = [0, 0, 0, 1],
+		Vec3 Scale = [1, 1, 1],
+	},
+	PhysicsMeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "rock2",
+				uint64 ResourceId = 519e474cd17d0f69,
+			},
+		],
+		bool MakeConvex = false,
+		bool OnlyUseMarkedCollision = false,
+		PhysicsMeshType MeshBuilt = GenericMesh,
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "rock2",
+				uint64 ResourceId = 519e474cd17d0f63,
+			},
+		],
+		MeshMode MeshMode = Single,
+		ResourceCompression CompressMesh = None,
+		bool VertexWeights = false,
+		bool VertexColors = false,
+		bool GenerateSurfaceUvs = false,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+},

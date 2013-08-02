@@ -1,0 +1,10 @@
+BinaryContent = 
+{
+	BinaryBuilder = 
+	{
+		string Name = "519e77340c506773",
+		uint64 ResourceId = 519e77340c506773,
+		string LoaderType = "HeightMapSource",
+		uint Version = 0,
+	},
+},

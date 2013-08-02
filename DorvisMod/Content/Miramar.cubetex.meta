@@ -1,0 +1,10 @@
+BinaryContent = 
+{
+	BinaryBuilder = 
+	{
+		string Name = "Miramar",
+		uint64 ResourceId = 519e4513413133eb,
+		string LoaderType = "TextureCube",
+		uint Version = 0,
+	},
+},
