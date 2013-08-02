@@ -3,15 +3,18 @@ class ToolChangeEvent : Event
     var Index : Integer = 0;
     var LastIndex : Integer = 0;
     var Peer : LockStepPeer = null;
+    var CameraCog : Cog = null;
     
     constructor() : base() {}
 }
 
 class ToolPalette : ScriptComponent
 {
-    var Tools : Array[Component] = new Array[Component]();
+    var Tools : Array[Cog] = new Array[Cog]();
     var CurrentToolIndex : Integer = 0;
     var Peer : LockStepPeer = null;
+    var CameraCog : Cog = null;
+    var LastActiveTool : Cog = null;
     
     constructor() : base()
     {
@@ -25,40 +28,54 @@ class ToolPalette : ScriptComponent
     function OnLockStepInit(e : LockStepInitEvent)
     {
         this.Peer = e.Peer;
+        this.CameraCog = e.CameraCog;
         Zero.Connect(this.Peer as Cog, Events.LockStepKeyDown, this.OnLockStepKeyDown);
         
         
         //Add tools here
-        this.Owner.SpawnTool.Index = 0;
-        this.Owner.GrabberTool.Index = 1;
-        this.Tools.Add(this.Owner.SpawnTool as Component);
-        this.Tools.Add(this.Owner.GrabberTool as Component);
+        var blockSpawner = this.Owner.FindChildByName("BlockSpawnTool");
+        this.Tools.Add(blockSpawner);
+        
+        var grabber = this.Owner.FindChildByName("GrabberTool");
+        this.Tools.Add(grabber);
+        
+        this.LastActiveTool = blockSpawner;
         
         //Default to the spawner tool
-        var toSend = new ToolChangeEvent();
-        toSend.LastIndex = -1;
-        toSend.Index = 0;
-        toSend.Peer = this.Peer;
-        this.Owner.DispatchEvent("ActivateTool", toSend as Event);
+        this.SendToolEvent("ActivateTool", blockSpawner);
     }
     
     function OnLockStepKeyDown(e : LockStepKeyEvent)
     {
-        var toSend = new ToolChangeEvent();
-        toSend.LastIndex = this.CurrentToolIndex;
-        
         //Change tool
-        if(e.Key == Keys.One && this.CurrentToolIndex != 0)
+        var index = e.Key - Keys.One;
+        
+        if(index == -1)
         {
-            toSend.Index = 0;
-            this.CurrentToolIndex = 0;
-            this.Owner.DispatchEvent("ActivateTool", toSend as Event);
+            index = 9;
         }
-        if(e.Key == Keys.Two && this.CurrentToolIndex != 1)
+        
+        if(index < -1 || index >= this.Tools.Count)
         {
-            toSend.Index = 1;
-            this.CurrentToolIndex = 1;
-            this.Owner.DispatchEvent("ActivateTool", toSend as Event);
+            return;
         }
+        
+        var newTool = this.Tools.Get(index);
+        if(this.LastActiveTool == newTool)
+        {
+            return;
+        }
+        
+        this.SendToolEvent("DeactivateTool", this.LastActiveTool);
+        this.LastActiveTool = newTool;
+        this.SendToolEvent("ActivateTool", this.LastActiveTool);
+    }
+    
+    function SendToolEvent(eventName : String, obj : Cog)
+    {
+        var toSend = new ToolChangeEvent();
+        toSend.Peer = this.Peer;
+        toSend.CameraCog = this.CameraCog;
+        obj.DispatchEvent(eventName, toSend as Event);
     }
 }

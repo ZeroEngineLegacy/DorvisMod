@@ -1,3 +1,11 @@
+class LockStepInitEvent : Event
+{
+    constructor() : base() {}
+    
+    var Peer : LockStepPeer = null;
+    var CameraCog : Cog = null;
+}
+
 class Player : ScriptComponent
 {
     [Editable][Serialized]
@@ -6,7 +14,8 @@ class Player : ScriptComponent
     var LookSpeed : Real = 1.0;
     
     var RotationAngles : Real2 = local Real2(0.0, 0.0);
-    var Camera : Cog = null;
+    var CameraCog : Cog = null;
+    var ToolContainer : Cog = null;
     
     constructor() : base()
     {
@@ -18,8 +27,8 @@ class Player : ScriptComponent
     
     function LockStepInitialize(peer : LockStepPeer)
     {
-        this.Camera = this.Owner.FindChildByName("Camera");
-        this.Camera.CameraViewport.Viewport.SetMouseTrap(true);
+        this.CameraCog = this.Owner.FindChildByName("Camera");
+        this.CameraCog.CameraViewport.Viewport.SetMouseTrap(true);
         
         Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(peer as Cog, Events.LockStepMouseMove, this.OnLockStepMouseMove);
@@ -27,6 +36,13 @@ class Player : ScriptComponent
         Zero.Connect(peer as Cog, Events.LockStepMouseUp, this.OnLockStepMouseUp);
         Zero.Connect(peer as Cog, Events.LockStepKeyDown, this.OnLockStepKeyDown);
         Zero.Connect(peer as Cog, Events.LockStepKeyUp, this.OnLockStepKeyUp);
+        
+        
+        this.ToolContainer = this.Owner.FindChildByName("ToolContainer");
+        var toSend = new LockStepInitEvent();
+        toSend.Peer = peer;
+        toSend.CameraCog = this.CameraCog;
+        this.ToolContainer.DispatchEvent("LockStepInit", toSend as Event);
     }
     
     function OnLogicUpdate(e : UpdateEvent)
@@ -34,7 +50,7 @@ class Player : ScriptComponent
         var playerRotation = local Real3(0.0, this.RotationAngles.Y, 0.0);
         var cameraRotation = local Real3(this.RotationAngles.X, 0.0, 0.0);
         this.Owner.Transform.SetRotationAngles(playerRotation);
-        this.Camera.Transform.SetRotationAngles(cameraRotation);
+        this.CameraCog.Transform.SetRotationAngles(cameraRotation);
         
         var movement = local Real3(0.0, 0.0, 0.0);
         if(Zero.Keyboard.KeyIsDown(Keys.A))
