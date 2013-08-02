@@ -16,6 +16,10 @@ Folder =
 		{
 			uint64 Value = 519e623f0e5efbef,
 		},
+		Node = 
+		{
+			uint64 Value = 519e75af597c0455,
+		},
 	},
 	Folder = 
 	{
@@ -43,6 +47,50 @@ Folder =
 		Node = 
 		{
 			uint64 Value = 519e78743985ea52,
+		},
+	},
+	Folder = 
+	{
+		string Name = "Texture",
+		Node = 
+		{
+			uint64 Value = 519e7a0b9bcab055,
+		},
+		Node = 
+		{
+			uint64 Value = 519e7a7b98c9b84f,
+		},
+		Node = 
+		{
+			uint64 Value = 519e7a7b98c826ae,
+		},
+		Node = 
+		{
+			uint64 Value = 519e7abdad392017,
+		},
+		Node = 
+		{
+			uint64 Value = 519e756944b0440c,
+		},
+	},
+	Folder = 
+	{
+		string Name = "Material",
+		Node = 
+		{
+			uint64 Value = 519e7a6c96244177,
+		},
+		Node = 
+		{
+			uint64 Value = 519e757446aaee41,
+		},
+	},
+	Folder = 
+	{
+		string Name = "Mesh",
+		Node = 
+		{
+			uint64 Value = 519e75174d054f58,
 		},
 	},
 },

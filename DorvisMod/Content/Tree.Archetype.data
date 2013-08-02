@@ -1,0 +1,36 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Archetyped = 
+	{
+		string Name = "519e75af597c0455:Tree",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-0.270947, -2.29161, -2.47112],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		string MaterialName = "519e757446aaee41:Tree",
+		string MeshName = "519e75174d054f58:Tree_evergreen",
+		Vec4 Color = [1, 1, 1, 1],
+		bool Visible = true,
+	},
+	CylinderCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = false,
+		string MaterialName = "4faa6050b8692851:HardMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 3.2, 0],
+		float Radius = 0.3,
+		float Height = 6.4,
+		uint Direction = 1,
+	},
+},
