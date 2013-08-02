@@ -1,0 +1,28 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Chair",
+	},
+	Archetyped = 
+	{
+		string Name = "519e4cbc821aa3bb:Chair",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 8, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+		string MeshName = "519e4cbc821d66d4:Chair",
+		Vec4 Color = [1, 1, 1, 1],
+		bool Visible = true,
+	},
+},

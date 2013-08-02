@@ -1,0 +1,28 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Thruster",
+	},
+	Archetyped = 
+	{
+		string Name = "519e4cbc821af76f:Thruster",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-0.511288, 8.71034, 0.39617],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+		string MeshName = "519e4cbc82124da3:Thruster",
+		Vec4 Color = [1, 1, 1, 1],
+		bool Visible = true,
+	},
+},
