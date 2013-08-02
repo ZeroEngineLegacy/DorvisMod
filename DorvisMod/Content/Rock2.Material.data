@@ -1,0 +1,21 @@
+Material = 
+{
+	Lambert = 
+	{
+	},
+	NormalMapping = 
+	{
+		float Bumpiness = 2.9,
+		string NormalMapTexture = "519e47bcd47acb0d:Rock2Normal",
+		Vec2 NormalScroll = [0, 0],
+		Vec2 NormalTiling = [1, 1],
+		Vec2 NormalOffset = [0, 0],
+	},
+	TextureDiffuse = 
+	{
+		string DiffuseTexture = "519e47bcd47be71b:Rock2Diffuse",
+		Vec2 DiffuseScroll = [0, 0],
+		Vec2 DiffuseTiling = [1, 1],
+		Vec2 DiffuseOffset = [0, 0],
+	},
+},

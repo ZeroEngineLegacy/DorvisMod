@@ -1,0 +1,8 @@
+TextContent = 
+{
+	EffectBuilder = 
+	{
+		string Name = "Water",
+		uint64 ResourceId = 519e4a3a88c1088e,
+	},
+},

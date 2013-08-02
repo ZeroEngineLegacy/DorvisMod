@@ -1,0 +1,38 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Rock1",
+	},
+	Archetyped = 
+	{
+		string Name = "519e4653e0a46070:Rock1",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-31.3016, 4.11446, -2.31909],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		string MaterialName = "519e464be637e064:Rock1",
+		string MeshName = "519e474cd17a0b50:rock1",
+		Vec4 Color = [1, 1, 1, 1],
+		bool Visible = true,
+	},
+	MeshCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = false,
+		string MaterialName = "4faa6050b8692851:HardMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		string PhysicsMeshName = "519e474cd17a0b54:rock1",
+	},
+},

@@ -42,37 +42,36 @@ class GrabberTool : ScriptComponent
     
      function OnActivateTool(e : ToolChangeEvent)
     {
-        //if(e.Index == this.Index)
-        //{
-        //    this.Activate();
-        //}
-        //else if(e.LastIndex == this.Index)
-        //{
-        //    this.Deactivate();
-        //}
+        if(e.Index == this.Index)
+        {
+            this.Activate(e.Peer);
+        }
+        else if(e.LastIndex == this.Index)
+        {
+            this.Deactivate(e.Peer);
+        }
     }
     
-    function Activate()
+    function Activate(peer : LockStepPeer)
     {
-        Console.WriteLine("Activate");
         this.GameViewport = this.Owner.CameraViewport.Viewport;
-        Zero.Connect(this.GameViewport as Cog, Events.MouseMove, this.OnMouseMove);
-        Zero.Connect(this.GameViewport as Cog, Events.MouseDown, this.OnMouseDown);
-        Zero.Connect(this.GameViewport as Cog, Events.MouseUp, this.OnMouseUp);
-        Zero.Connect(this.GameViewport as Cog, Events.KeyDown, this.OnKeyDown);
-        Zero.Connect(this.GameViewport as Cog, Events.MouseScroll, this.OnMouseScroll);
-        Zero.Connect(this.GameViewport as Cog, Events.RightMouseDown, this.OnRightMouseDown);
+        Zero.Connect(peer as Cog, Events.MouseMove, this.OnMouseMove);
+        Zero.Connect(peer as Cog, Events.MouseDown, this.OnMouseDown);
+        Zero.Connect(peer as Cog, Events.MouseUp, this.OnMouseUp);
+        Zero.Connect(peer as Cog, Events.KeyDown, this.OnKeyDown);
+        Zero.Connect(peer as Cog, Events.MouseScroll, this.OnMouseScroll);
+        Zero.Connect(peer as Cog, Events.RightMouseDown, this.OnRightMouseDown);
     }
     
-    function Deactivate()
+    function Deactivate(peer : LockStepPeer)
     {
         this.GameViewport = this.Owner.CameraViewport.Viewport;
-        Zero.Disconnect(this.GameViewport as Cog, Events.MouseMove, this as Component);
-        Zero.Disconnect(this.GameViewport as Cog, Events.MouseDown, this as Component);
-        Zero.Disconnect(this.GameViewport as Cog, Events.MouseUp, this as Component);
-        Zero.Disconnect(this.GameViewport as Cog, Events.KeyDown, this as Component);
-        Zero.Disconnect(this.GameViewport as Cog, Events.MouseScroll, this as Component);
-        Zero.Disconnect(this.GameViewport as Cog, Events.RightMouseDown, this as Component);
+        Zero.Disconnect(peer as Cog, Events.MouseMove, this as Component);
+        Zero.Disconnect(peer as Cog, Events.MouseDown, this as Component);
+        Zero.Disconnect(peer as Cog, Events.MouseUp, this as Component);
+        Zero.Disconnect(peer as Cog, Events.KeyDown, this as Component);
+        Zero.Disconnect(peer as Cog, Events.MouseScroll, this as Component);
+        Zero.Disconnect(peer as Cog, Events.RightMouseDown, this as Component);
     }
     
     function OnKeyDown(e : KeyboardEvent)

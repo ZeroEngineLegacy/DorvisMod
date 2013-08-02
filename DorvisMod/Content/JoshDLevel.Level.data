@@ -41,9 +41,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-12.041, 12.4149, 28.9633],
+			Vec3 Translation = [-33.1431, 12.1112, -5.8609],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0931437, -0.206927, -0.0197943, 0.973711],
+			Quat Rotation = [-0.129442, -0.7005, -0.13153, 0.689379],
 		},
 		Camera = 
 		{
@@ -56,10 +56,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 32.2712,
-			float LookAngle = 0.59559,
-			float LookRotation = -4.29359,
-			Vec3 LookTarget = [0.844455, 6.29686, 0.0156445],
+			float LookDistance = 47.6742,
+			float LookAngle = 1.13959,
+			float LookRotation = -3.12559,
+			Vec3 LookTarget = [11.2783, -5.18227, -5.14999],
 		},
 	},
 	Cog = 
@@ -153,7 +153,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "Cube",
+			string Name = "TestCube",
 		},
 		Transform = 
 		{
@@ -189,6 +189,9 @@ Level =
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		BlockScript = 
+		{
 		},
 	},
 	ArchetypeInstance = 

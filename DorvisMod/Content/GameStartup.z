@@ -21,7 +21,7 @@ class GameStartup : ScriptComponent
         Zero.Connect(this.Owner, Events.LockStepGameStarted, this.OnLockStepGameStarted);
         
         this.MainSpace = Zero.Game.CreateSpace("Space");
-        this.MainSpace.LoadLevel("MainLevel");
+        this.MainSpace.LoadLevel("Environment");
     }
 
     function OnLockStepGameStarted(e : LockStepGameStartEvent)
