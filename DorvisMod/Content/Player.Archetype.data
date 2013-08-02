@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [4.97529, 19.8654, -2.20134],
+		Vec3 Translation = [-1.25406, 0.705423, 0.44557],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -85,7 +85,7 @@ Cog =
 				ProjectionMode ProjectionMode = Perspective,
 				float FieldOfView = 45,
 				float NearPlane = 0.5,
-				float FarPlane = 200,
+				float FarPlane = 2000,
 				float Size = 20,
 			},
 			CameraViewport = 
