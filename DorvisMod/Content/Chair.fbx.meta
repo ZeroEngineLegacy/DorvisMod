@@ -1,0 +1,28 @@
+GeometryContent = 
+{
+	GeometryImport = 
+	{
+		bool ChangeWinding = false,
+		Vec3 Translation = [0, -0.5, 0],
+		Quat Rotation = [0, 0.707107, 0, 0.707107],
+		Vec3 Scale = [1, 1, 1],
+	},
+	MeshBuilder = 
+	{
+		Array Meshes = 
+		[
+			{
+				string Name = "Chair",
+				uint64 ResourceId = 519e4cbc821d66d4,
+			},
+		],
+		MeshMode MeshMode = Single,
+		ResourceCompression CompressMesh = None,
+		bool VertexWeights = false,
+		bool VertexColors = false,
+		bool GenerateSurfaceUvs = false,
+		Generation Normals = Import,
+		Generation Tangents = Import,
+		float SmoothingAngle = 60,
+	},
+},

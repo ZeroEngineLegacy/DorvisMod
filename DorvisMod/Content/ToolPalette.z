@@ -1,0 +1,64 @@
+class ToolChangeEvent : Event
+{
+    var Index : Integer = 0;
+    var LastIndex : Integer = 0;
+    var Peer : LockStepPeer = null;
+    
+    constructor() : base() {}
+}
+
+class ToolPalette : ScriptComponent
+{
+    var Tools : Array[Component] = new Array[Component]();
+    var CurrentToolIndex : Integer = 0;
+    var Peer : LockStepPeer = null;
+    
+    constructor() : base()
+    {
+    }
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, "LockStepInit", this.OnLockStepInit);
+    }
+    
+    function OnLockStepInit(e : LockStepInitEvent)
+    {
+        this.Peer = e.Peer;
+        Zero.Connect(this.Peer as Cog, Events.LockStepKeyDown, this.OnLockStepKeyDown);
+        
+        
+        //Add tools here
+        this.Owner.SpawnTool.Index = 0;
+        this.Owner.GrabberTool.Index = 1;
+        this.Tools.Add(this.Owner.SpawnTool as Component);
+        this.Tools.Add(this.Owner.GrabberTool as Component);
+        
+        //Default to the spawner tool
+        var toSend = new ToolChangeEvent();
+        toSend.LastIndex = -1;
+        toSend.Index = 0;
+        toSend.Peer = this.Peer;
+        this.Owner.DispatchEvent("ActivateTool", toSend as Event);
+    }
+    
+    function OnLockStepKeyDown(e : LockStepKeyEvent)
+    {
+        var toSend = new ToolChangeEvent();
+        toSend.LastIndex = this.CurrentToolIndex;
+        
+        //Change tool
+        if(e.Key == Keys.One && this.CurrentToolIndex != 0)
+        {
+            toSend.Index = 0;
+            this.CurrentToolIndex = 0;
+            this.Owner.DispatchEvent("ActivateTool", toSend as Event);
+        }
+        if(e.Key == Keys.Two && this.CurrentToolIndex != 1)
+        {
+            toSend.Index = 1;
+            this.CurrentToolIndex = 1;
+            this.Owner.DispatchEvent("ActivateTool", toSend as Event);
+        }
+    }
+}

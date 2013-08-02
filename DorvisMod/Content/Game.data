@@ -11,6 +11,9 @@ GameSession =
 	Viewports = 
 	{
 	},
+	ZilchState = 
+	{
+	},
 	GameStartup = 
 	{
 	},
@@ -18,5 +21,14 @@ GameSession =
 	{
 		uint BufferFramesAllowed = 5,
 		bool DebugMode = true,
+	},
+	LockStepMouse = 
+	{
+	},
+	LockStepGamepads = 
+	{
+	},
+	LockStepKeyboard = 
+	{
 	},
 },
