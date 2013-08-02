@@ -1,0 +1,102 @@
+class SpawnTool : ScriptComponent
+{
+    var GameViewport : GameViewport = null;
+    var Index : Integer = 0;
+    
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, "ActivateTool", this.OnActivateTool);
+    }
+    
+    function OnActivateTool(e : ToolChangeEvent)
+    {
+        if(e.Index == this.Index)
+        {
+            this.Activate(e.Peer);
+        }
+        else if(e.LastIndex == this.Index)
+        {
+            this.Deactivate(e.Peer);
+        }
+    }
+    
+    function Activate(peer : LockStepPeer)
+    {
+        Zero.Connect(peer as Cog, Events.LockStepMouseDown, this.LockStepMouseDown);
+    }
+    
+    function Deactivate(peer : LockStepPeer)
+    {
+        Zero.Disconnect(peer as Cog, Events.LockStepMouseDown, this as Component);
+    }
+    
+    function LockStepMouseDown(e : LockStepMouseButtonEvent)
+    {
+        if(Zero.Keyboard.KeyIsDown(Keys.Shift))
+        {
+            this.DestroyObj(e);
+        }
+        else
+        {
+            this.SpawnObj(e, "Cube");
+        }
+        
+    }
+    
+    function SpawnObj(e : LockStepMouseButtonEvent, objToSpawn : String)
+    {
+        var dir = e.WorldDirection;
+        var start = e.WorldStart;
+        
+        var hitObj : Cog = null;
+        var hitNormal = local Real3(0.0, 0.0, 0.0);
+        
+        var castResults = this.Space.PhysicsSpace.CastRayResults(start, dir, 1);
+        foreach(var castResult in castResults)
+        {
+            hitObj = castResult.GetObjectHit();
+            if(hitObj != null)
+            {
+                hitNormal = castResult.GetNormal();
+                break;
+            }
+        }
+        
+        if(hitObj == null)
+        {
+            return;
+        }
+        
+        Console.WriteLine(hitNormal);
+        var localNormal = hitObj.Transform.TransformNormalInverse(hitNormal);
+
+        var newObjPos = localNormal;
+        
+        var newObj = this.Space.CreateAtPosition("Cube", newObjPos);
+        newObj.RigidBody.Static = true;
+        newObj.AttachTo(hitObj);
+    }
+    
+    function DestroyObj(e : LockStepMouseButtonEvent)
+    {
+        var dir = e.WorldDirection;
+        var start = e.WorldStart;
+        
+        var hitObj : Cog = null;
+        var hitNormal = local Real3(0.0, 0.0, 0.0);
+        
+        var castResults = this.Space.PhysicsSpace.CastRayResults(start, dir, 1);
+        foreach(var castResult in castResults)
+        {
+            hitObj = castResult.GetObjectHit();
+            if(hitObj != null)
+            {
+                hitObj.Destroy();
+            }
+        }
+    }
+}
