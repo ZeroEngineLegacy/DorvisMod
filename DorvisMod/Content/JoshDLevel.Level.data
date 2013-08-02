@@ -41,9 +41,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-33.1431, 12.1112, -5.8609],
+			Vec3 Translation = [10.6588, 11.1888, 11.1055],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.129442, -0.7005, -0.13153, 0.689379],
+			Quat Rotation = [-0.154441, -0.239845, -0.0386792, 0.957667],
 		},
 		Camera = 
 		{
@@ -56,10 +56,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 47.6742,
-			float LookAngle = 1.13959,
-			float LookRotation = -3.12559,
-			Vec3 LookTarget = [11.2783, -5.18227, -5.14999],
+			float LookDistance = 12.1,
+			float LookAngle = 0.98759,
+			float LookRotation = -4.22159,
+			Vec3 LookTarget = [16.0728, 7.38506, 0.974791],
 		},
 	},
 	Cog = 
@@ -204,6 +204,20 @@ Level =
 		Transform = 
 		{
 			Vec3 Translation = [-0.270947, -2.29161, -2.47112],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "519e623f0e5efbef:Player",
+		LinkId = 
+		{
+			uint Id = 7,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [18.7878, 10.3507, 1.31221],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},

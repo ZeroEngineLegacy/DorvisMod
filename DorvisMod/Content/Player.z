@@ -1,3 +1,11 @@
+class LockStepInitEvent : Event
+{
+    constructor() : base() {}
+    
+    var Peer : LockStepPeer = null;
+    var CameraCog : Cog = null;
+}
+
 class Player : ScriptComponent
 {
     [Editable][Serialized]
@@ -8,10 +16,12 @@ class Player : ScriptComponent
     var JumpVelocity : Real = 1.0;
     
     var RotationAngles : Real2 = local Real2(0.0, 0.0);
-    var Camera : Cog = null;
+    var CameraCog : Cog = null;
+    var ToolContainer : Cog = null;
     
     var Movement : Real3 = local Real3();
     
+    var JumpPressed : Boolean = false;
     
     constructor() : base()
     {
@@ -31,6 +41,13 @@ class Player : ScriptComponent
         Zero.Connect(peer as Cog, Events.LockStepMouseUp, this.OnLockStepMouseUp);
         Zero.Connect(peer as Cog, Events.LockStepKeyDown, this.OnLockStepKeyDown);
         Zero.Connect(peer as Cog, Events.LockStepKeyUp, this.OnLockStepKeyUp);
+        
+        
+        this.ToolContainer = this.Owner.FindChildByName("ToolContainer");
+        var toSend = new LockStepInitEvent();
+        toSend.Peer = peer;
+        toSend.CameraCog = this.CameraCog;
+        this.ToolContainer.DispatchEvent("LockStepInit", toSend as Event);
     }
     
     function AddMovement(e : LockStepKeyEvent, key : Integer, movement : Real3)
@@ -46,9 +63,9 @@ class Player : ScriptComponent
         var playerRotation = local Real3(0.0, this.RotationAngles.Y, 0.0);
         var cameraRotation = local Real3(this.RotationAngles.X, Math.Pi, 0.0);
         this.Owner.Transform.SetRotationAngles(playerRotation);
-        this.Camera.Transform.SetRotationAngles(cameraRotation);
+        this.CameraCog.Transform.SetRotationAngles(cameraRotation);
         
-        if(Zero.Keyboard.KeyIsDown(Keys.Space))
+        if(this.JumpPressed)
         {
             this.Owner.RigidBody.ApplyLinearVelocity(local Real3(0.0, this.JumpVelocity, 0.0));
         }
@@ -78,6 +95,11 @@ class Player : ScriptComponent
         this.AddMovement(e, Keys.S, local Real3( 0.0, 0.0, -1.0));
         this.AddMovement(e, Keys.A, local Real3( 1.0, 0.0,  0.0));
         this.AddMovement(e, Keys.D, local Real3(-1.0, 0.0,  0.0));
+        
+        if(e.Key == Keys.Space)
+        {
+            this.JumpPressed = true;
+        }
     }
     
     function OnLockStepKeyUp(e : LockStepKeyEvent)
@@ -86,5 +108,10 @@ class Player : ScriptComponent
         this.AddMovement(e, Keys.S, local Real3( 0.0, 0.0,  1.0));
         this.AddMovement(e, Keys.A, local Real3(-1.0, 0.0,  0.0));
         this.AddMovement(e, Keys.D, local Real3( 1.0, 0.0,  0.0));
+        
+        if(e.Key == Keys.Space)
+        {
+            this.JumpPressed = false;
+        }
     }
 }

@@ -37,18 +37,6 @@ Cog =
 	{
 		float Speed = 5,
 	},
-	SpawnTool = 
-	{
-	},
-	ToolPalette = 
-	{
-	},
-	GrabberTool = 
-	{
-		bool LockRotation = true,
-		float MaxDistance = 100,
-		float MinDistance = 3,
-	},
 	CapsuleCollider = 
 	{
 		bool Ghost = false,
@@ -90,6 +78,11 @@ Cog =
 				float FarPlane = 2000,
 				float Size = 20,
 			},
+			Orientation = 
+			{
+				Vec3 UpVector = [0, 1, 0],
+				Vec3 ForwardVector = [0, 0, -1],
+			},
 			Hierarchy = 
 			{
 				Cog = 
@@ -114,6 +107,72 @@ Cog =
 						string MeshName = "4de0354322b376ae:Sphere",
 						Vec4 Color = [1, 1, 1, 1],
 						bool Visible = true,
+					},
+				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "ToolContainer",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			ToolPalette = 
+			{
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 5,
+					},
+					Named = 
+					{
+						string Name = "BlockSpawnTool",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					SpawnTool = 
+					{
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 6,
+					},
+					Named = 
+					{
+						string Name = "GrabberTool",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					GrabberTool = 
+					{
+						bool LockRotation = true,
+						float MaxDistance = 100,
+						float MinDistance = 3,
 					},
 				},
 			},

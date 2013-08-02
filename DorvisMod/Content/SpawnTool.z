@@ -2,6 +2,7 @@ class SpawnTool : ScriptComponent
 {
     var GameViewport : GameViewport = null;
     var Index : Integer = 0;
+    var CameraCog : Cog = null;
     
     constructor() : base()
     {
@@ -10,28 +11,19 @@ class SpawnTool : ScriptComponent
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Owner, "ActivateTool", this.OnActivateTool);
+        Zero.Connect(this.Owner, "DeactivateTool", this.OnDeativateTool);
     }
     
     function OnActivateTool(e : ToolChangeEvent)
     {
-        if(e.Index == this.Index)
-        {
-            this.Activate(e.Peer);
-        }
-        else if(e.LastIndex == this.Index)
-        {
-            this.Deactivate(e.Peer);
-        }
+        this.CameraCog = e.CameraCog;
+        Zero.Connect(e.Peer as Cog, Events.LockStepMouseDown, this.LockStepMouseDown);
     }
     
-    function Activate(peer : LockStepPeer)
+    function OnDeativateTool(e : ToolChangeEvent)
     {
-        Zero.Connect(peer as Cog, Events.LockStepMouseDown, this.LockStepMouseDown);
-    }
-    
-    function Deactivate(peer : LockStepPeer)
-    {
-        Zero.Disconnect(peer as Cog, Events.LockStepMouseDown, this as Component);
+        this.CameraCog = null;
+        Zero.Disconnect(e.Peer as Cog, Events.LockStepMouseDown, this as Component);
     }
     
     function LockStepMouseDown(e : LockStepMouseButtonEvent)
@@ -49,8 +41,8 @@ class SpawnTool : ScriptComponent
     
     function SpawnObj(e : LockStepMouseButtonEvent, objToSpawn : String)
     {
-        var dir = e.WorldDirection;
-        var start = e.WorldStart;
+        var dir = this.CameraCog.Orientation.GetWorldForward();
+        var start = this.CameraCog.Transform.WorldTranslation;
         
         var hitObj : Cog = null;
         var hitNormal = local Real3(0.0, 0.0, 0.0);
@@ -89,8 +81,8 @@ class SpawnTool : ScriptComponent
     
     function DestroyObj(e : LockStepMouseButtonEvent)
     {
-        var dir = e.WorldDirection;
-        var start = e.WorldStart;
+        var dir = this.CameraCog.Orientation.GetWorldForward();
+        var start = this.CameraCog.Transform.WorldTranslation;
         
         var hitObj : Cog = null;
         var hitNormal = local Real3(0.0, 0.0, 0.0);

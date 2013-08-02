@@ -41,9 +41,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [14.5824, 6.88284, 6.53374],
+			Vec3 Translation = [-9.81264, 9.08585, 14.6075],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0750006, 0.491066, 0.0424876, 0.866847],
+			Quat Rotation = [-0.138467, -0.177807, -0.025279, 0.973947],
 		},
 		Camera = 
 		{
@@ -57,8 +57,8 @@ Level =
 		{
 			ControlMode ControlMode = Orbit,
 			float LookDistance = 20.5981,
-			float LookAngle = 0.539589,
-			float LookRotation = -18.3096,
+			float LookAngle = 0.875589,
+			float LookRotation = -16.9176,
 			Vec3 LookTarget = [-2.8227, 3.34498, -3.89833],
 		},
 	},
