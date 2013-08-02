@@ -1,0 +1,24 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Archetyped = 
+	{
+		string Name = "519e45e379f286e6:Cannon",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [0, 7.6887, 0],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+		string MeshName = "519e458e6220b09d:Cannon",
+		Vec4 Color = [1, 1, 1, 1],
+		bool Visible = true,
+	},
+},

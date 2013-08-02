@@ -41,9 +41,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [36.4006, 5.27079, -15.3846],
+			Vec3 Translation = [16.0252, 4.95884, 6.25138],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.018147, 0.829732, -0.0270223, 0.557212],
+			Quat Rotation = [0.0649074, 0.562424, -0.044351, 0.823103],
 		},
 		Camera = 
 		{
@@ -56,10 +56,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 39.4166,
-			float LookAngle = -0.204411,
-			float LookRotation = -19.2376,
-			Vec3 LookTarget = [-0.00818756, 7.83547, -0.502103],
+			float LookDistance = 17.4166,
+			float LookAngle = -0.49241,
+			float LookRotation = -18.4776,
+			Vec3 LookTarget = [0, 7.68871, 0],
 		},
 	},
 	Cog = 
@@ -203,6 +203,30 @@ Level =
 			Vec3 Translation = [-0.270947, -2.29161, -2.47112],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 7,
+		},
+		Named = 
+		{
+			string Name = "Cube",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 7.6887, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+			string MeshName = "519e458e6220b09d:Cannon",
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = true,
 		},
 	},
 },

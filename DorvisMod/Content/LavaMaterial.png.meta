@@ -1,0 +1,13 @@
+ImageContent = 
+{
+	TextureBuilder = 
+	{
+		string Name = "LavaMaterial",
+		uint64 ResourceId = 519e4bfa807cc4a0,
+		OutputTextureFormat Format = AutoColor,
+		FixPowerOf2 FixPowerOf2 = Auto,
+		ImageFilter ResizeFilter = Cubic,
+		bool GenerateMipMaps = true,
+		ImageFilter MipFilter = Cubic,
+	},
+},
