@@ -1,0 +1,17 @@
+ContentLibrary = 
+{
+	string Name = "DorvisMod",
+	Array Files = 
+	[
+		"519e78743985ea52.HeightMapSource.bin",
+		"Game.data",
+		"GameStartup.z",
+		"Level.data",
+		"MainLevel.Level.data",
+		"Player.Archetype.data",
+		"Space.data",
+	],
+	uint64 LibraryId = 519e634c69a658f1,
+	string SourceControlType = "",
+	bool ReadOnly = false,
+},

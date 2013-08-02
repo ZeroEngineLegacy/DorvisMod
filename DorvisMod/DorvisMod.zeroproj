@@ -1,0 +1,11 @@
+Cog = 
+{
+	Project = 
+	{
+		string ProjectName = "DorvisMod",
+		string ProjectOwner = "",
+		string DefaultLevel = "Level",
+		string ProjectSpace = "Space",
+		uint ProjectEngineRevision = 7176,
+	},
+},

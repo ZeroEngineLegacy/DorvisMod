@@ -1,0 +1,48 @@
+Folder = 
+{
+	string Name = "Root",
+	Folder = 
+	{
+		string Name = "Archetype",
+		Node = 
+		{
+			uint64 Value = 519e634c69a6ca5c,
+		},
+		Node = 
+		{
+			uint64 Value = 519e634c69a66bf3,
+		},
+		Node = 
+		{
+			uint64 Value = 519e623f0e5efbef,
+		},
+	},
+	Folder = 
+	{
+		string Name = "Level",
+		Node = 
+		{
+			uint64 Value = 519e634c69a69ef9,
+		},
+		Node = 
+		{
+			uint64 Value = 519e798014974f61,
+		},
+	},
+	Folder = 
+	{
+		string Name = "ZilchScript",
+		Node = 
+		{
+			uint64 Value = 519e63a76245264b,
+		},
+	},
+	Folder = 
+	{
+		string Name = "HeightMapSource",
+		Node = 
+		{
+			uint64 Value = 519e78743985ea52,
+		},
+	},
+},

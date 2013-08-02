@@ -1,0 +1,36 @@
+class GameStartup : ScriptComponent
+{
+    var Random : Random = new Random();
+    
+    var MainSpace : Space = null;
+    
+    constructor() : base()
+    {
+        this.Random.Seed(1234);
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.LockStepGameStarted, this.OnLockStepGameStarted);
+        
+        this.MainSpace = Zero.Game.CreateSpace("Space");
+        this.MainSpace.LoadLevel("MainLevel");
+    }
+
+    function OnLockStepGameStarted(e : LockStepGameStartEvent)
+    {
+        foreach (var peer in e.GetPeers())
+        {
+            var position = this.Random.Real3(0.0, 10.0);
+            
+            var player = this.MainSpace.Create("Player");
+            
+            player.Transform.WorldTranslation = position;
+            
+            if (peer == this.Owner.LockStepGame.GetUnsafeLocalPeer())
+            {
+                player.FindChildByName("Camera").CameraViewport.Active = true;
+            }
+        }
+    }
+}
