@@ -6,18 +6,18 @@ Cog =
 	},
 	Archetyped = 
 	{
-		string Name = "519e4cbc821aa3bb:Chair",
+		string Name = "519e5cfaa4b9c3f4:Block",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-6.40981, -1.62822, -4.22015],
+		Vec3 Translation = [-15.7898, -1.78924, -0.386787],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Model = 
 	{
 		string MaterialName = "519e7a6c96244177:DiamondDiffuse",
-		string MeshName = "519e4cbc821d66d4:Chair",
+		string MeshName = "4de0354322b345ae:Cube",
 		Vec4 Color = [1, 1, 1, 1],
 		bool Visible = true,
 	},

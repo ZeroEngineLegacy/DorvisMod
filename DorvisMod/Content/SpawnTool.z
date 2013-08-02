@@ -36,13 +36,13 @@ class SpawnTool : ScriptComponent
     
     function LockStepMouseDown(e : LockStepMouseButtonEvent)
     {
-        if(Zero.Keyboard.KeyIsDown(Keys.Shift))
+        if(e.ShiftPressed)
         {
             this.DestroyObj(e);
         }
         else
         {
-            this.SpawnObj(e, "Cube");
+            this.SpawnObj(e, "Block");
         }
         
     }
@@ -55,15 +55,18 @@ class SpawnTool : ScriptComponent
         var hitObj : Cog = null;
         var hitNormal = local Real3(0.0, 0.0, 0.0);
         
-        var castResults = this.Space.PhysicsSpace.CastRayResults(start, dir, 1);
+        var castResults = this.Space.PhysicsSpace.CastRayResults(start, dir, 20);
         foreach(var castResult in castResults)
         {
             hitObj = castResult.GetObjectHit();
-            if(hitObj != null)
+            
+            if (hitObj.BlockScript == null)
             {
-                hitNormal = castResult.GetNormal();
-                break;
+                continue;
             }
+            
+            hitNormal = castResult.GetNormal();
+            break;
         }
         
         if(hitObj == null)
@@ -79,7 +82,7 @@ class SpawnTool : ScriptComponent
         var localNormal = hitObj.Transform.TransformNormalInverse(hitNormal);
         var newObjPos = localNormal;
         
-        var newObj = this.Space.CreateAtPosition("Cube", newObjPos);
+        var newObj = this.Space.CreateAtPosition(objToSpawn, newObjPos);
         newObj.RigidBody.Static = true;
         newObj.AttachTo(hitObj);
     }

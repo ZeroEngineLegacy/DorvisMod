@@ -16,6 +16,7 @@ GameSession =
 	},
 	GameStartup = 
 	{
+		string Level = "519e74c9087e821d:Environment",
 	},
 	LockStepGame = 
 	{
