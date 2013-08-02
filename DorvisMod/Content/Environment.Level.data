@@ -34,7 +34,28 @@ Level =
 		},
 		AmbientLight = 
 		{
-			Vec4 Color = [0.495, 0.495, 0.495, 1],
+			Vec4 Color = [0.575, 0.575, 0.575, 1],
+		},
+		CameraViewport = 
+		{
+			bool Background = true,
+			Vec2 Offset = [0, 0],
+			Vec2 Size = [1, 1],
+			uint Layer = 0,
+			bool Active = true,
+			bool Blocking = true,
+			uint Renderer = 1,
+			uint Camera = 4294967293,
+		},
+		DeferredRenderer = 
+		{
+			Vec4 ClearColor = [0, 0, 0, 0],
+			bool Hdr = true,
+			bool Glow = true,
+			bool ToneMapping = false,
+			float BrightThreshold = 1,
+			float Exposure = 0.5,
+			bool Refraction = true,
 		},
 		SkyBox = 
 		{
@@ -58,9 +79,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [1.72268, 11.5425, -56.1598],
+			Vec3 Translation = [5.46168, 8.18847, 25.6003],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.000842294, 0.994103, 0.108155, 0.00774192],
+			Quat Rotation = [-0.0938906, 0.0300822, 0.00283828, 0.995124],
 		},
 		Camera = 
 		{
@@ -73,10 +94,14 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 53.6742,
-			float LookAngle = 0.675592,
-			float LookRotation = -14.1216,
-			Vec3 LookTarget = [0.906274, 0, -3.74768],
+			float LookDistance = 25.6742,
+			float LookAngle = 0.587592,
+			float LookRotation = -29.9056,
+			Vec3 LookTarget = [3.93822, 3.38646, 0.425182],
+		},
+		EditorRenderer = 
+		{
+			Vec4 ClearColor = [0.278431, 0.278431, 0.278431, 1],
 		},
 	},
 	Cog = 
@@ -3730,7 +3755,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "Light",
+			string Name = "Sun",
 		},
 		Transform = 
 		{
@@ -4932,6 +4957,20 @@ Level =
 					string Name = "Rock1",
 				},
 			},
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "519e5cfaa4b9c3f4:Block",
+		LinkId = 
+		{
+			uint Id = 322,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [3.90115, 1.09263, -0.124737],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
 		},
 	},
 },

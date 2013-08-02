@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [11.343, -1.05248, 0.879137],
+		Vec3 Translation = [-16.2215, -1.16126, 1.72765],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -89,16 +89,6 @@ Cog =
 				float NearPlane = 0.5,
 				float FarPlane = 2000,
 				float Size = 20,
-			},
-			CameraViewport = 
-			{
-				bool Background = true,
-				Vec2 Offset = [0, 0],
-				Vec2 Size = [1, 1],
-				uint Layer = 0,
-				bool Active = false,
-				uint ForwardInputTo = 2,
-				string RendererName = "4de020863e845ab8:RendererEditor",
 			},
 			Hierarchy = 
 			{

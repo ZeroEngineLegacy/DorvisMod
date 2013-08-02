@@ -24,7 +24,6 @@ class Player : ScriptComponent
     function LockStepInitialize(peer : LockStepPeer)
     {
         this.Camera = this.Owner.FindChildByName("Camera");
-        this.Camera.CameraViewport.Viewport.SetMouseTrap(true);
         
         Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(peer as Cog, Events.LockStepMouseMove, this.OnLockStepMouseMove);
