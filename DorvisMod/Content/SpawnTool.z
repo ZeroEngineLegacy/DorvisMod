@@ -71,9 +71,12 @@ class SpawnTool : ScriptComponent
             return;
         }
         
-        Console.WriteLine(hitNormal);
+        if(hitObj.BlockScript == null)
+        {
+            return;
+        }
+        
         var localNormal = hitObj.Transform.TransformNormalInverse(hitNormal);
-
         var newObjPos = localNormal;
         
         var newObj = this.Space.CreateAtPosition("Cube", newObjPos);
@@ -93,9 +96,14 @@ class SpawnTool : ScriptComponent
         foreach(var castResult in castResults)
         {
             hitObj = castResult.GetObjectHit();
+            
             if(hitObj != null)
             {
-                hitObj.Destroy();
+                if(hitObj.BlockScript != null)
+                {
+                    hitObj.Destroy();
+                    return;
+                }
             }
         }
     }
