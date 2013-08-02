@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 7.6887, 0],
+		Vec3 Translation = [0.577144, -1.6, -6.64956],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -20,5 +20,14 @@ Cog =
 		string MeshName = "519e458e6220b09d:Cannon",
 		Vec4 Color = [1, 1, 1, 1],
 		bool Visible = true,
+	},
+	Cannon = 
+	{
+		float Speed = 100,
+	},
+	Orientation = 
+	{
+		Vec3 UpVector = [1, 0, 0],
+		Vec3 ForwardVector = [0, 1, 0],
 	},
 },

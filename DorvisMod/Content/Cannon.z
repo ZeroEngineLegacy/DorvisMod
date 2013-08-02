@@ -1,0 +1,26 @@
+class Cannon : ScriptComponent
+{
+    [Editable][Serialized]
+    var Speed : Real = 100.0;
+    
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        // HACK
+        Zero.Connect(Zero.Keyboard as Cog, Events.KeyDown, this.OnKeyDown);
+    }
+
+    function OnKeyDown(e : KeyboardEvent)
+    {
+        if (e.Key == Keys.H)
+        {
+            var bullet = this.Space.Create("Bullet");
+            bullet.Transform.WorldTranslation = this.Owner.Transform.WorldTranslation;
+            bullet.Transform.WorldRotation = this.Owner.Transform.WorldRotation;
+            bullet.RigidBody.Velocity = this.Owner.Orientation.GetWorldForward() * local Real3(this.Speed);
+        }
+    }
+}

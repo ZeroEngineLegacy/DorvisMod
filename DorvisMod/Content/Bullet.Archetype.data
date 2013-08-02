@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, 8.36473, 0],
+		Vec3 Translation = [-3.01601, 10.2259, -5.90936],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -35,14 +35,19 @@ Cog =
 	},
 	CylinderCollider = 
 	{
-		bool Ghost = true,
+		bool Ghost = false,
 		bool SendsMessages = true,
 		bool Seamless = false,
 		string MaterialName = "4faa6050b8692851:HardMaterial",
 		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-		Vec3 Offset = [0, 0, -0.8],
+		Vec3 Offset = [0, -0.8, 0],
 		float Radius = 0.4,
 		float Height = 2,
-		uint Direction = 2,
+		uint Direction = 1,
+	},
+	TimedDeath = 
+	{
+		float TimeToDie = 5,
+		uint RemainingCollisions = 0,
 	},
 },

@@ -4,7 +4,7 @@ GeometryContent =
 	{
 		bool ChangeWinding = false,
 		Vec3 Translation = [0, 0, 0],
-		Quat Rotation = [0, 0.707107, 0, 0.707107],
+		Quat Rotation = [0, -0, -0.707107, 0.707107],
 		Vec3 Scale = [0.005, 0.02, 0.02],
 	},
 	MeshBuilder = 

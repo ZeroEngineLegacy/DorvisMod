@@ -41,9 +41,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [16.0252, 4.95884, 6.25138],
+			Vec3 Translation = [23.0322, 8.6004, 11.5983],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.0649074, 0.562424, -0.044351, 0.823103],
+			Quat Rotation = [-0.0750006, 0.491066, 0.0424876, 0.866847],
 		},
 		Camera = 
 		{
@@ -56,10 +56,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 17.4166,
-			float LookAngle = -0.49241,
-			float LookRotation = -18.4776,
-			Vec3 LookTarget = [0, 7.68871, 0],
+			float LookDistance = 30.5981,
+			float LookAngle = 0.539589,
+			float LookRotation = -18.3096,
+			Vec3 LookTarget = [-2.8227, 3.34498, -3.89833],
 		},
 	},
 	Cog = 
@@ -205,28 +205,18 @@ Level =
 			Quat Rotation = [0, 0, 0, 1],
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "519e45e379f286e6:Cannon",
 		LinkId = 
 		{
 			uint Id = 7,
 		},
-		Named = 
-		{
-			string Name = "Cube",
-		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 7.6887, 0],
+			Vec3 Translation = [0.577144, -1.6, -6.64956],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Model = 
-		{
-			string MaterialName = "519e7a6c96244177:DiamondDiffuse",
-			string MeshName = "519e458e6220b09d:Cannon",
-			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = true,
+			Quat Rotation = [0, 0, 0.178359, 0.983965],
 		},
 	},
 },
