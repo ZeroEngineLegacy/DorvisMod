@@ -6,7 +6,7 @@ class GameStartup : ScriptComponent
     
     constructor() : base()
     {
-        this.Random.Seed(1234);
+        this.Random.Seed(10239);
     }
 
     function Initialize(init : CogInitializer)
@@ -21,7 +21,8 @@ class GameStartup : ScriptComponent
     {
         foreach (var peer in e.GetPeers())
         {
-            var position = this.Random.Real3(0.0, 10.0);
+            var position = this.Random.Real3(0.0, 200.0);
+            position.Y = 0.0;
             
             var player = this.MainSpace.Create("Player");
             
@@ -29,8 +30,12 @@ class GameStartup : ScriptComponent
             
             if (peer == this.Owner.LockStepGame.GetUnsafeLocalPeer())
             {
-                player.FindChildByName("Camera").CameraViewport.Active = true;
+                var camViewport = player.FindChildByName("Camera").CameraViewport;
+                camViewport.Active = true;
+                this.Owner.LockStepMouse.SetInputViewport(camViewport.Viewport);
             }
+            
+            player.Player.LockStepInitialize(peer);
         }
     }
 }

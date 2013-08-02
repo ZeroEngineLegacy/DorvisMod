@@ -14,6 +14,7 @@ ContentLibrary =
 		"MainLevel.Level.data",
 		"MetalFloorDIffuse.png",
 		"Player.Archetype.data",
+		"Player.z",
 		"Space.data",
 		"Tree.Archetype.data",
 		"Tree.Material.data",

@@ -40,6 +40,10 @@ Folder =
 		{
 			uint64 Value = 519e63a76245264b,
 		},
+		Node = 
+		{
+			uint64 Value = 519e710184f4ef82,
+		},
 	},
 	Folder = 
 	{
