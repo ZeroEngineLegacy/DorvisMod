@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-1.97088, 8.62008, -7.75052],
+		Vec3 Translation = [3.52137, 10.8852, 0.237478],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -45,6 +45,18 @@ Cog =
 	},
 	Player = 
 	{
+	},
+	SpawnTool = 
+	{
+	},
+	ToolPalette = 
+	{
+	},
+	GrabberTool = 
+	{
+		bool LockRotation = true,
+		float MaxDistance = 100,
+		float MinDistance = 3,
 	},
 	Hierarchy = 
 	{

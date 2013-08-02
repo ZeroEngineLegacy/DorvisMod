@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "GrabberTool",
+		uint64 ResourceId = 519e705553b0b06d,
+	},
+},

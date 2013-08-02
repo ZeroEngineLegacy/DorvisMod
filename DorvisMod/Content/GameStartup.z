@@ -1,3 +1,10 @@
+class LockStepInitEvent : Event
+{
+    constructor() : base() {}
+    
+    var Peer : LockStepPeer = null;
+}
+
 class GameStartup : ScriptComponent
 {
     var Random : Random = new Random();
@@ -37,6 +44,12 @@ class GameStartup : ScriptComponent
             }
             
             player.Player.LockStepInitialize(peer);
+            
+            //Let all components know that lock step is being initialized
+            //(so they can grab their peer)
+            var toSend = new LockStepInitEvent();
+            toSend.Peer = peer;
+            player.DispatchEvent("LockStepInit", toSend as Event);
         }
     }
 }
