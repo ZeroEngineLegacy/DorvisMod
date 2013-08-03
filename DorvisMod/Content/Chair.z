@@ -1,5 +1,7 @@
 class Chair : ScriptComponent
 {
+    var ActivePlayerCog : Cog = null;
+    
     constructor() : base()
     {
     }
@@ -7,14 +9,40 @@ class Chair : ScriptComponent
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Owner, "TestInteract", this.OnTestInteract);
+        Zero.Connect(this.Owner, "Interact", this.OnInteract);
     }
 
     function OnTestInteract(e : InteractEvent)
     {
-        e.Message = "Sit down in the chair [E]";
+        if (this.ActivePlayerCog == null)
+        {
+            e.Message = "Sit down in the chair [E]";
+        }
+        else if (e.PlayerCog == this.ActivePlayerCog)
+        {
+            e.Message = "Get out of the chair [E]";
+        }
     }
 
     function OnInteract(e : InteractEvent)
     {
+        // Are we trying to get in?
+        if (this.ActivePlayerCog == null)
+        {
+            e.Player.Deactivate();
+            e.PlayerCog.AttachTo(this.Owner);
+            e.PlayerCog.Transform.Translation = local Real3();
+            e.PlayerCog.Transform.Rotation = local Quat();
+            
+            this.ActivePlayerCog = e.PlayerCog;
+        }
+        // Otherwise, we're trying to get out
+        else if (e.PlayerCog == this.ActivePlayerCog)
+        {
+            e.PlayerCog.DetachRelative();
+            e.Player.Activate();
+            
+            this.ActivePlayerCog = null;
+        }
     }
 }

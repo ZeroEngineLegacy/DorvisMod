@@ -4,321 +4,57 @@ Folder =
 	Folder = 
 	{
 		string Name = "Archetype",
-		Node = 
-		{
-			uint64 Value = 519e634c69a6ca5c,
-		},
-		Node = 
-		{
-			uint64 Value = 519e634c69a66bf3,
-		},
-		Node = 
-		{
-			uint64 Value = 519e623f0e5efbef,
-		},
-		Node = 
-		{
-			uint64 Value = 519e75af597c0455,
-		},
-		Node = 
-		{
-			uint64 Value = 519e4cbc821aa3bb,
-		},
-		Node = 
-		{
-			uint64 Value = 519e4cbc821af76f,
-		},
-		Node = 
-		{
-			uint64 Value = 519e4a92b38ab8a6,
-		},
-		Node = 
-		{
-			uint64 Value = 519e45e379f286e6,
-		},
-		Node = 
-		{
-			uint64 Value = 519e474cd082c55b,
-		},
-		Node = 
-		{
-			uint64 Value = 519e75174d0f5fa8,
-		},
-		Node = 
-		{
-			uint64 Value = 519e4653e0a46070,
-		},
-		Node = 
-		{
-			uint64 Value = 519e465fe21e2dce,
-		},
-		Node = 
-		{
-			uint64 Value = 519e5cfaa4b9c3f4,
-		},
-		Node = 
-		{
-			uint64 Value = 519e474cd084ef8c,
-		},
 	},
 	Folder = 
 	{
 		string Name = "Level",
-		Node = 
-		{
-			uint64 Value = 519e634c69a69ef9,
-		},
-		Node = 
-		{
-			uint64 Value = 519e798014974f61,
-		},
-		Node = 
-		{
-			uint64 Value = 519e7015a6750302,
-		},
-		Node = 
-		{
-			uint64 Value = 519e74c9087e821d,
-		},
 	},
 	Folder = 
 	{
 		string Name = "ZilchScript",
 		Node = 
 		{
-			uint64 Value = 519e63a76245264b,
-		},
-		Node = 
-		{
-			uint64 Value = 519e710184f4ef82,
-		},
-		Node = 
-		{
-			uint64 Value = 519e7069aff86c3f,
-		},
-		Node = 
-		{
-			uint64 Value = 519e70b555e8de7a,
-		},
-		Node = 
-		{
-			uint64 Value = 519e705553b0b06d,
-		},
-		Node = 
-		{
-			uint64 Value = 519e4747caf9f899,
-		},
-		Node = 
-		{
-			uint64 Value = 519e475f2fbf0e7b,
-		},
-		Node = 
-		{
-			uint64 Value = 519e2ed92b041cf1,
-		},
-		Node = 
-		{
-			uint64 Value = 519e3f1b4ebece2d,
+			uint64 Value = 5155ff418adc3a45,
 		},
 	},
 	Folder = 
 	{
 		string Name = "HeightMapSource",
-		Node = 
-		{
-			uint64 Value = 519e78743985ea52,
-		},
-		Node = 
-		{
-			uint64 Value = 519e77340c506773,
-		},
 	},
 	Folder = 
 	{
 		string Name = "Texture",
-		Node = 
-		{
-			uint64 Value = 519e7a0b9bcab055,
-		},
-		Node = 
-		{
-			uint64 Value = 519e7a7b98c9b84f,
-		},
-		Node = 
-		{
-			uint64 Value = 519e7a7b98c826ae,
-		},
-		Node = 
-		{
-			uint64 Value = 519e7abdad392017,
-		},
-		Node = 
-		{
-			uint64 Value = 519e756944b0440c,
-		},
-		Node = 
-		{
-			uint64 Value = 519e4bfa807cc4a0,
-		},
-		Node = 
-		{
-			uint64 Value = 519e7066524a33f2,
-		},
-		Node = 
-		{
-			uint64 Value = 519e47bcd4783b27,
-		},
-		Node = 
-		{
-			uint64 Value = 519e4a3a88c28cd0,
-		},
-		Node = 
-		{
-			uint64 Value = 519e70c64cace7fa,
-		},
-		Node = 
-		{
-			uint64 Value = 519e734b64186543,
-		},
-		Node = 
-		{
-			uint64 Value = 519e7061535b71f9,
-		},
-		Node = 
-		{
-			uint64 Value = 519e47bcd47acb0d,
-		},
-		Node = 
-		{
-			uint64 Value = 519e47bcd479a060,
-		},
-		Node = 
-		{
-			uint64 Value = 519e47bcd47be71b,
-		},
-		Node = 
-		{
-			uint64 Value = 519e4513413133eb,
-		},
-		Node = 
-		{
-			uint64 Value = 519e4a3a88c1206a,
-		},
 	},
 	Folder = 
 	{
 		string Name = "Material",
-		Node = 
-		{
-			uint64 Value = 519e7a6c96244177,
-		},
-		Node = 
-		{
-			uint64 Value = 519e757446aaee41,
-		},
-		Node = 
-		{
-			uint64 Value = 519e4d15c46fea70,
-		},
-		Node = 
-		{
-			uint64 Value = 519e4bef9e1064cf,
-		},
-		Node = 
-		{
-			uint64 Value = 519e474cd163de2d,
-		},
-		Node = 
-		{
-			uint64 Value = 519e464be637e064,
-		},
-		Node = 
-		{
-			uint64 Value = 519e4604fb1820d8,
-		},
-		Node = 
-		{
-			uint64 Value = 519e45b1746657f8,
-		},
-		Node = 
-		{
-			uint64 Value = 519e70f3443bfe6b,
-		},
-		Node = 
-		{
-			uint64 Value = 519e474cd1646fd3,
-		},
 	},
 	Folder = 
 	{
 		string Name = "Mesh",
-		Node = 
-		{
-			uint64 Value = 519e75174d054f58,
-		},
-		Node = 
-		{
-			uint64 Value = 519e4cbc82124da3,
-		},
-		Node = 
-		{
-			uint64 Value = 519e4cbc821d66d4,
-		},
-		Node = 
-		{
-			uint64 Value = 519e458e6220b09d,
-		},
-		Node = 
-		{
-			uint64 Value = 519e4ba4886088bf,
-		},
-		Node = 
-		{
-			uint64 Value = 519e474cd17d0f63,
-		},
-		Node = 
-		{
-			uint64 Value = 519e474cd17a0b50,
-		},
 	},
 	Folder = 
 	{
 		string Name = "PhysicsMesh",
-		Node = 
-		{
-			uint64 Value = 519e474cd17a0b54,
-		},
-		Node = 
-		{
-			uint64 Value = 519e474cd17d0f69,
-		},
 	},
 	Folder = 
 	{
 		string Name = "Shader",
-		Node = 
-		{
-			uint64 Value = 519e4a3a88c1088e,
-		},
 	},
 	Folder = 
 	{
 		string Name = "SampleCurve",
-		Node = 
-		{
-			uint64 Value = 519e48aec117892a,
-		},
 	},
 	Folder = 
 	{
 		string Name = "PyScript",
-		Node = 
-		{
-			uint64 Value = 519e4807d00b7e88,
-		},
-		Node = 
-		{
-			uint64 Value = 519e4ebb7ca0152a,
-		},
+	},
+	Folder = 
+	{
+		string Name = "Font",
+	},
+	Folder = 
+	{
+		string Name = "SpriteSource",
 	},
 },

@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [1.29543, -2.74968, -0.557621],
+		Vec3 Translation = [10.4514, -0.953523, -6.12769],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -45,8 +45,8 @@ Cog =
 		string MaterialName = "4faa6050b8692851:HardMaterial",
 		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 		Vec3 Offset = [0, 0, 0],
-		float Radius = 0.8,
-		float Height = 1,
+		float Radius = 0.3,
+		float Height = 1.4,
 		uint Direction = 1,
 	},
 	DynamicMotor = 
@@ -66,7 +66,7 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, 1, 0],
+				Vec3 Translation = [0, 0.8, 0],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -74,7 +74,7 @@ Cog =
 			{
 				ProjectionMode ProjectionMode = Perspective,
 				float FieldOfView = 60,
-				float NearPlane = 0.5,
+				float NearPlane = 0.1,
 				float FarPlane = 2000,
 				float Size = 20,
 			},
@@ -194,6 +194,33 @@ Cog =
 						string ObjToSpawn = "Thruster",
 					},
 				},
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 7,
+			},
+			Named = 
+			{
+				string Name = "ExtraCollision",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			BoxCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = false,
+				string MaterialName = "4faa6050b8692851:HardMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				Vec3 Size = [0.4, 0.7, 0.4],
 			},
 		},
 	},

@@ -5,18 +5,21 @@ class Player : ScriptComponent
     [Editable][Serialize]
     var LookSpeed : Real = 1.0;
     [Editable][Serialize]
-    var JumpVelocity : Real = 1.0;
+    var JumpVelocity : Real = 6.0;
     [Editable][Serialize]
     var InteractDistance : Real = 6.0;
+    [Editable][Serialize]
+    var Active : Boolean = true;
     
     var RotationAngles : Real2 = local Real2(0.0, 0.0);
     var CameraCog : Cog = null;
     var Peer : LockStepPeer = null;
     var ToolContainer : Cog = null;
+    var Id : Integer = 0;
+    var UndoCounter : Integer = 0;
     
     var Movement : Real3 = local Real3();
     
-    var JumpPressed : Boolean = false;
     var Hud : Space = null;
     var HudContextText : ShadowText = null;
     var HudToolText : ShadowText = null;
@@ -28,6 +31,10 @@ class Player : ScriptComponent
     var Tools : Array[Cog] = new Array[Cog]();
     var ActiveTool : Cog = null;
     
+    // For some reason this results in a type not found error
+    //var UndoStack : Array[delegate()] = new Array[delegate()]();
+    var UndoStack : Array[Undo] = new Array[Undo]();
+    
     constructor() : base()
     {
     }
@@ -36,8 +43,9 @@ class Player : ScriptComponent
     {
     }
     
-    function LockStepInitialize(peer : LockStepPeer)
+    function LockStepInitialize(peer : LockStepPeer, id : Integer)
     {
+        this.Id = id;
         this.Peer = peer;
         this.CameraCog = this.Owner.FindChildByName("Camera");
         
@@ -67,12 +75,65 @@ class Player : ScriptComponent
         this.Tools.Add(grabber);
         this.Tools.Add(thrusterSpawner);
         
-        this.ActivateTool(blockSpawner);
+        // Call this to sign up for most events, as well as setup the first tool
+        this.ActiveTool = blockSpawner;
+        this.Activate();
     }
     
     function Destroyed()
     {
-        this.Hud.Destroy();
+        if (this.Hud != null)
+        {
+            this.Hud.Destroy();
+        }
+    }
+    
+    function Activate()
+    {
+        this.Owner.RigidBody.Static = false;
+        this.Owner.Collider.Ghost = false;
+        this.Owner.DynamicMotor.Activate();
+        this.Active = true;
+        this.ActivateTool(this.ActiveTool);
+        
+        // Because when activating, we could be inside something, attempt to resolve a portion of the collision
+        foreach (var contact in this.Owner.Collider.GetContacts())
+        {
+            this.Owner.Transform.WorldTranslation -= contact.FirstPoint.WorldNormalTowardsOther * local Real3(0.5);
+        }
+    }
+    
+    function Deactivate()
+    {
+        this.Owner.RigidBody.Static = true;
+        this.Owner.Collider.Ghost = true;
+        this.Owner.DynamicMotor.Deactivate();
+        this.Active = false;
+        this.DeactivateTool();
+        this.HudContextText.Text = "";
+    }
+    
+    function QueueUndo(action : delegate(undo : Undo)) : Undo
+    {
+        var undo = this.QueueUndo();
+        undo.Action = action;
+        return undo;
+    }
+    
+    function QueueUndo() : Undo
+    {
+        var undo = new Undo();
+        ++this.UndoCounter;
+        
+        var builder = new StringBuilder();
+        builder.Write(this.Id);
+        builder.Write("_");
+        builder.Write(this.UndoCounter);
+        
+        undo.UniqueName = builder.ToString();
+        this.UndoStack.Add(undo);
+        
+        return undo;
     }
     
     function AddMovement(e : LockStepKeyEvent, key : Integer, movement : Real3)
@@ -90,15 +151,14 @@ class Player : ScriptComponent
         this.Owner.Transform.SetRotationAngles(playerRotation);
         this.CameraCog.Transform.SetRotationAngles(cameraRotation);
         
-        if(this.JumpPressed)
-        {
-            this.Owner.RigidBody.ApplyLinearVelocity(local Real3(0.0, this.JumpVelocity, 0.0));
-        }
-        
         var movement = this.Owner.Transform.TransformNormal(this.Movement);
         movement.Y = 0.0;
         this.Owner.DynamicMotor.MoveInDirection(movement * local Real3(this.Speed), local Real3(0.0, 1.0, 0.0));
         
+        this.InteractCog = null;
+        this.HudContextText.Text = "";
+        
+        // Only do interactions if the player is active
         this.InteractMessage = null;
         var result = this.RayCast(this.InteractFilter, this.InteractDistance);
         
@@ -107,18 +167,20 @@ class Player : ScriptComponent
             this.InteractCog = result.Object;
             this.HudContextText.Text = this.InteractMessage;
         }
-        else
-        {
-            this.InteractCog = null;
-            this.HudContextText.Text = "";
-        }
+    }
+    
+    function SendInteractEvent(eventName : String, to : Cog) : InteractEvent
+    {
+        var toSend = new InteractEvent();
+        toSend.PlayerCog = this.Owner;
+        toSend.Player = this;
+        to.DispatchEvent(eventName, toSend as Event);
+        return toSend;
     }
     
     function InteractFilter(hit : Cog) : Boolean
     {
-        var e = new InteractEvent();
-        e.PlayerCog = this.Owner;
-        hit.DispatchEvent("TestInteract", e as Event);
+        var e = this.SendInteractEvent("TestInteract", hit);
         this.InteractMessage = e.Message;
         
         // Commenting this in will cause a crash... WHY? (because it's null!)
@@ -137,7 +199,8 @@ class Player : ScriptComponent
         var start = this.CameraCog.Transform.WorldTranslation;
         
         var foundObject : Cog = null;
-        var worldNormal = local Real3(0.0, 0.0, 0.0);
+        var worldNormal = local Real3();
+        var worldPosition = local Real3();
         
         var castResults = this.Space.PhysicsSpace.CastRayResults(start, dir, 20);
         foreach(var castResult in castResults)
@@ -149,10 +212,17 @@ class Player : ScriptComponent
             
             var hitObject = castResult.GetObjectHit();
             
+            // Skip ourself
+            if (hitObject.GetRoot() == this.Owner)
+            {
+                continue;
+            }
+            
             if (filter(hitObject))
             {
                 foundObject = hitObject;
                 worldNormal = castResult.GetNormal();
+                worldPosition = castResult.GetWorldPosition();
                 break;
             }
             
@@ -168,6 +238,7 @@ class Player : ScriptComponent
         var result = new HitResult();
         result.Object = foundObject;
         result.WorldNormal = worldNormal;
+        result.WorldPosition = worldPosition;
         
         return result;
     }
@@ -206,47 +277,37 @@ class Player : ScriptComponent
         this.AddMovement(e, Keys.A, local Real3( 1.0, 0.0,  0.0));
         this.AddMovement(e, Keys.D, local Real3(-1.0, 0.0,  0.0));
         
-        if(e.Key == Keys.Space)
+        if (this.Active)
         {
-            this.JumpPressed = true;
+            if(e.Key == Keys.Space)
+            {
+                this.Owner.RigidBody.ApplyLinearVelocity(local Real3(0.0, this.JumpVelocity, 0.0));
+            }
+            
+            var index = e.Key - Keys.One;
+            
+            // Handle the '0' button case
+            if(index == -1)
+            {
+                index = 9;
+            }
+            
+            // Check if the key was a valid key
+            if(index >= 0 && index < this.Tools.Count)
+            {
+                var newTool = this.Tools.Get(index);
+                if(this.ActiveTool != newTool)
+                {
+                    this.DeactivateTool();
+                    this.ActivateTool(newTool);
+                }
+            }
         }
         
         if(e.Key == Keys.E && this.InteractCog != null)
         {
-            var toSend = new InteractEvent();
-            toSend.PlayerCog = this.Owner;
-            this.InteractCog.DispatchEvent("Interact", toSend as Event);
+            this.SendInteractEvent("Interact", this.InteractCog);
         }
-        
-        //Change tool
-        var index = e.Key - Keys.One;
-        
-        if(index == -1)
-        {
-            index = 9;
-        }
-        
-        if(index < -1 || index >= this.Tools.Count)
-        {
-            return;
-        }
-        
-        var newTool = this.Tools.Get(index);
-        if(this.ActiveTool == newTool)
-        {
-            return;
-        }
-        
-        this.SendToolEvent("DeactivateTool", this.ActiveTool);
-        this.ActivateTool(newTool);
-    }
-    
-    function ActivateTool(tool : Cog)
-    {
-        this.HudToolText.Text = tool.Name;
-        this.HudToolSubText.Text = "";
-        this.ActiveTool = tool;
-        this.SendToolEvent("ActivateTool", this.ActiveTool);
     }
     
     function OnLockStepKeyUp(e : LockStepKeyEvent)
@@ -255,11 +316,22 @@ class Player : ScriptComponent
         this.AddMovement(e, Keys.S, local Real3( 0.0, 0.0,  1.0));
         this.AddMovement(e, Keys.A, local Real3(-1.0, 0.0,  0.0));
         this.AddMovement(e, Keys.D, local Real3( 1.0, 0.0,  0.0));
-        
-        if(e.Key == Keys.Space)
-        {
-            this.JumpPressed = false;
-        }
+    }
+    
+    
+    function DeactivateTool()
+    {
+        this.SendToolEvent("DeactivateTool", this.ActiveTool);
+        this.HudToolText.Text = "";
+        this.HudToolSubText.Text = "";
+    }
+    
+    function ActivateTool(tool : Cog)
+    {
+        this.HudToolText.Text = tool.Name;
+        this.HudToolSubText.Text = "";
+        this.ActiveTool = tool;
+        this.SendToolEvent("ActivateTool", this.ActiveTool);
     }
     
     function SendToolEvent(eventName : String, obj : Cog)
@@ -276,12 +348,13 @@ class Player : ScriptComponent
 
 class HitResult
 {
+    var Object : Cog = null;
+    var WorldNormal : Real3 = local Real3();
+    var WorldPosition : Real3 = local Real3();
+    
     constructor()
     {
     }
-    
-    var Object : Cog = null;
-    var WorldNormal : Real3 = local Real3();
 }
 
 class InteractEvent : Event
@@ -290,6 +363,7 @@ class InteractEvent : Event
     var Message : String = null;
     
     var PlayerCog : Cog = null;
+    var Player : Player = null;
     
     
     constructor() : base()
@@ -309,3 +383,19 @@ class ToolChangeEvent : Event
     
     constructor() : base() {}
 }
+
+class Undo
+{
+    var Action : delegate(undo : Undo) = Undo.DoNothing;
+    var UniqueName : String = "";
+    
+    [Static]
+    function DoNothing(undo : Undo)
+    {
+    }
+    
+    constructor()
+    {
+    }
+}
+

@@ -18,6 +18,7 @@ class GrabberTool : ScriptComponent
     var WeldJoint : WeldJoint = null;
     
     var CameraCog : Cog = null;
+    var Player : Player = null;
     
     constructor() : base()
     {
@@ -32,6 +33,7 @@ class GrabberTool : ScriptComponent
     function OnActivateTool(e : ToolChangeEvent)
     {
         this.CameraCog = e.CameraCog;
+        this.Player = e.Player;
         Zero.Connect(e.Peer as Cog, Events.LockStepMouseMove, this.OnLockStepMouseMove);
         Zero.Connect(e.Peer as Cog, Events.LockStepMouseDown, this.OnLockStepMouseDown);
         Zero.Connect(e.Peer as Cog, Events.LockStepMouseUp, this.OnLockStepMouseUp);
@@ -41,6 +43,8 @@ class GrabberTool : ScriptComponent
     
     function OnDeactivateTool(e : ToolChangeEvent)
     {
+        this.CameraCog = null;
+        this.Player = null;
         Zero.Disconnect(e.Peer as Cog, Events.LockStepMouseMove, this as Component);
         Zero.Disconnect(e.Peer as Cog, Events.LockStepMouseDown, this as Component);
         Zero.Disconnect(e.Peer as Cog, Events.LockStepMouseUp, this as Component);
@@ -79,6 +83,15 @@ class GrabberTool : ScriptComponent
         }
     }
     
+    function GrabbableFilter(hit : Cog) : Boolean
+    {
+        if (hit.RigidBody == null)
+        {
+            return false;
+        }
+        return hit.RigidBody.Static == false && hit.RigidBody.Kinematic == false;
+    }
+    
     function GrabObject(e : LockStepMouseButtonEvent)
     {
         if(this.SelectedObj != null)
@@ -86,37 +99,22 @@ class GrabberTool : ScriptComponent
             this.DeselectObj();
         }
         
-        var dirW = this.CameraCog.Orientation.GetWorldForward();
-        var startW = this.CameraCog.Transform.WorldTranslation;
-            
-        var castResults = this.Space.PhysicsSpace.CastRayResults(startW, dirW, 2);
-        foreach(var castResult in castResults)
+        var result = this.Player.RayCast(this.GrabbableFilter);
+        
+        if (result != null)
         {
-            var obj = castResult.GetObjectHit();
-            obj = obj.GetRoot();
-            if(obj == this.Owner.GetRoot())
-            {
-                continue;
-            }
-            
-            this.SelectedObj = obj;
-            if(this.SelectedObj == null)
-            {
-                return;
-            }
+            this.SelectedObj = result.Object;
             
             if(this.SelectedObj.RigidBody != null)
             {
                 this.SelectedObj.RigidBody.ForceAwake();
             }
-            
             //find the point at which we clicked the object
-            var selectedPoint = castResult.GetWorldPosition();
+            var selectedPoint = result.WorldPosition;
             //find how far away the pick point is (for keeping the object on a sphere around us)
             this.Distance = Math.Length(selectedPoint - this.Owner.Transform.Translation);
             
             this.CreatePhyGun(this.SelectedObj,selectedPoint);
-            break;
         }
     }
     

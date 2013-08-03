@@ -3,6 +3,7 @@ class SpawnTool : ScriptComponent
     var GameViewport : GameViewport = null;
     var Index : Integer = 0;
     var CameraCog : Cog = null;
+    var PlayerCog : Cog = null;
     var Player : Player = null;
     var HudText : ShadowText = null;
     var Ghost : DebugObb = new DebugObb();
@@ -25,6 +26,7 @@ class SpawnTool : ScriptComponent
     function OnActivateTool(e : ToolChangeEvent)
     {
         this.CameraCog = e.CameraCog;
+        this.PlayerCog = e.PlayerCog;
         this.Player = e.Player;
         this.HudText = e.HudText;
         Zero.Connect(e.Peer as Cog, Events.LockStepKeyDown, this.LockStepKeyDown);
@@ -37,6 +39,7 @@ class SpawnTool : ScriptComponent
     function OnDeativateTool(e : ToolChangeEvent)
     {
         this.CameraCog = null;
+        this.PlayerCog = null;
         this.Player = null;
         this.HudText = null;
         Zero.Disconnect(e.Peer as Cog, Events.LockStepMouseDown, this as Component);
@@ -51,7 +54,14 @@ class SpawnTool : ScriptComponent
         
         if (result == null)
         {
-            this.HudText.Text = "";
+            if (this.DestroyMode == false)
+            {
+                this.HudText.Text = "Spawn";
+            }
+            else
+            {
+                this.HudText.Text = "";
+            }
             return;
         }
         
@@ -62,7 +72,7 @@ class SpawnTool : ScriptComponent
         
         if (this.DestroyMode == false)
         {
-            this.HudText.Text = "Create";
+            this.HudText.Text = "Spawn & Attach";
             pos  += result.WorldNormal;
             color = local Real4(1.0);
         }
@@ -113,30 +123,51 @@ class SpawnTool : ScriptComponent
         return hit.BlockTag != null;
     }
     
+    function AnyFilter(hit : Cog) : Boolean
+    {
+        return true;
+    }
+    
     function LockStepMouseMove(e : LockStepMouseEvent)
     {
     }
     
     function SpawnObj(e : LockStepMouseButtonEvent, objToSpawn : String)
     {
+        var attach = true;
         var result = this.Player.RayCast(this.BlockFilter);
         
         if (result == null)
         {
-            return;
+            result = this.Player.RayCast(this.AnyFilter);
+            attach = false;
         }
         
-        var localNormal = result.Object.Transform.TransformNormalInverse(result.WorldNormal);
-        var newObjPos = localNormal;
+        var newObj = this.Space.Create(objToSpawn);
         
-        var newObj = this.Space.CreateAtPosition(objToSpawn, newObjPos);
-        if(newObj.RigidBody != null)
+        if (attach)
         {
-            newObj.RigidBody.Static = true;
+            var localNormal = result.Object.Transform.TransformNormalInverse(result.WorldNormal);
+            var newObjPos = localNormal;
+            newObj.Transform.Translation = newObjPos;
+            newObj.Transform.Rotation = Math.RotationQuaternionBetween(local Real3(0.0, 1.0, 0.0), localNormal);
+            if(newObj.RigidBody != null)
+            {
+                newObj.RigidBody.Static = true;
+            }
+            newObj.AttachTo(result.Object);
         }
-        newObj.Transform.Rotation = Math.RotationQuaternionBetween(local Real3(0.0, 1.0, 0.0), localNormal);
-        newObj.AttachTo(result.Object);
+        else
+        {
+            newObj.Transform.WorldTranslation = result.WorldPosition + result.WorldNormal * local Real3(0.5);
+            newObj.Transform.WorldRotation = this.PlayerCog.Transform.WorldRotation;
+        }
+        
         this.Space.CreateAtPosition("SpawnEffect", newObj.Transform.WorldTranslation);
+        
+        var undo = new SpawnUndo();
+        undo.Object = newObj;
+        this.Player.QueueUndo(undo.Action);
     }
     
     function DestroyObj(e : LockStepMouseButtonEvent)
@@ -148,7 +179,73 @@ class SpawnTool : ScriptComponent
             return;
         }
         
+        var undoInfo = this.Player.QueueUndo();
+        
+        // Store it in the object store for undo purposes
+        Zero.ObjectStore.Store(undoInfo.UniqueName, result.Object);
+        
+        var worldPosition = result.Object.Transform.WorldTranslation;
+        
+        var undo = new DestroyUndo();
+        undo.Space = this.Space;
+        undo.Parent = result.Object.GetParent();
+        undo.WorldPosition = worldPosition;
+        undo.WorldRotation = result.Object.Transform.WorldRotation;
+        undoInfo.Action = undo.Action;
+        
+        this.Space.CreateAtPosition("DestroyEffect", worldPosition);
         result.Object.Destroy();
-        this.Space.CreateAtPosition("DestroyEffect", result.Object.Transform.WorldTranslation);
+    }
+}
+
+class SpawnUndo
+{
+    var Object : Cog = null;
+    
+    constructor()
+    {
+    }
+    
+    function Action(undo : Undo)
+    {
+        if (this.Object != null)
+        {
+            var worldPosition = this.Object.Transform.WorldTranslation;
+            this.Object.Space.CreateAtPosition("DestroyEffect", worldPosition);
+            this.Object.Destroy();
+        }
+    }
+}
+
+class DestroyUndo
+{
+    var Space : Space = null;
+    var Parent : Cog = null;
+    var WorldPosition : Real3 = local Real3();
+    var WorldRotation : Quat = local Quat();
+    
+    constructor()
+    {
+    }
+    
+    function Action(undo : Undo)
+    {
+        if (this.Space != null)
+        {
+            var cog = Zero.ObjectStore.Restore(undo.UniqueName, this.Space);
+            
+            if (cog != null)
+            {
+                if (this.Parent != null)
+                {
+                    cog.AttachTo(this.Parent);
+                }
+                else
+                {
+                    cog.Transform.WorldTranslation = this.WorldPosition;
+                    cog.Transform.WorldRotation = this.WorldRotation;
+                }
+            }
+        }
     }
 }
