@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-16.2215, -1.16126, 1.72765],
+		Vec3 Translation = [10.9428, -0.615019, 0.764366],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -19,7 +19,7 @@ Cog =
 		string MaterialName = "4de020863e85bb61:DefaultMaterial",
 		string MeshName = "4de0354322b345ae:Cube",
 		Vec4 Color = [1, 1, 1, 1],
-		bool Visible = true,
+		bool Visible = false,
 	},
 	RigidBody = 
 	{

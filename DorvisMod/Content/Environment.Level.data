@@ -79,9 +79,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [5.46168, 8.18847, 25.6003],
+			Vec3 Translation = [5.4624, 8.18847, 25.6002],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0938906, 0.0300822, 0.00283828, 0.995124],
+			Quat Rotation = [-0.0938905, 0.0300964, 0.00283962, 0.995123],
 		},
 		Camera = 
 		{
