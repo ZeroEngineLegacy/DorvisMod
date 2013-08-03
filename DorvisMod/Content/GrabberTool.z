@@ -1,10 +1,5 @@
 class GrabberTool : ScriptComponent
 {
-    //If this is set then the manipulation joint created
-    //will lock the rotation of the grabbed object.
-    [Editable][Serialized]
-    var LockRotation : Boolean = true;
-    
     //The minimum distance we can drag the object towards
     //the camera during mouse scroll.
     [Editable][Serialized]
@@ -14,18 +9,13 @@ class GrabberTool : ScriptComponent
     [Editable][Serialized]
     var MaxDistance : Real = 100.0;
     
-    //We store the viewport so we can do raycasts
-    var GameViewport : GameViewport = null;
     //The object that we are currently grabbing
     var SelectedObj : Cog = null;
     //The current distance away from the camera that
     //the object's grab point should be.
     var Distance : Real = 0.0;
     
-    var ManipulatorJoint : ManipulatorJoint = null;
-    var PhyGunJoint : PhyGunJoint = null;
-    
-    var Index : Integer = 0;
+    var WeldJoint : WeldJoint = null;
     
     var CameraCog : Cog = null;
     
@@ -35,23 +25,16 @@ class GrabberTool : ScriptComponent
 
     function Initialize(init : CogInitializer)
     {
-        //we only operator on a component with a camera viewport,
-        //grab the viewport from that component
-        //this.GameViewport = this.Owner.CameraViewport.Viewport;
-        //
         Zero.Connect(this.Owner, "ActivateTool", this.OnActivateTool);
         Zero.Connect(this.Owner, "DeactivateTool", this.OnDeactivateTool);
     }
     
     function OnActivateTool(e : ToolChangeEvent)
     {
-        Console.WriteLine(e.CameraCog == null);
-        //this.GameViewport = this.Owner.CameraViewport.Viewport;
         this.CameraCog = e.CameraCog;
         Zero.Connect(e.Peer as Cog, Events.LockStepMouseMove, this.OnLockStepMouseMove);
         Zero.Connect(e.Peer as Cog, Events.LockStepMouseDown, this.OnLockStepMouseDown);
         Zero.Connect(e.Peer as Cog, Events.LockStepMouseUp, this.OnLockStepMouseUp);
-        Zero.Connect(e.Peer as Cog, Events.LockStepKeyDown, this.OnLockStepKeyDown);
         //Zero.Connect(peer as Cog, Events.MouseScroll, this.OnMouseScroll);
         //Zero.Connect(peer as Cog, Events.LockStepRightMouseDown, this.OnLockStepRightMouseDown);
     }
@@ -61,24 +44,6 @@ class GrabberTool : ScriptComponent
         Zero.Disconnect(e.Peer as Cog, Events.LockStepMouseMove, this as Component);
         Zero.Disconnect(e.Peer as Cog, Events.LockStepMouseDown, this as Component);
         Zero.Disconnect(e.Peer as Cog, Events.LockStepMouseUp, this as Component);
-        Zero.Disconnect(e.Peer as Cog, Events.LockStepKeyDown, this as Component);
-    }
-    
-    function OnLockStepKeyDown(e : LockStepKeyEvent)
-    {
-        //we only do logic when 'P' is pressed right now
-        if(e.Key != Keys.P)
-        {
-            return;
-        }
-        
-        //if we have an object selected, we need to
-        //deselect it before changing our joint type
-        if(this.SelectedObj != null)
-        {
-            this.DeselectObj();
-        }
-        this.LockRotation = !this.LockRotation;
     }
     
     function OnLockStepMouseMove(e : LockStepMouseEvent)
@@ -97,14 +62,14 @@ class GrabberTool : ScriptComponent
         }
         else
         {
-            var castResults = this.Space.PhysicsSpace.CastRayResults(e.WorldStart, e.WorldDirection, 1);
+            var dirW = this.CameraCog.Orientation.GetWorldForward();
+            var startW = this.CameraCog.Transform.WorldTranslation;
+        
+            var castResults = this.Space.PhysicsSpace.CastRayResults(startW, dirW, 1);
             foreach(var castResult in castResults)
             {
                 var obj = castResult.GetObjectHit();
-                if(obj == null)
-                {
-                    return;
-                }
+                obj = obj.GetRoot();
                 
                 if(obj.RigidBody != null)
                 {
@@ -116,29 +81,20 @@ class GrabberTool : ScriptComponent
     
     function GrabObject(e : LockStepMouseButtonEvent)
     {
-        var dirW = this.CameraCog.Orientation.GetWorldForward();
-        var posW = this.CameraCog.Transform.WorldTranslation;
-        
-        var debugLine = new DebugLine();
-        debugLine.Start(posW).End(posW + dirW).Duration(10.0).Float4Color(local Real4(1.0, 1.0, 1.0, 1.0));
-        debugLine.Draw();
-        
-        var debugSphere = new DebugSphere();
-        debugSphere.Position(posW + dirW).Radius(0.1).Duration(10.0);
-        debugSphere.Draw();
-        
-        
         if(this.SelectedObj != null)
         {
             this.DeselectObj();
         }
         
-        var castResults = this.Space.PhysicsSpace.CastRayResults(posW, dirW, 2);
+        var dirW = this.CameraCog.Orientation.GetWorldForward();
+        var startW = this.CameraCog.Transform.WorldTranslation;
+            
+        var castResults = this.Space.PhysicsSpace.CastRayResults(startW, dirW, 2);
         foreach(var castResult in castResults)
         {
             var obj = castResult.GetObjectHit();
-            
-            if(obj.GetRoot() == this.Owner.GetRoot())
+            obj = obj.GetRoot();
+            if(obj == this.Owner.GetRoot())
             {
                 continue;
             }
@@ -159,14 +115,7 @@ class GrabberTool : ScriptComponent
             //find how far away the pick point is (for keeping the object on a sphere around us)
             this.Distance = Math.Length(selectedPoint - this.Owner.Transform.Translation);
             
-            if(this.LockRotation)
-            {
-                this.CreatePhyGun(this.SelectedObj,selectedPoint);
-            }
-            else
-            {
-                this.CreateManipulator(this.SelectedObj,selectedPoint);
-            }
+            this.CreatePhyGun(this.SelectedObj,selectedPoint);
             break;
         }
     }
@@ -197,17 +146,9 @@ class GrabberTool : ScriptComponent
         
         //mark that we have no selected object, and destroy the joint
         this.SelectedObj = null;
-        if(this.LockRotation)
-        {
-            this.PhyGunJoint.Owner.Destroy();
-        }
-        else
-        {
-            this.ManipulatorJoint.Owner.Destroy();
-        }
         
-        this.ManipulatorJoint = null;
-        this.PhyGunJoint = null;
+        this.WeldJoint.Owner.Destroy();
+        this.WeldJoint = null;
     }
     
     function OnMouseScroll(e : LockStepMouseEvent)
@@ -234,22 +175,20 @@ class GrabberTool : ScriptComponent
         //}
     }
     
-    function CreateManipulator(obj : Cog, point : Real3)
-    {
-        //build a new manipulator joint attached by the picked point and save it
-        var jointCreator = Zero.JointBuilder.CreateInstance();
-        jointCreator.ConnectToWorld = true;
-        var cog = jointCreator.AttachWorld(obj,obj,point,"ManipulatorJoint");
-        this.ManipulatorJoint = cog.ManipulatorJoint;
-    }
-        
     function CreatePhyGun(obj : Cog, point : Real3)
     {
         //build a new manipulator joint attached by the picked point and save it
         var jointCreator = Zero.JointBuilder.CreateInstance();
-        jointCreator.ConnectToWorld = true;
-        var cog = jointCreator.AttachWorld(obj,obj,point,"PhyGunJoint");
-        this.PhyGunJoint = cog.PhyGunJoint;
+        //jointCreator.ConnectToWorld = true;
+        
+        obj = obj.GetRoot();
+        var mass = obj.RigidBody.GetMass();
+        point = obj.RigidBody.WorldCenterOfMass;
+        var cog = jointCreator.AttachWorld(this.CameraCog,obj,point,"WeldJoint");
+        this.WeldJoint = cog.WeldJoint;
+        this.WeldJoint.WorldPoint1 = point;
+        this.WeldJoint.WorldPoint2 = point;
+        this.WeldJoint.MaxForce = mass * 0.4;
     }
         
     function UpdateDraggedObject(e : LockStepMouseEvent)
@@ -262,14 +201,7 @@ class GrabberTool : ScriptComponent
         
         var newWorldPoint = this.ComputeWorldPoint(e);
         
-        if(this.LockRotation)
-        {
-            this.UpdatePhyGunPoint(newWorldPoint);
-        }
-        else
-        {
-            this.UpdateManipulatorPoint(newWorldPoint);
-        }
+        this.UpdatePhyGunPoint(newWorldPoint);
     }
     
     function ComputeWorldPoint(e : LockStepMouseEvent) : Real3
@@ -281,14 +213,12 @@ class GrabberTool : ScriptComponent
         //initial picking distance
         return this.CameraCog.Transform.WorldTranslation + viewPlaneNormal * local Real3(this.Distance);
     }
-        
-    function UpdateManipulatorPoint(worldPoint : Real3)
-    {
-        this.ManipulatorJoint.SetTarget(worldPoint);
-    }
-        
+    
+    
     function UpdatePhyGunPoint(worldPoint : Real3)
     {
-        this.PhyGunJoint.SetTargetPoint(worldPoint);
+        //this.PhyGunJoint.SetTargetPoint(worldPoint);
+        //this.WeldJoint.WorldPoint1 = worldPoint;
+        //this.WeldJoint.WorldPoint2 = worldPoint;
     }
 }
