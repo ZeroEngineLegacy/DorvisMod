@@ -1,0 +1,72 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Archetyped = 
+	{
+		string Name = "5154e67a24d85b3d:DestroyEffect",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [5.19283, 2.83639, 1.89461],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	SpriteParticleSystem = 
+	{
+		SystemChildMode ChildMode = Independent,
+		SystemSpace SystemSpace = WorldSpace,
+		uint DrawOrder = 0,
+		ParticleGeometry GeometryMode = Beam,
+		ParticleRenderMode RenderMode = Additive,
+		ParticleSortMode SortMode = None,
+		string Texture = "4e11a21a2e25bfd8:Twinkle",
+		Vec4 Tint = [1, 1, 1, 1],
+		float VelocityScale = 1,
+		float LengthScale = 0,
+		float MaxParticleSize = 100,
+		Vec3 SystemSize = [5, 5, 5],
+	},
+	LinearParticleAnimator = 
+	{
+		Vec3 Force = [0, 0, 0],
+		Vec3 RandomForce = [0, 0, 0],
+		float Torque = 0,
+		float Growth = -0.2,
+		float Dampening = 0,
+		Vec3 Twist = [0, 0, 0],
+	},
+	SphericalParticleEmitter = 
+	{
+		bool Active = true,
+		uint EmitCount = 30,
+		float EmitRate = 400,
+		float EmitVariance = 0,
+		float Size = 0.3,
+		float SizeVariance = 0,
+		float Lifetime = 0.8,
+		float LifetimeVariance = 0.2,
+		float Spin = 300,
+		float SpinVariance = 0,
+		bool RandomSpin = true,
+		float Fill = 0,
+		float EmitterVelocityPercent = 0,
+		Vec3 StartVelocity = [0, 0, 0],
+		Vec3 RandomVelocity = [2, 2, 2],
+		Vec3 TangentVelocity = [0, 0, 0],
+		Vec3 EmitterSize = [0.5, 0.5, 0.5],
+		bool FastMovingEmitter = false,
+	},
+	ParticleGradientAnimator = 
+	{
+		string ColorGradientName = "50a5ee1707f0fb60:DefaultColorGradient",
+	},
+	ParticleWander = 
+	{
+		float WanderAngle = 1,
+		float WanderAngleVariance = 1,
+		float WanderStrength = 5,
+	},
+},

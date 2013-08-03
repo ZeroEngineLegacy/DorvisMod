@@ -6,14 +6,27 @@ class Player : ScriptComponent
     var LookSpeed : Real = 1.0;
     [Editable][Serialize]
     var JumpVelocity : Real = 1.0;
+    [Editable][Serialize]
+    var InteractDistance : Real = 6.0;
     
     var RotationAngles : Real2 = local Real2(0.0, 0.0);
     var CameraCog : Cog = null;
+    var Peer : LockStepPeer = null;
     var ToolContainer : Cog = null;
     
     var Movement : Real3 = local Real3();
     
     var JumpPressed : Boolean = false;
+    var Hud : Space = null;
+    var HudContextText : ShadowText = null;
+    var HudToolText : ShadowText = null;
+    var HudToolSubText : ShadowText = null;
+    
+    var InteractMessage : String = null;
+    var InteractCog : Cog = null;
+    
+    var Tools : Array[Cog] = new Array[Cog]();
+    var ActiveTool : Cog = null;
     
     constructor() : base()
     {
@@ -25,6 +38,7 @@ class Player : ScriptComponent
     
     function LockStepInitialize(peer : LockStepPeer)
     {
+        this.Peer = peer;
         this.CameraCog = this.Owner.FindChildByName("Camera");
         
         Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
@@ -36,7 +50,29 @@ class Player : ScriptComponent
         
         
         this.ToolContainer = this.Owner.FindChildByName("ToolContainer");
-        this.ToolContainer.ToolPalette.LockStepInitialize(this.Owner, this.CameraCog, peer);
+        
+        this.Hud = Zero.Game.CreateSpace("DefaultSpace");
+        this.Hud.GraphicsSpace.SpriteSmoothing = true;
+        this.Hud.GraphicsSpace.PixelSnapping = true;
+        this.Hud.LoadLevel("Hud");
+        this.HudContextText = this.Hud.FindObjectByName("ContextText").ShadowText;
+        this.HudToolText = this.Hud.FindObjectByName("ToolText").ShadowText;
+        this.HudToolSubText = this.Hud.FindObjectByName("ToolSubText").ShadowText;
+        
+        //Add tools here
+        var blockSpawner = this.Owner.FindChildByName("BlockSpawnTool");
+        var grabber = this.Owner.FindChildByName("GrabberTool");
+        var thrusterSpawner = this.Owner.FindChildByName("ThrusterSpawnTool");
+        this.Tools.Add(blockSpawner);
+        this.Tools.Add(grabber);
+        this.Tools.Add(thrusterSpawner);
+        
+        this.ActivateTool(blockSpawner);
+    }
+    
+    function Destroyed()
+    {
+        this.Hud.Destroy();
     }
     
     function AddMovement(e : LockStepKeyEvent, key : Integer, movement : Real3)
@@ -62,24 +98,61 @@ class Player : ScriptComponent
         var movement = this.Owner.Transform.TransformNormal(this.Movement);
         movement.Y = 0.0;
         this.Owner.DynamicMotor.MoveInDirection(movement * local Real3(this.Speed), local Real3(0.0, 1.0, 0.0));
+        
+        this.InteractMessage = null;
+        var result = this.RayCast(this.InteractFilter, this.InteractDistance);
+        
+        if (result != null)
+        {
+            this.InteractCog = result.Object;
+            this.HudContextText.Text = this.InteractMessage;
+        }
+        else
+        {
+            this.InteractCog = null;
+            this.HudContextText.Text = "";
+        }
+    }
+    
+    function InteractFilter(hit : Cog) : Boolean
+    {
+        var e = new InteractEvent();
+        e.PlayerCog = this.Owner;
+        hit.DispatchEvent("TestInteract", e as Event);
+        this.InteractMessage = e.Message;
+        
+        // Commenting this in will cause a crash... WHY? (because it's null!)
+        //Console.WriteLine(e.Message);
+        return e.Message != null;
     }
     
     function RayCast(filter : delegate(hit : Cog) : Boolean) : HitResult
     {
+        return this.RayCast(filter, 100000.0);
+    }
+    
+    function RayCast(filter : delegate(hit : Cog) : Boolean, maxDistance : Real) : HitResult
+    {
         var dir = this.CameraCog.Orientation.GetWorldForward();
         var start = this.CameraCog.Transform.WorldTranslation;
         
-        var hitObj : Cog = null;
-        var hitWorldNormal = local Real3(0.0, 0.0, 0.0);
+        var foundObject : Cog = null;
+        var worldNormal = local Real3(0.0, 0.0, 0.0);
         
         var castResults = this.Space.PhysicsSpace.CastRayResults(start, dir, 20);
         foreach(var castResult in castResults)
         {
-            hitObj = castResult.GetObjectHit();
-            
-            if (filter(hitObj))
+            if (castResult.GetDistance() > maxDistance)
             {
-                hitWorldNormal = castResult.GetNormal();
+                break;
+            }
+            
+            var hitObject = castResult.GetObjectHit();
+            
+            if (filter(hitObject))
+            {
+                foundObject = hitObject;
+                worldNormal = castResult.GetNormal();
                 break;
             }
             
@@ -87,19 +160,14 @@ class Player : ScriptComponent
         
         var nullResult : HitResult = null;
         
-        if(hitObj == null)
-        {
-            return nullResult;
-        }
-        
-        if(hitObj.BlockScript == null)
+        if(foundObject == null)
         {
             return nullResult;
         }
         
         var result = new HitResult();
-        result.Object = hitObj;
-        result.WorldNormal = hitWorldNormal;
+        result.Object = foundObject;
+        result.WorldNormal = worldNormal;
         
         return result;
     }
@@ -108,6 +176,19 @@ class Player : ScriptComponent
     {
         this.RotationAngles.Y -= e.ScreenDelta.X * this.LookSpeed;
         this.RotationAngles.X -= e.ScreenDelta.Y * this.LookSpeed;
+        
+        var maxDown = -Math.Pi / 2.0;
+        var maxUp = Math.Pi / 2.0;
+        
+        if (this.RotationAngles.X < maxDown)
+        {
+            this.RotationAngles.X = maxDown;
+        }
+        
+        if (this.RotationAngles.X > maxUp)
+        {
+            this.RotationAngles.X = maxUp;
+        }
     }
     
     function OnLockStepMouseDown(e : LockStepMouseButtonEvent)
@@ -129,6 +210,43 @@ class Player : ScriptComponent
         {
             this.JumpPressed = true;
         }
+        
+        if(e.Key == Keys.E && this.InteractCog != null)
+        {
+            var toSend = new InteractEvent();
+            toSend.PlayerCog = this.Owner;
+            this.InteractCog.DispatchEvent("Interact", toSend as Event);
+        }
+        
+        //Change tool
+        var index = e.Key - Keys.One;
+        
+        if(index == -1)
+        {
+            index = 9;
+        }
+        
+        if(index < -1 || index >= this.Tools.Count)
+        {
+            return;
+        }
+        
+        var newTool = this.Tools.Get(index);
+        if(this.ActiveTool == newTool)
+        {
+            return;
+        }
+        
+        this.SendToolEvent("DeactivateTool", this.ActiveTool);
+        this.ActivateTool(newTool);
+    }
+    
+    function ActivateTool(tool : Cog)
+    {
+        this.HudToolText.Text = tool.Name;
+        this.HudToolSubText.Text = "";
+        this.ActiveTool = tool;
+        this.SendToolEvent("ActivateTool", this.ActiveTool);
     }
     
     function OnLockStepKeyUp(e : LockStepKeyEvent)
@@ -142,6 +260,17 @@ class Player : ScriptComponent
         {
             this.JumpPressed = false;
         }
+    }
+    
+    function SendToolEvent(eventName : String, obj : Cog)
+    {
+        var toSend = new ToolChangeEvent();
+        toSend.Peer = this.Peer;
+        toSend.CameraCog = this.CameraCog;
+        toSend.PlayerCog = this.Owner;
+        toSend.Player = this;
+        toSend.HudText = this.HudToolSubText;
+        obj.DispatchEvent(eventName, toSend as Event);
     }
 }
 
@@ -159,9 +288,24 @@ class InteractEvent : Event
 {
     // If this gets set to anything but null, it means someone responded
     var Message : String = null;
-    var Object : Cog = null;
+    
+    var PlayerCog : Cog = null;
+    
     
     constructor() : base()
     {
     }
+}
+
+class ToolChangeEvent : Event
+{
+    var Index : Integer = 0;
+    var LastIndex : Integer = 0;
+    var Peer : LockStepPeer = null;
+    var CameraCog : Cog = null;
+    var PlayerCog : Cog = null;
+    var Player : Player = null;
+    var HudText : ShadowText = null;
+    
+    constructor() : base() {}
 }

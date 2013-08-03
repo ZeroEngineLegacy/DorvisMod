@@ -21,6 +21,13 @@ Material =
 		Vec2 NormalTiling = [1, 1],
 		Vec2 NormalOffset = [0, 0],
 	},
+	SpecularMapping = 
+	{
+		string SpecularMapTexture = "519e7a0b9bcab055:DiamondTile2Diffuse",
+		Vec2 SpecularTiling = [1, 1],
+		Vec2 SpecularOffset = [0, 0],
+		Vec2 SpecularScroll = [0, 0],
+	},
 	TextureDiffuse = 
 	{
 		string DiffuseTexture = "519e7a0b9bcab055:DiamondTile2Diffuse",

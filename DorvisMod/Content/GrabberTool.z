@@ -182,6 +182,12 @@ class GrabberTool : ScriptComponent
         //jointCreator.ConnectToWorld = true;
         
         obj = obj.GetRoot();
+        
+        if (obj.RigidBody == null)
+        {
+            return;
+        }
+        
         var mass = obj.RigidBody.GetMass();
         point = obj.RigidBody.WorldCenterOfMass;
         var cog = jointCreator.AttachWorld(this.CameraCog,obj,point,"WeldJoint");

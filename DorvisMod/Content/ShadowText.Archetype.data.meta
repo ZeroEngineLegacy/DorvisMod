@@ -2,8 +2,8 @@ DataContent =
 {
 	DataBuilder = 
 	{
-		string Name = "Tree_evergreen",
-		uint64 ResourceId = 519e75174d0f5fa8,
+		string Name = "ShadowText",
+		uint64 ResourceId = 515539d215bf3be2,
 		string LoaderType = "Cog",
 		uint Version = 0,
 		bool ShowInEditor = true,

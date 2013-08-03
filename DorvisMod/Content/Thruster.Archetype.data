@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-12.1295, 6.18029, -4.07659],
+		Vec3 Translation = [3.63354, -0.514101, -0.939358],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -47,9 +47,6 @@ Cog =
 		Vec3 Offset = [0, 0, 0],
 		Vec3 Size = [0.5, 0.5, 0.5],
 	},
-	BlockScript = 
-	{
-	},
 	Thruster = 
 	{
 	},
@@ -60,5 +57,8 @@ Cog =
 		bool LocalSpaceDirection = true,
 		float ForceStrength = 100,
 		Vec3 ForceDirection = [0, -1, 0],
+	},
+	BlockTag = 
+	{
 	},
 },

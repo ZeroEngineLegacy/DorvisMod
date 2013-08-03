@@ -1,0 +1,8 @@
+FontContent = 
+{
+	FontBuilder = 
+	{
+		string Name = "HemiHead",
+		uint64 ResourceId = 5154fda3d0e09e6c,
+	},
+},

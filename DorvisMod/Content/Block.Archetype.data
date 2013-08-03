@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-15.7898, -1.78924, -0.386787],
+		Vec3 Translation = [2.68499, -0.74333, -0.910294],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -43,7 +43,7 @@ Cog =
 		Vec3 Offset = [0, 0, 0],
 		Vec3 Size = [0.5, 0.5, 0.5],
 	},
-	BlockScript = 
+	BlockTag = 
 	{
 	},
 },

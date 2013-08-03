@@ -6,10 +6,15 @@ class Chair : ScriptComponent
 
     function Initialize(init : CogInitializer)
     {
-        //Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, "TestInteract", this.OnTestInteract);
     }
 
-    function OnLogicUpdate(e : UpdateEvent)
+    function OnTestInteract(e : InteractEvent)
+    {
+        e.Message = "Sit down in the chair [E]";
+    }
+
+    function OnInteract(e : InteractEvent)
     {
     }
 }

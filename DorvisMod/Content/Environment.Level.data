@@ -22,7 +22,7 @@ Level =
 		{
 			bool Active = true,
 			bool WakeUpOnChange = false,
-			float Drag = 0.7,
+			float Drag = 0.3,
 		},
 		WaterEffect = 
 		{
@@ -53,7 +53,7 @@ Level =
 			bool Hdr = true,
 			bool Glow = true,
 			bool ToneMapping = false,
-			float BrightThreshold = 1,
+			float BrightThreshold = 1.1,
 			float Exposure = 0.5,
 			bool Refraction = true,
 		},
@@ -61,6 +61,11 @@ Level =
 		{
 			string Texture = "519e4513413133eb:Miramar",
 			Quat Rotation = [0, 0, 0, 1],
+		},
+		FixedAspectRatio = 
+		{
+			float Width = 16,
+			float Height = 9,
 		},
 	},
 	Cog = 
@@ -79,9 +84,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [5.4624, 8.18847, 25.6002],
+			Vec3 Translation = [34.1367, 10.2323, 41.3098],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0938905, 0.0300964, 0.00283962, 0.995123],
+			Quat Rotation = [-0.05002, 0.322307, 0.0170572, 0.945159],
 		},
 		Camera = 
 		{
@@ -94,10 +99,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 25.6742,
-			float LookAngle = 0.587592,
-			float LookRotation = -29.9056,
-			Vec3 LookTarget = [3.93822, 3.38646, 0.425182],
+			float LookDistance = 51.1,
+			float LookAngle = 0.331592,
+			float LookRotation = -36.7856,
+			Vec3 LookTarget = [3.09058, 4.8387, 1.08225],
 		},
 		EditorRenderer = 
 		{
@@ -4968,7 +4973,21 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [3.90115, 1.09263, -0.124737],
+			Vec3 Translation = [2.59635, 1.09263, -0.124737],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "519e4cbc821aa3bb:Chair",
+		LinkId = 
+		{
+			uint Id = 323,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [5.80667, -0.788575, -0.259445],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},

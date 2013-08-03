@@ -4,8 +4,10 @@ class SpawnTool : ScriptComponent
     var Index : Integer = 0;
     var CameraCog : Cog = null;
     var Player : Player = null;
+    var HudText : ShadowText = null;
     var Ghost : DebugObb = new DebugObb();
     var IsOverBlock : Boolean = false;
+    var DestroyMode : Boolean = false;
     
     [Editable][Serialized]
     var ObjToSpawn : String = "Block";
@@ -24,6 +26,9 @@ class SpawnTool : ScriptComponent
     {
         this.CameraCog = e.CameraCog;
         this.Player = e.Player;
+        this.HudText = e.HudText;
+        Zero.Connect(e.Peer as Cog, Events.LockStepKeyDown, this.LockStepKeyDown);
+        Zero.Connect(e.Peer as Cog, Events.LockStepKeyUp, this.LockStepKeyUp);
         Zero.Connect(e.Peer as Cog, Events.LockStepMouseDown, this.LockStepMouseDown);
         Zero.Connect(e.Peer as Cog, Events.LockStepMouseMove, this.LockStepMouseMove);
         Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
@@ -33,6 +38,7 @@ class SpawnTool : ScriptComponent
     {
         this.CameraCog = null;
         this.Player = null;
+        this.HudText = null;
         Zero.Disconnect(e.Peer as Cog, Events.LockStepMouseDown, this as Component);
         Zero.Disconnect(e.Peer as Cog, Events.LockStepMouseMove, this as Component);
         Zero.Disconnect(this.Space as Cog, Events.LogicUpdate, this as Component);
@@ -40,15 +46,59 @@ class SpawnTool : ScriptComponent
     
     function OnLogicUpdate(e : UpdateEvent)
     {
-        if (this.IsOverBlock)
+        this.IsOverBlock = false;
+        var result = this.Player.RayCast(this.BlockFilter);
+        
+        if (result == null)
         {
-            this.Ghost.Draw();
+            this.HudText.Text = "";
+            return;
+        }
+        
+        this.IsOverBlock = true;
+        var pos = result.Object.Transform.WorldTranslation;
+        var color = local Real4(1.0, 0.0, 0.0, 1.0);
+        
+        
+        if (this.DestroyMode == false)
+        {
+            this.HudText.Text = "Create";
+            pos  += result.WorldNormal;
+            color = local Real4(1.0);
+        }
+        else
+        {
+            this.HudText.Text = "Destroy";
+        }
+        
+        this.Ghost.SpaceId(this.Space.GetRuntimeId());
+        this.Ghost.Float4Color(color);
+        this.Ghost.Extents(local Real3(0.5));
+        this.Ghost.Rotation(result.Object.Transform.WorldRotation);
+        this.Ghost.Position(pos);
+        this.Ghost.Partial(true);
+        this.Ghost.Draw();
+    }
+    
+    function LockStepKeyDown(e : LockStepKeyEvent)
+    {
+        if (e.Key == Keys.Shift)
+        {
+            this.DestroyMode = true;
+        }
+    }
+    
+    function LockStepKeyUp(e : LockStepKeyEvent)
+    {
+        if (e.Key == Keys.Shift)
+        {
+            this.DestroyMode = false;
         }
     }
     
     function LockStepMouseDown(e : LockStepMouseButtonEvent)
     {
-        if(e.ShiftPressed)
+        if(this.DestroyMode)
         {
             this.DestroyObj(e);
         }
@@ -60,27 +110,11 @@ class SpawnTool : ScriptComponent
     
     function BlockFilter(hit : Cog) : Boolean
     {
-        return hit.BlockScript != null;
+        return hit.BlockTag != null;
     }
     
     function LockStepMouseMove(e : LockStepMouseEvent)
     {
-        this.IsOverBlock = false;
-        var result = this.Player.RayCast(this.BlockFilter);
-        
-        if (result == null)
-        {
-            return;
-        }
-        
-        this.IsOverBlock = true;
-        
-        var pos = result.Object.Transform.WorldTranslation + result.WorldNormal;
-        
-        this.Ghost.Float4Color(local Real4(1.0));
-        this.Ghost.Extents(local Real3(0.5));
-        this.Ghost.Rotation(result.Object.Transform.WorldRotation);
-        this.Ghost.Position(pos);
     }
     
     function SpawnObj(e : LockStepMouseButtonEvent, objToSpawn : String)
@@ -102,6 +136,7 @@ class SpawnTool : ScriptComponent
         }
         newObj.Transform.Rotation = Math.RotationQuaternionBetween(local Real3(0.0, 1.0, 0.0), localNormal);
         newObj.AttachTo(result.Object);
+        this.Space.CreateAtPosition("SpawnEffect", newObj.Transform.WorldTranslation);
     }
     
     function DestroyObj(e : LockStepMouseButtonEvent)
@@ -114,5 +149,6 @@ class SpawnTool : ScriptComponent
         }
         
         result.Object.Destroy();
+        this.Space.CreateAtPosition("DestroyEffect", result.Object.Transform.WorldTranslation);
     }
 }

@@ -1,8 +1,0 @@
-TextContent = 
-{
-	ZilchScriptBuilder = 
-	{
-		string Name = "ToolPalette",
-		uint64 ResourceId = 519e7069aff86c3f,
-	},
-},

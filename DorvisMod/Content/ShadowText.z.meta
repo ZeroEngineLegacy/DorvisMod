@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "ShadowText",
+		uint64 ResourceId = 51553eb523cb29af,
+	},
+},

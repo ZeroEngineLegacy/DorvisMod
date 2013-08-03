@@ -61,6 +61,10 @@ Level =
 			float LookRotation = -4.22159,
 			Vec3 LookTarget = [16.0728, 7.38506, 0.974791],
 		},
+		EditorRenderer = 
+		{
+			Vec4 ClearColor = [0.278431, 0.278431, 0.278431, 1],
+		},
 	},
 	Cog = 
 	{

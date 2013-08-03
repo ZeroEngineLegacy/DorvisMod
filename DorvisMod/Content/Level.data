@@ -41,9 +41,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-34.2621, 19.1851, 7.61837],
+			Vec3 Translation = [-34.2621, 19.1852, 7.61825],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.193082, -0.606209, -0.154865, 0.755808],
+			Quat Rotation = [-0.193083, -0.60621, -0.154866, 0.755807],
 		},
 		Camera = 
 		{
@@ -60,6 +60,10 @@ Level =
 			float LookAngle = 1.5068,
 			float LookRotation = 2.9228,
 			Vec3 LookTarget = [0, 0, 0],
+		},
+		EditorRenderer = 
+		{
+			Vec4 ClearColor = [0.278431, 0.278431, 0.278431, 1],
 		},
 	},
 },
