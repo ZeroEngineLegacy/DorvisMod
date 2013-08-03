@@ -1,0 +1,20 @@
+class Thruster : ScriptComponent
+{
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        // HACK
+        Zero.Connect(Zero.Keyboard as Cog, Events.KeyDown, this.OnKeyDown);
+    }
+
+    function OnKeyDown(e : KeyboardEvent)
+    {
+        if (e.Key == Keys.T)
+        {
+            this.Owner.ThrustEffect.Active = !this.Owner.ThrustEffect.Active;
+        }
+    }
+}

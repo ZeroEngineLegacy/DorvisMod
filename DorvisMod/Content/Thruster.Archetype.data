@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-8.18966, -2.23732, -4.382],
+		Vec3 Translation = [-12.1295, 6.18029, -4.07659],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -49,5 +49,16 @@ Cog =
 	},
 	BlockScript = 
 	{
+	},
+	Thruster = 
+	{
+	},
+	ThrustEffect = 
+	{
+		bool Active = false,
+		bool WakeUpOnChange = true,
+		bool LocalSpaceDirection = true,
+		float ForceStrength = 100,
+		Vec3 ForceDirection = [0, -1, 0],
 	},
 },

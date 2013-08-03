@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Thruster",
+		uint64 ResourceId = 519e3f1b4ebece2d,
+	},
+},
