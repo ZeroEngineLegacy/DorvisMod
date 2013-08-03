@@ -34,7 +34,28 @@ Level =
 		},
 		AmbientLight = 
 		{
-			Vec4 Color = [0.495, 0.495, 0.495, 1],
+			Vec4 Color = [0.575, 0.575, 0.575, 1],
+		},
+		CameraViewport = 
+		{
+			bool Background = true,
+			Vec2 Offset = [0, 0],
+			Vec2 Size = [1, 1],
+			uint Layer = 0,
+			bool Active = true,
+			bool Blocking = true,
+			uint Renderer = 1,
+			uint Camera = 4294967293,
+		},
+		DeferredRenderer = 
+		{
+			Vec4 ClearColor = [0, 0, 0, 0],
+			bool Hdr = true,
+			bool Glow = true,
+			bool ToneMapping = false,
+			float BrightThreshold = 1,
+			float Exposure = 0.5,
+			bool Refraction = true,
 		},
 		SkyBox = 
 		{
@@ -58,9 +79,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-7.12453, 7.2641, -3.96491],
+			Vec3 Translation = [5.4624, 8.18847, 25.6002],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0955696, 0.766265, 0.117272, 0.624461],
+			Quat Rotation = [-0.0938905, 0.0300964, 0.00283962, 0.995123],
 		},
 		Camera = 
 		{
@@ -73,10 +94,14 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 6.1883,
-			float LookAngle = 0.939592,
-			float LookRotation = -12.7696,
-			Vec3 LookTarget = [-12.9081, 5.4133, -2.7731],
+			float LookDistance = 25.6742,
+			float LookAngle = 0.587592,
+			float LookRotation = -29.9056,
+			Vec3 LookTarget = [3.93822, 3.38646, 0.425182],
+		},
+		EditorRenderer = 
+		{
+			Vec4 ClearColor = [0.278431, 0.278431, 0.278431, 1],
 		},
 	},
 	Cog = 
@@ -3730,7 +3755,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "Light",
+			string Name = "Sun",
 		},
 		Transform = 
 		{
@@ -4943,7 +4968,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.971964, 3.11847, -3.09015],
+			Vec3 Translation = [3.90115, 1.09263, -0.124737],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},

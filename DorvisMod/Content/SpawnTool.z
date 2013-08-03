@@ -3,6 +3,12 @@ class SpawnTool : ScriptComponent
     var GameViewport : GameViewport = null;
     var Index : Integer = 0;
     var CameraCog : Cog = null;
+    var Player : Player = null;
+    var Ghost : DebugObb = new DebugObb();
+    var IsOverBlock : Boolean = false;
+    
+    [Editable][Serialized]
+    var ObjToSpawn : String = "Block";
     
     constructor() : base()
     {
@@ -17,13 +23,27 @@ class SpawnTool : ScriptComponent
     function OnActivateTool(e : ToolChangeEvent)
     {
         this.CameraCog = e.CameraCog;
+        this.Player = e.Player;
         Zero.Connect(e.Peer as Cog, Events.LockStepMouseDown, this.LockStepMouseDown);
+        Zero.Connect(e.Peer as Cog, Events.LockStepMouseMove, this.LockStepMouseMove);
+        Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
     }
     
     function OnDeativateTool(e : ToolChangeEvent)
     {
         this.CameraCog = null;
+        this.Player = null;
         Zero.Disconnect(e.Peer as Cog, Events.LockStepMouseDown, this as Component);
+        Zero.Disconnect(e.Peer as Cog, Events.LockStepMouseMove, this as Component);
+        Zero.Disconnect(this.Space as Cog, Events.LogicUpdate, this as Component);
+    }
+    
+    function OnLogicUpdate(e : UpdateEvent)
+    {
+        if (this.IsOverBlock)
+        {
+            this.Ghost.Draw();
+        }
     }
     
     function LockStepMouseDown(e : LockStepMouseButtonEvent)
@@ -34,72 +54,65 @@ class SpawnTool : ScriptComponent
         }
         else
         {
-            this.SpawnObj(e, "Block");
+            this.SpawnObj(e, this.ObjToSpawn);
+        }
+    }
+    
+    function BlockFilter(hit : Cog) : Boolean
+    {
+        return hit.BlockScript != null;
+    }
+    
+    function LockStepMouseMove(e : LockStepMouseEvent)
+    {
+        this.IsOverBlock = false;
+        var result = this.Player.RayCast(this.BlockFilter);
+        
+        if (result == null)
+        {
+            return;
         }
         
+        this.IsOverBlock = true;
+        
+        var pos = result.Object.Transform.WorldTranslation + result.WorldNormal;
+        
+        this.Ghost.Float4Color(local Real4(1.0));
+        this.Ghost.Extents(local Real3(0.5));
+        this.Ghost.Rotation(result.Object.Transform.WorldRotation);
+        this.Ghost.Position(pos);
     }
     
     function SpawnObj(e : LockStepMouseButtonEvent, objToSpawn : String)
     {
-        var dir = this.CameraCog.Orientation.GetWorldForward();
-        var start = this.CameraCog.Transform.WorldTranslation;
+        var result = this.Player.RayCast(this.BlockFilter);
         
-        var hitObj : Cog = null;
-        var hitNormal = local Real3(0.0, 0.0, 0.0);
-        
-        var castResults = this.Space.PhysicsSpace.CastRayResults(start, dir, 20);
-        foreach(var castResult in castResults)
-        {
-            hitObj = castResult.GetObjectHit();
-            
-            if (hitObj.BlockScript == null)
-            {
-                continue;
-            }
-            
-            hitNormal = castResult.GetNormal();
-            break;
-        }
-        
-        if(hitObj == null)
+        if (result == null)
         {
             return;
         }
         
-        if(hitObj.BlockScript == null)
-        {
-            return;
-        }
-        
-        var localNormal = hitObj.Transform.TransformNormalInverse(hitNormal);
+        var localNormal = result.Object.Transform.TransformNormalInverse(result.WorldNormal);
         var newObjPos = localNormal;
         
         var newObj = this.Space.CreateAtPosition(objToSpawn, newObjPos);
-        newObj.RigidBody.Static = true;
-        newObj.AttachTo(hitObj);
+        if(newObj.RigidBody != null)
+        {
+            newObj.RigidBody.Static = true;
+        }
+        newObj.Transform.Rotation = Math.RotationQuaternionBetween(local Real3(0.0, 1.0, 0.0), localNormal);
+        newObj.AttachTo(result.Object);
     }
     
     function DestroyObj(e : LockStepMouseButtonEvent)
     {
-        var dir = this.CameraCog.Orientation.GetWorldForward();
-        var start = this.CameraCog.Transform.WorldTranslation;
+        var result = this.Player.RayCast(this.BlockFilter);
         
-        var hitObj : Cog = null;
-        var hitNormal = local Real3(0.0, 0.0, 0.0);
-        
-        var castResults = this.Space.PhysicsSpace.CastRayResults(start, dir, 1);
-        foreach(var castResult in castResults)
+        if (result == null)
         {
-            hitObj = castResult.GetObjectHit();
-            
-            if(hitObj != null)
-            {
-                if(hitObj.BlockScript != null)
-                {
-                    hitObj.Destroy();
-                    return;
-                }
-            }
+            return;
         }
+        
+        result.Object.Destroy();
     }
 }

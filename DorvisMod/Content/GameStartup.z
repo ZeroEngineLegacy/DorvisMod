@@ -33,10 +33,13 @@ class GameStartup : ScriptComponent
             
             if (peer == this.Owner.LockStepGame.GetUnsafeLocalPeer())
             {
-                var camViewport = player.FindChildByName("Camera").CameraViewport;
-                camViewport.Active = true;
-                this.Owner.LockStepMouse.SetInputViewport(camViewport.Viewport);
-                this.Owner.LockStepKeyboard.SetInputViewport(camViewport.Viewport);
+                var camCog = player.FindChildByName("Camera");
+                var levelSettings = this.MainSpace.FindObjectByName("LevelSettings");
+                var viewport = levelSettings.CameraViewport.Viewport;
+                levelSettings.CameraViewport.Camera = camCog;
+                this.Owner.LockStepMouse.SetInputViewport(viewport);
+                this.Owner.LockStepKeyboard.SetInputViewport(viewport);
+                viewport.SetMouseTrap(true);
             }
             
             player.Player.LockStepInitialize(peer);

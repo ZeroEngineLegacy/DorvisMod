@@ -1,11 +1,3 @@
-class LockStepInitEvent : Event
-{
-    constructor() : base() {}
-    
-    var Peer : LockStepPeer = null;
-    var CameraCog : Cog = null;
-}
-
 class Player : ScriptComponent
 {
     [Editable][Serialized]
@@ -34,7 +26,6 @@ class Player : ScriptComponent
     function LockStepInitialize(peer : LockStepPeer)
     {
         this.CameraCog = this.Owner.FindChildByName("Camera");
-        this.CameraCog.CameraViewport.Viewport.SetMouseTrap(true);
         
         Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(peer as Cog, Events.LockStepMouseMove, this.OnLockStepMouseMove);
@@ -45,10 +36,7 @@ class Player : ScriptComponent
         
         
         this.ToolContainer = this.Owner.FindChildByName("ToolContainer");
-        var toSend = new LockStepInitEvent();
-        toSend.Peer = peer;
-        toSend.CameraCog = this.CameraCog;
-        this.ToolContainer.DispatchEvent("LockStepInit", toSend as Event);
+        this.ToolContainer.ToolPalette.LockStepInitialize(this.Owner, this.CameraCog, peer);
     }
     
     function AddMovement(e : LockStepKeyEvent, key : Integer, movement : Real3)
@@ -74,6 +62,46 @@ class Player : ScriptComponent
         var movement = this.Owner.Transform.TransformNormal(this.Movement);
         movement.Y = 0.0;
         this.Owner.DynamicMotor.MoveInDirection(movement * local Real3(this.Speed), local Real3(0.0, 1.0, 0.0));
+    }
+    
+    function RayCast(filter : delegate(hit : Cog) : Boolean) : HitResult
+    {
+        var dir = this.CameraCog.Orientation.GetWorldForward();
+        var start = this.CameraCog.Transform.WorldTranslation;
+        
+        var hitObj : Cog = null;
+        var hitWorldNormal = local Real3(0.0, 0.0, 0.0);
+        
+        var castResults = this.Space.PhysicsSpace.CastRayResults(start, dir, 20);
+        foreach(var castResult in castResults)
+        {
+            hitObj = castResult.GetObjectHit();
+            
+            if (filter(hitObj))
+            {
+                hitWorldNormal = castResult.GetNormal();
+                break;
+            }
+            
+        }
+        
+        var nullResult : HitResult = null;
+        
+        if(hitObj == null)
+        {
+            return nullResult;
+        }
+        
+        if(hitObj.BlockScript == null)
+        {
+            return nullResult;
+        }
+        
+        var result = new HitResult();
+        result.Object = hitObj;
+        result.WorldNormal = hitWorldNormal;
+        
+        return result;
     }
     
     function OnLockStepMouseMove(e : LockStepMouseEvent)
@@ -114,5 +142,26 @@ class Player : ScriptComponent
         {
             this.JumpPressed = false;
         }
+    }
+}
+
+class HitResult
+{
+    constructor()
+    {
+    }
+    
+    var Object : Cog = null;
+    var WorldNormal : Real3 = local Real3();
+}
+
+class InteractEvent : Event
+{
+    // If this gets set to anything but null, it means someone responded
+    var Message : String = null;
+    var Object : Cog = null;
+    
+    constructor() : base()
+    {
     }
 }

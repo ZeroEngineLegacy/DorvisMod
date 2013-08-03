@@ -4,6 +4,8 @@ class ToolChangeEvent : Event
     var LastIndex : Integer = 0;
     var Peer : LockStepPeer = null;
     var CameraCog : Cog = null;
+    var PlayerCog : Cog = null;
+    var Player : Player = null;
     
     constructor() : base() {}
 }
@@ -14,6 +16,7 @@ class ToolPalette : ScriptComponent
     var CurrentToolIndex : Integer = 0;
     var Peer : LockStepPeer = null;
     var CameraCog : Cog = null;
+    var PlayerCog : Cog = null;
     var LastActiveTool : Cog = null;
     
     constructor() : base()
@@ -22,13 +25,13 @@ class ToolPalette : ScriptComponent
     
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(this.Owner, "LockStepInit", this.OnLockStepInit);
     }
     
-    function OnLockStepInit(e : LockStepInitEvent)
+    function LockStepInitialize(playerCog : Cog, cameraCog : Cog, peer : LockStepPeer)
     {
-        this.Peer = e.Peer;
-        this.CameraCog = e.CameraCog;
+        this.PlayerCog = playerCog;
+        this.CameraCog = cameraCog;
+        this.Peer = peer;
         Zero.Connect(this.Peer as Cog, Events.LockStepKeyDown, this.OnLockStepKeyDown);
         
         
@@ -38,6 +41,9 @@ class ToolPalette : ScriptComponent
         
         var grabber = this.Owner.FindChildByName("GrabberTool");
         this.Tools.Add(grabber);
+        
+        var thrusterSpawner = this.Owner.FindChildByName("ThrusterSpawnTool");
+        this.Tools.Add(thrusterSpawner);
         
         this.LastActiveTool = blockSpawner;
         
@@ -76,6 +82,8 @@ class ToolPalette : ScriptComponent
         var toSend = new ToolChangeEvent();
         toSend.Peer = this.Peer;
         toSend.CameraCog = this.CameraCog;
+        toSend.PlayerCog = this.PlayerCog;
+        toSend.Player = this.PlayerCog.Player;
         obj.DispatchEvent(eventName, toSend as Event);
     }
 }
