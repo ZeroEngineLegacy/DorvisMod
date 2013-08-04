@@ -1,0 +1,73 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Archetyped = 
+	{
+		string Name = "5156e45015e435cf:ShadowTextFadeRed",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-1.27279, 17.1164, 8.03399],
+		Vec3 Scale = [0.5, 0.5, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	SpriteText = 
+	{
+		SpriteGeometryMode GeometryMode = ZPlane,
+		TextPositionMode Position = Centered,
+		string FontName = "5154fda3d0e09e6c:HemiHead",
+		uint FontSize = 50,
+		Vec4 Color = [1, 0, 0, 1],
+		bool Visible = true,
+		string Text = "Hello",
+		bool OnTop = false,
+		BlendMode BlendMode = Alpha,
+		Vec2 Size = [0, 0],
+		TextAlign Align = Left,
+	},
+	ShadowText = 
+	{
+		string InitialText = "",
+	},
+	FadeOutShadowText = 
+	{
+		float Time = 4,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Shadow",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0.1, -0.1, -0.2],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			SpriteText = 
+			{
+				SpriteGeometryMode GeometryMode = ZPlane,
+				TextPositionMode Position = Centered,
+				string FontName = "5154fda3d0e09e6c:HemiHead",
+				uint FontSize = 50,
+				Vec4 Color = [0, 0, 0, 1],
+				bool Visible = true,
+				string Text = "Hello",
+				bool OnTop = false,
+				BlendMode BlendMode = Alpha,
+				Vec2 Size = [0, 0],
+				TextAlign Align = Left,
+			},
+		},
+	},
+},

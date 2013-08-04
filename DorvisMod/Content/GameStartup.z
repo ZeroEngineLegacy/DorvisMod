@@ -20,7 +20,7 @@ class GameStartup : ScriptComponent
     
     function OnGameRequestQuit(e : GameEvent)
     {
-        e.Handled = true;
+        //e.Handled = true;
     }
 
     function OnLockStepGameStarted(e : LockStepGameStartEvent)

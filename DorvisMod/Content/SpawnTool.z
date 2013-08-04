@@ -132,6 +132,72 @@ class SpawnTool : ScriptComponent
     {
     }
     
+    [Static]
+    function Sign(input : Real) : Real
+    {
+        if (input > 0.0)
+        {
+            return 1.0;
+        }
+        else if (input < 0.0)
+        {
+            return -1.0;
+        }
+        
+        return 0.0;
+    }
+    
+    [Static]
+    function SnapToCardinalDirection(input : Real3) : Real3
+    {
+        // I really have no idea what's the best way to go about this
+        var dx = Math.Abs(input.X);
+        var dy = Math.Abs(input.Y);
+        var dz = Math.Abs(input.Z);
+        
+        if (dx > dy)
+        {
+            // X is greater than Y... so lets check against Z
+            if (dx > dz)
+            {
+                // X is the greatest
+                return local Real3(SpawnTool.Sign(input.X), 0.0, 0.0);
+            }
+            else
+            {
+                // Z is the greatest
+                return local Real3(0.0, 0.0, SpawnTool.Sign(input.Z));
+            }
+        }
+        else
+        {
+            // Y is greater than X... so lets check against Z
+            if (dy > dz)
+            {
+                // Y is the greatest
+                return local Real3(0.0, SpawnTool.Sign(input.Y), 0.0);
+            }
+            else
+            {
+                // Z is the greatest
+                return local Real3(0.0, 0.0, SpawnTool.Sign(input.Z));
+            }
+        }
+    }
+    
+    [Static]
+    function SnapToCardinalDirectionOrZ(input : Real3) : Real3
+    {
+        var result = SpawnTool.SnapToCardinalDirection(input);
+        
+        if (Math.LengthSq(result) < 0.5)
+        {
+            result = local Real3(0.0, 0.0, 1.0);
+        }
+        
+        return result;
+    }
+    
     function SpawnObj(e : LockStepMouseButtonEvent, objToSpawn : String)
     {
         var attach = true;
@@ -152,10 +218,34 @@ class SpawnTool : ScriptComponent
         
         if (attach)
         {
-            var localNormal = result.Object.Transform.TransformNormalInverse(result.WorldNormal);
-            var newObjPos = localNormal;
-            newObj.Transform.Translation = newObjPos;
-            newObj.Transform.Rotation = Math.RotationQuaternionBetween(local Real3(0.0, 1.0, 0.0), localNormal);
+            var tx = result.Object.Transform;
+            var localNormal = tx.TransformNormalInverse(result.WorldNormal);
+            
+            localNormal = SpawnTool.SnapToCardinalDirection(localNormal);
+            
+            if (Math.LengthSq(localNormal) < 0.5)
+            {
+                return;
+            }
+            
+            newObj.Transform.Translation = localNormal;
+            
+            var worldForward = this.Player.WorldLookDirection;
+            var localForward = tx.TransformNormalInverse(worldForward);
+            
+            // Project the forward vector onto the plane made by the normal
+            localForward -= Math.Project(localForward, localNormal);
+            localForward = SpawnTool.SnapToCardinalDirectionOrZ(localForward);
+            
+            // Cross the forward and up to get the right vector
+            var localRight = Math.Cross(localForward, localNormal);
+            
+            // We flip the bases because we want to to do a 180 and face away from us
+            localRight = localRight * local Real3(-1.0);
+            localForward = localForward * local Real3(-1.0);
+            
+            newObj.Transform.SetRotationBases(localForward, localNormal, localRight);
+            //newObj.Transform.Rotation = Math.RotationQuaternionBetween(local Real3(0.0, 1.0, 0.0), localNormal);
             if(newObj.RigidBody != null)
             {
                 newObj.RigidBody.Static = true;

@@ -1,0 +1,44 @@
+class Notifications : ScriptComponent
+{
+    [Editable][Serialized]
+    var LineHeight : Real = 0.6;
+    
+    var ExistingNotifications : Array[Cog] = new Array[Cog]();
+    
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(e : UpdateEvent)
+    {
+    }
+    
+    function Notify(message : String)
+    {
+        for (var i = 0; i < this.ExistingNotifications.Count; 0)
+        {
+            var cog = this.ExistingNotifications.Get(i);
+            
+            if (cog == null)
+            {
+                this.ExistingNotifications.RemoveSwap(i);
+            }
+            else
+            {
+                cog.Transform.WorldTranslation += local Real3(0.0, this.LineHeight, 0.0);
+                ++i;
+            }
+        }
+        
+        var messageCog = this.Space.Create("ShadowTextFadeRed");
+        messageCog.Transform.WorldTranslation = this.Owner.Transform.WorldTranslation;
+        messageCog.ShadowText.Text = message;
+        
+        this.ExistingNotifications.Add(messageCog);
+    }
+}

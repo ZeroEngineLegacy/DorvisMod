@@ -37,6 +37,7 @@ class Player : ScriptComponent
     var HudToolText : ShadowText = null;
     var HudToolSubText : ShadowText = null;
     var HudUndoText : ShadowText = null;
+    var HudNotifications : Notifications = null;
     
     var InteractMessage : String = null;
     var InteractCog : Cog = null;
@@ -53,6 +54,16 @@ class Player : ScriptComponent
     // For some reason this results in a type not found error
     //var UndoStack : Array[delegate()] = new Array[delegate()]();
     var UndoStack : Array[Undo] = new Array[Undo]();
+    
+    var WorldLookDirection : Real3
+    {
+        get { return this.CameraCog.Orientation.GetWorldForward(); }
+    }
+    
+    var WorldLookPosition : Real3
+    {
+        get { return this.CameraCog.Transform.WorldTranslation; }
+    }
     
     constructor() : base()
     {
@@ -87,6 +98,7 @@ class Player : ScriptComponent
         this.HudToolText = this.Hud.FindObjectByName("ToolText").ShadowText;
         this.HudToolSubText = this.Hud.FindObjectByName("ToolSubText").ShadowText;
         this.HudUndoText = this.Hud.FindObjectByName("UndoText").ShadowText;
+        this.HudNotifications = this.Hud.FindObjectByName("NotificationManager").Notifications;
         
         // Add all the initial tools
         foreach (var tool in  this.ToolContainer.Hierarchy.GetChildren())
@@ -166,6 +178,11 @@ class Player : ScriptComponent
         {
             this.Movement += movement;
         }
+    }
+    
+    function Notify(message : String)
+    {
+        this.HudNotifications.Notify(message);
     }
     
     function OnLogicUpdate(e : UpdateEvent)
@@ -360,6 +377,11 @@ class Player : ScriptComponent
                 var nextUndo = this.UndoStack.Get(this.UndoStack.LastIndex);
                 this.HudUndoText.Text = String.Concatenate("Press [Z] to undo ", nextUndo.Name);
             }
+        }
+        
+        if (e.Key == Keys.H)
+        {
+            this.Notify("Test of the notification system");
         }
         
         if(e.Key == Keys.E && this.InteractCog != null)

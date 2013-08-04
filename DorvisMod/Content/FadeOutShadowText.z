@@ -1,0 +1,41 @@
+class FadeOutShadowText : ScriptComponent
+{
+    [Editable][Serialized]
+    var Time : Real = 1.0;
+    
+    var Face : SpriteText = null;
+    var Shadow : SpriteText = null;
+    var Timer : Real = 0.0;
+    
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
+
+        this.Face = this.Owner.SpriteText;
+        this.Shadow = this.Owner.FindChildByName("Shadow").SpriteText;
+    }
+
+    function OnLogicUpdate(e : UpdateEvent)
+    {
+        this.Timer += e.Dt;
+        
+        var percent = this.Timer / this.Time;
+        
+        if (percent >= 1.0)
+        {
+            this.Owner.Destroy();
+            return;
+        }
+        
+        var faceColor = this.Face.Color;
+        var shadowColor = this.Shadow.Color;
+        faceColor.W = 1.0 - percent;
+        shadowColor.W = 1.0 - percent;
+        this.Face.Color = faceColor;
+        this.Shadow.Color = shadowColor;
+    }
+}

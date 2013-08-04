@@ -77,14 +77,26 @@ class KeySetterTool : ScriptComponent
     {
         if (this.CurrentActivatable != null)
         {
-            this.Player.FreezeInput = true;
-            this.IsBindingKeys = true;
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Player.FreezeInput = true;
+                this.IsBindingKeys = true;
+            }
+            else if (e.Button == MouseButtons.Right)
+            {
+                var worldPosition = this.CurrentActivatable.Transform.WorldTranslation;
+                this.Space.CreateAtPosition("MiscEffect", worldPosition);
+                
+                // Create a key effect to let the user know what key the activatable uses
+                var keyEffect = this.Space.CreateAtPosition("KeyEffect", worldPosition);
+                keyEffect.SpriteText.Text = Zero.Keyboard.GetKeyName(this.CurrentActivatable.Activatable.Key);
+            }
         }
     }
     
     function OnLockStepMouseUp(e : LockStepMouseButtonEvent)
     {
-        if (this.IsBindingKeys)
+        if (e.Button == MouseButtons.Left && this.IsBindingKeys)
         {
             this.Player.FreezeInput = false;
             this.IsBindingKeys = false;

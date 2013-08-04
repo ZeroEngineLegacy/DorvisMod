@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [5.1361, 0.878838, 3.71499],
+		Vec3 Translation = [-3.38076, 15.4099, 12.8836],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -55,7 +55,7 @@ Cog =
 		bool Active = false,
 		bool WakeUpOnChange = true,
 		bool LocalSpaceDirection = true,
-		float ForceStrength = 100,
+		float ForceStrength = 200,
 		Vec3 ForceDirection = [0, -1, 0],
 	},
 	BlockTag = 

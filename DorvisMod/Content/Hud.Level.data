@@ -41,9 +41,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [3.28101, 3.4741, 60.8336],
+			Vec3 Translation = [37.5348, 3.68388, 18.6472],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.015928, 0.0824962, -0.00131866, 0.996463],
+			Quat Rotation = [0.0563054, 0.565463, -0.038736, 0.821938],
 		},
 		Camera = 
 		{
@@ -56,10 +56,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 59.4949,
-			float LookAngle = -0.100408,
-			float LookRotation = -4.87759,
-			Vec3 LookTarget = [-6.49797, 5.37561, 2.17868],
+			float LookDistance = 41.4949,
+			float LookAngle = -0.428408,
+			float LookRotation = -5.91759,
+			Vec3 LookTarget = [-0.855755, 9.3424, 3.95126],
 		},
 		EditorRenderer = 
 		{
@@ -259,6 +259,10 @@ Level =
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [1, 1, 1, 1],
 			bool Visible = false,
+		},
+		Notifications = 
+		{
+			float LineHeight = 0.6,
 		},
 	},
 },
