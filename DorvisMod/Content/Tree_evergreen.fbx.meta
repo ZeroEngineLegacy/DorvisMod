@@ -1,9 +1,5 @@
 GeometryContent = 
 {
-	GeneratedArchetype = 
-	{
-		uint64 ResourceId = 519e75174d0f5fa8,
-	},
 	GeometryImport = 
 	{
 		bool ChangeWinding = false,
