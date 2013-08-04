@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-12.5094, -1.30592, -4.54507],
+		Vec3 Translation = [5.05854, 1.17117, 1.68321],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -24,6 +24,7 @@ Cog =
 	Cannon = 
 	{
 		float Speed = 100,
+		string Projectile = "Bullet",
 	},
 	Orientation = 
 	{
@@ -54,5 +55,21 @@ Cog =
 	},
 	BlockScript = 
 	{
+	},
+	Activatable = 
+	{
+		int Key = 32,
+	},
+	BlockTag = 
+	{
+	},
+	SoundEmitter = 
+	{
+		bool StartPlaying = false,
+		int ExtraPriority = 0,
+		string CueName = "5155988faf84296a:Cannon",
+		float Volume = 1,
+		float Pitch = 1,
+		bool Positional = true,
 	},
 },

@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-3.01601, 10.2259, -5.90936],
+		Vec3 Translation = [-9.60919, 9.71199, -7.18361],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -35,7 +35,7 @@ Cog =
 	},
 	CylinderCollider = 
 	{
-		bool Ghost = false,
+		bool Ghost = true,
 		bool SendsMessages = true,
 		bool Seamless = false,
 		string MaterialName = "4faa6050b8692851:HardMaterial",

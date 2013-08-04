@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [3.63354, -0.514101, -0.939358],
+		Vec3 Translation = [5.1361, 0.878838, 3.71499],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -60,5 +60,18 @@ Cog =
 	},
 	BlockTag = 
 	{
+	},
+	Activatable = 
+	{
+		int Key = 87,
+	},
+	SoundEmitter = 
+	{
+		bool StartPlaying = false,
+		int ExtraPriority = 0,
+		string CueName = "51559b749c9e9362:Thruster",
+		float Volume = 1,
+		float Pitch = 1,
+		bool Positional = true,
 	},
 },

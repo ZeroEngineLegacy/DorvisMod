@@ -3,6 +3,9 @@ class ShadowText : ScriptComponent
     var ShadowSpriteText : SpriteText = null;
     var NormalSpriteText : SpriteText = null;
     
+    [Editable][Serialized]
+    var InitialText : String = "";
+    
     var Text : String
     {
         get { return this.NormalSpriteText.Text; }
@@ -23,5 +26,7 @@ class ShadowText : ScriptComponent
         
         var shadowCog = this.Owner.FindChildByName("Shadow");
         this.ShadowSpriteText = shadowCog.SpriteText;
+        
+        this.Text = this.InitialText;
     }
 }

@@ -41,9 +41,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [10.6588, 11.1888, 11.1055],
+			Vec3 Translation = [46.7348, 19.6678, 9.44742],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.154441, -0.239845, -0.0386792, 0.957667],
+			Quat Rotation = [-0.145775, 0.595414, 0.110957, 0.782254],
 		},
 		Camera = 
 		{
@@ -56,9 +56,9 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 12.1,
-			float LookAngle = 0.98759,
-			float LookRotation = -4.22159,
+			float LookDistance = 34.1,
+			float LookAngle = 1.13159,
+			float LookRotation = -6.01359,
 			Vec3 LookTarget = [16.0728, 7.38506, 0.974791],
 		},
 		EditorRenderer = 
@@ -149,61 +149,12 @@ Level =
 			Vec3 Size = [0.5, 0.5, 0.5],
 		},
 	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 5,
-		},
-		Named = 
-		{
-			string Name = "TestCube",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [0, 2.4876, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Model = 
-		{
-			string MaterialName = "519e7a6c96244177:DiamondDiffuse",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = true,
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = false,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
-		},
-		BlockScript = 
-		{
-		},
-	},
 	ArchetypeInstance = 
 	{
 		string Name = "519e75af597c0455:Tree",
 		LinkId = 
 		{
-			uint Id = 6,
+			uint Id = 5,
 		},
 		Transform = 
 		{
@@ -217,7 +168,7 @@ Level =
 		string Name = "519e623f0e5efbef:Player",
 		LinkId = 
 		{
-			uint Id = 7,
+			uint Id = 6,
 		},
 		Transform = 
 		{

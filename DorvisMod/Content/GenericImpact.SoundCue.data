@@ -1,0 +1,28 @@
+SoundCue = 
+{
+	PlayMode PlayMode = Single,
+	float Volume = 0.4,
+	float VolumeVariation = 0,
+	float Pitch = 0,
+	float PitchVariation = 0.1,
+	float MinDistance = 10,
+	float MaxDistance = 10000,
+	float PositionRandomization = 0,
+	uint MaxPlaybacks = 10,
+	int Priority = 128,
+	Array Sounds = 
+	[
+		{
+			string SoundName = "51559afed0b70d06:Hit_MetalJunk4",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "51559afed0b72aaa:Hit_ImpactWood13",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "51559afed0b742c1:Hit_ImpactWood14",
+			float Weight = 1,
+		},
+	],
+},

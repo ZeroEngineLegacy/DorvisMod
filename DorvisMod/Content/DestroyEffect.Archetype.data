@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [5.19283, 2.83639, 1.89461],
+		Vec3 Translation = [5.63413, -1.33512, -4.31853],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -68,5 +68,19 @@ Cog =
 		float WanderAngle = 1,
 		float WanderAngleVariance = 1,
 		float WanderStrength = 5,
+	},
+	TimedDeath = 
+	{
+		float TimeToDie = 1,
+		uint RemainingCollisions = 0,
+	},
+	SoundEmitter = 
+	{
+		bool StartPlaying = true,
+		int ExtraPriority = 0,
+		string CueName = "515598d9aa52519a:Destroy",
+		float Volume = 1,
+		float Pitch = 1,
+		bool Positional = true,
 	},
 },

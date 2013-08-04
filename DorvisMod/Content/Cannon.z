@@ -2,6 +2,8 @@ class Cannon : ScriptComponent
 {
     [Editable][Serialized]
     var Speed : Real = 100.0;
+    [Editable][Serialized][Archetype]
+    var Projectile : String = "Bullet";
     
     constructor() : base()
     {
@@ -9,18 +11,18 @@ class Cannon : ScriptComponent
 
     function Initialize(init : CogInitializer)
     {
-        // HACK
-        Zero.Connect(Zero.Keyboard as Cog, Events.KeyDown, this.OnKeyDown);
+        Zero.Connect(this.Owner, "Activate", this.OnActivate);
     }
 
-    function OnKeyDown(e : KeyboardEvent)
+    function OnActivate(e : Event)
     {
-        if (e.Key == Keys.H)
-        {
-            var bullet = this.Space.Create("Bullet");
-            bullet.Transform.WorldTranslation = this.Owner.Transform.WorldTranslation;
-            bullet.Transform.WorldRotation = this.Owner.Transform.WorldRotation;
-            bullet.RigidBody.Velocity = this.Owner.Orientation.GetWorldForward() * local Real3(this.Speed);
-        }
+        var worldPosition = this.Owner.Transform.WorldTranslation;
+        var bullet = this.Space.Create(this.Projectile);
+        bullet.Transform.WorldTranslation = worldPosition;
+        bullet.Transform.WorldRotation = this.Owner.Transform.WorldRotation;
+        bullet.RigidBody.Velocity = this.Owner.Orientation.GetWorldForward() * local Real3(this.Speed);
+        bullet.RigidBody.Velocity += this.Owner.RigidBody.Velocity;
+        Console.WriteLine(this.Owner.RigidBody.GetPointVelocity(worldPosition));
+        this.Owner.SoundEmitter.Play();
     }
 }

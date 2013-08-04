@@ -1,0 +1,40 @@
+class FloatUpAndDestroy : ScriptComponent
+{
+    [Editable][Serialized]
+    var Speed : Real = 1.0;
+    [Editable][Serialized]
+    var Time : Real = 1.0;
+    
+    var Timer : Real = 0.0;
+    
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(e : UpdateEvent)
+    {
+        this.Timer += e.Dt;
+        this.Owner.Transform.Translation += local Real3(0.0, this.Speed * e.Dt, 0.0);
+        
+        var percent = this.Timer / this.Time;
+        
+        if (percent >= 1.0)
+        {
+            this.Owner.Destroy();
+            return;
+        }
+        
+        var spriteText = this.Owner.SpriteText;
+        if (spriteText != null)
+        {
+            var color = spriteText.Color;
+            color.W = 1.0 - percent;
+            spriteText.Color = color;
+        }
+    }
+}

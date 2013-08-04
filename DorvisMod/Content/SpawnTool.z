@@ -10,7 +10,7 @@ class SpawnTool : ScriptComponent
     var IsOverBlock : Boolean = false;
     var DestroyMode : Boolean = false;
     
-    [Editable][Serialized]
+    [Editable][Serialized][Archetype]
     var ObjToSpawn : String = "Block";
     
     constructor() : base()
@@ -29,10 +29,10 @@ class SpawnTool : ScriptComponent
         this.PlayerCog = e.PlayerCog;
         this.Player = e.Player;
         this.HudText = e.HudText;
-        Zero.Connect(e.Peer as Cog, Events.LockStepKeyDown, this.LockStepKeyDown);
-        Zero.Connect(e.Peer as Cog, Events.LockStepKeyUp, this.LockStepKeyUp);
-        Zero.Connect(e.Peer as Cog, Events.LockStepMouseDown, this.LockStepMouseDown);
-        Zero.Connect(e.Peer as Cog, Events.LockStepMouseMove, this.LockStepMouseMove);
+        Zero.Connect(e.Peer as Cog, Events.LockStepKeyDown, this.OnLockStepKeyDown);
+        Zero.Connect(e.Peer as Cog, Events.LockStepKeyUp, this.OnLockStepKeyUp);
+        Zero.Connect(e.Peer as Cog, Events.LockStepMouseDown, this.OnLockStepMouseDown);
+        Zero.Connect(e.Peer as Cog, Events.LockStepMouseMove, this.OnLockStepMouseMove);
         Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
     }
     
@@ -90,7 +90,7 @@ class SpawnTool : ScriptComponent
         this.Ghost.Draw();
     }
     
-    function LockStepKeyDown(e : LockStepKeyEvent)
+    function OnLockStepKeyDown(e : LockStepKeyEvent)
     {
         if (e.Key == Keys.Shift)
         {
@@ -98,7 +98,7 @@ class SpawnTool : ScriptComponent
         }
     }
     
-    function LockStepKeyUp(e : LockStepKeyEvent)
+    function OnLockStepKeyUp(e : LockStepKeyEvent)
     {
         if (e.Key == Keys.Shift)
         {
@@ -106,7 +106,7 @@ class SpawnTool : ScriptComponent
         }
     }
     
-    function LockStepMouseDown(e : LockStepMouseButtonEvent)
+    function OnLockStepMouseDown(e : LockStepMouseButtonEvent)
     {
         if(this.DestroyMode)
         {
@@ -128,7 +128,7 @@ class SpawnTool : ScriptComponent
         return true;
     }
     
-    function LockStepMouseMove(e : LockStepMouseEvent)
+    function OnLockStepMouseMove(e : LockStepMouseEvent)
     {
     }
     
@@ -165,9 +165,15 @@ class SpawnTool : ScriptComponent
         
         this.Space.CreateAtPosition("SpawnEffect", newObj.Transform.WorldTranslation);
         
+        var undoName = String.Concatenate("spawning a ", this.ObjToSpawn);
         var undo = new SpawnUndo();
         undo.Object = newObj;
-        this.Player.QueueUndo(undo.Action);
+        this.Player.QueueUndo(undoName, undo.Action);
+        
+        if (newObj.Activatable != null)
+        {
+            newObj.Activatable.Setup();
+        }
     }
     
     function DestroyObj(e : LockStepMouseButtonEvent)
@@ -179,7 +185,8 @@ class SpawnTool : ScriptComponent
             return;
         }
         
-        var undoInfo = this.Player.QueueUndo();
+        var undoName = String.Concatenate("destroying a ", this.ObjToSpawn);
+        var undoInfo = this.Player.QueueUndo(undoName);
         
         // Store it in the object store for undo purposes
         Zero.ObjectStore.Store(undoInfo.UniqueName, result.Object);
@@ -206,14 +213,17 @@ class SpawnUndo
     {
     }
     
-    function Action(undo : Undo)
+    function Action(undo : Undo) : Boolean
     {
         if (this.Object != null)
         {
             var worldPosition = this.Object.Transform.WorldTranslation;
             this.Object.Space.CreateAtPosition("DestroyEffect", worldPosition);
             this.Object.Destroy();
+            return true;
         }
+        
+        return false;
     }
 }
 
@@ -228,7 +238,7 @@ class DestroyUndo
     {
     }
     
-    function Action(undo : Undo)
+    function Action(undo : Undo) : Boolean
     {
         if (this.Space != null)
         {
@@ -244,8 +254,22 @@ class DestroyUndo
                 {
                     cog.Transform.WorldTranslation = this.WorldPosition;
                     cog.Transform.WorldRotation = this.WorldRotation;
+                    
+                    if (cog.RigidBody != null)
+                    {
+                        cog.RigidBody.Static = false;
+                    }
                 }
+                
+                this.Space.CreateAtPosition("SpawnEffect", cog.Transform.WorldTranslation);
+                if (cog.Activatable != null)
+                {
+                    cog.Activatable.Setup();
+                }
+                return true;
             }
         }
+        
+        return false;
     }
 }

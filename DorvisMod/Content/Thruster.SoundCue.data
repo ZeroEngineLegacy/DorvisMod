@@ -1,0 +1,20 @@
+SoundCue = 
+{
+	PlayMode PlayMode = Looping,
+	float Volume = 0.4,
+	float VolumeVariation = 0,
+	float Pitch = 0,
+	float PitchVariation = 0.1,
+	float MinDistance = 10,
+	float MaxDistance = 10000,
+	float PositionRandomization = 0,
+	uint MaxPlaybacks = 10,
+	int Priority = 130,
+	Array Sounds = 
+	[
+		{
+			string SoundName = "51559b749c9a8bfb:JetPack_ThrusterLoop01",
+			float Weight = 1,
+		},
+	],
+},

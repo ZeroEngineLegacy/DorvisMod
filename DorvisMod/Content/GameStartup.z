@@ -37,8 +37,14 @@ class GameStartup : ScriptComponent
             
             player.Transform.WorldTranslation = position;
             
-            if (peer == this.Owner.LockStepGame.GetUnsafeLocalPeer())
+            var unsafeIsLocal = peer == this.Owner.LockStepGame.GetUnsafeLocalPeer();
+            
+            player.Player.LockStepInitialize(peer, idCounter, unsafeIsLocal);
+            ++idCounter;
+            
+            if (unsafeIsLocal)
             {
+                player.Microphone.Active = true;
                 var camCog = player.FindChildByName("Camera");
                 var levelSettings = this.MainSpace.FindObjectByName("LevelSettings");
                 var viewport = levelSettings.CameraViewport.Viewport;
@@ -46,10 +52,9 @@ class GameStartup : ScriptComponent
                 this.Owner.LockStepMouse.SetInputViewport(viewport);
                 this.Owner.LockStepKeyboard.SetInputViewport(viewport);
                 viewport.SetMouseTrap(true);
+                
+                player.Player.Hud.FindObjectByName("Camera").CameraViewport.Active = true;
             }
-            
-            player.Player.LockStepInitialize(peer, idCounter);
-            ++idCounter;
         }
     }
 }

@@ -1,0 +1,44 @@
+class Activatable : ScriptComponent
+{
+    // The default key is spacebar
+    [Editable][Serialized]
+    var Key : Integer = 87;
+    
+    var ReuseEvent : Event = new Event();
+    
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+    }
+    
+    function Setup()
+    {
+        // We are guaranteed that we've been attached by this point
+        var root = this.Owner.GetRoot();
+        
+        Zero.Connect(root, Events.LockStepKeyDown, this.OnKeyDown);
+        Zero.Connect(root, Events.LockStepKeyUp, this.OnKeyUp);
+    }
+    
+    function OnKeyDown(e : LockStepKeyEvent)
+    {
+        if (e.Key == this.Key)
+        {
+            this.Owner.DispatchEvent("Activate", this.ReuseEvent);
+        }
+    }
+    
+    function OnKeyUp(e : LockStepKeyEvent)
+    {
+        if (e.Key == this.Key)
+        {
+            this.Owner.DispatchEvent("Deactivate", this.ReuseEvent);
+        }
+    }
+}
+
+
+

@@ -1,0 +1,36 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Archetyped = 
+	{
+		string Name = "5155a9c3f0149967:KeyEffect",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-6.18808, 7.90456, -0.41309],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	SpriteText = 
+	{
+		SpriteGeometryMode GeometryMode = ViewPlane,
+		TextPositionMode Position = Centered,
+		string FontName = "5154fda3d0e09e6c:HemiHead",
+		uint FontSize = 30,
+		Vec4 Color = [1, 1, 1, 1],
+		bool Visible = true,
+		string Text = "W",
+		bool OnTop = true,
+		BlendMode BlendMode = Alpha,
+		Vec2 Size = [0, 0],
+		TextAlign Align = Left,
+	},
+	FloatUpAndDestroy = 
+	{
+		float Time = 1,
+		float Speed = 1,
+	},
+},

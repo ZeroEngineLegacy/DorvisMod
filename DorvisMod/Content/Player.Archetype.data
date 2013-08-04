@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [10.4514, -0.953523, -6.12769],
+		Vec3 Translation = [6.2187, -3.9959, -4.52632],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -35,14 +35,14 @@ Cog =
 	},
 	Player = 
 	{
-		float Speed = 5,
+		float Speed = 7.5,
 	},
 	CapsuleCollider = 
 	{
 		bool Ghost = false,
 		bool SendsMessages = true,
 		bool Seamless = false,
-		string MaterialName = "4faa6050b8692851:HardMaterial",
+		string MaterialName = "5155a62385c0e753:Player",
 		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 		Vec3 Offset = [0, 0, 0],
 		float Radius = 0.3,
@@ -51,6 +51,10 @@ Cog =
 	},
 	DynamicMotor = 
 	{
+	},
+	Microphone = 
+	{
+		bool Active = false,
 	},
 	Hierarchy = 
 	{
@@ -75,7 +79,7 @@ Cog =
 				ProjectionMode ProjectionMode = Perspective,
 				float FieldOfView = 60,
 				float NearPlane = 0.1,
-				float FarPlane = 2000,
+				float FarPlane = 500,
 				float Size = 20,
 			},
 			Orientation = 
@@ -138,7 +142,7 @@ Cog =
 					},
 					Named = 
 					{
-						string Name = "BlockSpawnTool",
+						string Name = "Block Spawner",
 					},
 					Transform = 
 					{
@@ -159,7 +163,79 @@ Cog =
 					},
 					Named = 
 					{
-						string Name = "GrabberTool",
+						string Name = "Thruster Spawner",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					SpawnTool = 
+					{
+						string ObjToSpawn = "Thruster",
+					},
+					Hierarchy = 
+					{
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 6,
+					},
+					Named = 
+					{
+						string Name = "Chair Spawner",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					SpawnTool = 
+					{
+						string ObjToSpawn = "Chair",
+					},
+					Hierarchy = 
+					{
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 7,
+					},
+					Named = 
+					{
+						string Name = "Cannon Spawner",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					SpawnTool = 
+					{
+						string ObjToSpawn = "Cannon",
+					},
+					Hierarchy = 
+					{
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 8,
+					},
+					Named = 
+					{
+						string Name = "Grabber",
 					},
 					Transform = 
 					{
@@ -177,11 +253,11 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 6,
+						uint Id = 9,
 					},
 					Named = 
 					{
-						string Name = "ThrusterSpawnTool",
+						string Name = "Key Setter",
 					},
 					Transform = 
 					{
@@ -189,9 +265,8 @@ Cog =
 						Vec3 Scale = [1, 1, 1],
 						Quat Rotation = [0, 0, 0, 1],
 					},
-					SpawnTool = 
+					KeySetterTool = 
 					{
-						string ObjToSpawn = "Thruster",
 					},
 				},
 			},
@@ -200,7 +275,7 @@ Cog =
 		{
 			LinkId = 
 			{
-				uint Id = 7,
+				uint Id = 10,
 			},
 			Named = 
 			{
@@ -217,7 +292,7 @@ Cog =
 				bool Ghost = false,
 				bool SendsMessages = true,
 				bool Seamless = false,
-				string MaterialName = "4faa6050b8692851:HardMaterial",
+				string MaterialName = "5155a62385c0e753:Player",
 				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 				Vec3 Offset = [0, 0, 0],
 				Vec3 Size = [0.4, 0.7, 0.4],

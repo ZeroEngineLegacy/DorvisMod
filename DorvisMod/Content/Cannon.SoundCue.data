@@ -1,0 +1,24 @@
+SoundCue = 
+{
+	PlayMode PlayMode = Single,
+	float Volume = 0.3,
+	float VolumeVariation = 0,
+	float Pitch = 0.3,
+	float PitchVariation = 0.15,
+	float MinDistance = 10,
+	float MaxDistance = 10000,
+	float PositionRandomization = 0,
+	uint MaxPlaybacks = 10,
+	int Priority = 128,
+	Array Sounds = 
+	[
+		{
+			string SoundName = "5155988eaf9d2b58:Shotgun_Shot02",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "5155988eaf9d4b38:Shotgun_Shot04",
+			float Weight = 1,
+		},
+	],
+},

@@ -1,0 +1,98 @@
+class KeySetterTool : ScriptComponent
+{
+    var Player : Player = null;
+    var HudText : ShadowText = null;
+    
+    var CurrentActivatable : Cog = null;
+    var IsBindingKeys : Boolean = false;
+    
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, "ActivateTool", this.OnActivateTool);
+        Zero.Connect(this.Owner, "DeactivateTool", this.OnDeactivateTool);
+    }
+    
+    function OnActivateTool(e : ToolChangeEvent)
+    {
+        this.Player = e.Player;
+        this.HudText = e.HudText;
+        Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(e.Peer as Cog, Events.LockStepKeyDown, this.OnLockStepKeyDown);
+        Zero.Connect(e.Peer as Cog, Events.LockStepMouseDown, this.OnLockStepMouseDown);
+        Zero.Connect(e.Peer as Cog, Events.LockStepMouseUp, this.OnLockStepMouseUp);
+    }
+    
+    function OnDeactivateTool(e : ToolChangeEvent)
+    {
+        this.Player = null;
+        this.HudText = null;
+        Zero.Disconnect(this.Space as Cog, Events.LogicUpdate, this as Component);
+        Zero.Disconnect(e.Peer as Cog, Events.LockStepKeyDown, this as Component);
+        Zero.Disconnect(e.Peer as Cog, Events.LockStepMouseDown, this as Component);
+        Zero.Disconnect(e.Peer as Cog, Events.LockStepMouseUp, this as Component);
+    }
+    
+    function ActivateFilter(hit : Cog) : Boolean
+    {
+        return hit.Activatable != null;
+    }
+    
+    function OnLogicUpdate(e : UpdateEvent)
+    {
+        var result = this.Player.RayCast(this.ActivateFilter);
+        
+        if (result != null)
+        {
+            this.CurrentActivatable = result.Object;
+            this.HudText.Text = String.Concatenate("Hold [Left Mouse] and press any key to bind the ", this.CurrentActivatable.ArchetypeName);
+        }
+        else
+        {
+            this.ClearActivatable();
+        }
+    }
+    
+    function OnLockStepKeyDown(e : LockStepKeyEvent)
+    {
+        if (this.CurrentActivatable != null && this.IsBindingKeys)
+        {
+            var worldPosition = this.CurrentActivatable.Transform.WorldTranslation;
+            this.Space.CreateAtPosition("MiscEffect", worldPosition);
+            
+            // Create a key effect to let the user know what's happening
+            var keyEffect = this.Space.CreateAtPosition("KeyEffect", worldPosition);
+            keyEffect.SpriteText.Text = Zero.Keyboard.GetKeyName(e.Key);
+            
+            // Set the actual key that the activator uses
+            this.CurrentActivatable.Activatable.Key = e.Key;
+        }
+    }
+    
+    function ClearActivatable()
+    {
+        this.CurrentActivatable = null;
+        this.HudText.Text = "Find and activatable";
+    }
+    
+    function OnLockStepMouseDown(e : LockStepMouseButtonEvent)
+    {
+        if (this.CurrentActivatable != null)
+        {
+            this.Player.FreezeInput = true;
+            this.IsBindingKeys = true;
+        }
+    }
+    
+    function OnLockStepMouseUp(e : LockStepMouseButtonEvent)
+    {
+        if (this.IsBindingKeys)
+        {
+            this.Player.FreezeInput = false;
+            this.IsBindingKeys = false;
+        }
+    }
+}

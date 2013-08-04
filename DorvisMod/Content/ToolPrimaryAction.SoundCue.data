@@ -1,0 +1,20 @@
+SoundCue = 
+{
+	PlayMode PlayMode = Single,
+	float Volume = 0.5,
+	float VolumeVariation = 0,
+	float Pitch = 0,
+	float PitchVariation = 0.05,
+	float MinDistance = 10,
+	float MaxDistance = 10000,
+	float PositionRandomization = 0,
+	uint MaxPlaybacks = 10,
+	int Priority = 128,
+	Array Sounds = 
+	[
+		{
+			string SoundName = "51559b298758d1b5:Menu_Click05",
+			float Weight = 1,
+		},
+	],
+},

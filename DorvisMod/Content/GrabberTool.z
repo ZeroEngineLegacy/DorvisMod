@@ -37,14 +37,14 @@ class GrabberTool : ScriptComponent
         Zero.Connect(e.Peer as Cog, Events.LockStepMouseMove, this.OnLockStepMouseMove);
         Zero.Connect(e.Peer as Cog, Events.LockStepMouseDown, this.OnLockStepMouseDown);
         Zero.Connect(e.Peer as Cog, Events.LockStepMouseUp, this.OnLockStepMouseUp);
-        //Zero.Connect(peer as Cog, Events.MouseScroll, this.OnMouseScroll);
-        //Zero.Connect(peer as Cog, Events.LockStepRightMouseDown, this.OnLockStepRightMouseDown);
+        Zero.Connect(e.Peer as Cog, Events.LockStepMouseScroll, this.OnLockStepMouseScroll);
     }
     
     function OnDeactivateTool(e : ToolChangeEvent)
     {
         this.CameraCog = null;
         this.Player = null;
+        this.DeselectObj();
         Zero.Disconnect(e.Peer as Cog, Events.LockStepMouseMove, this as Component);
         Zero.Disconnect(e.Peer as Cog, Events.LockStepMouseDown, this as Component);
         Zero.Disconnect(e.Peer as Cog, Events.LockStepMouseUp, this as Component);
@@ -55,41 +55,33 @@ class GrabberTool : ScriptComponent
         this.UpdateDraggedObject(e);
     }
     
+    function FreezeAndGrabFilter(hit : Cog) : Boolean
+    {
+        var root = hit.GetRoot();
+        return root.RigidBody != null;
+    }
+    
     function FreezeObject(e : LockStepMouseButtonEvent)
     {
         if(this.SelectedObj != null)
         {
-            if(this.SelectedObj.RigidBody != null)
+            var selectedRoot = this.SelectedObj.GetRoot();
+            if(selectedRoot.RigidBody != null)
             {
-                this.SelectedObj.RigidBody.Static = !this.SelectedObj.RigidBody.Static;
+                selectedRoot.RigidBody.Static = !selectedRoot.RigidBody.Static;
             }
         }
         else
         {
-            var dirW = this.CameraCog.Orientation.GetWorldForward();
-            var startW = this.CameraCog.Transform.WorldTranslation;
         
-            var castResults = this.Space.PhysicsSpace.CastRayResults(startW, dirW, 1);
-            foreach(var castResult in castResults)
+            var result = this.Player.RayCast(this.FreezeAndGrabFilter);
+            
+            if (result != null)
             {
-                var obj = castResult.GetObjectHit();
-                obj = obj.GetRoot();
-                
-                if(obj.RigidBody != null)
-                {
-                    obj.RigidBody.Static = !obj.RigidBody.Static;
-                }
+                var root = result.Object.GetRoot();
+                root.RigidBody.Static = !root.RigidBody.Static;
             }
         }
-    }
-    
-    function GrabbableFilter(hit : Cog) : Boolean
-    {
-        if (hit.RigidBody == null)
-        {
-            return false;
-        }
-        return hit.RigidBody.Static == false && hit.RigidBody.Kinematic == false;
     }
     
     function GrabObject(e : LockStepMouseButtonEvent)
@@ -99,16 +91,13 @@ class GrabberTool : ScriptComponent
             this.DeselectObj();
         }
         
-        var result = this.Player.RayCast(this.GrabbableFilter);
+        var result = this.Player.RayCast(this.FreezeAndGrabFilter);
         
         if (result != null)
         {
             this.SelectedObj = result.Object;
             
-            if(this.SelectedObj.RigidBody != null)
-            {
-                this.SelectedObj.RigidBody.ForceAwake();
-            }
+            this.SelectedObj.RigidBody.ForceAwake();
             //find the point at which we clicked the object
             var selectedPoint = result.WorldPosition;
             //find how far away the pick point is (for keeping the object on a sphere around us)
@@ -135,6 +124,33 @@ class GrabberTool : ScriptComponent
         this.DeselectObj();
     }
     
+    function OnLockStepMouseScroll(e : LockStepMouseScrollEvent)
+    {
+        //if we do not have a selected object, there is nothing to drag
+        if(this.SelectedObj == null)
+        {
+            return;
+        }
+        
+        //alter our grab distance but clamp between our min and max distance
+        this.Distance += e.ScrollDelta.Y * 100.0;
+        this.Distance = Math.Clamp(this.Distance, this.MinDistance, this.MaxDistance);
+        
+        //now compute the new world position of the mouse
+        var newWorldPoint = this.ComputeWorldPoint(e as LockStepMouseEvent);
+        //update the object we grabbed with the new world point
+        //if(this.LockRotation)
+        //{
+        //    this.UpdatePhyGunPoint(newWorldPoint);
+        //}
+        //else
+        //{
+        //    this.UpdateManipulatorPoint(newWorldPoint);
+        //}
+        
+        this.UpdatePhyGunPoint(newWorldPoint);
+    }
+    
     function DeselectObj()
     {
         if(this.SelectedObj == null)
@@ -147,30 +163,6 @@ class GrabberTool : ScriptComponent
         
         this.WeldJoint.Owner.Destroy();
         this.WeldJoint = null;
-    }
-    
-    function OnMouseScroll(e : LockStepMouseEvent)
-    {
-        ////if we do not have a selected object, there is nothing to drag
-        //if(this.SelectedObj == null)
-        //{
-        //    return;
-        //}
-        //
-        ////alter our grab distance but clamp between our min and max distance
-        //this.Distance += e.Scroll.Y;
-        //this.Distance = Math.Clamp(this.Distance, this.MinDistance, this.MaxDistance);
-        ////now compute the new world position of the mouse
-        //var newWorldPoint = this.ComputeWorldPoint(e);
-        ////update the object we grabbed with the new world point
-        //if(this.LockRotation)
-        //{
-        //    this.UpdatePhyGunPoint(newWorldPoint);
-        //}
-        //else
-        //{
-        //    this.UpdateManipulatorPoint(newWorldPoint);
-        //}
     }
     
     function CreatePhyGun(obj : Cog, point : Real3)

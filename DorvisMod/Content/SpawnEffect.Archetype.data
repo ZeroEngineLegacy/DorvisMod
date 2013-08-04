@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [3.96715, 3.51553, -0.113873],
+		Vec3 Translation = [5.72865, -1.80535, -5.71017],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -56,7 +56,7 @@ Cog =
 		Vec3 StartVelocity = [0, 0, 0],
 		Vec3 RandomVelocity = [3, 3, 3],
 		Vec3 TangentVelocity = [0, 0, 0],
-		Vec3 EmitterSize = [0.3, 0.3, 0],
+		Vec3 EmitterSize = [0.3, 0.3, 0.3],
 		bool FastMovingEmitter = false,
 	},
 	ParticleGradientAnimator = 
@@ -68,5 +68,19 @@ Cog =
 		float WanderAngle = 1,
 		float WanderAngleVariance = 1,
 		float WanderStrength = 1,
+	},
+	TimedDeath = 
+	{
+		float TimeToDie = 0.3,
+		uint RemainingCollisions = 0,
+	},
+	SoundEmitter = 
+	{
+		bool StartPlaying = true,
+		int ExtraPriority = 0,
+		string CueName = "51559822a04aecd8:Spawn",
+		float Volume = 1,
+		float Pitch = 1,
+		bool Positional = true,
 	},
 },

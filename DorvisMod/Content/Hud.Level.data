@@ -41,9 +41,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-2.53366, 12.6572, 15.6992],
+			Vec3 Translation = [3.28101, 3.4741, 60.8336],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.215481, -0.0326031, -0.00719856, 0.975937],
+			Quat Rotation = [0.015928, 0.0824962, -0.00131866, 0.996463],
 		},
 		Camera = 
 		{
@@ -56,10 +56,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 19.3927,
-			float LookAngle = 1.3228,
-			float LookRotation = -4.6456,
-			Vec3 LookTarget = [-1.35972, 4.49174, -1.8514],
+			float LookDistance = 59.4949,
+			float LookAngle = -0.100408,
+			float LookRotation = -4.87759,
+			Vec3 LookTarget = [-6.49797, 5.37561, 2.17868],
 		},
 		EditorRenderer = 
 		{
@@ -96,7 +96,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 0, 3.0263],
+			Vec3 Translation = [0, 0, 5],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -114,7 +114,7 @@ Level =
 			Vec2 Offset = [0, 0],
 			Vec2 Size = [1, 1],
 			uint Layer = 1,
-			bool Active = true,
+			bool Active = false,
 			bool Blocking = true,
 			uint Renderer = 4,
 			uint Camera = 4,
@@ -168,7 +168,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 9.10633, 0],
+			Vec3 Translation = [0, 9, 0],
 			Vec3 Scale = [0.5, 0.5, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -186,13 +186,79 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 8.25692, 0],
+			Vec3 Translation = [0, 8, 0],
 			Vec3 Scale = [0.5, 0.5, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Named = 
 		{
 			string Name = "ToolSubText",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "51553868096c8e02:ShadowTextSmall",
+		LinkId = 
+		{
+			uint Id = 8,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, -9, 0],
+			Vec3 Scale = [0.5, 0.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "UndoText",
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 9,
+		},
+		Named = 
+		{
+			string Name = "Area",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, -1],
+			Vec3 Scale = [35.5556, 20, 0.1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = false,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 10,
+		},
+		Named = 
+		{
+			string Name = "NotificationManager",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, -5.84944, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = false,
 		},
 	},
 },

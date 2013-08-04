@@ -84,9 +84,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [25.1899, 0.487846, -6.84745],
+			Vec3 Translation = [-78.4386, 38.8056, 61.2468],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.0121928, 0.752886, -0.0139534, 0.65789],
+			Quat Rotation = [-0.0604524, -0.0488418, -0.00296158, 0.996971],
 		},
 		Camera = 
 		{
@@ -99,10 +99,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 14.6385,
-			float LookAngle = -0.116408,
-			float LookRotation = -37.8336,
-			Vec3 LookTarget = [10.6936, 1.03026, -4.88631],
+			float LookDistance = 287.268,
+			float LookAngle = 0.379592,
+			float LookRotation = -42.3136,
+			Vec3 LookTarget = [-50.5651, 4.09557, -222.551],
 		},
 		EditorRenderer = 
 		{
@@ -154,7 +154,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "Cube",
+			string Name = "HeightReference",
 		},
 		Transform = 
 		{
@@ -167,29 +167,7 @@ Level =
 			string MaterialName = "4de020863e85bb61:DefaultMaterial",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = true,
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = false,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
+			bool Visible = false,
 		},
 	},
 	Cog = 
@@ -200,7 +178,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "Cube",
+			string Name = "Building",
 		},
 		Transform = 
 		{
@@ -210,7 +188,7 @@ Level =
 		},
 		Model = 
 		{
-			string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+			string MaterialName = "51566a1523a57f69:SandStructure",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [1, 1, 1, 1],
 			bool Visible = true,
@@ -3772,7 +3750,7 @@ Level =
 		{
 			LightType LightType = Directional,
 			bool Active = true,
-			float Range = 2000,
+			float Range = 1200,
 			float MinRange = 6.1,
 			float Angle = 10,
 			float Intensity = 1,
@@ -3782,7 +3760,7 @@ Level =
 		},
 		Shadow = 
 		{
-			Quality Quality = HighQuality,
+			Quality Quality = VeryHighQuality,
 			bool SoftShadows = true,
 			float Size = 1,
 			Vec4 Color = [0, 0, 0, 1],
@@ -3797,10 +3775,6 @@ Level =
 		Named = 
 		{
 			string Name = "TestTrees",
-		},
-		Archetyped = 
-		{
-			string Name = "4de020863e84941e:Transform",
 		},
 		Transform = 
 		{
@@ -4964,32 +4938,37 @@ Level =
 			},
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "519e5cfaa4b9c3f4:Block",
 		LinkId = 
 		{
 			uint Id = 322,
 		},
-		Transform = 
+		Named = 
 		{
-			Vec3 Translation = [2.59635, 1.09263, -0.124737],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "519e4cbc821aa3bb:Chair",
-		LinkId = 
-		{
-			uint Id = 323,
+			string Name = "Sound",
 		},
 		Transform = 
 		{
-			Vec3 Translation = [5.80667, -2.2835, -0.259445],
+			Vec3 Translation = [0, 0, -3.45245],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
+		},
+		SoundEmitter = 
+		{
+			bool StartPlaying = true,
+			int ExtraPriority = 0,
+			string CueName = "51559b5b9bc71856:Forest",
+			float Volume = 1,
+			float Pitch = 1,
+			bool Positional = false,
+		},
+		Model = 
+		{
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = false,
 		},
 	},
 },

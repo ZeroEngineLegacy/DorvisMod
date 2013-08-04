@@ -6,15 +6,19 @@ class Thruster : ScriptComponent
 
     function Initialize(init : CogInitializer)
     {
-        // HACK
-        Zero.Connect(Zero.Keyboard as Cog, Events.KeyDown, this.OnKeyDown);
+        Zero.Connect(this.Owner, "Activate", this.OnActivate);
+        Zero.Connect(this.Owner, "Deactivate", this.OnDeactivate);
     }
 
-    function OnKeyDown(e : KeyboardEvent)
+    function OnActivate(e : Event)
     {
-        if (e.Key == Keys.T)
-        {
-            this.Owner.ThrustEffect.Active = !this.Owner.ThrustEffect.Active;
-        }
+        this.Owner.ThrustEffect.Active = true;
+        this.Owner.SoundEmitter.Play();
+    }
+
+    function OnDeactivate(e : Event)
+    {
+        this.Owner.ThrustEffect.Active = false;
+        this.Owner.SoundEmitter.Stop();
     }
 }

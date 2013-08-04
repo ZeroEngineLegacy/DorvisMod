@@ -1,0 +1,36 @@
+SoundCue = 
+{
+	PlayMode PlayMode = Single,
+	float Volume = 0.4,
+	float VolumeVariation = 0,
+	float Pitch = 0,
+	float PitchVariation = 0.1,
+	float MinDistance = 10,
+	float MaxDistance = 10000,
+	float PositionRandomization = 0,
+	uint MaxPlaybacks = 10,
+	int Priority = 128,
+	Array Sounds = 
+	[
+		{
+			string SoundName = "51559a15e5502399:Foot_Dirt2_BootLand5",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "51559a15e55040b3:Foot_Dirt2_BootLand1",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "51559a15e5505c91:Foot_Dirt2_BootLand2",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "51559a15e5507699:Foot_Dirt2_BootLand3",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "51559a15e5509233:Foot_Dirt2_BootLand4",
+			float Weight = 1,
+		},
+	],
+},
