@@ -22,7 +22,6 @@ class Cannon : ScriptComponent
         bullet.Transform.WorldRotation = this.Owner.Transform.WorldRotation;
         bullet.RigidBody.Velocity = this.Owner.Orientation.GetWorldForward() * local Real3(this.Speed);
         bullet.RigidBody.Velocity += this.Owner.RigidBody.Velocity;
-        Console.WriteLine(this.Owner.RigidBody.GetPointVelocity(worldPosition));
         this.Owner.SoundEmitter.Play();
     }
 }

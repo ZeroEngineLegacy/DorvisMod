@@ -52,7 +52,8 @@ class KeySetterTool : ScriptComponent
         }
         else
         {
-            this.ClearActivatable();
+            this.CurrentActivatable = null;
+            this.HudText.Text = "Find an activatable";
         }
     }
     
@@ -70,12 +71,6 @@ class KeySetterTool : ScriptComponent
             // Set the actual key that the activator uses
             this.CurrentActivatable.Activatable.Key = e.Key;
         }
-    }
-    
-    function ClearActivatable()
-    {
-        this.CurrentActivatable = null;
-        this.HudText.Text = "Find and activatable";
     }
     
     function OnLockStepMouseDown(e : LockStepMouseButtonEvent)

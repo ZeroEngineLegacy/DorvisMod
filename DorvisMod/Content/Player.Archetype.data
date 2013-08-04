@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [6.2187, -3.9959, -4.52632],
+		Vec3 Translation = [8.02836, -0.30078, -12.5204],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -51,10 +51,6 @@ Cog =
 	},
 	DynamicMotor = 
 	{
-	},
-	Microphone = 
-	{
-		bool Active = false,
 	},
 	Hierarchy = 
 	{
@@ -108,6 +104,10 @@ Cog =
 				bool Inherit2DMode = true,
 				Vec3 Velocity = [0, 0, 0],
 				Vec3 AngularVelocity = [0, 0, 0],
+			},
+			Microphone = 
+			{
+				bool Active = true,
 			},
 			Hierarchy = 
 			{
@@ -269,13 +269,33 @@ Cog =
 					{
 					},
 				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 10,
+					},
+					Named = 
+					{
+						string Name = "Duplicator",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					DuplicatorTool = 
+					{
+					},
+				},
 			},
 		},
 		Cog = 
 		{
 			LinkId = 
 			{
-				uint Id = 10,
+				uint Id = 11,
 			},
 			Named = 
 			{

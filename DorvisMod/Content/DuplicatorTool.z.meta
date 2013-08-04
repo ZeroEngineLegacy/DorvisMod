@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "DuplicatorTool",
+		uint64 ResourceId = 5156675641f71660,
+	},
+},

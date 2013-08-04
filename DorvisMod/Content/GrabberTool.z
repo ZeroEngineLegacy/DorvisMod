@@ -109,11 +109,11 @@ class GrabberTool : ScriptComponent
     
     function OnLockStepMouseDown(e : LockStepMouseButtonEvent)
     {
-        if(e.RightPressed)
+        if(e.Button == MouseButtons.Right)
         {
             this.FreezeObject(e);
         }
-        else
+        else if(e.Button == MouseButtons.Left)
         {
             this.GrabObject(e);
         }

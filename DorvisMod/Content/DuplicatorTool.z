@@ -1,0 +1,149 @@
+class DuplicatorTool : ScriptComponent
+{
+    [Editable][Serialized]
+    var FallbackSpawnDistance : Real = 20.0;
+    
+    var Player : Player = null;
+    var CameraCog : Cog = null;
+    var HudText : ShadowText = null;
+    
+    var ToDuplicate : Cog = null;
+    
+    var LastCopyId : String = null;
+    
+    var IdCounter : Integer = 0;
+    
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, "ActivateTool", this.OnActivateTool);
+        Zero.Connect(this.Owner, "DeactivateTool", this.OnDeactivateTool);
+    }
+    
+    function OnActivateTool(e : ToolChangeEvent)
+    {
+        this.Player = e.Player;
+        this.HudText = e.HudText;
+        this.CameraCog = e.CameraCog;
+        Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(e.Peer as Cog, Events.LockStepMouseDown, this.OnLockStepMouseDown);
+    }
+    
+    function OnDeactivateTool(e : ToolChangeEvent)
+    {
+        this.Player = null;
+        this.HudText = null;
+        Zero.Disconnect(this.Space as Cog, Events.LogicUpdate, this as Component);
+        Zero.Disconnect(e.Peer as Cog, Events.LockStepMouseDown, this as Component);
+    }
+    
+    function BlockFilter(hit : Cog) : Boolean
+    {
+        return hit.BlockTag != null;
+    }
+    
+    function OnLogicUpdate(e : UpdateEvent)
+    {
+        var result = this.Player.RayCast(this.BlockFilter);
+        
+        if (result != null)
+        {
+            this.ToDuplicate = result.Object.GetRoot();
+            this.HudText.Text = String.Concatenate("Press [Right Mouse] to copy the ", this.ToDuplicate.ArchetypeName);
+        }
+        else
+        {
+            this.ToDuplicate = null;
+            
+            if (this.LastCopyId != null)
+            {
+                this.HudText.Text = "Press [Left Mouse] to paste";
+            }
+            else
+            {
+                this.HudText.Text = "Find an object to copy";
+            }
+        }
+    }
+    
+    function AllFilter(hit : Cog) : Boolean
+    {
+        return true;
+    }
+    
+    // This function was built as a hack
+    // Technically there would be other problems, but the 'unstatic' nature is the most noticable
+    // When restoring an object from a ObjectStore (or putting it in) it seems to think the object's
+    // last item in the hierarchy (leaf) is an archetype, even though it's clearly been modified
+    // Copy pasting an object made at runtime also shows this behavior (just create blocks, F9, copy paste)
+    function HackStaticify(cog : Cog)
+    {
+        var hierarchy = cog.Hierarchy;
+        
+        if (hierarchy == null)
+        {
+            return;
+        }
+        
+        foreach (var child in hierarchy.GetChildren())
+        {
+            if (child.RigidBody != null)
+            {
+                child.RigidBody.Static = true;
+            }
+            
+            this.HackStaticify(child);
+        }
+    }
+    
+    function OnLockStepMouseDown(e : LockStepMouseButtonEvent)
+    {
+        if (e.Button == MouseButtons.Right)
+        {
+            if (this.ToDuplicate != null)
+            {
+                var builder = new StringBuilder();
+                builder.Write(this.Player.Id);
+                builder.Write("_Duplicator_");
+                builder.Write(this.IdCounter);
+                
+                this.LastCopyId = builder.ToString();
+                Zero.ObjectStore.Store(this.LastCopyId, this.ToDuplicate);
+                
+                this.Space.CreateAtPosition("MiscEffect", this.ToDuplicate.Transform.WorldTranslation);
+                
+                ++this.IdCounter;
+            }
+        }
+        else if (e.Button == MouseButtons.Left)
+        {
+            var worldPosition = this.CameraCog.Transform.WorldTranslation + this.CameraCog.Orientation.GetWorldForward() * local Real3(this.FallbackSpawnDistance);
+            
+            var result = this.Player.RayCast(this.AllFilter);
+            if (result != null)
+            {
+                worldPosition = result.WorldPosition;
+            }
+            
+            worldPosition.Y += 1.0;
+            
+            var object = Zero.ObjectStore.Restore(this.LastCopyId, this.Space);
+            
+            this.HackStaticify(object);
+            
+            if (object != null)
+            {
+                object.Transform.WorldTranslation = worldPosition;
+            }
+            
+            this.Space.CreateAtPosition("SpawnEffect", object.Transform.WorldTranslation);
+                
+            var undo = new SpawnUndo();
+            undo.Object = object;
+            this.Player.QueueUndo("duplication", undo.Action);
+        }
+    }
+}

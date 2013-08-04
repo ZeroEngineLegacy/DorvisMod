@@ -44,8 +44,8 @@ class GameStartup : ScriptComponent
             
             if (unsafeIsLocal)
             {
-                player.Microphone.Active = true;
                 var camCog = player.FindChildByName("Camera");
+                camCog.Microphone.Active = true;
                 var levelSettings = this.MainSpace.FindObjectByName("LevelSettings");
                 var viewport = levelSettings.CameraViewport.Viewport;
                 levelSettings.CameraViewport.Camera = camCog;

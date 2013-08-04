@@ -355,6 +355,11 @@ class Player : ScriptComponent
             {
                 this.HudUndoText.Text = "";
             }
+            else
+            {
+                var nextUndo = this.UndoStack.Get(this.UndoStack.LastIndex);
+                this.HudUndoText.Text = String.Concatenate("Press [Z] to undo ", nextUndo.Name);
+            }
         }
         
         if(e.Key == Keys.E && this.InteractCog != null)
