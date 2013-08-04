@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [8.02836, -0.30078, -12.5204],
+		Vec3 Translation = [-11.3418, 1.915, -4.06746],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -51,6 +51,12 @@ Cog =
 	},
 	DynamicMotor = 
 	{
+	},
+	DragEffect = 
+	{
+		bool Active = true,
+		bool WakeUpOnChange = false,
+		float Drag = 0.4,
 	},
 	Hierarchy = 
 	{
@@ -248,6 +254,9 @@ Cog =
 						float MinDistance = 3,
 						float MaxDistance = 100,
 					},
+					Hierarchy = 
+					{
+					},
 				},
 				Cog = 
 				{
@@ -287,6 +296,31 @@ Cog =
 					},
 					DuplicatorTool = 
 					{
+						float FallbackSpawnDistance = 20,
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 11,
+					},
+					Named = 
+					{
+						string Name = "Wheel Spawner",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					SpawnTool = 
+					{
+						string ObjToSpawn = "51564debaa0794af:Wheel",
+					},
+					Hierarchy = 
+					{
 					},
 				},
 			},
@@ -295,7 +329,7 @@ Cog =
 		{
 			LinkId = 
 			{
-				uint Id = 11,
+				uint Id = 12,
 			},
 			Named = 
 			{

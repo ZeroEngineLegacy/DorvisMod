@@ -56,7 +56,7 @@ class SpawnTool : ScriptComponent
         {
             if (this.DestroyMode == false)
             {
-                this.HudText.Text = "Spawn";
+                this.HudText.Text = "Press [Left Mouse] to spawn";
             }
             else
             {
@@ -72,13 +72,13 @@ class SpawnTool : ScriptComponent
         
         if (this.DestroyMode == false)
         {
-            this.HudText.Text = "Spawn & Attach";
+            this.HudText.Text = "Press [Left Mouse] to attach";
             pos  += result.WorldNormal;
             color = local Real4(1.0);
         }
         else
         {
-            this.HudText.Text = "Destroy";
+            this.HudText.Text = "Press [Left Mouse] to destroy";
         }
         
         this.Ghost.SpaceId(this.Space.GetRuntimeId());
@@ -141,6 +141,11 @@ class SpawnTool : ScriptComponent
         {
             result = this.Player.RayCast(this.AnyFilter);
             attach = false;
+            
+            if (result == null)
+            {
+                return;
+            }
         }
         
         var newObj = this.Space.Create(objToSpawn);

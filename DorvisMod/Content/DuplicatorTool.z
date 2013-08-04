@@ -74,31 +74,6 @@ class DuplicatorTool : ScriptComponent
         return true;
     }
     
-    // This function was built as a hack
-    // Technically there would be other problems, but the 'unstatic' nature is the most noticable
-    // When restoring an object from a ObjectStore (or putting it in) it seems to think the object's
-    // last item in the hierarchy (leaf) is an archetype, even though it's clearly been modified
-    // Copy pasting an object made at runtime also shows this behavior (just create blocks, F9, copy paste)
-    function HackStaticify(cog : Cog)
-    {
-        var hierarchy = cog.Hierarchy;
-        
-        if (hierarchy == null)
-        {
-            return;
-        }
-        
-        foreach (var child in hierarchy.GetChildren())
-        {
-            if (child.RigidBody != null)
-            {
-                child.RigidBody.Static = true;
-            }
-            
-            this.HackStaticify(child);
-        }
-    }
-    
     function OnLockStepMouseDown(e : LockStepMouseButtonEvent)
     {
         if (e.Button == MouseButtons.Right)
@@ -131,8 +106,6 @@ class DuplicatorTool : ScriptComponent
             worldPosition.Y += 1.0;
             
             var object = Zero.ObjectStore.Restore(this.LastCopyId, this.Space);
-            
-            this.HackStaticify(object);
             
             if (object != null)
             {

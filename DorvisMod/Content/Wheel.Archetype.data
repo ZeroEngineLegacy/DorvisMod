@@ -1,0 +1,145 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Archetyped = 
+	{
+		string Name = "51564debaa0794af:Wheel",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-9.37119, 2.11272, -7.03292],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [1, 1, 1, 1],
+		bool Visible = true,
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	BoxCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = false,
+		string MaterialName = "4faa6050b8692851:HardMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		Vec3 Size = [0.5, 0.5, 0.5],
+	},
+	BlockTag = 
+	{
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "Cylinder",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [0.999999, 0.5, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Model = 
+			{
+				string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+				string MeshName = "4de0354322b3572e:Cylinder",
+				Vec4 Color = [1, 1, 1, 1],
+				bool Visible = true,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = false,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+			CylinderCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = false,
+				string MaterialName = "4faa6050b8692851:HardMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				float Radius = 1,
+				float Height = 1,
+				uint Direction = 1,
+			},
+			Wheel = 
+			{
+			},
+			IgnoreSpaceEffects = 
+			{
+				bool Drag = true,
+				bool Flow = false,
+				bool Force = false,
+				bool Gravity = false,
+				bool Thrust = false,
+				bool Vortex = false,
+				bool Wind = false,
+				bool Invalid = false,
+				bool Torque = false,
+				bool PointGravity = false,
+				bool PointForce = false,
+				bool Buoyancy = false,
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			ObjectLink = 
+			{
+				uint ObjectA = 1,
+				uint ObjectB = 2,
+				Vec3 BodyPointA = [0, 0, 0],
+				Vec3 BodyPointB = [0, 0, 0],
+			},
+			RevoluteJoint = 
+			{
+				bool Active = true,
+				bool SendsEvents = false,
+				bool AutoSnaps = false,
+				bool CollideConnected = false,
+				float MaxForce = 0,
+				uint PrimaryFrameIndex = 0,
+				Vec3 BodyPointA = [0, 0, 0],
+				Vec3 BodyPointB = [0, 0, 0],
+				Quat ReferenceAngleA = [0.707107, 0, 0, 0.707107],
+				Quat ReferenceAngleB = [0.707107, 0, 0, 0.707107],
+			},
+		},
+	},
+},

@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Wheel",
+		uint64 ResourceId = 51564cb4f5988431,
+	},
+},

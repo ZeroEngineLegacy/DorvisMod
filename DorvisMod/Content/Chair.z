@@ -33,6 +33,7 @@ class Chair : ScriptComponent
             e.Player.SendPlayerEventTo("ChangeChairs", e.PlayerCog);
             
             e.Player.Deactivate();
+            e.Player.RotationAngles = local Real2();
             e.PlayerCog.AttachTo(this.Owner);
             e.PlayerCog.Transform.Translation = local Real3();
             e.PlayerCog.Transform.Rotation = local Quat();

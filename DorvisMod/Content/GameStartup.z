@@ -15,6 +15,12 @@ class GameStartup : ScriptComponent
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Owner, Events.LockStepGameStarted, this.OnLockStepGameStarted);
+        Zero.Connect(this.Owner, Events.GameRequestQuit, this.OnGameRequestQuit);
+    }
+    
+    function OnGameRequestQuit(e : GameEvent)
+    {
+        e.Handled = true;
     }
 
     function OnLockStepGameStarted(e : LockStepGameStartEvent)
