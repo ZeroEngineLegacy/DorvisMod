@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "RopeTool",
+		uint64 ResourceId = 519da9b1d52c1539,
+	},
+},

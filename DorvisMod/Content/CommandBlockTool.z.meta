@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "CommandBlockTool",
+		uint64 ResourceId = 519da691b79a2178,
+	},
+},
