@@ -4946,9 +4946,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-18.1196, 3.38784, -0.86912],
+			Vec3 Translation = [-20.7056, 3.89762, 18.8749],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.00283403, -0.542651, 0.00183093, 0.839951],
+			Quat Rotation = [-0.0563785, -0.404791, -0.0250146, 0.912326],
 		},
 		Camera = 
 		{
@@ -4961,14 +4961,28 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 10.5,
-			float LookAngle = -0.0211994,
-			float LookRotation = -3.5652,
-			Vec3 LookTarget = [-8.54794, 3.45869, -5.18507],
+			float LookDistance = 12.0153,
+			float LookAngle = 0.386801,
+			float LookRotation = -3.8772,
+			Vec3 LookTarget = [-11.8649, 2.41826, 10.8735],
 		},
 		EditorRenderer = 
 		{
 			Vec4 ClearColor = [0.278431, 0.278431, 0.278431, 1],
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "519d899f2d9a3b64:Ship",
+		LinkId = 
+		{
+			uint Id = 323,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-12.1267, 0.165149, 11.6036],
+			Vec3 Scale = [0.999999, 1, 0.999999],
+			Quat Rotation = [1.51289e-011, 0, 0, 1],
 		},
 	},
 },
