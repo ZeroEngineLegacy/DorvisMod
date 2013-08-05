@@ -1,0 +1,65 @@
+class CommandBlock : ScriptComponent
+{
+    var ReDirectionCog : Cog = null;
+    var Root : Cog = null;
+    
+    constructor() : base()
+    {
+    }
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(e : UpdateEvent)
+    {
+        if(this.ReDirectionCog == null)
+        {
+            return;
+        }
+        
+        var start = this.Owner.Transform.WorldTranslation;
+        var end = this.ReDirectionCog.Transform.WorldTranslation;
+        
+        var line = new DebugLine();
+        line.Start(start);
+        line.End(end);
+        line.HeadSize(0.2);
+        line.Draw();
+    }
+    
+    // Setup can be called multiple times, but it MUST be called any time our hierarchy is changed
+    function Setup()
+    {
+        var root = this.Owner.GetRoot();
+        
+        if (this.Root != null)
+        {
+            Zero.Disconnect(this.Root, Events.LockStepKeyDown, this as Component);
+            Zero.Disconnect(this.Root, Events.LockStepKeyUp, this as Component);
+        }
+        
+        Zero.Connect(root, Events.LockStepKeyDown, this.OnKeyDown);
+        Zero.Connect(root, Events.LockStepKeyUp, this.OnKeyUp);
+        
+        this.Root = root;
+    }
+    
+    function OnKeyDown(e : LockStepKeyEvent)
+    {
+        if(this.ReDirectionCog != null)
+        {
+            Console.WriteLine("ReDirect");
+            this.ReDirectionCog.DispatchEvent(Events.LockStepKeyDown, e as Event);
+        }
+    }
+    
+    function OnKeyUp(e : LockStepKeyEvent)
+    {
+        if(this.ReDirectionCog != null)
+        {
+            this.ReDirectionCog.DispatchEvent(Events.LockStepKeyUp, e as Event);
+        }
+    }
+}

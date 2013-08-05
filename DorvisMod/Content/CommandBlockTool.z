@@ -1,0 +1,78 @@
+class CommandBlockTool : ScriptComponent
+{
+    var Player : Player = null;
+    var CameraCog : Cog = null;
+    var HudText : ShadowText = null;
+    var CommandBlockCog : Cog = null;
+    
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, "ActivateTool", this.OnActivateTool);
+        Zero.Connect(this.Owner, "DeactivateTool", this.OnDeactivateTool);
+    }
+    
+    function OnActivateTool(e : ToolChangeEvent)
+    {
+        this.Player = e.Player;
+        this.HudText = e.HudText;
+        this.CameraCog = e.CameraCog;
+        Zero.Connect(e.Peer as Cog, Events.LockStepMouseDown, this.OnLockStepMouseDown);
+        Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function OnDeactivateTool(e : ToolChangeEvent)
+    {
+        this.Player = null;
+        this.HudText = null;
+        this.CameraCog = null;
+        this.CommandBlockCog = null;
+        Zero.Disconnect(e.Peer as Cog, Events.LockStepMouseDown, this as Component);
+        Zero.Disconnect(this.Space as Cog, Events.LogicUpdate, this as Component);
+    }
+    
+    function OnLogicUpdate(e : UpdateEvent)
+    {
+        if(this.CommandBlockCog == null)
+        {
+            this.HudText.Text = "Left click a command block to bind it";
+        }
+        else
+        {
+            this.HudText.Text = "Right click to bind the command block to another hierarchy";
+        }
+    }
+    
+    function BlockFilter(hit : Cog) : Boolean
+    {
+        return hit.BlockTag != null;
+    }
+    
+    function OnLockStepMouseDown(e : LockStepMouseButtonEvent)
+    {
+        var result = this.Player.RayCast(this.BlockFilter);
+        if (result == null)
+        {
+            return;
+        }
+        
+        if(e.Button == MouseButtons.Left)
+        {
+            if(result.Object.CommandBlock != null)
+            {
+                this.CommandBlockCog = result.Object;
+                this.Space.CreateAtPosition("SpawnEffect", result.Object.Transform.WorldTranslation);
+            }
+        }
+        else if(e.Button == MouseButtons.Right && this.CommandBlockCog != null)
+        {
+            var root = result.Object.GetRoot();
+            this.CommandBlockCog.CommandBlock.ReDirectionCog = root;
+            this.CommandBlockCog.CommandBlock.Setup();
+            this.Space.CreateAtPosition("SpawnEffect", result.Object.Transform.WorldTranslation);
+        }
+    }
+}
