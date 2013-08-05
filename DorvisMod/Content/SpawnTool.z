@@ -264,11 +264,6 @@ class SpawnTool : ScriptComponent
         var undo = new SpawnUndo();
         undo.Object = newObj;
         this.Player.QueueUndo(undoName, undo.Action);
-        
-        if (newObj.Activatable != null)
-        {
-            newObj.Activatable.Setup();
-        }
     }
     
     function DestroyObj(e : LockStepMouseButtonEvent)
@@ -357,10 +352,6 @@ class DestroyUndo
                 }
                 
                 this.Space.CreateAtPosition("SpawnEffect", cog.Transform.WorldTranslation);
-                if (cog.Activatable != null)
-                {
-                    cog.Activatable.Setup();
-                }
                 return true;
             }
         }
