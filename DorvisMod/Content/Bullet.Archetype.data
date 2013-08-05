@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-9.60919, 9.71199, -7.18361],
+		Vec3 Translation = [4.4439, 10.3048, 5.34953],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -49,5 +49,9 @@ Cog =
 	{
 		float TimeToDie = 5,
 		uint RemainingCollisions = 0,
+	},
+	DamageOnCollide = 
+	{
+		float Damage = 10,
 	},
 },

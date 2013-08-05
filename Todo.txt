@@ -1,0 +1,91 @@
+Zilch considerations
+ - Crashes when printing a null string
+ - Inheritance must work (undo) + virtual
+ - Cannot make an array of delegates
+ - Compiles files multiple times in Zero (all resources changed, not just once)
+ - Vector scalar multiple
+ - Implicit casting to base types, also returning 'null'
+ - Errors printed in zero not always visible (reproducable, just be below the error, make it long such as overload resolve errors)
+ - Clear errors when saving in Zero (phantom errors)
+ - Delegates stored on a class for some reason are callable with any number of parameters, not checked
+ - [Editable][Serialized] needs to be combined
+ - Two variables in different non-conflicting scopes cause same name issues
+ - Operations that do nothing (unary +, casting int to int) cause errors
+ - Attribute groups are important, otherwise code starts looking ugly
+
+Major workflow breaking bug!
+ - Collapsing a node in the tree when scrolled down causes it to get parented (check out resources)
+
+Freezing should color
+ - Attempting to grab a frozen object should unfreeze
+
+Lots of bug testing for the tools
+
+Helper text for the tool hotkeys
+ - Fade out, then fade in when you press a number key
+
+ParentingTool
+WeldTool
+RopeTool
+
+We should make the thruster look more like a box, as well as the chair (add handles)
+
+I need to add something to the effect of a "DoNotify" ui
+ - On the player, Player.Notify("message");
+
+What kind of sounds do we need?
+ - Footsteps (grass, metal, etc)
+ - Gunshot/cannon shots
+ - Projectile hits
+ - Thruster
+ - Machine rotate sounds / whirls
+ - Spawn / Destroy sounds
+ - Misc effect sounds
+ - Ui clicks and boops
+ - Impact sounds (for objects hitting the ground and such)
+ - Wind in the ears?
+
+Make it so chairs cause the player to look forward
+
+We should make different types of swivvlers
+ - Ones that just move with your mouse
+ - Ones that ray cast out from the player and aim at that position in world space
+
+ObjectStore / CopyPaste not modified from archetype bug
+
+Need to refactor tools so they don't have to set things in their activate/deactivate (just once)
+
+Players can exploit movement because the keyboard key up may not get hit, therefore we just add to movement making them go faster
+
+Character controller needs a lot of work
+ - It currently almost feels kinematic, as you can seem to push anything (getting out of a ship is awkward)
+ - When trying to lower the force applied, it makes everything feel laggy or slow since you have to accelerate
+ - You can climb things you're not supposed to be (I'm not sure how, I thought it was the pill but it still happens)
+   * For example, you can make a wall two blocks high, and sometimes your character will just climb it
+ - Also when you let go of run, you seem to move backwards for a second (makes it very hard to precisely land on something)
+
+
+Other types of blocks
+ - A lift block, only gets lift when moving in that direction (for wings, etc), like josh's foil (uses no energy)
+ - A flying hud block (altitude from sea level, altitude from ground, level, impact detection?, air speed, compass / orientation)
+ - Star drive, temporary massive boost, not controllable (much like blimp master booster, leaves trail)
+ - Shields
+ - Reinforced blocks (heigher weight + cost)
+ - Homing missiles (gives the user custom ui that shows lock ons)
+ - Flares to throw off homing missiles
+ - Yamatta cannon (5 minute charge time, uses lots of energy)
+ - Battery, provides power
+ - Reactor cores (lots of power) - required to power larger weapons and shields
+ - We need a block that separates inputs, or maybe another way of assigning inputs to specific chairs (ChairDividerBlock)
+ 
+Vs Mode
+ - Two teams
+ - Identical sides (mirrored)
+ - Every block-type has health and can be destroyed
+ - Every block-type has a resource cost
+ - 3 Rounds, 15 minutes each - resources go up each round
+
+The spawn tool should get a custom UI
+ - like the content grid, it should show a bunch of thumbnails
+ - Scroll wheel to select different blocks (or some hotkey, or maybe the mouse click?)
+ 

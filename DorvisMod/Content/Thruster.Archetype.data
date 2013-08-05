@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-3.38076, 15.4099, 12.8836],
+		Vec3 Translation = [4.67935, 9.89033, 5.37652],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -73,5 +73,13 @@ Cog =
 		float Volume = 1,
 		float Pitch = 1,
 		bool Positional = true,
+	},
+	DestroyOnDeath = 
+	{
+	},
+	Health = 
+	{
+		float Total = 100,
+		float Current = 100,
 	},
 },

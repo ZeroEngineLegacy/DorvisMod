@@ -1,0 +1,16 @@
+class DestroyOnDeath : ScriptComponent
+{
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, "Death", this.OnDeath);
+    }
+
+    function OnDeath(e : HealthEvent)
+    {
+        this.Owner.Destroy();
+    }
+}
