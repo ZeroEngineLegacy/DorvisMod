@@ -1,0 +1,1928 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Archetyped = 
+	{
+		string Name = "519d899f2d9a3b64:Ship",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-12.1267, 0.165149, 11.6036],
+		Vec3 Scale = [0.999999, 1, 0.999999],
+		Quat Rotation = [1.51289e-011, 0, 0, 1],
+	},
+	Model = 
+	{
+		string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+		string MeshName = "519e4cbc821d66d4:Chair",
+		Vec4 Color = [1, 1, 1, 1],
+		bool Visible = true,
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [-4.00067e-014, 6.8828e-014, 1.89591e-013],
+		Vec3 AngularVelocity = [1.51889e-013, -1.32781e-014, 2.20401e-014],
+	},
+	BoxCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = false,
+		string MaterialName = "4faa6050b8692851:HardMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		Vec3 Size = [0.5, 0.5, 0.5],
+	},
+	Chair = 
+	{
+	},
+	BlockTag = 
+	{
+	},
+	DestroyOnDeath = 
+	{
+	},
+	Health = 
+	{
+		float Total = 100,
+		float Current = 100,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Archetyped = 
+			{
+				string Name = "519e5cfaa4b9c3f4:Block",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, -1, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 1, -0],
+			},
+			Model = 
+			{
+				string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+				string MeshName = "4de0354322b345ae:Cube",
+				Vec4 Color = [1, 1, 1, 1],
+				bool Visible = true,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = false,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+			BoxCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = false,
+				string MaterialName = "4faa6050b8692851:HardMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				Vec3 Size = [0.5, 0.5, 0.5],
+			},
+			BlockTag = 
+			{
+			},
+			DestroyOnDeath = 
+			{
+			},
+			Health = 
+			{
+				float Total = 100,
+				float Current = 100,
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 3,
+					},
+					Archetyped = 
+					{
+						string Name = "519e5cfaa4b9c3f4:Block",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, -1],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, -0.707107, 0.707107, -0],
+					},
+					Model = 
+					{
+						string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+						string MeshName = "4de0354322b345ae:Cube",
+						Vec4 Color = [1, 1, 1, 1],
+						bool Visible = true,
+					},
+					RigidBody = 
+					{
+						bool Static = true,
+						bool Asleep = false,
+						bool Kinematic = false,
+						bool RotationLocked = false,
+						bool Mode2D = false,
+						bool AllowSleep = true,
+						bool Inherit2DMode = true,
+						Vec3 Velocity = [0, 0, 0],
+						Vec3 AngularVelocity = [0, 0, 0],
+					},
+					BoxCollider = 
+					{
+						bool Ghost = false,
+						bool SendsMessages = true,
+						bool Seamless = false,
+						string MaterialName = "4faa6050b8692851:HardMaterial",
+						string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+						Vec3 Offset = [0, 0, 0],
+						Vec3 Size = [0.5, 0.5, 0.5],
+					},
+					BlockTag = 
+					{
+					},
+					DestroyOnDeath = 
+					{
+					},
+					Health = 
+					{
+						float Total = 100,
+						float Current = 100,
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 4,
+							},
+							Archetyped = 
+							{
+								string Name = "519e5cfaa4b9c3f4:Block",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 1, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0.707107, -0, 0.707107],
+							},
+							Model = 
+							{
+								string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+								string MeshName = "4de0354322b345ae:Cube",
+								Vec4 Color = [1, 1, 1, 1],
+								bool Visible = true,
+							},
+							RigidBody = 
+							{
+								bool Static = true,
+								bool Asleep = false,
+								bool Kinematic = false,
+								bool RotationLocked = false,
+								bool Mode2D = false,
+								bool AllowSleep = true,
+								bool Inherit2DMode = true,
+								Vec3 Velocity = [0, 0, 0],
+								Vec3 AngularVelocity = [0, 0, 0],
+							},
+							BoxCollider = 
+							{
+								bool Ghost = false,
+								bool SendsMessages = true,
+								bool Seamless = false,
+								string MaterialName = "4faa6050b8692851:HardMaterial",
+								string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+								Vec3 Offset = [0, 0, 0],
+								Vec3 Size = [0.5, 0.5, 0.5],
+							},
+							BlockTag = 
+							{
+							},
+							DestroyOnDeath = 
+							{
+							},
+							Health = 
+							{
+								float Total = 100,
+								float Current = 100,
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 5,
+									},
+									Named = 
+									{
+										string Name = "Thruster",
+									},
+									Archetyped = 
+									{
+										string Name = "519e4cbc821af76f:Thruster",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [1, 0, 0],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0.707107, 0.707107, 0, 0],
+									},
+									Model = 
+									{
+										string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+										string MeshName = "519e4cbc82124da3:Thruster",
+										Vec4 Color = [1, 1, 1, 1],
+										bool Visible = true,
+									},
+									RigidBody = 
+									{
+										bool Static = true,
+										bool Asleep = false,
+										bool Kinematic = false,
+										bool RotationLocked = false,
+										bool Mode2D = false,
+										bool AllowSleep = true,
+										bool Inherit2DMode = true,
+										Vec3 Velocity = [0, 0, 0],
+										Vec3 AngularVelocity = [0, 0, 0],
+									},
+									BoxCollider = 
+									{
+										bool Ghost = false,
+										bool SendsMessages = true,
+										bool Seamless = false,
+										string MaterialName = "4faa6050b8692851:HardMaterial",
+										string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+										Vec3 Offset = [0, 0, 0],
+										Vec3 Size = [0.5, 0.5, 0.5],
+									},
+									Thruster = 
+									{
+									},
+									ThrustEffect = 
+									{
+										bool Active = false,
+										bool WakeUpOnChange = true,
+										bool LocalSpaceDirection = true,
+										float ForceStrength = 200,
+										Vec3 ForceDirection = [0, -1, 0],
+									},
+									BlockTag = 
+									{
+									},
+									Activatable = 
+									{
+										int Key = 128,
+									},
+									SoundEmitter = 
+									{
+										bool StartPlaying = false,
+										int ExtraPriority = 0,
+										string CueName = "51559b749c9e9362:Thruster",
+										float Volume = 1,
+										float Pitch = 1,
+										bool Positional = true,
+									},
+									DestroyOnDeath = 
+									{
+									},
+									Health = 
+									{
+										float Total = 100,
+										float Current = 100,
+									},
+								},
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 6,
+					},
+					Archetyped = 
+					{
+						string Name = "519e5cfaa4b9c3f4:Block",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [1, 0, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, -0.707107, 0.707107],
+					},
+					Model = 
+					{
+						string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+						string MeshName = "4de0354322b345ae:Cube",
+						Vec4 Color = [1, 1, 1, 1],
+						bool Visible = true,
+					},
+					RigidBody = 
+					{
+						bool Static = true,
+						bool Asleep = false,
+						bool Kinematic = false,
+						bool RotationLocked = false,
+						bool Mode2D = false,
+						bool AllowSleep = true,
+						bool Inherit2DMode = true,
+						Vec3 Velocity = [0, 0, 0],
+						Vec3 AngularVelocity = [0, 0, 0],
+					},
+					BoxCollider = 
+					{
+						bool Ghost = false,
+						bool SendsMessages = true,
+						bool Seamless = false,
+						string MaterialName = "4faa6050b8692851:HardMaterial",
+						string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+						Vec3 Offset = [0, 0, 0],
+						Vec3 Size = [0.5, 0.5, 0.5],
+					},
+					BlockTag = 
+					{
+					},
+					DestroyOnDeath = 
+					{
+					},
+					Health = 
+					{
+						float Total = 100,
+						float Current = 100,
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 7,
+							},
+							Archetyped = 
+							{
+								string Name = "519e5cfaa4b9c3f4:Block",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 1, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, -0, 1],
+							},
+							Model = 
+							{
+								string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+								string MeshName = "4de0354322b345ae:Cube",
+								Vec4 Color = [1, 1, 1, 1],
+								bool Visible = true,
+							},
+							RigidBody = 
+							{
+								bool Static = true,
+								bool Asleep = false,
+								bool Kinematic = false,
+								bool RotationLocked = false,
+								bool Mode2D = false,
+								bool AllowSleep = true,
+								bool Inherit2DMode = true,
+								Vec3 Velocity = [0, 0, 0],
+								Vec3 AngularVelocity = [0, 0, 0],
+							},
+							BoxCollider = 
+							{
+								bool Ghost = false,
+								bool SendsMessages = true,
+								bool Seamless = false,
+								string MaterialName = "4faa6050b8692851:HardMaterial",
+								string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+								Vec3 Offset = [0, 0, 0],
+								Vec3 Size = [0.5, 0.5, 0.5],
+							},
+							BlockTag = 
+							{
+							},
+							DestroyOnDeath = 
+							{
+							},
+							Health = 
+							{
+								float Total = 100,
+								float Current = 100,
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 8,
+									},
+									Named = 
+									{
+										string Name = "Thruster",
+									},
+									Archetyped = 
+									{
+										string Name = "519e4cbc821af76f:Thruster",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 0, -1],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [-0.5, -0.5, 0.5, 0.5],
+									},
+									Model = 
+									{
+										string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+										string MeshName = "519e4cbc82124da3:Thruster",
+										Vec4 Color = [1, 1, 1, 1],
+										bool Visible = true,
+									},
+									RigidBody = 
+									{
+										bool Static = true,
+										bool Asleep = false,
+										bool Kinematic = false,
+										bool RotationLocked = false,
+										bool Mode2D = false,
+										bool AllowSleep = true,
+										bool Inherit2DMode = true,
+										Vec3 Velocity = [0, 0, 0],
+										Vec3 AngularVelocity = [0, 0, 0],
+									},
+									BoxCollider = 
+									{
+										bool Ghost = false,
+										bool SendsMessages = true,
+										bool Seamless = false,
+										string MaterialName = "4faa6050b8692851:HardMaterial",
+										string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+										Vec3 Offset = [0, 0, 0],
+										Vec3 Size = [0.5, 0.5, 0.5],
+									},
+									Thruster = 
+									{
+									},
+									ThrustEffect = 
+									{
+										bool Active = false,
+										bool WakeUpOnChange = true,
+										bool LocalSpaceDirection = true,
+										float ForceStrength = 200,
+										Vec3 ForceDirection = [0, -1, 0],
+									},
+									BlockTag = 
+									{
+									},
+									Activatable = 
+									{
+										int Key = 87,
+									},
+									SoundEmitter = 
+									{
+										bool StartPlaying = false,
+										int ExtraPriority = 0,
+										string CueName = "51559b749c9e9362:Thruster",
+										float Volume = 1,
+										float Pitch = 1,
+										bool Positional = true,
+									},
+									DestroyOnDeath = 
+									{
+									},
+									Health = 
+									{
+										float Total = 100,
+										float Current = 100,
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 9,
+									},
+									Named = 
+									{
+										string Name = "Thruster",
+									},
+									Archetyped = 
+									{
+										string Name = "519e4cbc821af76f:Thruster",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [-1, 0, 0],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [-0.5, 0.5, 0.5, 0.5],
+									},
+									Model = 
+									{
+										string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+										string MeshName = "519e4cbc82124da3:Thruster",
+										Vec4 Color = [1, 1, 1, 1],
+										bool Visible = true,
+									},
+									RigidBody = 
+									{
+										bool Static = true,
+										bool Asleep = false,
+										bool Kinematic = false,
+										bool RotationLocked = false,
+										bool Mode2D = false,
+										bool AllowSleep = true,
+										bool Inherit2DMode = true,
+										Vec3 Velocity = [0, 0, 0],
+										Vec3 AngularVelocity = [0, 0, 0],
+									},
+									BoxCollider = 
+									{
+										bool Ghost = false,
+										bool SendsMessages = true,
+										bool Seamless = false,
+										string MaterialName = "4faa6050b8692851:HardMaterial",
+										string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+										Vec3 Offset = [0, 0, 0],
+										Vec3 Size = [0.5, 0.5, 0.5],
+									},
+									Thruster = 
+									{
+									},
+									ThrustEffect = 
+									{
+										bool Active = false,
+										bool WakeUpOnChange = true,
+										bool LocalSpaceDirection = true,
+										float ForceStrength = 200,
+										Vec3 ForceDirection = [0, -1, 0],
+									},
+									BlockTag = 
+									{
+									},
+									Activatable = 
+									{
+										int Key = 130,
+									},
+									SoundEmitter = 
+									{
+										bool StartPlaying = false,
+										int ExtraPriority = 0,
+										string CueName = "51559b749c9e9362:Thruster",
+										float Volume = 1,
+										float Pitch = 1,
+										bool Positional = true,
+									},
+									DestroyOnDeath = 
+									{
+									},
+									Health = 
+									{
+										float Total = 100,
+										float Current = 100,
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 10,
+									},
+									Archetyped = 
+									{
+										string Name = "519e45e379f286e6:Cannon",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 0, 1],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0.707107, 0.707107, -0],
+									},
+									Model = 
+									{
+										string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+										string MeshName = "519e458e6220b09d:Cannon",
+										Vec4 Color = [1, 1, 1, 1],
+										bool Visible = true,
+									},
+									Cannon = 
+									{
+										float Speed = 100,
+										string Projectile = "Bullet",
+									},
+									Orientation = 
+									{
+										Vec3 UpVector = [1, 0, 0],
+										Vec3 ForwardVector = [0, 1, 0],
+									},
+									RigidBody = 
+									{
+										bool Static = true,
+										bool Asleep = false,
+										bool Kinematic = false,
+										bool RotationLocked = false,
+										bool Mode2D = false,
+										bool AllowSleep = true,
+										bool Inherit2DMode = true,
+										Vec3 Velocity = [0, 0, 0],
+										Vec3 AngularVelocity = [0, 0, 0],
+									},
+									BoxCollider = 
+									{
+										bool Ghost = false,
+										bool SendsMessages = true,
+										bool Seamless = false,
+										string MaterialName = "4faa6050b8692851:HardMaterial",
+										string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+										Vec3 Offset = [0, 0, 0],
+										Vec3 Size = [0.5, 0.5, 0.5],
+									},
+									Activatable = 
+									{
+										int Key = 32,
+									},
+									BlockTag = 
+									{
+									},
+									SoundEmitter = 
+									{
+										bool StartPlaying = false,
+										int ExtraPriority = 0,
+										string CueName = "5155988faf84296a:Cannon",
+										float Volume = 1,
+										float Pitch = 1,
+										bool Positional = true,
+									},
+									DestroyOnDeath = 
+									{
+									},
+									Health = 
+									{
+										float Total = 100,
+										float Current = 100,
+									},
+								},
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 11,
+							},
+							Named = 
+							{
+								string Name = "Thruster",
+							},
+							Archetyped = 
+							{
+								string Name = "519e4cbc821af76f:Thruster",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, -1],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, -0.707107, 0.707107, -0],
+							},
+							Model = 
+							{
+								string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+								string MeshName = "519e4cbc82124da3:Thruster",
+								Vec4 Color = [1, 1, 1, 1],
+								bool Visible = true,
+							},
+							RigidBody = 
+							{
+								bool Static = true,
+								bool Asleep = false,
+								bool Kinematic = false,
+								bool RotationLocked = false,
+								bool Mode2D = false,
+								bool AllowSleep = true,
+								bool Inherit2DMode = true,
+								Vec3 Velocity = [0, 0, 0],
+								Vec3 AngularVelocity = [0, 0, 0],
+							},
+							BoxCollider = 
+							{
+								bool Ghost = false,
+								bool SendsMessages = true,
+								bool Seamless = false,
+								string MaterialName = "4faa6050b8692851:HardMaterial",
+								string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+								Vec3 Offset = [0, 0, 0],
+								Vec3 Size = [0.5, 0.5, 0.5],
+							},
+							Thruster = 
+							{
+							},
+							ThrustEffect = 
+							{
+								bool Active = false,
+								bool WakeUpOnChange = true,
+								bool LocalSpaceDirection = true,
+								float ForceStrength = 200,
+								Vec3 ForceDirection = [0, -1, 0],
+							},
+							BlockTag = 
+							{
+							},
+							Activatable = 
+							{
+								int Key = 87,
+							},
+							SoundEmitter = 
+							{
+								bool StartPlaying = false,
+								int ExtraPriority = 0,
+								string CueName = "51559b749c9e9362:Thruster",
+								float Volume = 1,
+								float Pitch = 1,
+								bool Positional = true,
+							},
+							DestroyOnDeath = 
+							{
+							},
+							Health = 
+							{
+								float Total = 100,
+								float Current = 100,
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 12,
+							},
+							Named = 
+							{
+								string Name = "Thruster",
+							},
+							Archetyped = 
+							{
+								string Name = "519e4cbc821af76f:Thruster",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [-1, 0, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [-0.707107, 0.707107, 0, 0],
+							},
+							Model = 
+							{
+								string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+								string MeshName = "519e4cbc82124da3:Thruster",
+								Vec4 Color = [1, 1, 1, 1],
+								bool Visible = true,
+							},
+							RigidBody = 
+							{
+								bool Static = true,
+								bool Asleep = false,
+								bool Kinematic = false,
+								bool RotationLocked = false,
+								bool Mode2D = false,
+								bool AllowSleep = true,
+								bool Inherit2DMode = true,
+								Vec3 Velocity = [0, 0, 0],
+								Vec3 AngularVelocity = [0, 0, 0],
+							},
+							BoxCollider = 
+							{
+								bool Ghost = false,
+								bool SendsMessages = true,
+								bool Seamless = false,
+								string MaterialName = "4faa6050b8692851:HardMaterial",
+								string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+								Vec3 Offset = [0, 0, 0],
+								Vec3 Size = [0.5, 0.5, 0.5],
+							},
+							Thruster = 
+							{
+							},
+							ThrustEffect = 
+							{
+								bool Active = false,
+								bool WakeUpOnChange = true,
+								bool LocalSpaceDirection = true,
+								float ForceStrength = 200,
+								Vec3 ForceDirection = [0, -1, 0],
+							},
+							BlockTag = 
+							{
+							},
+							Activatable = 
+							{
+								int Key = 150,
+							},
+							SoundEmitter = 
+							{
+								bool StartPlaying = false,
+								int ExtraPriority = 0,
+								string CueName = "51559b749c9e9362:Thruster",
+								float Volume = 1,
+								float Pitch = 1,
+								bool Positional = true,
+							},
+							DestroyOnDeath = 
+							{
+							},
+							Health = 
+							{
+								float Total = 100,
+								float Current = 100,
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 13,
+					},
+					Archetyped = 
+					{
+						string Name = "519e5cfaa4b9c3f4:Block",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-1, 0, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-0.707107, 0.707107, 0, 0],
+					},
+					Model = 
+					{
+						string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+						string MeshName = "4de0354322b345ae:Cube",
+						Vec4 Color = [1, 1, 1, 1],
+						bool Visible = true,
+					},
+					RigidBody = 
+					{
+						bool Static = true,
+						bool Asleep = false,
+						bool Kinematic = false,
+						bool RotationLocked = false,
+						bool Mode2D = false,
+						bool AllowSleep = true,
+						bool Inherit2DMode = true,
+						Vec3 Velocity = [0, 0, 0],
+						Vec3 AngularVelocity = [0, 0, 0],
+					},
+					BoxCollider = 
+					{
+						bool Ghost = false,
+						bool SendsMessages = true,
+						bool Seamless = false,
+						string MaterialName = "4faa6050b8692851:HardMaterial",
+						string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+						Vec3 Offset = [0, 0, 0],
+						Vec3 Size = [0.5, 0.5, 0.5],
+					},
+					BlockTag = 
+					{
+					},
+					DestroyOnDeath = 
+					{
+					},
+					Health = 
+					{
+						float Total = 100,
+						float Current = 100,
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 14,
+							},
+							Archetyped = 
+							{
+								string Name = "519e5cfaa4b9c3f4:Block",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 1, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, -0, 1],
+							},
+							Model = 
+							{
+								string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+								string MeshName = "4de0354322b345ae:Cube",
+								Vec4 Color = [1, 1, 1, 1],
+								bool Visible = true,
+							},
+							RigidBody = 
+							{
+								bool Static = true,
+								bool Asleep = false,
+								bool Kinematic = false,
+								bool RotationLocked = false,
+								bool Mode2D = false,
+								bool AllowSleep = true,
+								bool Inherit2DMode = true,
+								Vec3 Velocity = [0, 0, 0],
+								Vec3 AngularVelocity = [0, 0, 0],
+							},
+							BoxCollider = 
+							{
+								bool Ghost = false,
+								bool SendsMessages = true,
+								bool Seamless = false,
+								string MaterialName = "4faa6050b8692851:HardMaterial",
+								string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+								Vec3 Offset = [0, 0, 0],
+								Vec3 Size = [0.5, 0.5, 0.5],
+							},
+							BlockTag = 
+							{
+							},
+							DestroyOnDeath = 
+							{
+							},
+							Health = 
+							{
+								float Total = 100,
+								float Current = 100,
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 15,
+									},
+									Named = 
+									{
+										string Name = "Thruster",
+									},
+									Archetyped = 
+									{
+										string Name = "519e4cbc821af76f:Thruster",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 0, 1],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0.707107, 0.707107, -0],
+									},
+									Model = 
+									{
+										string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+										string MeshName = "519e4cbc82124da3:Thruster",
+										Vec4 Color = [1, 1, 1, 1],
+										bool Visible = true,
+									},
+									RigidBody = 
+									{
+										bool Static = true,
+										bool Asleep = false,
+										bool Kinematic = false,
+										bool RotationLocked = false,
+										bool Mode2D = false,
+										bool AllowSleep = true,
+										bool Inherit2DMode = true,
+										Vec3 Velocity = [0, 0, 0],
+										Vec3 AngularVelocity = [0, 0, 0],
+									},
+									BoxCollider = 
+									{
+										bool Ghost = false,
+										bool SendsMessages = true,
+										bool Seamless = false,
+										string MaterialName = "4faa6050b8692851:HardMaterial",
+										string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+										Vec3 Offset = [0, 0, 0],
+										Vec3 Size = [0.5, 0.5, 0.5],
+									},
+									Thruster = 
+									{
+									},
+									ThrustEffect = 
+									{
+										bool Active = false,
+										bool WakeUpOnChange = true,
+										bool LocalSpaceDirection = true,
+										float ForceStrength = 200,
+										Vec3 ForceDirection = [0, -1, 0],
+									},
+									BlockTag = 
+									{
+									},
+									Activatable = 
+									{
+										int Key = 87,
+									},
+									SoundEmitter = 
+									{
+										bool StartPlaying = false,
+										int ExtraPriority = 0,
+										string CueName = "51559b749c9e9362:Thruster",
+										float Volume = 1,
+										float Pitch = 1,
+										bool Positional = true,
+									},
+									DestroyOnDeath = 
+									{
+									},
+									Health = 
+									{
+										float Total = 100,
+										float Current = 100,
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 16,
+									},
+									Named = 
+									{
+										string Name = "Thruster",
+									},
+									Archetyped = 
+									{
+										string Name = "519e4cbc821af76f:Thruster",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [-1, 0, 0],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0.5, -0.5, 0.5, 0.5],
+									},
+									Model = 
+									{
+										string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+										string MeshName = "519e4cbc82124da3:Thruster",
+										Vec4 Color = [1, 1, 1, 1],
+										bool Visible = true,
+									},
+									RigidBody = 
+									{
+										bool Static = true,
+										bool Asleep = false,
+										bool Kinematic = false,
+										bool RotationLocked = false,
+										bool Mode2D = false,
+										bool AllowSleep = true,
+										bool Inherit2DMode = true,
+										Vec3 Velocity = [0, 0, 0],
+										Vec3 AngularVelocity = [0, 0, 0],
+									},
+									BoxCollider = 
+									{
+										bool Ghost = false,
+										bool SendsMessages = true,
+										bool Seamless = false,
+										string MaterialName = "4faa6050b8692851:HardMaterial",
+										string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+										Vec3 Offset = [0, 0, 0],
+										Vec3 Size = [0.5, 0.5, 0.5],
+									},
+									Thruster = 
+									{
+									},
+									ThrustEffect = 
+									{
+										bool Active = false,
+										bool WakeUpOnChange = true,
+										bool LocalSpaceDirection = true,
+										float ForceStrength = 200,
+										Vec3 ForceDirection = [0, -1, 0],
+									},
+									BlockTag = 
+									{
+									},
+									Activatable = 
+									{
+										int Key = 131,
+									},
+									SoundEmitter = 
+									{
+										bool StartPlaying = false,
+										int ExtraPriority = 0,
+										string CueName = "51559b749c9e9362:Thruster",
+										float Volume = 1,
+										float Pitch = 1,
+										bool Positional = true,
+									},
+									DestroyOnDeath = 
+									{
+									},
+									Health = 
+									{
+										float Total = 100,
+										float Current = 100,
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 17,
+									},
+									Archetyped = 
+									{
+										string Name = "519e45e379f286e6:Cannon",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 0, -1],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [-0.5, -0.5, 0.5, 0.5],
+									},
+									Model = 
+									{
+										string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+										string MeshName = "519e458e6220b09d:Cannon",
+										Vec4 Color = [1, 1, 1, 1],
+										bool Visible = true,
+									},
+									Cannon = 
+									{
+										float Speed = 100,
+										string Projectile = "Bullet",
+									},
+									Orientation = 
+									{
+										Vec3 UpVector = [1, 0, 0],
+										Vec3 ForwardVector = [0, 1, 0],
+									},
+									RigidBody = 
+									{
+										bool Static = true,
+										bool Asleep = false,
+										bool Kinematic = false,
+										bool RotationLocked = false,
+										bool Mode2D = false,
+										bool AllowSleep = true,
+										bool Inherit2DMode = true,
+										Vec3 Velocity = [0, 0, 0],
+										Vec3 AngularVelocity = [0, 0, 0],
+									},
+									BoxCollider = 
+									{
+										bool Ghost = false,
+										bool SendsMessages = true,
+										bool Seamless = false,
+										string MaterialName = "4faa6050b8692851:HardMaterial",
+										string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+										Vec3 Offset = [0, 0, 0],
+										Vec3 Size = [0.5, 0.5, 0.5],
+									},
+									Activatable = 
+									{
+										int Key = 32,
+									},
+									BlockTag = 
+									{
+									},
+									SoundEmitter = 
+									{
+										bool StartPlaying = false,
+										int ExtraPriority = 0,
+										string CueName = "5155988faf84296a:Cannon",
+										float Volume = 1,
+										float Pitch = 1,
+										bool Positional = true,
+									},
+									DestroyOnDeath = 
+									{
+									},
+									Health = 
+									{
+										float Total = 100,
+										float Current = 100,
+									},
+								},
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 18,
+							},
+							Named = 
+							{
+								string Name = "Thruster",
+							},
+							Archetyped = 
+							{
+								string Name = "519e4cbc821af76f:Thruster",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, 1],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [-0.5, 0.5, 0.5, -0.5],
+							},
+							Model = 
+							{
+								string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+								string MeshName = "519e4cbc82124da3:Thruster",
+								Vec4 Color = [1, 1, 1, 1],
+								bool Visible = true,
+							},
+							RigidBody = 
+							{
+								bool Static = true,
+								bool Asleep = false,
+								bool Kinematic = false,
+								bool RotationLocked = false,
+								bool Mode2D = false,
+								bool AllowSleep = true,
+								bool Inherit2DMode = true,
+								Vec3 Velocity = [0, 0, 0],
+								Vec3 AngularVelocity = [0, 0, 0],
+							},
+							BoxCollider = 
+							{
+								bool Ghost = false,
+								bool SendsMessages = true,
+								bool Seamless = false,
+								string MaterialName = "4faa6050b8692851:HardMaterial",
+								string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+								Vec3 Offset = [0, 0, 0],
+								Vec3 Size = [0.5, 0.5, 0.5],
+							},
+							Thruster = 
+							{
+							},
+							ThrustEffect = 
+							{
+								bool Active = false,
+								bool WakeUpOnChange = true,
+								bool LocalSpaceDirection = true,
+								float ForceStrength = 200,
+								Vec3 ForceDirection = [0, -1, 0],
+							},
+							BlockTag = 
+							{
+							},
+							Activatable = 
+							{
+								int Key = 87,
+							},
+							SoundEmitter = 
+							{
+								bool StartPlaying = false,
+								int ExtraPriority = 0,
+								string CueName = "51559b749c9e9362:Thruster",
+								float Volume = 1,
+								float Pitch = 1,
+								bool Positional = true,
+							},
+							DestroyOnDeath = 
+							{
+							},
+							Health = 
+							{
+								float Total = 100,
+								float Current = 100,
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 19,
+							},
+							Named = 
+							{
+								string Name = "Thruster",
+							},
+							Archetyped = 
+							{
+								string Name = "519e4cbc821af76f:Thruster",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [-1, 0, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0.707107, 0.707107],
+							},
+							Model = 
+							{
+								string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+								string MeshName = "519e4cbc82124da3:Thruster",
+								Vec4 Color = [1, 1, 1, 1],
+								bool Visible = true,
+							},
+							RigidBody = 
+							{
+								bool Static = true,
+								bool Asleep = false,
+								bool Kinematic = false,
+								bool RotationLocked = false,
+								bool Mode2D = false,
+								bool AllowSleep = true,
+								bool Inherit2DMode = true,
+								Vec3 Velocity = [0, 0, 0],
+								Vec3 AngularVelocity = [0, 0, 0],
+							},
+							BoxCollider = 
+							{
+								bool Ghost = false,
+								bool SendsMessages = true,
+								bool Seamless = false,
+								string MaterialName = "4faa6050b8692851:HardMaterial",
+								string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+								Vec3 Offset = [0, 0, 0],
+								Vec3 Size = [0.5, 0.5, 0.5],
+							},
+							Thruster = 
+							{
+							},
+							ThrustEffect = 
+							{
+								bool Active = false,
+								bool WakeUpOnChange = true,
+								bool LocalSpaceDirection = true,
+								float ForceStrength = 200,
+								Vec3 ForceDirection = [0, -1, 0],
+							},
+							BlockTag = 
+							{
+							},
+							Activatable = 
+							{
+								int Key = 150,
+							},
+							SoundEmitter = 
+							{
+								bool StartPlaying = false,
+								int ExtraPriority = 0,
+								string CueName = "51559b749c9e9362:Thruster",
+								float Volume = 1,
+								float Pitch = 1,
+								bool Positional = true,
+							},
+							DestroyOnDeath = 
+							{
+							},
+							Health = 
+							{
+								float Total = 100,
+								float Current = 100,
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 20,
+					},
+					Archetyped = 
+					{
+						string Name = "519e5cfaa4b9c3f4:Block",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, 1],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0.707107, 0.707107, -0],
+					},
+					Model = 
+					{
+						string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+						string MeshName = "4de0354322b345ae:Cube",
+						Vec4 Color = [1, 1, 1, 1],
+						bool Visible = true,
+					},
+					RigidBody = 
+					{
+						bool Static = true,
+						bool Asleep = false,
+						bool Kinematic = false,
+						bool RotationLocked = false,
+						bool Mode2D = false,
+						bool AllowSleep = true,
+						bool Inherit2DMode = true,
+						Vec3 Velocity = [0, 0, 0],
+						Vec3 AngularVelocity = [0, 0, 0],
+					},
+					BoxCollider = 
+					{
+						bool Ghost = false,
+						bool SendsMessages = true,
+						bool Seamless = false,
+						string MaterialName = "4faa6050b8692851:HardMaterial",
+						string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+						Vec3 Offset = [0, 0, 0],
+						Vec3 Size = [0.5, 0.5, 0.5],
+					},
+					BlockTag = 
+					{
+					},
+					DestroyOnDeath = 
+					{
+					},
+					Health = 
+					{
+						float Total = 100,
+						float Current = 100,
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 21,
+							},
+							Archetyped = 
+							{
+								string Name = "519e5cfaa4b9c3f4:Block",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 1, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, -0, 1],
+							},
+							Model = 
+							{
+								string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+								string MeshName = "4de0354322b345ae:Cube",
+								Vec4 Color = [1, 1, 1, 1],
+								bool Visible = true,
+							},
+							RigidBody = 
+							{
+								bool Static = true,
+								bool Asleep = false,
+								bool Kinematic = false,
+								bool RotationLocked = false,
+								bool Mode2D = false,
+								bool AllowSleep = true,
+								bool Inherit2DMode = true,
+								Vec3 Velocity = [0, 0, 0],
+								Vec3 AngularVelocity = [0, 0, 0],
+							},
+							BoxCollider = 
+							{
+								bool Ghost = false,
+								bool SendsMessages = true,
+								bool Seamless = false,
+								string MaterialName = "4faa6050b8692851:HardMaterial",
+								string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+								Vec3 Offset = [0, 0, 0],
+								Vec3 Size = [0.5, 0.5, 0.5],
+							},
+							BlockTag = 
+							{
+							},
+							DestroyOnDeath = 
+							{
+							},
+							Health = 
+							{
+								float Total = 100,
+								float Current = 100,
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 22,
+									},
+									Archetyped = 
+									{
+										string Name = "519e5cfaa4b9c3f4:Block",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 1, 0],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0, -0, 1],
+									},
+									Model = 
+									{
+										string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+										string MeshName = "4de0354322b345ae:Cube",
+										Vec4 Color = [1, 1, 1, 1],
+										bool Visible = true,
+									},
+									RigidBody = 
+									{
+										bool Static = true,
+										bool Asleep = false,
+										bool Kinematic = false,
+										bool RotationLocked = false,
+										bool Mode2D = false,
+										bool AllowSleep = true,
+										bool Inherit2DMode = true,
+										Vec3 Velocity = [0, 0, 0],
+										Vec3 AngularVelocity = [0, 0, 0],
+									},
+									BoxCollider = 
+									{
+										bool Ghost = false,
+										bool SendsMessages = true,
+										bool Seamless = false,
+										string MaterialName = "4faa6050b8692851:HardMaterial",
+										string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+										Vec3 Offset = [0, 0, 0],
+										Vec3 Size = [0.5, 0.5, 0.5],
+									},
+									BlockTag = 
+									{
+									},
+									DestroyOnDeath = 
+									{
+									},
+									Health = 
+									{
+										float Total = 100,
+										float Current = 100,
+									},
+									Hierarchy = 
+									{
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 23,
+											},
+											Named = 
+											{
+												string Name = "Thruster",
+											},
+											Archetyped = 
+											{
+												string Name = "519e4cbc821af76f:Thruster",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0, 0, 1],
+												Vec3 Scale = [1, 1, 1],
+												Quat Rotation = [-0.5, 0.5, 0.5, -0.5],
+											},
+											Model = 
+											{
+												string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+												string MeshName = "519e4cbc82124da3:Thruster",
+												Vec4 Color = [1, 1, 1, 1],
+												bool Visible = true,
+											},
+											RigidBody = 
+											{
+												bool Static = true,
+												bool Asleep = false,
+												bool Kinematic = false,
+												bool RotationLocked = false,
+												bool Mode2D = false,
+												bool AllowSleep = true,
+												bool Inherit2DMode = true,
+												Vec3 Velocity = [0, 0, 0],
+												Vec3 AngularVelocity = [0, 0, 0],
+											},
+											BoxCollider = 
+											{
+												bool Ghost = false,
+												bool SendsMessages = true,
+												bool Seamless = false,
+												string MaterialName = "4faa6050b8692851:HardMaterial",
+												string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+												Vec3 Offset = [0, 0, 0],
+												Vec3 Size = [0.5, 0.5, 0.5],
+											},
+											Thruster = 
+											{
+											},
+											ThrustEffect = 
+											{
+												bool Active = false,
+												bool WakeUpOnChange = true,
+												bool LocalSpaceDirection = true,
+												float ForceStrength = 200,
+												Vec3 ForceDirection = [0, -1, 0],
+											},
+											BlockTag = 
+											{
+											},
+											Activatable = 
+											{
+												int Key = 129,
+											},
+											SoundEmitter = 
+											{
+												bool StartPlaying = false,
+												int ExtraPriority = 0,
+												string CueName = "51559b749c9e9362:Thruster",
+												float Volume = 1,
+												float Pitch = 1,
+												bool Positional = true,
+											},
+											DestroyOnDeath = 
+											{
+											},
+											Health = 
+											{
+												float Total = 100,
+												float Current = 100,
+											},
+										},
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 24,
+											},
+											Named = 
+											{
+												string Name = "Thruster",
+											},
+											Archetyped = 
+											{
+												string Name = "519e4cbc821af76f:Thruster",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [1, 0, 0],
+												Vec3 Scale = [1, 1, 1],
+												Quat Rotation = [0.5, 0.5, 0.5, -0.5],
+											},
+											Model = 
+											{
+												string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+												string MeshName = "519e4cbc82124da3:Thruster",
+												Vec4 Color = [1, 1, 1, 1],
+												bool Visible = true,
+											},
+											RigidBody = 
+											{
+												bool Static = true,
+												bool Asleep = false,
+												bool Kinematic = false,
+												bool RotationLocked = false,
+												bool Mode2D = false,
+												bool AllowSleep = true,
+												bool Inherit2DMode = true,
+												Vec3 Velocity = [0, 0, 0],
+												Vec3 AngularVelocity = [0, 0, 0],
+											},
+											BoxCollider = 
+											{
+												bool Ghost = false,
+												bool SendsMessages = true,
+												bool Seamless = false,
+												string MaterialName = "4faa6050b8692851:HardMaterial",
+												string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+												Vec3 Offset = [0, 0, 0],
+												Vec3 Size = [0.5, 0.5, 0.5],
+											},
+											Thruster = 
+											{
+											},
+											ThrustEffect = 
+											{
+												bool Active = false,
+												bool WakeUpOnChange = true,
+												bool LocalSpaceDirection = true,
+												float ForceStrength = 200,
+												Vec3 ForceDirection = [0, -1, 0],
+											},
+											BlockTag = 
+											{
+											},
+											Activatable = 
+											{
+												int Key = 68,
+											},
+											SoundEmitter = 
+											{
+												bool StartPlaying = false,
+												int ExtraPriority = 0,
+												string CueName = "51559b749c9e9362:Thruster",
+												float Volume = 1,
+												float Pitch = 1,
+												bool Positional = true,
+											},
+											DestroyOnDeath = 
+											{
+											},
+											Health = 
+											{
+												float Total = 100,
+												float Current = 100,
+											},
+										},
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 25,
+											},
+											Named = 
+											{
+												string Name = "Thruster",
+											},
+											Archetyped = 
+											{
+												string Name = "519e4cbc821af76f:Thruster",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [-1, 0, 0],
+												Vec3 Scale = [1, 1, 1],
+												Quat Rotation = [-0.707107, 0.707107, 0, 0],
+											},
+											Model = 
+											{
+												string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+												string MeshName = "519e4cbc82124da3:Thruster",
+												Vec4 Color = [1, 1, 1, 1],
+												bool Visible = true,
+											},
+											RigidBody = 
+											{
+												bool Static = true,
+												bool Asleep = false,
+												bool Kinematic = false,
+												bool RotationLocked = false,
+												bool Mode2D = false,
+												bool AllowSleep = true,
+												bool Inherit2DMode = true,
+												Vec3 Velocity = [0, 0, 0],
+												Vec3 AngularVelocity = [0, 0, 0],
+											},
+											BoxCollider = 
+											{
+												bool Ghost = false,
+												bool SendsMessages = true,
+												bool Seamless = false,
+												string MaterialName = "4faa6050b8692851:HardMaterial",
+												string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+												Vec3 Offset = [0, 0, 0],
+												Vec3 Size = [0.5, 0.5, 0.5],
+											},
+											Thruster = 
+											{
+											},
+											ThrustEffect = 
+											{
+												bool Active = false,
+												bool WakeUpOnChange = true,
+												bool LocalSpaceDirection = true,
+												float ForceStrength = 200,
+												Vec3 ForceDirection = [0, -1, 0],
+											},
+											BlockTag = 
+											{
+											},
+											Activatable = 
+											{
+												int Key = 65,
+											},
+											SoundEmitter = 
+											{
+												bool StartPlaying = false,
+												int ExtraPriority = 0,
+												string CueName = "51559b749c9e9362:Thruster",
+												float Volume = 1,
+												float Pitch = 1,
+												bool Positional = true,
+											},
+											DestroyOnDeath = 
+											{
+											},
+											Health = 
+											{
+												float Total = 100,
+												float Current = 100,
+											},
+										},
+									},
+								},
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 26,
+							},
+							Named = 
+							{
+								string Name = "Thruster",
+							},
+							Archetyped = 
+							{
+								string Name = "519e4cbc821af76f:Thruster",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0, 1],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0.707107, 0.707107, -0],
+							},
+							Model = 
+							{
+								string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+								string MeshName = "519e4cbc82124da3:Thruster",
+								Vec4 Color = [1, 1, 1, 1],
+								bool Visible = true,
+							},
+							RigidBody = 
+							{
+								bool Static = true,
+								bool Asleep = false,
+								bool Kinematic = false,
+								bool RotationLocked = false,
+								bool Mode2D = false,
+								bool AllowSleep = true,
+								bool Inherit2DMode = true,
+								Vec3 Velocity = [0, 0, 0],
+								Vec3 AngularVelocity = [0, 0, 0],
+							},
+							BoxCollider = 
+							{
+								bool Ghost = false,
+								bool SendsMessages = true,
+								bool Seamless = false,
+								string MaterialName = "4faa6050b8692851:HardMaterial",
+								string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+								Vec3 Offset = [0, 0, 0],
+								Vec3 Size = [0.5, 0.5, 0.5],
+							},
+							Thruster = 
+							{
+							},
+							ThrustEffect = 
+							{
+								bool Active = false,
+								bool WakeUpOnChange = true,
+								bool LocalSpaceDirection = true,
+								float ForceStrength = 200,
+								Vec3 ForceDirection = [0, -1, 0],
+							},
+							BlockTag = 
+							{
+							},
+							Activatable = 
+							{
+								int Key = 150,
+							},
+							SoundEmitter = 
+							{
+								bool StartPlaying = false,
+								int ExtraPriority = 0,
+								string CueName = "51559b749c9e9362:Thruster",
+								float Volume = 1,
+								float Pitch = 1,
+								bool Positional = true,
+							},
+							DestroyOnDeath = 
+							{
+							},
+							Health = 
+							{
+								float Total = 100,
+								float Current = 100,
+							},
+						},
+					},
+				},
+			},
+		},
+	},
+},
