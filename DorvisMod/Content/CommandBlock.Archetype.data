@@ -6,11 +6,11 @@ Cog =
 	},
 	Archetyped = 
 	{
-		string Name = "519e5cfaa4b9c3f4:Block",
+		string Name = "519dbb34b32b6447:CommandBlock",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-2.06928, 9.50534, 4.711],
+		Vec3 Translation = [-6.96859, 4.26016, -1.66931],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -53,5 +53,8 @@ Cog =
 	{
 		float Total = 100,
 		float Current = 100,
+	},
+	CommandBlock = 
+	{
 	},
 },

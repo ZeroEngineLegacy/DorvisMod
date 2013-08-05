@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-11.3418, 1.915, -4.06746],
+		Vec3 Translation = [-6.17648, 3.87121, 0.0810137],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -127,11 +127,38 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "ToolContainer",
+				string Name = "ExtraCollision",
 			},
 			Transform = 
 			{
 				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			BoxCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = false,
+				string MaterialName = "5155a62385c0e753:Player",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				Vec3 Size = [0.4, 0.7, 0.4],
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Named = 
+			{
+				string Name = "ToolContainer",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-1.43051e-006, -2.38419e-007, 1.54972e-005],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -144,7 +171,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 4,
+						uint Id = 5,
 					},
 					Named = 
 					{
@@ -165,7 +192,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 5,
+						uint Id = 6,
 					},
 					Named = 
 					{
@@ -189,7 +216,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 6,
+						uint Id = 7,
 					},
 					Named = 
 					{
@@ -213,7 +240,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 7,
+						uint Id = 8,
 					},
 					Named = 
 					{
@@ -237,7 +264,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 8,
+						uint Id = 9,
 					},
 					Named = 
 					{
@@ -262,7 +289,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 9,
+						uint Id = 10,
 					},
 					Named = 
 					{
@@ -282,7 +309,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 10,
+						uint Id = 11,
 					},
 					Named = 
 					{
@@ -303,7 +330,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 11,
+						uint Id = 12,
 					},
 					Named = 
 					{
@@ -323,33 +350,76 @@ Cog =
 					{
 					},
 				},
-			},
-		},
-		Cog = 
-		{
-			LinkId = 
-			{
-				uint Id = 12,
-			},
-			Named = 
-			{
-				string Name = "ExtraCollision",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [0, 0, 0],
-				Vec3 Scale = [1, 1, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			BoxCollider = 
-			{
-				bool Ghost = false,
-				bool SendsMessages = true,
-				bool Seamless = false,
-				string MaterialName = "5155a62385c0e753:Player",
-				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-				Vec3 Offset = [0, 0, 0],
-				Vec3 Size = [0.4, 0.7, 0.4],
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 13,
+					},
+					Named = 
+					{
+						string Name = "Rope Spawner",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					RopeTool = 
+					{
+					},
+					Hierarchy = 
+					{
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 14,
+					},
+					Named = 
+					{
+						string Name = "CommandBlock Spawner",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					SpawnTool = 
+					{
+						string ObjToSpawn = "519dbb34b32b6447:CommandBlock",
+					},
+					Hierarchy = 
+					{
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 15,
+					},
+					Named = 
+					{
+						string Name = "Command Block Tool",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					CommandBlockTool = 
+					{
+					},
+					Hierarchy = 
+					{
+					},
+				},
 			},
 		},
 	},

@@ -343,6 +343,10 @@ class Player : ScriptComponent
             {
                 index = 9;
             }
+            if(e.ShiftPressed)
+            {
+                index += 10;
+            }
             
             // Check if the key was a valid key
             if(index >= 0 && index < this.Tools.Count)

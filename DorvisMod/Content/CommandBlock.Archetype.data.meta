@@ -2,8 +2,8 @@ DataContent =
 {
 	DataBuilder = 
 	{
-		string Name = "Shaodw",
-		uint64 ResourceId = 5156e58929d9bfdd,
+		string Name = "CommandBlock",
+		uint64 ResourceId = 519dbb34b32b6447,
 		string LoaderType = "Cog",
 		uint Version = 0,
 		bool ShowInEditor = true,

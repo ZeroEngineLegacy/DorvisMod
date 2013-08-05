@@ -74,7 +74,16 @@ Cog =
 		float Pitch = 1,
 		bool Positional = true,
 	},
+	DestroyOnDeath = 
+	{
+	},
+	Health = 
+	{
+		float Total = 100,
+		float Current = 100,
+	}
 	Hierarchy = 
+
 	{
 		Cog = 
 		{

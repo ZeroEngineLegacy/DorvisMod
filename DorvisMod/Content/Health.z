@@ -1,0 +1,57 @@
+class Health : ScriptComponent
+{
+    [Editable][Serialized]
+    var Total : Real = 100.0;
+    
+    [Editable][Serialized]
+    var Current : Real = 100.0;
+    
+    var Percent : Real
+    {
+        get { return this.Current / this.Total; }
+        set { this.Current = this.Total * value; }
+    }
+    
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+    }
+    
+    function Change(amount : Real)
+    {
+        // If we're already dead, ignore this
+        if (this.Current <= 0.0)
+        {
+            return;
+        }
+        
+        this.Current += amount;
+        
+        var toSend = new HealthEvent();
+        toSend.Amount = amount;
+        toSend.Health = this;
+        
+        // If we just died...
+        if (this.Current <= 0.0)
+        {
+            this.Owner.DispatchEvent("Death", toSend as Event);
+        }
+        else
+        {
+            this.Owner.DispatchEvent("HealthChanged", toSend as Event);
+        }
+    }
+}
+
+class HealthEvent : Event
+{
+    var Health : Health = null;
+    var Amount : Real = 0.0;
+    
+    constructor() : base()
+    {
+    }
+}

@@ -1,0 +1,35 @@
+class DamageOnCollide : ScriptComponent
+{
+    [Editable][Serialized]
+    var Damage : Real = 10.0;
+    
+    // The root cog we originated from (we ignore damage to this cog and its descendents)
+    // Set this to null to damage everything
+    var OriginRoot : Cog = null;
+    
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+
+    function OnCollisionStarted(e : CollisionEvent)
+    {
+        // Don't damage the person we were created from
+        if (e.OtherObject.GetRoot() == this.OriginRoot)
+        {
+            return;
+        }
+        
+        var health = e.OtherObject.Health;
+        if (health != null)
+        {
+            health.Change(-this.Damage);
+        }
+        
+        this.Owner.Destroy();
+    }
+}

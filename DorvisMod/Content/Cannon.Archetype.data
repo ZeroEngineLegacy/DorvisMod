@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [5.05854, 1.17117, 1.68321],
+		Vec3 Translation = [0.172207, 11.6966, 4.91383],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -53,9 +53,6 @@ Cog =
 		Vec3 Offset = [0, 0, 0],
 		Vec3 Size = [0.5, 0.5, 0.5],
 	},
-	BlockScript = 
-	{
-	},
 	Activatable = 
 	{
 		int Key = 32,
@@ -71,5 +68,13 @@ Cog =
 		float Volume = 1,
 		float Pitch = 1,
 		bool Positional = true,
+	},
+	DestroyOnDeath = 
+	{
+	},
+	Health = 
+	{
+		float Total = 100,
+		float Current = 100,
 	},
 },

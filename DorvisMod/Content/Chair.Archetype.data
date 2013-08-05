@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [3.17204, 1.44317, -1.27988],
+		Vec3 Translation = [-8.3445, 11.282, 4.07332],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -48,5 +48,13 @@ Cog =
 	},
 	BlockTag = 
 	{
+	},
+	DestroyOnDeath = 
+	{
+	},
+	Health = 
+	{
+		float Total = 100,
+		float Current = 100,
 	},
 },
