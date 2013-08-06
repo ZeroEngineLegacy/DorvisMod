@@ -4,7 +4,6 @@ class Activatable : ScriptComponent
     [Editable][Serialized]
     var Key : Integer = 87;
     
-    var ReuseEvent : Event = new Event();
     var Root : Cog = null;
     
     constructor() : base()
@@ -29,29 +28,29 @@ class Activatable : ScriptComponent
         
         if (this.Root != null)
         {
-            Zero.Disconnect(this.Root, Events.LockStepKeyDown, this as Component);
-            Zero.Disconnect(this.Root, Events.LockStepKeyUp, this as Component);
+            Zero.Disconnect(this.Root, "PlayerKeyDown", this as Component);
+            Zero.Disconnect(this.Root, "PlayerKeyUp", this as Component);
         }
         
-        Zero.Connect(root, Events.LockStepKeyDown, this.OnKeyDown);
-        Zero.Connect(root, Events.LockStepKeyUp, this.OnKeyUp);
+        Zero.Connect(root, "PlayerKeyDown", this.OnKeyDown);
+        Zero.Connect(root, "PlayerKeyUp", this.OnKeyUp);
         
         this.Root = root;
     }
     
-    function OnKeyDown(e : LockStepKeyEvent)
+    function OnKeyDown(e : PlayerKeyEvent)
     {
         if (e.Key == this.Key)
         {
-            this.Owner.DispatchEvent("Activate", this.ReuseEvent);
+            this.Owner.DispatchEvent("Activate", e as Event);
         }
     }
     
-    function OnKeyUp(e : LockStepKeyEvent)
+    function OnKeyUp(e : PlayerKeyEvent)
     {
         if (e.Key == this.Key)
         {
-            this.Owner.DispatchEvent("Deactivate", this.ReuseEvent);
+            this.Owner.DispatchEvent("Deactivate", e as Event);
         }
     }
 }

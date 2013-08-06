@@ -1,0 +1,36 @@
+class BlockCamera : ScriptComponent
+{
+    var BlockCameraCog : Cog = null;
+    
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, "Activate", this.OnActivate);
+        Zero.Connect(this.Owner, "Deactivate", this.OnDeactivate);
+        
+        this.BlockCameraCog = this.Owner.FindChildByName("Camera");
+    }
+
+    function OnActivate(e : PlayerEvent)
+    {
+        if (e.Player.UnsafeIsLocal == false)
+        {
+            return;
+        }
+        
+        e.Player.CameraCog.Camera.Viewport.CameraViewport.Camera = this.BlockCameraCog;
+    }
+
+    function OnDeactivate(e : PlayerEvent)
+    {
+        if (e.Player.UnsafeIsLocal == false)
+        {
+            return;
+        }
+        
+        this.BlockCameraCog.Camera.Viewport.CameraViewport.Camera = e.Player.CameraCog;
+    }
+}
