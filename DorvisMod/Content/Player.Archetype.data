@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-0.545187, 3.80219, 0.518605],
+		Vec3 Translation = [-10.9732, 3.61261, 6.4007],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -415,6 +415,30 @@ Cog =
 					},
 					CommandBlockTool = 
 					{
+					},
+					Hierarchy = 
+					{
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 16,
+					},
+					Named = 
+					{
+						string Name = "Swivel Tool",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					SpawnTool = 
+					{
+						string ObjToSpawn = "52625465bb4680a3:Swivel",
 					},
 					Hierarchy = 
 					{

@@ -45,7 +45,8 @@ class Player : ScriptComponent
     var Tools : Array[Cog] = new Array[Cog]();
     var ActiveTool : Cog = null;
     
-    var FreezeInput : Boolean = false;
+    var FreezeKeyboardInput : Boolean = false;
+    var FreezeMouseInput : Boolean = false;
     
     // Only used for client side effects that have absolutely no baring on gameplay
     var UnsafeIsLocal : Boolean = false;
@@ -187,12 +188,14 @@ class Player : ScriptComponent
     
     function OnLogicUpdate(e : UpdateEvent)
     {
-        var playerRotation = local Real3(0.0, this.RotationAngles.Y, 0.0);
-        var cameraRotation = local Real3(this.RotationAngles.X, Math.Pi, 0.0);
-        this.Owner.Transform.SetRotationAngles(playerRotation);
-        this.CameraCog.Transform.SetRotationAngles(cameraRotation);
-        
-        if (this.FreezeInput == false)
+        if(this.FreezeMouseInput == false)
+        {
+            var playerRotation = local Real3(0.0, this.RotationAngles.Y, 0.0);
+            var cameraRotation = local Real3(this.RotationAngles.X, Math.Pi, 0.0);
+            this.Owner.Transform.SetRotationAngles(playerRotation);
+            this.CameraCog.Transform.SetRotationAngles(cameraRotation);
+        }
+        if (this.FreezeKeyboardInput == false)
         {
             var movement = this.Owner.Transform.TransformNormal(this.Movement);
             movement.Y = 0.0;
@@ -324,7 +327,7 @@ class Player : ScriptComponent
         this.AddMovement(e, Keys.D, local Real3(-1.0, 0.0,  0.0));
         
         // We still allow movement to happen when freezing input (we ignore it in update)
-        if (this.FreezeInput)
+        if (this.FreezeKeyboardInput)
         {
             return;
         }
