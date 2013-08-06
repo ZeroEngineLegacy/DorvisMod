@@ -1,5 +1,9 @@
 class Thruster : ScriptComponent
 {
+    var IdleParticles : Cog = null;
+    var OnParticles : Cog = null;
+    var OnParticles2 : Cog = null;
+    
     constructor() : base()
     {
     }
@@ -8,17 +12,29 @@ class Thruster : ScriptComponent
     {
         Zero.Connect(this.Owner, "Activate", this.OnActivate);
         Zero.Connect(this.Owner, "Deactivate", this.OnDeactivate);
+        this.IdleParticles = this.Owner.FindChildByName("IdleParticles");
+        this.OnParticles = this.Owner.FindChildByName("OnParticles");
+        this.OnParticles2 = this.Owner.FindChildByName("OnParticles2");
     }
 
     function OnActivate(e : Event)
     {
         this.Owner.ThrustEffect.Active = true;
         this.Owner.SoundEmitter.Play();
+        this.SetParticlesActive(true);
     }
 
     function OnDeactivate(e : Event)
     {
         this.Owner.ThrustEffect.Active = false;
         this.Owner.SoundEmitter.Stop();
+        this.SetParticlesActive(false);
+    }
+    
+    function SetParticlesActive(state : Boolean)
+    {
+        this.IdleParticles.SphericalParticleEmitter.Active = !state;
+        this.OnParticles.SphericalParticleEmitter.Active = state;
+        this.OnParticles2.SphericalParticleEmitter.Active = state;
     }
 }

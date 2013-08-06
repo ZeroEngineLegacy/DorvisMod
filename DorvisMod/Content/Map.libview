@@ -82,15 +82,27 @@ Folder =
 		},
 		Node = 
 		{
-			uint64 Value = 5156e58929d9bfdd,
-		},
-		Node = 
-		{
 			uint64 Value = 5156e5822e0bae58,
 		},
 		Node = 
 		{
 			uint64 Value = 5156e45015e435cf,
+		},
+		Node = 
+		{
+			uint64 Value = 519dbb34b32b6447,
+		},
+		Node = 
+		{
+			uint64 Value = 52625465bb4680a3,
+		},
+		Node = 
+		{
+			uint64 Value = 519d899f2d9a3b64,
+		},
+		Node = 
+		{
+			uint64 Value = 526374cfe24ee187,
 		},
 	},
 	Folder = 
@@ -183,6 +195,38 @@ Folder =
 		Node = 
 		{
 			uint64 Value = 5156e5a71203c252,
+		},
+		Node = 
+		{
+			uint64 Value = 519da53d626082f6,
+		},
+		Node = 
+		{
+			uint64 Value = 51569cc8868b297c,
+		},
+		Node = 
+		{
+			uint64 Value = 51569856066f6ae8,
+		},
+		Node = 
+		{
+			uint64 Value = 519da691b79a2178,
+		},
+		Node = 
+		{
+			uint64 Value = 515770cae4d1c56e,
+		},
+		Node = 
+		{
+			uint64 Value = 519da9b1d52c1539,
+		},
+		Node = 
+		{
+			uint64 Value = 519da728c5a1cec2,
+		},
+		Node = 
+		{
+			uint64 Value = 5262553ff502fb11,
 		},
 	},
 	Folder = 
@@ -283,6 +327,22 @@ Folder =
 		Node = 
 		{
 			uint64 Value = 51566a023d88f0ee,
+		},
+		Node = 
+		{
+			uint64 Value = 519dae20a0938b4e,
+		},
+		Node = 
+		{
+			uint64 Value = 519d9750dec3cac8,
+		},
+		Node = 
+		{
+			uint64 Value = 519dae18a6f03073,
+		},
+		Node = 
+		{
+			uint64 Value = 519dae1ca1dc3cd6,
 		},
 	},
 	Folder = 
@@ -631,6 +691,14 @@ Folder =
 		Node = 
 		{
 			uint64 Value = 5155a62385c0e753,
+		},
+	},
+	Folder = 
+	{
+		string Name = "ColorGradient",
+		Node = 
+		{
+			uint64 Value = 519daecb4993a4e7,
 		},
 	},
 },

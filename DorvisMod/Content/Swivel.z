@@ -25,6 +25,12 @@ class Swivel : ScriptComponent
 
     function Initialize(init : CogInitializer)
     {
+        Zero.Connect(this.Owner as Cog, Events.Attached, this.OnAttached);
+        this.Setup();
+    }
+    
+    function OnAttached(e : HierarchyEvent)
+    {
         this.Setup();
     }
     
