@@ -1,7 +1,22 @@
+class SwivelAxis
+{
+    [Static]
+    var Up : Integer { get { return 0; } }
+    
+    [Static]
+    var Right : Integer { get { return 1; } }
+    
+    //Not used
+    [Static]
+    var Forward : Integer { get { return 2; } }
+}
+
 class Swivel : ScriptComponent
 {
-    var Horizontal : Boolean = true;
+    [Serialized][Editable]
+    var Axis : Integer = SwivelAxis.Up;
     
+    var MaxAngleRotation : Real = 0.03;
     var Root : Cog = null;
     
     constructor() : base()
@@ -9,6 +24,12 @@ class Swivel : ScriptComponent
     }
 
     function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner as Cog, Events.Attached, this.OnAttached);
+        this.Setup();
+    }
+    
+    function OnAttached(e : HierarchyEvent)
     {
         this.Setup();
     }
@@ -30,10 +51,19 @@ class Swivel : ScriptComponent
 
     function OnUserMouseMove(e : LockStepMouseEvent)
     {
-        
         var objRot = this.Owner.Transform.WorldRotation;
-        var rot = Math.ToQuaternion(this.Owner.Orientation.GetWorldUp(), -e.ScreenDelta.X);
+        var rot : Quat = local Quat();
+        if(this.Axis == SwivelAxis.Up)
+        {
+            var delta = Math.Clamp(-e.ScreenDelta.X, -this.MaxAngleRotation, this.MaxAngleRotation);
+            rot = Math.ToQuaternion(this.Owner.Orientation.GetWorldUp(), delta);
+        }
+        else if(this.Axis == SwivelAxis.Right)
+        {
+            var delta = Math.Clamp(e.ScreenDelta.Y, -this.MaxAngleRotation, this.MaxAngleRotation);
+            rot = Math.ToQuaternion(this.Owner.Orientation.GetWorldRight(), delta);
+        }
         
-        this.Owner.Transform.WorldRotation = Math.Transform(objRot, rot);
+        this.Owner.Transform.WorldRotation = Math.Transform(the : objRot, by : rot);
     }
 }

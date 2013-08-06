@@ -50,7 +50,6 @@ class CommandBlock : ScriptComponent
     {
         if(this.ReDirectionCog != null)
         {
-            Console.WriteLine("ReDirect");
             this.ReDirectionCog.DispatchEvent(Events.LockStepKeyDown, e as Event);
         }
     }
