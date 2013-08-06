@@ -9,12 +9,57 @@ class Wheel : ScriptComponent
         // This is put in because wheels can't be moved as a whole
         Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnFirstUpdate);
         this.Owner.ModifiedFromArchetype();
+        this.Owner.RigidBody.Velocity = local Real3();
+        this.Owner.RigidBody.AngularVelocity = local Real3();
     }
     
     function OnFirstUpdate(e : UpdateEvent)
     {
-        Zero.Disconnect(this.Space as Cog, Events.LogicUpdate, this as Component);
+        //Zero.Disconnect(this.Space as Cog, Events.LogicUpdate, this as Component);
         this.Owner.RigidBody.Static = false;
-        this.Owner.Transform.WorldTranslation = this.Owner.GetParent().Transform.WorldTranslation;
+        
+        //debug return;
+        
+        var parentTx = this.Owner.GetParent().Transform;
+        
+        
+        //this.Owner.Transform.WorldTranslation = parentTx.Transform.WorldTranslation;
+        
+        // The axel axis
+        var worldUp = parentTx.TransformNormal(local Real3(0.0, 1.0, 0.0));
+        
+        // Another basis, but this time instead of relative to the parent, it's relative to the wheel's rotation
+        var worldRight = this.Owner.Transform.TransformNormal(local Real3(1.0, 0.0, 0.0));
+        
+        var worldForward = Math.Cross(worldUp, worldRight);
+        worldRight = Math.Cross(worldForward, worldUp);
+        
+        
+        //worldUp *= local Real3(10.0);
+        
+        //var line = new DebugLine();
+        //line.Start(this.Owner.Transform.WorldTranslation);
+        //line.End(this.Owner.Transform.WorldTranslation + worldUp);
+        //line.HeadSize(0.2);
+        //line.Float4Color(local Real4(1.0, 0.0, 0.0, 1.0));
+        //line.Draw();
+        //
+        //var result = Math.Project(local Real3(0.3, 2.0, 0.0), local Real3(0.0, 1.0, 0.0));
+        //Console.WriteLine(result);
+        
+        //var line = new DebugLine();
+        //line.Start(this.Owner.Transform.WorldTranslation);
+        //line.End(this.Owner.Transform.WorldTranslation + this.Owner.RigidBody.AngularVelocity);
+        //line.HeadSize(0.2);
+        //line.Float4Color(local Real4(1.0, 0.0, 0.0, 1.0));
+        //line.Draw();
+        
+        var oldAngular = this.Owner.RigidBody.AngularVelocity;
+        var newAngular = Math.Project(oldAngular, worldUp);
+        var smoothedAngular = Math.Lerp(Math.Project(oldAngular, worldUp), oldAngular, 0.0);
+        
+        this.Owner.RigidBody.AngularVelocity = smoothedAngular;
+        
+        this.Owner.Transform.SetRotationBases(worldForward, worldUp, worldRight);
     }
 }
