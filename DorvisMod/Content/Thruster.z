@@ -10,13 +10,13 @@ class Thruster : ScriptComponent
         Zero.Connect(this.Owner, "Deactivate", this.OnDeactivate);
     }
 
-    function OnActivate(e : Event)
+    function OnActivate(e : PlayerEvent)
     {
         this.Owner.ThrustEffect.Active = true;
         this.Owner.SoundEmitter.Play();
     }
 
-    function OnDeactivate(e : Event)
+    function OnDeactivate(e : PlayerEvent)
     {
         this.Owner.ThrustEffect.Active = false;
         this.Owner.SoundEmitter.Stop();

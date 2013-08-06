@@ -38,9 +38,9 @@ class SpawnTool : ScriptComponent
         this.PlayerCog = null;
         this.Player = null;
         this.HudText = null;
-        Zero.Disconnect(e.PlayerCog, Events.LockStepKeyDown, this as Component);
-        Zero.Disconnect(e.PlayerCog, Events.LockStepKeyUp, this as Component);
-        Zero.Disconnect(e.PlayerCog, Events.LockStepMouseDown, this as Component);
+        Zero.Disconnect(e.PlayerCog, "PlayerKeyDown", this as Component);
+        Zero.Disconnect(e.PlayerCog, "PlayerKeyUp", this as Component);
+        Zero.Disconnect(e.PlayerCog, "PlayerMouseDown", this as Component);
         Zero.Disconnect(this.Space as Cog, Events.LogicUpdate, this as Component);
     }
     
@@ -194,6 +194,7 @@ class SpawnTool : ScriptComponent
     function SpawnObj(e : PlayerMouseEvent, objToSpawn : String)
     {
         var attach = true;
+        Console.WriteLine(this.Player != null);
         var result = this.Player.RayCast(this.BlockFilter);
         
         if (result == null)
@@ -223,7 +224,7 @@ class SpawnTool : ScriptComponent
             
             newObj.Transform.Translation = localNormal;
             
-            var worldForward = this.Player.WorldLookDirection;
+            var worldForward = this.Player.WorldLookForward;
             var localForward = tx.TransformNormalInverse(worldForward);
             
             // Project the forward vector onto the plane made by the normal

@@ -54,30 +54,6 @@ class Chair : ScriptComponent
         }
     }
     
-    function OnPlayerKeyDown(e : PlayerKeyEvent)
-    {
-        if(e.Key == Keys.Back && this.ActivePlayerCog == e.PlayerCog)
-        {
-            this.UnseatPlayer();
-            return;
-        }
-        
-        var root = this.Owner.GetRoot();
-        root.DispatchEvent(Events.LockStepKeyDown, e as Event);
-    }
-    
-    function OnPlayerKeyUp(e : PlayerKeyEvent)
-    {
-        var root = this.Owner.GetRoot();
-        root.DispatchEvent(Events.LockStepKeyUp, e as Event);
-    }
-    
-    function OnPlayerMouseMove(e : PlayerMouseEvent)
-    {
-        var root = this.Owner.GetRoot();
-        root.DispatchEvent(Events.LockStepMouseMove, e as Event);
-    }
-    
     function UnseatPlayer()
     {
         var playerCog = this.ActivePlayerCog;
@@ -91,6 +67,30 @@ class Chair : ScriptComponent
         Zero.Disconnect(playerCog, "PlayerKeyUp", this as Component);
         Zero.Disconnect(playerCog, "PlayerMouseMove", this as Component);
         Zero.Disconnect(playerCog, "ChangeChairs", this as Component);
+    }
+    
+    function OnPlayerKeyDown(e : PlayerKeyEvent)
+    {
+        if(e.Key == Keys.Back && this.ActivePlayerCog == e.PlayerCog)
+        {
+            this.UnseatPlayer();
+            return;
+        }
+        
+        var root = this.Owner.GetRoot();
+        root.DispatchEvent("PlayerKeyDown", e as Event);
+    }
+    
+    function OnPlayerKeyUp(e : PlayerKeyEvent)
+    {
+        var root = this.Owner.GetRoot();
+        root.DispatchEvent("PlayerKeyUp", e as Event);
+    }
+    
+    function OnPlayerMouseMove(e : PlayerMouseEvent)
+    {
+        var root = this.Owner.GetRoot();
+        root.DispatchEvent("PlayerMouseMove", e as Event);
     }
     
     function OnChangeChairs(e : PlayerEvent)

@@ -6,11 +6,7 @@ Folder =
 		string Name = "Archetype",
 		Node = 
 		{
-			uint64 Value = 51553868096c8e02,
-		},
-		Node = 
-		{
-			uint64 Value = 519e634c69a6ca5c,
+			uint64 Value = 519e5cfaa4b9c3f4,
 		},
 		Node = 
 		{
@@ -18,35 +14,11 @@ Folder =
 		},
 		Node = 
 		{
-			uint64 Value = 515539d215bf3be2,
+			uint64 Value = 52631887714b946e,
 		},
 		Node = 
 		{
-			uint64 Value = 519e634c69a66bf3,
-		},
-		Node = 
-		{
-			uint64 Value = 51564debaa0794af,
-		},
-		Node = 
-		{
-			uint64 Value = 519e5cfaa4b9c3f4,
-		},
-		Node = 
-		{
-			uint64 Value = 5155ad131eb55f13,
-		},
-		Node = 
-		{
-			uint64 Value = 5155a9c3f0149967,
-		},
-		Node = 
-		{
-			uint64 Value = 5155ba096cd14609,
-		},
-		Node = 
-		{
-			uint64 Value = 519e4653e0a46070,
+			uint64 Value = 519e45e379f286e6,
 		},
 		Node = 
 		{
@@ -54,11 +26,23 @@ Folder =
 		},
 		Node = 
 		{
+			uint64 Value = 519dbb34b32b6447,
+		},
+		Node = 
+		{
 			uint64 Value = 5154e67a24d85b3d,
 		},
 		Node = 
 		{
-			uint64 Value = 519e75af597c0455,
+			uint64 Value = 519e634c69a66bf3,
+		},
+		Node = 
+		{
+			uint64 Value = 5155a9c3f0149967,
+		},
+		Node = 
+		{
+			uint64 Value = 5155ad131eb55f13,
 		},
 		Node = 
 		{
@@ -66,7 +50,7 @@ Folder =
 		},
 		Node = 
 		{
-			uint64 Value = 5154e664274fb96e,
+			uint64 Value = 519e4653e0a46070,
 		},
 		Node = 
 		{
@@ -74,11 +58,7 @@ Folder =
 		},
 		Node = 
 		{
-			uint64 Value = 519e4cbc821af76f,
-		},
-		Node = 
-		{
-			uint64 Value = 519e45e379f286e6,
+			uint64 Value = 515539d215bf3be2,
 		},
 		Node = 
 		{
@@ -90,15 +70,39 @@ Folder =
 		},
 		Node = 
 		{
+			uint64 Value = 51553868096c8e02,
+		},
+		Node = 
+		{
+			uint64 Value = 5155ba096cd14609,
+		},
+		Node = 
+		{
 			uint64 Value = 519d899f2d9a3b64,
 		},
 		Node = 
 		{
-			uint64 Value = 519dbb34b32b6447,
+			uint64 Value = 519e634c69a6ca5c,
+		},
+		Node = 
+		{
+			uint64 Value = 5154e664274fb96e,
 		},
 		Node = 
 		{
 			uint64 Value = 52625465bb4680a3,
+		},
+		Node = 
+		{
+			uint64 Value = 519e4cbc821af76f,
+		},
+		Node = 
+		{
+			uint64 Value = 519e75af597c0455,
+		},
+		Node = 
+		{
+			uint64 Value = 51564debaa0794af,
 		},
 	},
 	Folder = 

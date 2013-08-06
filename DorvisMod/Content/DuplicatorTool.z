@@ -93,7 +93,7 @@ class DuplicatorTool : ScriptComponent
         }
         else if (e.Button == MouseButtons.Left)
         {
-            var worldPosition = e.CameraWorldPosition + e.CameraWorldDirection * local Real3(this.FallbackSpawnDistance);
+            var worldPosition = e.Player.WorldLookPosition + e.Player.WorldLookForward * local Real3(this.FallbackSpawnDistance);
             
             var result = this.Player.RayCast(this.AllFilter);
             if (result != null)

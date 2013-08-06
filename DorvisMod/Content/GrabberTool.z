@@ -18,7 +18,6 @@ class GrabberTool : ScriptComponent
     var WeldJoint : WeldJoint = null;
     var PhyGunJoint : PhyGunJoint = null;
     
-    var CameraCog : Cog = null;
     var Player : Player = null;
     
     var UpRotationAngle : Real = 0.0;
@@ -66,8 +65,8 @@ class GrabberTool : ScriptComponent
             var rot = this.SelectedObj.Transform.WorldRotation;
             var rotInv = Math.Invert(rot);
             
-            var up = this.CameraCog.Orientation.GetWorldUp();
-            var right = this.CameraCog.Orientation.GetWorldRight();
+            var up = this.Player.WorldLookUp;
+            var right = this.Player.WorldLookRight;
             
             var rightRot = Math.ToQuaternion(right, this.RightRotationAngle);
             var upRot = Math.ToQuaternion(up, this.UpRotationAngle);
@@ -155,7 +154,7 @@ class GrabberTool : ScriptComponent
             //find the point at which we clicked the object
             var selectedPoint = result.Object.Transform.WorldTranslation;//result.WorldPosition;
             //find how far away the pick point is (for keeping the object on a sphere around us)
-            this.Distance = Math.Length(selectedPoint - this.CameraCog.Transform.WorldTranslation);
+            this.Distance = Math.Length(selectedPoint - this.Player.WorldLookPosition);
             
             if(!e.ShiftPressed)
             {
@@ -288,7 +287,7 @@ class GrabberTool : ScriptComponent
         
         var mass = obj.RigidBody.GetMass();
         //point = obj.RigidBody.WorldCenterOfMass;
-        var cog = jointCreator.AttachWorld(this.CameraCog,obj,point,"WeldJoint");
+        var cog = jointCreator.AttachWorld(this.Player.CameraCog,obj,point,"WeldJoint");
         this.WeldJoint = cog.WeldJoint;
         this.WeldJoint.WorldPoint1 = point;
         this.WeldJoint.WorldPoint2 = point;
@@ -338,11 +337,11 @@ class GrabberTool : ScriptComponent
     function ComputeWorldPoint(e : PlayerMouseEvent) : Real3
     {
         //get the vector into the screen from where we clicked
-        var viewPlaneNormal = this.CameraCog.Orientation.GetWorldForward();
+        var viewPlaneNormal = this.Player.WorldLookForward;
         //we want to keep the point on the object we clicked at a fixed distance from us,
         //so use the viewPlaneNormal to find the point on the sphere defined by the
         //initial picking distance
-        return this.CameraCog.Transform.WorldTranslation + viewPlaneNormal * local Real3(this.Distance);
+        return this.Player.WorldLookPosition + viewPlaneNormal * local Real3(this.Distance);
     }
     
     function UpdateWeldPoint(worldPoint : Real3)

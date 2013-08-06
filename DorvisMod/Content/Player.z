@@ -56,9 +56,17 @@ class Player : ScriptComponent
     //var UndoStack : Array[delegate()] = new Array[delegate()]();
     var UndoStack : Array[Undo] = new Array[Undo]();
     
-    var WorldLookDirection : Real3
+    var WorldLookForward : Real3
     {
         get { return this.CameraCog.Orientation.GetWorldForward(); }
+    }
+    var WorldLookUp : Real3
+    {
+        get { return this.CameraCog.Orientation.GetWorldUp(); }
+    }
+    var WorldLookRight : Real3
+    {
+        get { return this.CameraCog.Orientation.GetWorldRight(); }
     }
     
     var WorldLookPosition : Real3
@@ -306,13 +314,10 @@ class Player : ScriptComponent
     {
         toSend.Player = this;
         toSend.PlayerCog = this.Owner;
-        toSend.CameraWorldDirection = this.CameraCog.Orientation.GetWorldForward();
-        toSend.CameraWorldPosition = this.CameraCog.Transform.WorldTranslation;
     }
     
     function SendMouseEvent(eventName : String, e : LockStepMouseEvent, button : Integer, scroll : Real2)
     {
-        debug return;
         var toSend = new PlayerMouseEvent();
         this.FillPlayerEvent(toSend as PlayerEvent);
         toSend.ScreenDelta = e.ScreenDelta;
@@ -364,7 +369,6 @@ class Player : ScriptComponent
     
     function SendKeyEvent(eventName : String, e : LockStepKeyEvent)
     {
-        debug return;
         var toSend = new PlayerKeyEvent();
         this.FillPlayerEvent(toSend as PlayerEvent);
         toSend.Key = e.Key;
@@ -380,6 +384,8 @@ class Player : ScriptComponent
         this.AddMovement(e, Keys.S, local Real3( 0.0, 0.0, -1.0));
         this.AddMovement(e, Keys.A, local Real3( 1.0, 0.0,  0.0));
         this.AddMovement(e, Keys.D, local Real3(-1.0, 0.0,  0.0));
+        
+        this.SendKeyEvent("PlayerKeyDown", e);
         
         // We still allow movement to happen when freezing input (we ignore it in update)
         if (this.FreezeKeyboardInput)
@@ -451,8 +457,6 @@ class Player : ScriptComponent
             this.Space.SoundSpace.PlayCueAt(this.InteractSound, this.InteractCog.Transform.WorldTranslation);
             this.SendInteractEvent("Interact", this.InteractCog);
         }
-        
-        this.SendKeyEvent("PlayerKeyDown", e);
     }
     
     function OnLockStepKeyUp(e : LockStepKeyEvent)
@@ -485,11 +489,8 @@ class Player : ScriptComponent
     function SendToolEvent(eventName : String, to : Cog)
     {
         var toSend = new ToolChangeEvent();
-        debug return;
         this.FillPlayerEvent(toSend as PlayerEvent);
         toSend.HudText = this.HudToolSubText;
-        
-        
         to.DispatchEvent(eventName, toSend as Event);
     }
     
@@ -533,8 +534,6 @@ class PlayerEvent : Event
 {
     var Player : Player = null;
     var PlayerCog : Cog = null;
-    var CameraWorldDirection : Real3 = local Real3();
-    var CameraWorldPosition : Real3 = local Real3();
     
     constructor() : base()
     {

@@ -11,6 +11,7 @@ ContentLibrary =
 		"BlockCamera.z",
 		"BlockTag.z",
 		"Bullet.Archetype.data",
+		"CameraBlock.Archetype.data",
 		"Cannon.Archetype.data",
 		"Cannon.SoundCue.data",
 		"Cannon.fbx",
