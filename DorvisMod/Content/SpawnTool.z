@@ -2,7 +2,6 @@ class SpawnTool : ScriptComponent
 {
     var GameViewport : GameViewport = null;
     var Index : Integer = 0;
-    var CameraCog : Cog = null;
     var PlayerCog : Cog = null;
     var Player : Player = null;
     var HudText : ShadowText = null;
@@ -25,25 +24,23 @@ class SpawnTool : ScriptComponent
     
     function OnActivateTool(e : ToolChangeEvent)
     {
-        this.CameraCog = e.CameraCog;
         this.PlayerCog = e.PlayerCog;
         this.Player = e.Player;
         this.HudText = e.HudText;
-        Zero.Connect(e.Peer as Cog, Events.LockStepKeyDown, this.OnLockStepKeyDown);
-        Zero.Connect(e.Peer as Cog, Events.LockStepKeyUp, this.OnLockStepKeyUp);
-        Zero.Connect(e.Peer as Cog, Events.LockStepMouseDown, this.OnLockStepMouseDown);
-        Zero.Connect(e.Peer as Cog, Events.LockStepMouseMove, this.OnLockStepMouseMove);
+        Zero.Connect(e.PlayerCog, "PlayerKeyDown", this.OnPlayerKeyDown);
+        Zero.Connect(e.PlayerCog, "PlayerKeyUp", this.OnPlayerKeyUp);
+        Zero.Connect(e.PlayerCog, "PlayerMouseDown", this.OnPlayerMouseDown);
         Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
     }
     
     function OnDeativateTool(e : ToolChangeEvent)
     {
-        this.CameraCog = null;
         this.PlayerCog = null;
         this.Player = null;
         this.HudText = null;
-        Zero.Disconnect(e.Peer as Cog, Events.LockStepMouseDown, this as Component);
-        Zero.Disconnect(e.Peer as Cog, Events.LockStepMouseMove, this as Component);
+        Zero.Disconnect(e.PlayerCog, Events.LockStepKeyDown, this as Component);
+        Zero.Disconnect(e.PlayerCog, Events.LockStepKeyUp, this as Component);
+        Zero.Disconnect(e.PlayerCog, Events.LockStepMouseDown, this as Component);
         Zero.Disconnect(this.Space as Cog, Events.LogicUpdate, this as Component);
     }
     
@@ -90,7 +87,7 @@ class SpawnTool : ScriptComponent
         this.Ghost.Draw();
     }
     
-    function OnLockStepKeyDown(e : LockStepKeyEvent)
+    function OnPlayerKeyDown(e : PlayerKeyEvent)
     {
         if (e.Key == Keys.Shift)
         {
@@ -98,7 +95,7 @@ class SpawnTool : ScriptComponent
         }
     }
     
-    function OnLockStepKeyUp(e : LockStepKeyEvent)
+    function OnPlayerKeyUp(e : PlayerKeyEvent)
     {
         if (e.Key == Keys.Shift)
         {
@@ -106,7 +103,7 @@ class SpawnTool : ScriptComponent
         }
     }
     
-    function OnLockStepMouseDown(e : LockStepMouseButtonEvent)
+    function OnPlayerMouseDown(e : PlayerMouseEvent)
     {
         if(this.DestroyMode)
         {
@@ -126,10 +123,6 @@ class SpawnTool : ScriptComponent
     function AnyFilter(hit : Cog) : Boolean
     {
         return true;
-    }
-    
-    function OnLockStepMouseMove(e : LockStepMouseEvent)
-    {
     }
     
     [Static]
@@ -198,7 +191,7 @@ class SpawnTool : ScriptComponent
         return result;
     }
     
-    function SpawnObj(e : LockStepMouseButtonEvent, objToSpawn : String)
+    function SpawnObj(e : PlayerMouseEvent, objToSpawn : String)
     {
         var attach = true;
         var result = this.Player.RayCast(this.BlockFilter);
@@ -276,7 +269,7 @@ class SpawnTool : ScriptComponent
         }
     }
     
-    function DestroyObj(e : LockStepMouseButtonEvent)
+    function DestroyObj(e : PlayerMouseEvent)
     {
         var result = this.Player.RayCast(this.BlockFilter);
         

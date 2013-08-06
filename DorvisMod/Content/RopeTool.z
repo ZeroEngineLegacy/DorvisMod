@@ -1,7 +1,6 @@
 class RopeTool : ScriptComponent
 {
     var Player : Player = null;
-    var CameraCog : Cog = null;
     var HudText : ShadowText = null;
     var PrevCog : Cog = null;
     
@@ -19,9 +18,8 @@ class RopeTool : ScriptComponent
     {
         this.Player = e.Player;
         this.HudText = e.HudText;
-        this.CameraCog = e.CameraCog;
         Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
-        Zero.Connect(e.Peer as Cog, Events.LockStepMouseDown, this.OnLockStepMouseDown);
+        Zero.Connect(e.PlayerCog, "PlayerMouseDown", this.OnPlayerMouseDown);
     }
     
     function OnDeactivateTool(e : ToolChangeEvent)
@@ -29,9 +27,8 @@ class RopeTool : ScriptComponent
         this.Player = null;
         this.HudText = null;
         this.PrevCog = null;
-        this.CameraCog = null;
         Zero.Disconnect(this.Space as Cog, Events.LogicUpdate, this as Component);
-        Zero.Disconnect(e.Peer as Cog, Events.LockStepMouseDown, this as Component);
+        Zero.Disconnect(e.PlayerCog, "PlayerMouseDown", this as Component);
     }
     
     function OnLogicUpdate(e : UpdateEvent)
@@ -51,7 +48,7 @@ class RopeTool : ScriptComponent
         return hit.BlockTag != null;
     }
     
-    function OnLockStepMouseDown(e : LockStepMouseButtonEvent)
+    function OnPlayerMouseDown(e : PlayerMouseEvent)
     {
         var result = this.Player.RayCast(this.BlockFilter);
         if (result == null)

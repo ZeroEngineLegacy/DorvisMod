@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "BlockCamera",
+		uint64 ResourceId = 5207364f7f78316f,
+	},
+},

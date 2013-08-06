@@ -4,7 +4,6 @@ class DuplicatorTool : ScriptComponent
     var FallbackSpawnDistance : Real = 20.0;
     
     var Player : Player = null;
-    var CameraCog : Cog = null;
     var HudText : ShadowText = null;
     
     var ToDuplicate : Cog = null;
@@ -27,9 +26,8 @@ class DuplicatorTool : ScriptComponent
     {
         this.Player = e.Player;
         this.HudText = e.HudText;
-        this.CameraCog = e.CameraCog;
         Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
-        Zero.Connect(e.Peer as Cog, Events.LockStepMouseDown, this.OnLockStepMouseDown);
+        Zero.Connect(e.PlayerCog, "PlayerMouseDown", this.OnPlayerMouseDown);
     }
     
     function OnDeactivateTool(e : ToolChangeEvent)
@@ -37,7 +35,7 @@ class DuplicatorTool : ScriptComponent
         this.Player = null;
         this.HudText = null;
         Zero.Disconnect(this.Space as Cog, Events.LogicUpdate, this as Component);
-        Zero.Disconnect(e.Peer as Cog, Events.LockStepMouseDown, this as Component);
+        Zero.Disconnect(e.PlayerCog, "PlayerMouseDown", this as Component);
     }
     
     function BlockFilter(hit : Cog) : Boolean
@@ -74,7 +72,7 @@ class DuplicatorTool : ScriptComponent
         return true;
     }
     
-    function OnLockStepMouseDown(e : LockStepMouseButtonEvent)
+    function OnPlayerMouseDown(e : PlayerMouseEvent)
     {
         if (e.Button == MouseButtons.Right)
         {
@@ -95,7 +93,7 @@ class DuplicatorTool : ScriptComponent
         }
         else if (e.Button == MouseButtons.Left)
         {
-            var worldPosition = this.CameraCog.Transform.WorldTranslation + this.CameraCog.Orientation.GetWorldForward() * local Real3(this.FallbackSpawnDistance);
+            var worldPosition = e.CameraWorldPosition + e.CameraWorldDirection * local Real3(this.FallbackSpawnDistance);
             
             var result = this.Player.RayCast(this.AllFilter);
             if (result != null)
