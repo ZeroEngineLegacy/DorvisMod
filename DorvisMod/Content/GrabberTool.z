@@ -16,9 +16,13 @@ class GrabberTool : ScriptComponent
     var Distance : Real = 0.0;
     
     var WeldJoint : WeldJoint = null;
+    var PhyGunJoint : PhyGunJoint = null;
     
     var CameraCog : Cog = null;
     var Player : Player = null;
+    
+    var UpRotationAngle : Real = 0.0;
+    var RightRotationAngle : Real = 0.0;
     
     constructor() : base()
     {
@@ -38,6 +42,9 @@ class GrabberTool : ScriptComponent
         Zero.Connect(e.Peer as Cog, Events.LockStepMouseDown, this.OnLockStepMouseDown);
         Zero.Connect(e.Peer as Cog, Events.LockStepMouseUp, this.OnLockStepMouseUp);
         Zero.Connect(e.Peer as Cog, Events.LockStepMouseScroll, this.OnLockStepMouseScroll);
+        Zero.Connect(e.Peer as Cog, Events.LockStepKeyDown, this.OnLockStepKeyDown);
+        Zero.Connect(e.Peer as Cog, Events.LockStepKeyUp, this.OnLockStepKeyUp);
+        Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
     }
     
     function OnDeactivateTool(e : ToolChangeEvent)
@@ -48,6 +55,50 @@ class GrabberTool : ScriptComponent
         Zero.Disconnect(e.Peer as Cog, Events.LockStepMouseMove, this as Component);
         Zero.Disconnect(e.Peer as Cog, Events.LockStepMouseDown, this as Component);
         Zero.Disconnect(e.Peer as Cog, Events.LockStepMouseUp, this as Component);
+        Zero.Disconnect(e.Peer as Cog, Events.LockStepKeyDown, this as Component);
+        Zero.Disconnect(e.Peer as Cog, Events.LockStepKeyUp, this as Component);
+        Zero.Disconnect(this.Space as Cog, Events.LogicUpdate, this as Component);
+    }
+    
+    function OnLogicUpdate(e : UpdateEvent)
+    {
+        if(this.SelectedObj != null)
+        {
+            var rot = this.SelectedObj.Transform.WorldRotation;
+            var rotInv = Math.Invert(rot);
+            
+            var up = this.CameraCog.Orientation.GetWorldUp();
+            var right = this.CameraCog.Orientation.GetWorldRight();
+            
+            var rightRot = Math.ToQuaternion(right, this.RightRotationAngle);
+            var upRot = Math.ToQuaternion(up, this.UpRotationAngle);
+            var totalRot = Math.Transform(upRot, rightRot);
+            
+            if(this.WeldJoint != null)
+            {
+                //the weld only has body angles, so they have to brough to the world first
+                var newAngle = this.WeldJoint.BodyAngle2;
+                newAngle = Math.Transform(newAngle, rot);
+                
+                //now actually rotate by the world angle
+                newAngle = Math.Transform(newAngle, totalRot);
+                
+                //bring back into local space and set it
+                newAngle = Math.Transform(newAngle, rotInv);
+                this.WeldJoint.BodyAngle2 = newAngle;
+            }
+            else if(this.PhyGunJoint != null)
+            {
+                //the PhyGunJoint is in world space, so no inverse is needed,
+                //however the rotation angle needs to be negated for some reason...
+                totalRot = Math.Invert(totalRot);
+                var newAngle = this.PhyGunJoint.TargetRotation;
+                
+                newAngle = Math.Transform(newAngle, totalRot);
+                
+                this.PhyGunJoint.TargetRotation = newAngle;
+            }
+        }
     }
     
     function OnLockStepMouseMove(e : LockStepMouseEvent)
@@ -69,6 +120,7 @@ class GrabberTool : ScriptComponent
             if(selectedRoot.RigidBody != null)
             {
                 selectedRoot.RigidBody.Static = !selectedRoot.RigidBody.Static;
+                this.Space.CreateAtPosition("SpawnEffect", selectedRoot.Transform.WorldTranslation);
             }
         }
         else
@@ -80,6 +132,7 @@ class GrabberTool : ScriptComponent
             {
                 var root = result.Object.GetRoot();
                 root.RigidBody.Static = !root.RigidBody.Static;
+                this.Space.CreateAtPosition("SpawnEffect", root.Transform.WorldTranslation);
             }
         }
     }
@@ -95,15 +148,24 @@ class GrabberTool : ScriptComponent
         
         if (result != null)
         {
-            this.SelectedObj = result.Object;
+            var root = result.Object.GetRoot();
+            this.SelectedObj = root;
             
             this.SelectedObj.RigidBody.ForceAwake();
+            this.SelectedObj.RigidBody.Static = false;
             //find the point at which we clicked the object
-            var selectedPoint = result.WorldPosition;
+            var selectedPoint = result.Object.Transform.WorldTranslation;//result.WorldPosition;
             //find how far away the pick point is (for keeping the object on a sphere around us)
-            this.Distance = Math.Length(selectedPoint - this.Owner.Transform.Translation);
+            this.Distance = Math.Length(selectedPoint - this.CameraCog.Transform.WorldTranslation);
             
-            this.CreatePhyGun(this.SelectedObj,selectedPoint);
+            if(!e.ShiftPressed)
+            {
+                this.CreateWeld(this.SelectedObj,selectedPoint);
+            }
+            else
+            {
+                this.CreatePhyGun(this.SelectedObj,selectedPoint);
+            }
         }
     }
     
@@ -133,22 +195,61 @@ class GrabberTool : ScriptComponent
         }
         
         //alter our grab distance but clamp between our min and max distance
-        this.Distance += e.ScrollDelta.Y * 100.0;
+        this.Distance += e.ScrollDelta.Y;
         this.Distance = Math.Clamp(this.Distance, this.MinDistance, this.MaxDistance);
         
         //now compute the new world position of the mouse
         var newWorldPoint = this.ComputeWorldPoint(e as LockStepMouseEvent);
-        //update the object we grabbed with the new world point
-        //if(this.LockRotation)
-        //{
-        //    this.UpdatePhyGunPoint(newWorldPoint);
-        //}
-        //else
-        //{
-        //    this.UpdateManipulatorPoint(newWorldPoint);
-        //}
-        
-        this.UpdatePhyGunPoint(newWorldPoint);
+        if(this.WeldJoint != null)
+        {
+            this.UpdateWeldPoint(newWorldPoint);
+        }
+        else if(this.PhyGunJoint != null)
+        {
+            this.UpdatePhyGunPoint(newWorldPoint);
+        }
+    }
+    
+    function OnLockStepKeyDown(e : LockStepKeyEvent)
+    {
+        //rotation logic for the held object
+        if(e.Key == Keys.I)
+        {
+            this.RightRotationAngle += 0.1;
+        }
+        if(e.Key == Keys.K)
+        {
+            this.RightRotationAngle -= 0.1;
+        }
+        if(e.Key == Keys.J)
+        {
+            this.UpRotationAngle += 0.1;
+        }
+        if(e.Key == Keys.L)
+        {
+            this.UpRotationAngle -= 0.1;
+        }
+    }
+    
+    function OnLockStepKeyUp(e : LockStepKeyEvent)
+    {
+        //rotation logic for the held object
+        if(e.Key == Keys.I)
+        {
+            this.RightRotationAngle -= 0.1;
+        }
+        if(e.Key == Keys.K)
+        {
+            this.RightRotationAngle += 0.1;
+        }
+        if(e.Key == Keys.J)
+        {
+            this.UpRotationAngle -= 0.1;
+        }
+        if(e.Key == Keys.L)
+        {
+            this.UpRotationAngle += 0.1;
+        }
     }
     
     function DeselectObj()
@@ -161,11 +262,19 @@ class GrabberTool : ScriptComponent
         //mark that we have no selected object, and destroy the joint
         this.SelectedObj = null;
         
-        this.WeldJoint.Owner.Destroy();
-        this.WeldJoint = null;
+        if(this.WeldJoint != null)
+        {
+            this.WeldJoint.Owner.Destroy();
+            this.WeldJoint = null;
+        }
+        else if(this.PhyGunJoint != null)
+        {
+            this.PhyGunJoint.Owner.Destroy();
+            this.PhyGunJoint = null;
+        }
     }
     
-    function CreatePhyGun(obj : Cog, point : Real3)
+    function CreateWeld(obj : Cog, point : Real3)
     {
         //build a new manipulator joint attached by the picked point and save it
         var jointCreator = Zero.JointBuilder.CreateInstance();
@@ -179,12 +288,32 @@ class GrabberTool : ScriptComponent
         }
         
         var mass = obj.RigidBody.GetMass();
-        point = obj.RigidBody.WorldCenterOfMass;
+        //point = obj.RigidBody.WorldCenterOfMass;
         var cog = jointCreator.AttachWorld(this.CameraCog,obj,point,"WeldJoint");
         this.WeldJoint = cog.WeldJoint;
         this.WeldJoint.WorldPoint1 = point;
         this.WeldJoint.WorldPoint2 = point;
-        this.WeldJoint.MaxForce = mass * 0.4;
+        this.WeldJoint.MaxForce = mass;
+    }
+    
+    function CreatePhyGun(obj : Cog, point : Real3)
+    {
+        //build a new manipulator joint attached by the picked point and save it
+        var jointCreator = Zero.JointBuilder.CreateInstance();
+        jointCreator.ConnectToWorld = true;
+        
+        obj = obj.GetRoot();
+        
+        if (obj.RigidBody == null)
+        {
+            return;
+        }
+        
+        var mass = obj.RigidBody.GetMass();
+        //point = obj.RigidBody.WorldCenterOfMass;
+        var cog = jointCreator.AttachWorld(obj,obj,point,"PhyGunJoint");
+        this.PhyGunJoint = cog.PhyGunJoint;
+        this.PhyGunJoint.MaxForce = mass;
     }
         
     function UpdateDraggedObject(e : LockStepMouseEvent)
@@ -197,7 +326,14 @@ class GrabberTool : ScriptComponent
         
         var newWorldPoint = this.ComputeWorldPoint(e);
         
-        this.UpdatePhyGunPoint(newWorldPoint);
+        if(this.WeldJoint != null)
+        {
+            this.UpdateWeldPoint(newWorldPoint);
+        }
+        else if(this.PhyGunJoint != null)
+        {
+            this.UpdatePhyGunPoint(newWorldPoint);
+        }
     }
     
     function ComputeWorldPoint(e : LockStepMouseEvent) : Real3
@@ -210,11 +346,13 @@ class GrabberTool : ScriptComponent
         return this.CameraCog.Transform.WorldTranslation + viewPlaneNormal * local Real3(this.Distance);
     }
     
+    function UpdateWeldPoint(worldPoint : Real3)
+    {
+        this.WeldJoint.WorldPoint1 = worldPoint;
+    }
     
     function UpdatePhyGunPoint(worldPoint : Real3)
     {
-        //this.PhyGunJoint.SetTargetPoint(worldPoint);
-        //this.WeldJoint.WorldPoint1 = worldPoint;
-        //this.WeldJoint.WorldPoint2 = worldPoint;
+        this.PhyGunJoint.TargetPoint = worldPoint;
     }
 }

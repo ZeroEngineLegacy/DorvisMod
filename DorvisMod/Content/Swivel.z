@@ -1,0 +1,39 @@
+class Swivel : ScriptComponent
+{
+    var Horizontal : Boolean = true;
+    
+    var Root : Cog = null;
+    
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        this.Setup();
+    }
+    
+    // Setup can be called multiple times, but it MUST be called any time our hierarchy is changed
+    function Setup()
+    {
+        var root = this.Owner.GetRoot();
+        
+        if (this.Root != null)
+        {
+            Zero.Disconnect(this.Root, Events.LockStepMouseMove, this as Component);
+        }
+        
+        Zero.Connect(root, Events.LockStepMouseMove, this.OnUserMouseMove);
+        
+        this.Root = root;
+    }
+
+    function OnUserMouseMove(e : LockStepMouseEvent)
+    {
+        
+        var objRot = this.Owner.Transform.WorldRotation;
+        var rot = Math.ToQuaternion(this.Owner.Orientation.GetWorldUp(), -e.ScreenDelta.X);
+        
+        this.Owner.Transform.WorldRotation = Math.Transform(objRot, rot);
+    }
+}

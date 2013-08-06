@@ -79,7 +79,7 @@ class KeySetterTool : ScriptComponent
         {
             if (e.Button == MouseButtons.Left)
             {
-                this.Player.FreezeInput = true;
+                this.Player.FreezeKeyboardInput = true;
                 this.IsBindingKeys = true;
             }
             else if (e.Button == MouseButtons.Right)
@@ -98,7 +98,7 @@ class KeySetterTool : ScriptComponent
     {
         if (e.Button == MouseButtons.Left && this.IsBindingKeys)
         {
-            this.Player.FreezeInput = false;
+            this.Player.FreezeKeyboardInput = false;
             this.IsBindingKeys = false;
         }
     }

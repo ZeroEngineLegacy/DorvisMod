@@ -264,6 +264,11 @@ class SpawnTool : ScriptComponent
         var undo = new SpawnUndo();
         undo.Object = newObj;
         this.Player.QueueUndo(undoName, undo.Action);
+        
+        if (newObj.Swivel != null)
+        {
+            newObj.Swivel.Setup();
+        }
     }
     
     function DestroyObj(e : LockStepMouseButtonEvent)

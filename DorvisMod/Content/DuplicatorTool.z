@@ -110,13 +110,13 @@ class DuplicatorTool : ScriptComponent
             if (object != null)
             {
                 object.Transform.WorldTranslation = worldPosition;
-            }
-            
-            this.Space.CreateAtPosition("SpawnEffect", object.Transform.WorldTranslation);
                 
-            var undo = new SpawnUndo();
-            undo.Object = object;
-            this.Player.QueueUndo("duplication", undo.Action);
+                this.Space.CreateAtPosition("SpawnEffect", object.Transform.WorldTranslation);
+                
+                var undo = new SpawnUndo();
+                undo.Object = object;
+                this.Player.QueueUndo("duplication", undo.Action);
+            }
         }
     }
 }
