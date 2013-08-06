@@ -37,11 +37,13 @@ class Chair : ScriptComponent
             e.PlayerCog.AttachTo(this.Owner);
             e.PlayerCog.Transform.Translation = local Real3();
             e.PlayerCog.Transform.Rotation = local Quat();
+            e.Player.FreezeMouseInput = true;
             
             this.ActivePlayerCog = e.PlayerCog;
             
             Zero.Connect(e.Peer as Cog, Events.LockStepKeyDown, this.OnUserKeyDown);
             Zero.Connect(e.Peer as Cog, Events.LockStepKeyUp, this.OnUserKeyUp);
+            Zero.Connect(e.Peer as Cog, Events.LockStepMouseMove, this.OnUserMouseMove);
             
             Zero.Connect(e.PlayerCog, "ChangeChairs", this.OnChangeChairs);
         }
@@ -54,6 +56,12 @@ class Chair : ScriptComponent
     
     function OnUserKeyDown(e : LockStepKeyEvent)
     {
+        if(e.Key == Keys.Back && this.ActivePlayerCog != null)
+        {
+            this.UnseatPlayer(this.ActivePlayerCog, this.ActivePlayerCog.Player.Peer);
+            return;
+        }
+        
         var root = this.Owner.GetRoot();
         root.DispatchEvent(Events.LockStepKeyDown, e as Event);
     }
@@ -64,15 +72,23 @@ class Chair : ScriptComponent
         root.DispatchEvent(Events.LockStepKeyUp, e as Event);
     }
     
+    function OnUserMouseMove(e : LockStepMouseEvent)
+    {
+        var root = this.Owner.GetRoot();
+        root.DispatchEvent(Events.LockStepMouseMove, e as Event);
+    }
+    
     function UnseatPlayer(playerCog : Cog, peer : LockStepPeer)
     {
         playerCog.DetachRelative();
         playerCog.Player.Activate();
+        playerCog.Player.FreezeMouseInput = false;
         
         this.ActivePlayerCog = null;
         
         Zero.Disconnect(peer as Cog, Events.LockStepKeyDown, this as Component);
         Zero.Disconnect(peer as Cog, Events.LockStepKeyUp, this as Component);
+        Zero.Disconnect(peer as Cog, Events.LockStepMouseMove, this as Component);
         Zero.Disconnect(playerCog, "ChangeChairs", this as Component);
     }
     

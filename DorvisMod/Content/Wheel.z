@@ -8,11 +8,13 @@ class Wheel : ScriptComponent
     {
         // This is put in because wheels can't be moved as a whole
         Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnFirstUpdate);
+        this.Owner.ModifiedFromArchetype();
     }
     
     function OnFirstUpdate(e : UpdateEvent)
     {
         Zero.Disconnect(this.Space as Cog, Events.LogicUpdate, this as Component);
         this.Owner.RigidBody.Static = false;
+        this.Owner.Transform.WorldTranslation = this.Owner.GetParent().Transform.WorldTranslation;
     }
 }

@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "Swivel",
+		uint64 ResourceId = 5262553ff502fb11,
+	},
+},

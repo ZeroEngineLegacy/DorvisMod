@@ -120,6 +120,7 @@ class GrabberTool : ScriptComponent
             if(selectedRoot.RigidBody != null)
             {
                 selectedRoot.RigidBody.Static = !selectedRoot.RigidBody.Static;
+                this.Space.CreateAtPosition("SpawnEffect", selectedRoot.Transform.WorldTranslation);
             }
         }
         else
@@ -131,6 +132,7 @@ class GrabberTool : ScriptComponent
             {
                 var root = result.Object.GetRoot();
                 root.RigidBody.Static = !root.RigidBody.Static;
+                this.Space.CreateAtPosition("SpawnEffect", root.Transform.WorldTranslation);
             }
         }
     }

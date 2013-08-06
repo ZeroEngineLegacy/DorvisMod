@@ -269,6 +269,11 @@ class SpawnTool : ScriptComponent
         {
             newObj.Activatable.Setup();
         }
+        
+        if (newObj.Swivel != null)
+        {
+            newObj.Swivel.Setup();
+        }
     }
     
     function DestroyObj(e : LockStepMouseButtonEvent)
