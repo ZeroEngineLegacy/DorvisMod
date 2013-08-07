@@ -1,0 +1,27 @@
+class TimedDestroy : ScriptComponent
+{
+    //The amount of time before this object will be destroyed
+    [Editable][Serialized]
+    var Lifetime : Real = 1.0;
+    
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(e : UpdateEvent)
+    {
+        this.Lifetime -= e.Dt;
+        if(this.Lifetime < 0.0)
+        {
+            var toSend = new Event();
+            this.Owner.DispatchEvent("Death", toSend);
+            
+            this.Owner.Destroy();
+        }
+    }
+}

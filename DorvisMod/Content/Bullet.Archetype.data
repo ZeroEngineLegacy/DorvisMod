@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [4.4439, 10.3048, 5.34953],
+		Vec3 Translation = [-15.3872, 6.18618, 20.5365],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -45,13 +45,12 @@ Cog =
 		float Height = 2,
 		uint Direction = 1,
 	},
-	TimedDeath = 
-	{
-		float TimeToDie = 5,
-		uint RemainingCollisions = 0,
-	},
 	DamageOnCollide = 
 	{
 		float Damage = 10,
+	},
+	TimedDestroy = 
+	{
+		float Lifetime = 5,
 	},
 },
