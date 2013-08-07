@@ -38,10 +38,12 @@ class CommandBlock : ScriptComponent
         {
             Zero.Disconnect(this.Root, "PlayerKeyDown", this as Component);
             Zero.Disconnect(this.Root, "PlayerKeyUp", this as Component);
+            Zero.Disconnect(this.Root, "PlayerMouseMove", this as Component);
         }
         
         Zero.Connect(root, "PlayerKeyDown", this.OnKeyDown);
         Zero.Connect(root, "PlayerKeyUp", this.OnKeyUp);
+        Zero.Connect(root, "PlayerMouseMove", this.OnMouseMove);
         
         this.Root = root;
     }
@@ -59,6 +61,14 @@ class CommandBlock : ScriptComponent
         if(this.ReDirectionCog != null)
         {
             this.ReDirectionCog.DispatchEvent("PlayerKeyUp", e as Event);
+        }
+    }
+    
+    function OnMouseMove(e : PlayerMouseEvent)
+    {
+        if(this.ReDirectionCog != null)
+        {
+            this.ReDirectionCog.DispatchEvent("PlayerMouseMove", e as Event);
         }
     }
 }
