@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [5.63413, -1.33512, -4.31853],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -69,11 +69,6 @@ Cog =
 		float WanderAngleVariance = 1,
 		float WanderStrength = 5,
 	},
-	TimedDeath = 
-	{
-		float TimeToDie = 1,
-		uint RemainingCollisions = 0,
-	},
 	SoundEmitter = 
 	{
 		bool StartPlaying = true,
@@ -82,5 +77,9 @@ Cog =
 		float Volume = 1,
 		float Pitch = 1,
 		bool Positional = true,
+	},
+	TimedDestroy = 
+	{
+		float Lifetime = 1,
 	},
 },
