@@ -2,6 +2,8 @@ class BlockCamera : ScriptComponent
 {
     var BlockCameraCog : Cog = null;
     
+    var UnsafeActivePlayer : Player = null;
+    
     constructor() : base()
     {
     }
@@ -9,7 +11,6 @@ class BlockCamera : ScriptComponent
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Owner, "Activate", this.OnActivate);
-        Zero.Connect(this.Owner, "Deactivate", this.OnDeactivate);
         
         this.BlockCameraCog = this.Owner.FindChildByName("Camera");
     }
@@ -21,16 +22,15 @@ class BlockCamera : ScriptComponent
             return;
         }
         
-        e.Player.CameraCog.Camera.Viewport.CameraViewport.Camera = this.BlockCameraCog;
-    }
-
-    function OnDeactivate(e : PlayerEvent)
-    {
-        if (e.Player.UnsafeIsLocal == false)
+        if (this.UnsafeActivePlayer == e.Player)
         {
-            return;
+            this.BlockCameraCog.Camera.Viewport.CameraViewport.Camera = e.Player.CameraCog;
+            this.UnsafeActivePlayer = null;
         }
-        
-        this.BlockCameraCog.Camera.Viewport.CameraViewport.Camera = e.Player.CameraCog;
+        else
+        {
+            e.Player.CameraCog.Camera.Viewport.CameraViewport.Camera = this.BlockCameraCog;
+            this.UnsafeActivePlayer = e.Player;
+        }
     }
 }
