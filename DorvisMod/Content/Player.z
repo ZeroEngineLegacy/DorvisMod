@@ -4,7 +4,7 @@ class Player : ScriptComponent
     var Speed : Real = 10.0;
     
     [Editable][Serialize]
-    var LookSpeed : Real = 1.0;
+    var LookSpeed : Real = 0.01;
     
     [Editable][Serialize]
     var JumpVelocity : Real = 6.0;
