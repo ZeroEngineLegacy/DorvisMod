@@ -56,9 +56,17 @@ class Player : ScriptComponent
     //var UndoStack : Array[delegate()] = new Array[delegate()]();
     var UndoStack : Array[Undo] = new Array[Undo]();
     
-    var WorldLookDirection : Real3
+    var WorldLookForward : Real3
     {
         get { return this.CameraCog.Orientation.GetWorldForward(); }
+    }
+    var WorldLookUp : Real3
+    {
+        get { return this.CameraCog.Orientation.GetWorldUp(); }
+    }
+    var WorldLookRight : Real3
+    {
+        get { return this.CameraCog.Orientation.GetWorldRight(); }
     }
     
     var WorldLookPosition : Real3
@@ -85,6 +93,7 @@ class Player : ScriptComponent
         Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(peer as Cog, Events.LockStepMouseMove, this.OnLockStepMouseMove);
         Zero.Connect(peer as Cog, Events.LockStepMouseDown, this.OnLockStepMouseDown);
+        Zero.Connect(peer as Cog, Events.LockStepMouseScroll, this.OnLockStepMouseScroll);
         Zero.Connect(peer as Cog, Events.LockStepMouseUp, this.OnLockStepMouseUp);
         Zero.Connect(peer as Cog, Events.LockStepKeyDown, this.OnLockStepKeyDown);
         Zero.Connect(peer as Cog, Events.LockStepKeyUp, this.OnLockStepKeyUp);
@@ -186,14 +195,25 @@ class Player : ScriptComponent
         this.HudNotifications.Notify(message);
     }
     
+    function ResetRotationAngles()
+    {
+        this.RotationAngles = local Real2();
+        this.UpdateRotationAngles();
+    }
+    
+    function UpdateRotationAngles()
+    {
+        var playerRotation = local Real3(0.0, this.RotationAngles.Y, 0.0);
+        var cameraRotation = local Real3(this.RotationAngles.X, Math.Pi, 0.0);
+        this.Owner.Transform.SetRotationAngles(playerRotation);
+        this.CameraCog.Transform.SetRotationAngles(cameraRotation);
+    }
+    
     function OnLogicUpdate(e : UpdateEvent)
     {
         if(this.FreezeMouseInput == false)
         {
-            var playerRotation = local Real3(0.0, this.RotationAngles.Y, 0.0);
-            var cameraRotation = local Real3(this.RotationAngles.X, Math.Pi, 0.0);
-            this.Owner.Transform.SetRotationAngles(playerRotation);
-            this.CameraCog.Transform.SetRotationAngles(cameraRotation);
+            this.UpdateRotationAngles();
         }
         if (this.FreezeKeyboardInput == false)
         {
@@ -220,9 +240,7 @@ class Player : ScriptComponent
     function SendInteractEvent(eventName : String, to : Cog) : InteractEvent
     {
         var toSend = new InteractEvent();
-        toSend.PlayerCog = this.Owner;
-        toSend.Player = this;
-        toSend.Peer = this.Peer;
+        this.FillPlayerEvent(toSend as PlayerEvent);
         to.DispatchEvent(eventName, toSend as Event);
         return toSend;
     }
@@ -292,6 +310,27 @@ class Player : ScriptComponent
         return result;
     }
     
+    function FillPlayerEvent(toSend : PlayerEvent)
+    {
+        toSend.Player = this;
+        toSend.PlayerCog = this.Owner;
+    }
+    
+    function SendMouseEvent(eventName : String, e : LockStepMouseEvent, button : Integer, scroll : Real2)
+    {
+        var toSend = new PlayerMouseEvent();
+        this.FillPlayerEvent(toSend as PlayerEvent);
+        toSend.ScreenDelta = e.ScreenDelta;
+        toSend.WorldStart = e.WorldStart;
+        toSend.WorldDirection = e.WorldDirection;
+        toSend.Button = button;
+        toSend.AltPressed = e.AltPressed;
+        toSend.ShiftPressed = e.ShiftPressed;
+        toSend.CtrlPressed = e.CtrlPressed;
+        toSend.ScrollDelta = scroll;
+        this.Owner.DispatchEvent(eventName, toSend as Event);
+    }
+    
     function OnLockStepMouseMove(e : LockStepMouseEvent)
     {
         this.RotationAngles.Y -= e.ScreenDelta.X * this.LookSpeed;
@@ -309,14 +348,34 @@ class Player : ScriptComponent
         {
             this.RotationAngles.X = maxUp;
         }
+        
+        this.SendMouseEvent("PlayerMouseMove", e, -1, local Real2());
+    }
+    
+    function OnLockStepMouseScroll(e : LockStepMouseScrollEvent)
+    {
+        this.SendMouseEvent("PlayerMouseDown", e as LockStepMouseEvent, -1, e.ScrollDelta);
     }
     
     function OnLockStepMouseDown(e : LockStepMouseButtonEvent)
     {
+        this.SendMouseEvent("PlayerMouseDown", e as LockStepMouseEvent, e.Button, local Real2());
     }
     
     function OnLockStepMouseUp(e : LockStepMouseButtonEvent)
     {
+        this.SendMouseEvent("PlayerMouseUp", e as LockStepMouseEvent, e.Button, local Real2());
+    }
+    
+    function SendKeyEvent(eventName : String, e : LockStepKeyEvent)
+    {
+        var toSend = new PlayerKeyEvent();
+        this.FillPlayerEvent(toSend as PlayerEvent);
+        toSend.Key = e.Key;
+        toSend.AltPressed = e.AltPressed;
+        toSend.ShiftPressed = e.ShiftPressed;
+        toSend.CtrlPressed = e.CtrlPressed;
+        this.Owner.DispatchEvent(eventName, toSend as Event);
     }
     
     function OnLockStepKeyDown(e : LockStepKeyEvent)
@@ -325,6 +384,8 @@ class Player : ScriptComponent
         this.AddMovement(e, Keys.S, local Real3( 0.0, 0.0, -1.0));
         this.AddMovement(e, Keys.A, local Real3( 1.0, 0.0,  0.0));
         this.AddMovement(e, Keys.D, local Real3(-1.0, 0.0,  0.0));
+        
+        this.SendKeyEvent("PlayerKeyDown", e);
         
         // We still allow movement to happen when freezing input (we ignore it in update)
         if (this.FreezeKeyboardInput)
@@ -404,6 +465,8 @@ class Player : ScriptComponent
         this.AddMovement(e, Keys.S, local Real3( 0.0, 0.0,  1.0));
         this.AddMovement(e, Keys.A, local Real3(-1.0, 0.0,  0.0));
         this.AddMovement(e, Keys.D, local Real3( 1.0, 0.0,  0.0));
+        
+        this.SendKeyEvent("PlayerKeyUp", e);
     }
     
     
@@ -423,23 +486,18 @@ class Player : ScriptComponent
         this.Space.SoundSpace.PlayCue(this.ChangeToolSound);
     }
     
-    function SendToolEvent(eventName : String, obj : Cog)
+    function SendToolEvent(eventName : String, to : Cog)
     {
         var toSend = new ToolChangeEvent();
-        toSend.Peer = this.Peer;
-        toSend.CameraCog = this.CameraCog;
-        toSend.PlayerCog = this.Owner;
-        toSend.Player = this;
+        this.FillPlayerEvent(toSend as PlayerEvent);
         toSend.HudText = this.HudToolSubText;
-        obj.DispatchEvent(eventName, toSend as Event);
+        to.DispatchEvent(eventName, toSend as Event);
     }
     
     function SendPlayerEventTo(eventName : String, to : Cog)
     {
         var toSend = new PlayerEvent();
-        toSend.Player = this;
-        toSend.PlayerCog = this.Owner;
-        toSend.Peer = this.Peer;
+        this.FillPlayerEvent(toSend);
         to.DispatchEvent(eventName, toSend as Event);
     }
 }
@@ -453,33 +511,6 @@ class HitResult
     constructor()
     {
     }
-}
-
-class InteractEvent : Event
-{
-    // If this gets set to anything but null, it means someone responded
-    var Message : String = null;
-    
-    var PlayerCog : Cog = null;
-    var Player : Player = null;
-    var Peer : LockStepPeer = null;
-    
-    constructor() : base()
-    {
-    }
-}
-
-class ToolChangeEvent : Event
-{
-    var Index : Integer = 0;
-    var LastIndex : Integer = 0;
-    var Peer : LockStepPeer = null;
-    var CameraCog : Cog = null;
-    var PlayerCog : Cog = null;
-    var Player : Player = null;
-    var HudText : ShadowText = null;
-    
-    constructor() : base() {}
 }
 
 class Undo
@@ -503,7 +534,56 @@ class PlayerEvent : Event
 {
     var Player : Player = null;
     var PlayerCog : Cog = null;
-    var Peer : LockStepPeer = null;
+    
+    constructor() : base()
+    {
+    }
+}
+
+class InteractEvent : PlayerEvent
+{
+    // If this gets set to anything but null, it means someone responded
+    var Message : String = null;
+    
+    constructor() : base()
+    {
+    }
+}
+
+class ToolChangeEvent : PlayerEvent
+{
+    var HudText : ShadowText = null;
+    
+    constructor() : base() {}
+}
+
+class PlayerInputEvent : PlayerEvent
+{
+    var AltPressed : Boolean = false;
+    var ShiftPressed : Boolean = false;
+    var CtrlPressed : Boolean = false;
+    
+    constructor() : base()
+    {
+    }
+}
+
+class PlayerKeyEvent : PlayerInputEvent
+{
+    var Key : Integer = 0;
+    
+    constructor() : base()
+    {
+    }
+}
+
+class PlayerMouseEvent : PlayerInputEvent
+{
+    var ScreenDelta : Real2 = local Real2();
+    var WorldStart : Real3 = local Real3();
+    var WorldDirection : Real3 = local Real3();
+    var Button : Integer = 0;
+    var ScrollDelta : Real2 = local Real2();
     
     constructor() : base()
     {

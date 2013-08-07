@@ -41,15 +41,15 @@ class Swivel : ScriptComponent
         
         if (this.Root != null)
         {
-            Zero.Disconnect(this.Root, Events.LockStepMouseMove, this as Component);
+            Zero.Disconnect(this.Root, "PlayerMouseMove", this as Component);
         }
         
-        Zero.Connect(root, Events.LockStepMouseMove, this.OnUserMouseMove);
+        Zero.Connect(root, "PlayerMouseMove", this.OnUserMouseMove);
         
         this.Root = root;
     }
 
-    function OnUserMouseMove(e : LockStepMouseEvent)
+    function OnUserMouseMove(e : PlayerMouseEvent)
     {
         var objRot = this.Owner.Transform.WorldRotation;
         var rot : Quat = local Quat();

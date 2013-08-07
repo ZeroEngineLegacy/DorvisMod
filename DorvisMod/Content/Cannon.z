@@ -14,7 +14,7 @@ class Cannon : ScriptComponent
         Zero.Connect(this.Owner, "Activate", this.OnActivate);
     }
 
-    function OnActivate(e : Event)
+    function OnActivate(e : PlayerEvent)
     {
         var worldPosition = this.Owner.Transform.WorldTranslation;
         var bullet = this.Space.Create(this.Projectile);

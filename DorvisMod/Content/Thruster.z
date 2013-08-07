@@ -17,14 +17,14 @@ class Thruster : ScriptComponent
         this.OnParticles2 = this.Owner.FindChildByName("OnParticles2");
     }
 
-    function OnActivate(e : Event)
+    function OnActivate(e : PlayerEvent)
     {
         this.Owner.ThrustEffect.Active = true;
         this.Owner.SoundEmitter.Play();
         this.SetParticlesActive(true);
     }
 
-    function OnDeactivate(e : Event)
+    function OnDeactivate(e : PlayerEvent)
     {
         this.Owner.ThrustEffect.Active = false;
         this.Owner.SoundEmitter.Stop();

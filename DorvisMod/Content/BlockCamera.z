@@ -1,0 +1,36 @@
+class BlockCamera : ScriptComponent
+{
+    var BlockCameraCog : Cog = null;
+    
+    var UnsafeActivePlayer : Player = null;
+    
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, "Activate", this.OnActivate);
+        
+        this.BlockCameraCog = this.Owner.FindChildByName("Camera");
+    }
+
+    function OnActivate(e : PlayerEvent)
+    {
+        if (e.Player.UnsafeIsLocal == false)
+        {
+            return;
+        }
+        
+        if (this.UnsafeActivePlayer == e.Player)
+        {
+            this.BlockCameraCog.Camera.Viewport.CameraViewport.Camera = e.Player.CameraCog;
+            this.UnsafeActivePlayer = null;
+        }
+        else
+        {
+            e.Player.CameraCog.Camera.Viewport.CameraViewport.Camera = this.BlockCameraCog;
+            this.UnsafeActivePlayer = e.Player;
+        }
+    }
+}

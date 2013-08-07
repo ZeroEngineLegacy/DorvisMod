@@ -33,7 +33,7 @@ class Chair : ScriptComponent
             e.Player.SendPlayerEventTo("ChangeChairs", e.PlayerCog);
             
             e.Player.Deactivate();
-            e.Player.RotationAngles = local Real2();
+            e.Player.ResetRotationAngles();
             e.PlayerCog.AttachTo(this.Owner);
             e.PlayerCog.Transform.Translation = local Real3();
             e.PlayerCog.Transform.Rotation = local Quat();
@@ -41,59 +41,60 @@ class Chair : ScriptComponent
             
             this.ActivePlayerCog = e.PlayerCog;
             
-            Zero.Connect(e.Peer as Cog, Events.LockStepKeyDown, this.OnUserKeyDown);
-            Zero.Connect(e.Peer as Cog, Events.LockStepKeyUp, this.OnUserKeyUp);
-            Zero.Connect(e.Peer as Cog, Events.LockStepMouseMove, this.OnUserMouseMove);
+            Zero.Connect(e.PlayerCog, "PlayerKeyDown", this.OnPlayerKeyDown);
+            Zero.Connect(e.PlayerCog, "PlayerKeyUp", this.OnPlayerKeyUp);
+            Zero.Connect(e.PlayerCog, "PlayerMouseMove", this.OnPlayerMouseMove);
             
             Zero.Connect(e.PlayerCog, "ChangeChairs", this.OnChangeChairs);
         }
         // Otherwise, we're trying to get out
         else if (e.PlayerCog == this.ActivePlayerCog)
         {
-            this.UnseatPlayer(e.PlayerCog, e.Peer);
+            this.UnseatPlayer();
         }
     }
     
-    function OnUserKeyDown(e : LockStepKeyEvent)
+    function UnseatPlayer()
     {
-        if(e.Key == Keys.Back && this.ActivePlayerCog != null)
-        {
-            this.UnseatPlayer(this.ActivePlayerCog, this.ActivePlayerCog.Player.Peer);
-            return;
-        }
+        var playerCog = this.ActivePlayerCog;
+        this.ActivePlayerCog = null;
         
-        var root = this.Owner.GetRoot();
-        root.DispatchEvent(Events.LockStepKeyDown, e as Event);
-    }
-    
-    function OnUserKeyUp(e : LockStepKeyEvent)
-    {
-        var root = this.Owner.GetRoot();
-        root.DispatchEvent(Events.LockStepKeyUp, e as Event);
-    }
-    
-    function OnUserMouseMove(e : LockStepMouseEvent)
-    {
-        var root = this.Owner.GetRoot();
-        root.DispatchEvent(Events.LockStepMouseMove, e as Event);
-    }
-    
-    function UnseatPlayer(playerCog : Cog, peer : LockStepPeer)
-    {
         playerCog.DetachRelative();
         playerCog.Player.Activate();
         playerCog.Player.FreezeMouseInput = false;
         
-        this.ActivePlayerCog = null;
-        
-        Zero.Disconnect(peer as Cog, Events.LockStepKeyDown, this as Component);
-        Zero.Disconnect(peer as Cog, Events.LockStepKeyUp, this as Component);
-        Zero.Disconnect(peer as Cog, Events.LockStepMouseMove, this as Component);
+        Zero.Disconnect(playerCog, "PlayerKeyDown", this as Component);
+        Zero.Disconnect(playerCog, "PlayerKeyUp", this as Component);
+        Zero.Disconnect(playerCog, "PlayerMouseMove", this as Component);
         Zero.Disconnect(playerCog, "ChangeChairs", this as Component);
+    }
+    
+    function OnPlayerKeyDown(e : PlayerKeyEvent)
+    {
+        if(e.Key == Keys.Back && this.ActivePlayerCog == e.PlayerCog)
+        {
+            this.UnseatPlayer();
+            return;
+        }
+        
+        var root = this.Owner.GetRoot();
+        root.DispatchEvent("PlayerKeyDown", e as Event);
+    }
+    
+    function OnPlayerKeyUp(e : PlayerKeyEvent)
+    {
+        var root = this.Owner.GetRoot();
+        root.DispatchEvent("PlayerKeyUp", e as Event);
+    }
+    
+    function OnPlayerMouseMove(e : PlayerMouseEvent)
+    {
+        var root = this.Owner.GetRoot();
+        root.DispatchEvent("PlayerMouseMove", e as Event);
     }
     
     function OnChangeChairs(e : PlayerEvent)
     {
-        this.UnseatPlayer(e.PlayerCog, e.Peer);
+        this.UnseatPlayer();
     }
 }
