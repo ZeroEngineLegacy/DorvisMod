@@ -16,19 +16,21 @@ class JointSwivel : ScriptComponent
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Owner as Cog, Events.Attached, this.OnAttached);
-        Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, "Activate", this.OnActivate);
         Zero.Connect(this.Owner, "Deactivate", this.OnDeactivate);
         this.Setup();
+        
+        //Debugging
+        //Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
     }
     
-    function OnLogicUpdate(e : UpdateEvent)
-    {
-        if(this.Joint != null)
-        {
-            this.Joint.DebugDraw();
-        }
-    }
+    //function OnLogicUpdate(e : UpdateEvent)
+    //{
+    //    if(this.Joint != null)
+    //    {
+    //        this.Joint.DebugDraw();
+    //    }
+    //}
     
     function OnAttached(e : HierarchyEvent)
     {
