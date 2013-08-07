@@ -354,7 +354,7 @@ class Player : ScriptComponent
     
     function OnLockStepMouseScroll(e : LockStepMouseScrollEvent)
     {
-        this.SendMouseEvent("PlayerMouseDown", e as LockStepMouseEvent, -1, e.ScrollDelta);
+        this.SendMouseEvent("PlayerMouseScroll", e as LockStepMouseEvent, -1, e.ScrollDelta);
     }
     
     function OnLockStepMouseDown(e : LockStepMouseButtonEvent)
