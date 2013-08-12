@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-14.4041, 3.8012, 12.1804],
+		Vec3 Translation = [-18.7188, 1.97636, 27.019],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -35,7 +35,13 @@ Cog =
 	},
 	Player = 
 	{
+		string ChangeToolSound = "ChangeTool",
+		bool Active = true,
+		float InteractDistance = 6,
 		float Speed = 7.5,
+		float JumpVelocity = 6,
+		float LookSpeed = 0.01,
+		string InteractSound = "Interact",
 	},
 	CapsuleCollider = 
 	{
@@ -472,7 +478,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 17,
+						uint Id = 18,
 					},
 					Named = 
 					{
