@@ -6,24 +6,24 @@ Cog =
 	},
 	Archetyped = 
 	{
-		string Name = "519e4a92b38ab8a6:Bullet",
+		string Name = "5263128860944e7c:JointSwivel",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-15.3872, 6.18618, 20.5365],
+		Vec3 Translation = [-30.5782, -0.0713654, -7.11608],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Model = 
 	{
-		string MaterialName = "519e4bef9e1064cf:Tracer",
-		string MeshName = "519e4ba4886088bf:Tracer",
+		string MaterialName = "51566a1523a57f69:SandStructure",
+		string MeshName = "4de0354322b345ae:Cube",
 		Vec4 Color = [1, 1, 1, 1],
 		bool Visible = true,
 	},
 	RigidBody = 
 	{
-		bool Static = false,
+		bool Static = true,
 		bool Asleep = false,
 		bool Kinematic = false,
 		bool RotationLocked = false,
@@ -33,24 +33,31 @@ Cog =
 		Vec3 Velocity = [0, 0, 0],
 		Vec3 AngularVelocity = [0, 0, 0],
 	},
-	CylinderCollider = 
+	BlockTag = 
 	{
-		bool Ghost = true,
+	},
+	BoxCollider = 
+	{
+		bool Ghost = false,
 		bool SendsMessages = true,
 		bool Seamless = false,
 		string MaterialName = "4faa6050b8692851:HardMaterial",
 		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-		Vec3 Offset = [0, -0.8, 0],
-		float Radius = 0.4,
-		float Height = 2,
-		uint Direction = 1,
+		Vec3 Offset = [0, 0, 0],
+		Vec3 Size = [0.5, 0.5, 0.5],
 	},
-	DamageOnCollide = 
+	Orientation = 
 	{
-		float Damage = 10,
+		Vec3 UpVector = [0, 1, 0],
+		Vec3 ForwardVector = [0, 0, 1],
 	},
-	TimedDestroy = 
+	JointSwivel = 
 	{
-		float Lifetime = 5,
+		bool Motorized = true,
+		int Axis = 0,
+	},
+	Activatable = 
+	{
+		int Key = 87,
 	},
 },

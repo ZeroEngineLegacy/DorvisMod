@@ -1,0 +1,83 @@
+class JointPiston : ScriptComponent
+{
+    var Root : Cog = null;
+    var Joint : Cog = null;
+    var Motorized : Boolean = true;
+
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner as Cog, Events.Attached, this.OnAttached);
+        Zero.Connect(this.Owner, "Activate", this.OnActivate);
+        Zero.Connect(this.Owner, "Deactivate", this.OnDeactivate);
+        
+        //Debugging
+        //Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    //function OnLogicUpdate(e : UpdateEvent)
+    //{
+    //    if(this.Joint != null)
+    //    {
+    //        this.Joint.DebugDraw();
+    //    }
+    //}
+    
+    function OnAttached(e : HierarchyEvent)
+    {
+        this.CreateJoint();
+    }
+    
+    function OnActivate(e : Event)
+    {
+        var motor = this.Joint.JointMotor;
+        
+        if(motor.MotorSpeed < 0.0)
+        {
+            motor.MotorSpeed = 5.0;
+        }
+        else
+        {
+            motor.MotorSpeed = -5.0;
+        }
+    }
+
+    function OnDeactivate(e : Event)
+    {
+        
+    }
+    
+    function CreateJoint()
+    {
+        this.Owner.RigidBody.Static = false;
+        var parent = this.Owner.GetParent();
+        
+        var axis = this.Owner.Orientation.GetWorldUp();
+        
+        var jointCreator = Zero.JointBuilder.CreateInstance();
+        var worldPoint = this.Owner.Transform.WorldTranslation;
+        this.Joint = jointCreator.AttachWorld(parent, this.Owner, worldPoint, "PrismaticJoint");
+        
+        var revoluteJoint = this.Joint.PrismaticJoint;
+        
+        revoluteJoint.WorldAxis = axis;
+        revoluteJoint.BodyR1 = revoluteJoint.BodyR1 * local Real3(1.02);
+        revoluteJoint.BodyR2 = revoluteJoint.BodyR2 * local Real3(1.02);
+        
+        if(this.Motorized == true)
+        {
+            jointCreator.AttachMotor(this.Joint);
+            var jointMotor = this.Joint.JointMotor;
+            jointMotor.MaxForce = 50.0;
+            jointMotor.MotorSpeed = 0.0;
+            
+            jointCreator.AttachLimit(this.Joint);
+            var jointLimit = this.Joint.JointLimit;
+            jointLimit.LowerLimit = 0.0;
+            jointLimit.UpperLimit = 3.0;
+        }
+    }
+}

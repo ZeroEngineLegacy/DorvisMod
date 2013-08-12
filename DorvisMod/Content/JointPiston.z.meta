@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "JointPiston",
+		uint64 ResourceId = 526012ec94dd294b,
+	},
+},

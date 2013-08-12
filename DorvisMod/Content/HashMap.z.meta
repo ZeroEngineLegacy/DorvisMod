@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "HashMap",
+		uint64 ResourceId = 5201beab4716ca2e,
+	},
+},

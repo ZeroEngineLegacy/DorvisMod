@@ -18,7 +18,7 @@ class Wheel : ScriptComponent
         //Zero.Disconnect(this.Space as Cog, Events.LogicUpdate, this as Component);
         this.Owner.RigidBody.Static = false;
         
-        //debug return;
+        debug return;
         
         var parentTx = this.Owner.GetParent().Transform;
         

@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [5.18799, 0.78901, 8.66398],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -63,11 +63,6 @@ Cog =
 	{
 		string ColorGradientName = "50a5ee1707f0fb60:DefaultColorGradient",
 	},
-	TimedDeath = 
-	{
-		float TimeToDie = 0.3,
-		uint RemainingCollisions = 0,
-	},
 	SoundEmitter = 
 	{
 		bool StartPlaying = true,
@@ -76,5 +71,9 @@ Cog =
 		float Volume = 1,
 		float Pitch = 1,
 		bool Positional = true,
+	},
+	TimedDestroy = 
+	{
+		float Lifetime = 0.3,
 	},
 },
