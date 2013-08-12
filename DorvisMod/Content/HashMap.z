@@ -1,0 +1,135 @@
+
+class HashMap[Key, Value]
+{
+    var InternalKeys : Array[Key] = new Array[Key]();
+    var InternalValues : Array[Value] = new Array[Value]();
+    
+    var Keys : ArrayRange[Key]
+    {
+        get { return this.InternalKeys.All; }
+    }
+    var Values : ArrayRange[Value]
+    {
+        get { return this.InternalValues.All; }
+    }
+    
+    var Count : Integer
+    {
+        get { return this.InternalKeys.Count; }
+    }
+
+    constructor()
+    {
+    }
+    
+    function Get(key : Key) : Value
+    {
+        var index = this.FindIndex(key);
+        
+        if (index != -1)
+        {
+            return this.InternalValues.Get(index);
+        }
+        
+        //"Key we were getting was not found in the map"
+        throw new Exception();
+    }
+    
+    function Get(key : Key, defaultValue : Value) : Value
+    {
+        var index = this.FindIndex(key);
+        
+        if (index != -1)
+        {
+            return this.InternalValues.Get(index);
+        }
+        else
+        {
+            return defaultValue;
+        }
+    }
+    
+    function RemoveOrError(key : Key)
+    {
+        var index = this.FindIndex(key);
+        
+        if (index != -1)
+        {
+            this.InternalKeys.RemoveSwap(index);
+            this.InternalValues.RemoveSwap(index);
+        }
+        else
+        {
+            //"Key we were removing was not found in the map"
+            throw new Exception();
+        }
+    }
+    
+    function RemoveOrIgnore(key : Key)
+    {
+        var index = this.FindIndex(key);
+        
+        if (index != -1)
+        {
+            this.InternalKeys.RemoveSwap(index);
+            this.InternalValues.RemoveSwap(index);
+        }
+    }
+    
+    function AddOrError(key : Key, value : Value)
+    {
+        var index = this.FindIndex(key);
+        
+        if (index == -1)
+        {
+            this.InternalKeys.Add(key);
+            this.InternalValues.Add(value);
+        }
+        else
+        {
+            //"Key already exists in the map"
+            throw new Exception();
+        }
+    }
+    
+    function AddOrOverwrite(key : Key, value : Value)
+    {
+        var index = this.FindIndex(key);
+        
+        if (index == -1)
+        {
+            this.InternalKeys.Add(key);
+            this.InternalValues.Add(value);
+        }
+        else
+        {
+            this.InternalValues.Set(index, value);
+        }
+    }
+    
+    function AddOrIgnore(key : Key, value : Value)
+    {
+        var index = this.FindIndex(key);
+        
+        if (index == -1)
+        {
+            this.InternalKeys.Add(key);
+            this.InternalValues.Add(value);
+        }
+    }
+    
+    function FindIndex(key : Key) : Integer
+    {
+        for (var i = 0; i < this.InternalKeys.Count; ++i)
+        {
+            var currentKey = this.InternalKeys.Get(i);
+            
+            if (currentKey == key)
+            {
+                return i;
+            }
+        }
+        
+        return -1;
+    }
+}
