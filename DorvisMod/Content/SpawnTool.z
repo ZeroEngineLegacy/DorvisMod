@@ -30,7 +30,7 @@ class SpawnTool : ScriptComponent
         Zero.Connect(e.PlayerCog, "PlayerKeyDown", this.OnPlayerKeyDown);
         Zero.Connect(e.PlayerCog, "PlayerKeyUp", this.OnPlayerKeyUp);
         Zero.Connect(e.PlayerCog, "PlayerMouseDown", this.OnPlayerMouseDown);
-        Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
     
     function OnDeativateTool(e : ToolChangeEvent)
@@ -39,10 +39,10 @@ class SpawnTool : ScriptComponent
         this.Player = null;
         this.HudText = null;
         this.DestroyMode = false;
-        Zero.Disconnect(e.PlayerCog, "PlayerKeyDown", this as Component);
-        Zero.Disconnect(e.PlayerCog, "PlayerKeyUp", this as Component);
-        Zero.Disconnect(e.PlayerCog, "PlayerMouseDown", this as Component);
-        Zero.Disconnect(this.Space as Cog, Events.LogicUpdate, this as Component);
+        Zero.Disconnect(e.PlayerCog, "PlayerKeyDown", this);
+        Zero.Disconnect(e.PlayerCog, "PlayerKeyUp", this);
+        Zero.Disconnect(e.PlayerCog, "PlayerMouseDown", this);
+        Zero.Disconnect(this.Space, Events.LogicUpdate, this);
     }
     
     function OnLogicUpdate(e : UpdateEvent)

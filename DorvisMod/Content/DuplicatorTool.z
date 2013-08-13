@@ -26,7 +26,7 @@ class DuplicatorTool : ScriptComponent
     {
         this.Player = e.Player;
         this.HudText = e.HudText;
-        Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(e.PlayerCog, "PlayerMouseDown", this.OnPlayerMouseDown);
     }
     
@@ -34,8 +34,8 @@ class DuplicatorTool : ScriptComponent
     {
         this.Player = null;
         this.HudText = null;
-        Zero.Disconnect(this.Space as Cog, Events.LogicUpdate, this as Component);
-        Zero.Disconnect(e.PlayerCog, "PlayerMouseDown", this as Component);
+        Zero.Disconnect(this.Space, Events.LogicUpdate, this);
+        Zero.Disconnect(e.PlayerCog, "PlayerMouseDown", this);
     }
     
     function BlockFilter(hit : Cog) : Boolean

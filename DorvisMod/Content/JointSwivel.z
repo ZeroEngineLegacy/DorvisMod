@@ -15,13 +15,13 @@ class JointSwivel : ScriptComponent
 
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(this.Owner as Cog, Events.Attached, this.OnAttached);
+        Zero.Connect(this.Owner, Events.Attached, this.OnAttached);
         Zero.Connect(this.Owner, "Activate", this.OnActivate);
         Zero.Connect(this.Owner, "Deactivate", this.OnDeactivate);
         this.Setup();
         
         //Debugging
-        //Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
     
     //function OnLogicUpdate(e : UpdateEvent)
@@ -96,7 +96,7 @@ class JointSwivel : ScriptComponent
         
         if (this.Root != null)
         {
-            Zero.Disconnect(this.Root, Events.LockStepMouseMove, this as Component);
+            Zero.Disconnect(this.Root, Events.LockStepMouseMove, this);
         }
         
         Zero.Connect(root, Events.LockStepMouseMove, this.OnUserMouseMove);

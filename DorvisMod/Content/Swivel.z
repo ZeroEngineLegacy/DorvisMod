@@ -25,7 +25,7 @@ class Swivel : ScriptComponent
 
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(this.Owner as Cog, Events.Attached, this.OnAttached);
+        Zero.Connect(this.Owner, Events.Attached, this.OnAttached);
         this.Setup();
     }
     
@@ -41,7 +41,7 @@ class Swivel : ScriptComponent
         
         if (this.Root != null)
         {
-            Zero.Disconnect(this.Root, "PlayerMouseMove", this as Component);
+            Zero.Disconnect(this.Root, "PlayerMouseMove", this);
         }
         
         Zero.Connect(root, "PlayerMouseMove", this.OnUserMouseMove);

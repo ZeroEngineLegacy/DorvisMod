@@ -9,7 +9,7 @@ class CommandBlock : ScriptComponent
     
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
 
     function OnLogicUpdate(e : UpdateEvent)
@@ -36,9 +36,9 @@ class CommandBlock : ScriptComponent
         
         if (this.Root != null)
         {
-            Zero.Disconnect(this.Root, "PlayerKeyDown", this as Component);
-            Zero.Disconnect(this.Root, "PlayerKeyUp", this as Component);
-            Zero.Disconnect(this.Root, "PlayerMouseMove", this as Component);
+            Zero.Disconnect(this.Root, "PlayerKeyDown", this);
+            Zero.Disconnect(this.Root, "PlayerKeyUp", this);
+            Zero.Disconnect(this.Root, "PlayerMouseMove", this);
         }
         
         Zero.Connect(root, "PlayerKeyDown", this.OnKeyDown);
@@ -52,7 +52,7 @@ class CommandBlock : ScriptComponent
     {
         if(this.ReDirectionCog != null)
         {
-            this.ReDirectionCog.DispatchEvent("PlayerKeyDown", e as Event);
+            this.ReDirectionCog.DispatchEvent("PlayerKeyDown", e);
         }
     }
     
@@ -60,7 +60,7 @@ class CommandBlock : ScriptComponent
     {
         if(this.ReDirectionCog != null)
         {
-            this.ReDirectionCog.DispatchEvent("PlayerKeyUp", e as Event);
+            this.ReDirectionCog.DispatchEvent("PlayerKeyUp", e);
         }
     }
     
@@ -68,7 +68,7 @@ class CommandBlock : ScriptComponent
     {
         if(this.ReDirectionCog != null)
         {
-            this.ReDirectionCog.DispatchEvent("PlayerMouseMove", e as Event);
+            this.ReDirectionCog.DispatchEvent("PlayerMouseMove", e);
         }
     }
 }

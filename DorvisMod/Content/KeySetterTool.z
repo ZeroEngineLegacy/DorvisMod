@@ -20,7 +20,7 @@ class KeySetterTool : ScriptComponent
     {
         this.Player = e.Player;
         this.HudText = e.HudText;
-        Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(e.PlayerCog, "PlayerKeyDown", this.OnPlayerKeyDown);
         Zero.Connect(e.PlayerCog, "PlayerMouseDown", this.OnPlayerMouseDown);
         Zero.Connect(e.PlayerCog, "PlayerMouseUp", this.OnPlayerMouseUp);
@@ -30,10 +30,10 @@ class KeySetterTool : ScriptComponent
     {
         this.Player = null;
         this.HudText = null;
-        Zero.Disconnect(this.Space as Cog, Events.LogicUpdate, this as Component);
-        Zero.Disconnect(e.PlayerCog, "PlayerKeyDown", this as Component);
-        Zero.Disconnect(e.PlayerCog, "PlayerMouseDown", this as Component);
-        Zero.Disconnect(e.PlayerCog, "PlayerMouseUp", this as Component);
+        Zero.Disconnect(this.Space, Events.LogicUpdate, this);
+        Zero.Disconnect(e.PlayerCog, "PlayerKeyDown", this);
+        Zero.Disconnect(e.PlayerCog, "PlayerMouseDown", this);
+        Zero.Disconnect(e.PlayerCog, "PlayerMouseUp", this);
     }
     
     function ActivateFilter(hit : Cog) : Boolean

@@ -7,7 +7,7 @@ class Wheel : ScriptComponent
     function Initialize(init : CogInitializer)
     {
         // This is put in because wheels can't be moved as a whole
-        Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnFirstUpdate);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnFirstUpdate);
         this.Owner.ModifiedFromArchetype();
         this.Owner.RigidBody.Velocity = local Real3();
         this.Owner.RigidBody.AngularVelocity = local Real3();
@@ -15,7 +15,7 @@ class Wheel : ScriptComponent
     
     function OnFirstUpdate(e : UpdateEvent)
     {
-        //Zero.Disconnect(this.Space as Cog, Events.LogicUpdate, this as Component);
+        //Zero.Disconnect(this.Space, Events.LogicUpdate, this);
         this.Owner.RigidBody.Static = false;
         
         debug return;
