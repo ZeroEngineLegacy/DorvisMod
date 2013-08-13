@@ -37,11 +37,11 @@ class Health : ScriptComponent
         // If we just died...
         if (this.Current <= 0.0)
         {
-            this.Owner.DispatchEvent("Death", toSend as Event);
+            this.Owner.DispatchEvent("Death", toSend);
         }
         else
         {
-            this.Owner.DispatchEvent("HealthChanged", toSend as Event);
+            this.Owner.DispatchEvent("HealthChanged", toSend);
         }
     }
 }

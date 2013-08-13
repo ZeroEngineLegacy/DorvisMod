@@ -13,7 +13,7 @@ class FloatUpAndDestroy : ScriptComponent
 
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
 
     function OnLogicUpdate(e : UpdateEvent)

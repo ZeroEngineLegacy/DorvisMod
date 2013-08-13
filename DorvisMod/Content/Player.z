@@ -90,13 +90,13 @@ class Player : ScriptComponent
         this.CameraCog = this.Owner.FindChildByName("Camera");
         this.ExtraCollision = this.Owner.FindChildByName("ExtraCollision");
         
-        Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
-        Zero.Connect(peer as Cog, Events.LockStepMouseMove, this.OnLockStepMouseMove);
-        Zero.Connect(peer as Cog, Events.LockStepMouseDown, this.OnLockStepMouseDown);
-        Zero.Connect(peer as Cog, Events.LockStepMouseScroll, this.OnLockStepMouseScroll);
-        Zero.Connect(peer as Cog, Events.LockStepMouseUp, this.OnLockStepMouseUp);
-        Zero.Connect(peer as Cog, Events.LockStepKeyDown, this.OnLockStepKeyDown);
-        Zero.Connect(peer as Cog, Events.LockStepKeyUp, this.OnLockStepKeyUp);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(peer, Events.LockStepMouseMove, this.OnLockStepMouseMove);
+        Zero.Connect(peer, Events.LockStepMouseDown, this.OnLockStepMouseDown);
+        Zero.Connect(peer, Events.LockStepMouseScroll, this.OnLockStepMouseScroll);
+        Zero.Connect(peer, Events.LockStepMouseUp, this.OnLockStepMouseUp);
+        Zero.Connect(peer, Events.LockStepKeyDown, this.OnLockStepKeyDown);
+        Zero.Connect(peer, Events.LockStepKeyUp, this.OnLockStepKeyUp);
         
         this.ToolContainer = this.Owner.FindChildByName("ToolContainer");
         
@@ -240,8 +240,8 @@ class Player : ScriptComponent
     function SendInteractEvent(eventName : String, to : Cog) : InteractEvent
     {
         var toSend = new InteractEvent();
-        this.FillPlayerEvent(toSend as PlayerEvent);
-        to.DispatchEvent(eventName, toSend as Event);
+        this.FillPlayerEvent(toSend);
+        to.DispatchEvent(eventName, toSend);
         return toSend;
     }
     
@@ -319,7 +319,7 @@ class Player : ScriptComponent
     function SendMouseEvent(eventName : String, e : LockStepMouseEvent, button : Integer, scroll : Real2)
     {
         var toSend = new PlayerMouseEvent();
-        this.FillPlayerEvent(toSend as PlayerEvent);
+        this.FillPlayerEvent(toSend);
         toSend.ScreenDelta = e.ScreenDelta;
         toSend.WorldStart = e.WorldStart;
         toSend.WorldDirection = e.WorldDirection;
@@ -328,7 +328,7 @@ class Player : ScriptComponent
         toSend.ShiftPressed = e.ShiftPressed;
         toSend.CtrlPressed = e.CtrlPressed;
         toSend.ScrollDelta = scroll;
-        this.Owner.DispatchEvent(eventName, toSend as Event);
+        this.Owner.DispatchEvent(eventName, toSend);
     }
     
     function OnLockStepMouseMove(e : LockStepMouseEvent)
@@ -354,28 +354,28 @@ class Player : ScriptComponent
     
     function OnLockStepMouseScroll(e : LockStepMouseScrollEvent)
     {
-        this.SendMouseEvent("PlayerMouseScroll", e as LockStepMouseEvent, -1, e.ScrollDelta);
+        this.SendMouseEvent("PlayerMouseScroll", e, -1, e.ScrollDelta);
     }
     
     function OnLockStepMouseDown(e : LockStepMouseButtonEvent)
     {
-        this.SendMouseEvent("PlayerMouseDown", e as LockStepMouseEvent, e.Button, local Real2());
+        this.SendMouseEvent("PlayerMouseDown", e, e.Button, local Real2());
     }
     
     function OnLockStepMouseUp(e : LockStepMouseButtonEvent)
     {
-        this.SendMouseEvent("PlayerMouseUp", e as LockStepMouseEvent, e.Button, local Real2());
+        this.SendMouseEvent("PlayerMouseUp", e, e.Button, local Real2());
     }
     
     function SendKeyEvent(eventName : String, e : LockStepKeyEvent)
     {
         var toSend = new PlayerKeyEvent();
-        this.FillPlayerEvent(toSend as PlayerEvent);
+        this.FillPlayerEvent(toSend);
         toSend.Key = e.Key;
         toSend.AltPressed = e.AltPressed;
         toSend.ShiftPressed = e.ShiftPressed;
         toSend.CtrlPressed = e.CtrlPressed;
-        this.Owner.DispatchEvent(eventName, toSend as Event);
+        this.Owner.DispatchEvent(eventName, toSend);
     }
     
     function OnLockStepKeyDown(e : LockStepKeyEvent)
@@ -489,16 +489,16 @@ class Player : ScriptComponent
     function SendToolEvent(eventName : String, to : Cog)
     {
         var toSend = new ToolChangeEvent();
-        this.FillPlayerEvent(toSend as PlayerEvent);
+        this.FillPlayerEvent(toSend);
         toSend.HudText = this.HudToolSubText;
-        to.DispatchEvent(eventName, toSend as Event);
+        to.DispatchEvent(eventName, toSend);
     }
     
     function SendPlayerEventTo(eventName : String, to : Cog)
     {
         var toSend = new PlayerEvent();
         this.FillPlayerEvent(toSend);
-        to.DispatchEvent(eventName, toSend as Event);
+        to.DispatchEvent(eventName, toSend);
     }
 }
 

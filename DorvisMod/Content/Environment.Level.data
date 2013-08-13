@@ -4946,9 +4946,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-12.699, 3.98097, 47.7934],
+			Vec3 Translation = [-17.8084, 21.1523, 86.2064],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0612051, 0.123453, 0.00762897, 0.990432],
+			Quat Rotation = [-0.137708, -0.0647287, -0.00901902, 0.988314],
 		},
 		Camera = 
 		{
@@ -4961,10 +4961,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 21.5981,
-			float LookAngle = 0.386801,
-			float LookRotation = 1.32278,
-			Vec3 LookTarget = [-17.9606, 1.32176, 27.0155],
+			float LookDistance = 59.5981,
+			float LookAngle = 0.8588,
+			float LookRotation = -4.58159,
+			Vec3 LookTarget = [-10.3311, 4.86034, 29.3681],
 		},
 		EditorRenderer = 
 		{
@@ -9681,8 +9681,8 @@ Level =
 		Transform = 
 		{
 			Vec3 Translation = [-72.9114, 2.967, 98.9197],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0329569, -0.673127, 0.0033334, 0.738785],
+			Vec3 Scale = [0.999999, 1, 0.999999],
+			Quat Rotation = [-0.0329569, -0.673127, 0.00333339, 0.738785],
 		},
 		Model = 
 		{
@@ -14914,9 +14914,149 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [7.62939e-006, 0, 7.62939e-006],
-					Vec3 Scale = [0.999983, 1, 0.999985],
-					Quat Rotation = [-7.68341e-009, 3.0559e-010, -3.72529e-009, 1],
+					Vec3 Translation = [4.57764e-005, -4.76837e-007, -3.05176e-005],
+					Vec3 Scale = [0.999983, 1, 0.999984],
+					Quat Rotation = [-2.6077e-008, -3.86899e-007, -1.30385e-008, 1],
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 462,
+		},
+		Archetyped = 
+		{
+			string Name = "520ea43291396f97:Shield",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-12.9806, 1.75736, 24.1346],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "51566ba330c5ee99:Metal",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = true,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = false,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = false,
+			string MaterialName = "4faa6050b8692851:HardMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 0.5],
+		},
+		BlockTag = 
+		{
+		},
+		DestroyOnDeath = 
+		{
+		},
+		Health = 
+		{
+			float Total = 100,
+			float Current = 100,
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 463,
+				},
+				Named = 
+				{
+					string Name = "Shield",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, 0, 0],
+					Vec3 Scale = [5, 5, 5],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SphereCollider = 
+				{
+					bool Ghost = true,
+					bool SendsMessages = true,
+					bool Seamless = true,
+					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+					Vec3 Offset = [0, 0, 0],
+					float Radius = 1,
+				},
+				SpriteParticleSystem = 
+				{
+					SystemChildMode ChildMode = Independent,
+					SystemSpace SystemSpace = WorldSpace,
+					uint DrawOrder = 0,
+					ParticleGeometry GeometryMode = FaceVelocity,
+					ParticleRenderMode RenderMode = Additive,
+					ParticleSortMode SortMode = None,
+					string Texture = "519d9750dec3cac8:ShockWave",
+					Vec4 Tint = [0.0644, 0.111964, 0.115, 0.9999],
+					float VelocityScale = 2,
+					float LengthScale = 0,
+					float MaxParticleSize = 100,
+					Vec3 SystemSize = [2, 2, 2],
+				},
+				SphericalParticleEmitter = 
+				{
+					bool Active = true,
+					uint EmitCount = 0,
+					float EmitRate = 20,
+					float EmitVariance = 0,
+					float Size = 3,
+					float SizeVariance = 0,
+					float Lifetime = 6,
+					float LifetimeVariance = 0,
+					float Spin = 0,
+					float SpinVariance = 0,
+					bool RandomSpin = false,
+					float Fill = 1,
+					float EmitterVelocityPercent = 0,
+					Vec3 StartVelocity = [0, 0, 0],
+					Vec3 RandomVelocity = [0, 0, 0],
+					Vec3 TangentVelocity = [0, 0, 0.001],
+					Vec3 EmitterSize = [1, 1, 1],
+					bool FastMovingEmitter = false,
+				},
+				LinearParticleAnimator = 
+				{
+					Vec3 Force = [0, 0, 0],
+					Vec3 RandomForce = [0, 0, 0],
+					float Torque = 0,
+					float Growth = 0,
+					float Dampening = 0,
+					Vec3 Twist = [0, 0, 0],
+				},
+				ParticleGradientAnimator = 
+				{
+					string ColorGradientName = "520ea5c044d10cc0:Shield",
+				},
+				MegaMaterial = 
+				{
+					string ProjectileImpact = "ImpactEffect",
 				},
 			},
 		},

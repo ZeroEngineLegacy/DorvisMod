@@ -1,0 +1,18 @@
+class MegaMaterial : ScriptComponent
+{
+    [Editable][Serialized][Archetype]
+    var ProjectileImpact : String = "ImpactEffect";
+    
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(e : UpdateEvent)
+    {
+    }
+}

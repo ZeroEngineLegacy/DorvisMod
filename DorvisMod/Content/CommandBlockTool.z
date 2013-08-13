@@ -19,7 +19,7 @@ class CommandBlockTool : ScriptComponent
         this.Player = e.Player;
         this.HudText = e.HudText;
         Zero.Connect(e.PlayerCog, "PlayerMouseDown", this.OnPlayerMouseDown);
-        Zero.Connect(this.Space as Cog, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
     
     function OnDeactivateTool(e : ToolChangeEvent)
@@ -27,8 +27,8 @@ class CommandBlockTool : ScriptComponent
         this.Player = null;
         this.HudText = null;
         this.CommandBlockCog = null;
-        Zero.Disconnect(e.PlayerCog, "PlayerMouseDown", this as Component);
-        Zero.Disconnect(this.Space as Cog, Events.LogicUpdate, this as Component);
+        Zero.Disconnect(e.PlayerCog, "PlayerMouseDown", this);
+        Zero.Disconnect(this.Space, Events.LogicUpdate, this);
     }
     
     function OnLogicUpdate(e : UpdateEvent)

@@ -63,10 +63,10 @@ class Chair : ScriptComponent
         playerCog.Player.Activate();
         playerCog.Player.FreezeMouseInput = false;
         
-        Zero.Disconnect(playerCog, "PlayerKeyDown", this as Component);
-        Zero.Disconnect(playerCog, "PlayerKeyUp", this as Component);
-        Zero.Disconnect(playerCog, "PlayerMouseMove", this as Component);
-        Zero.Disconnect(playerCog, "ChangeChairs", this as Component);
+        Zero.Disconnect(playerCog, "PlayerKeyDown", this);
+        Zero.Disconnect(playerCog, "PlayerKeyUp", this);
+        Zero.Disconnect(playerCog, "PlayerMouseMove", this);
+        Zero.Disconnect(playerCog, "ChangeChairs", this);
     }
     
     function OnPlayerKeyDown(e : PlayerKeyEvent)
@@ -78,19 +78,19 @@ class Chair : ScriptComponent
         }
         
         var root = this.Owner.GetRoot();
-        root.DispatchEvent("PlayerKeyDown", e as Event);
+        root.DispatchEvent("PlayerKeyDown", e);
     }
     
     function OnPlayerKeyUp(e : PlayerKeyEvent)
     {
         var root = this.Owner.GetRoot();
-        root.DispatchEvent("PlayerKeyUp", e as Event);
+        root.DispatchEvent("PlayerKeyUp", e);
     }
     
     function OnPlayerMouseMove(e : PlayerMouseEvent)
     {
         var root = this.Owner.GetRoot();
-        root.DispatchEvent("PlayerMouseMove", e as Event);
+        root.DispatchEvent("PlayerMouseMove", e);
     }
     
     function OnChangeChairs(e : PlayerEvent)
