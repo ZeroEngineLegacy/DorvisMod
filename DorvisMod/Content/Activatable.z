@@ -1,7 +1,7 @@
 class Activatable : ScriptComponent
 {
     // The default key is spacebar
-    [Editable][Serialized]
+    [Property]
     var Key : Integer = 87;
     
     var Root : Cog = null;

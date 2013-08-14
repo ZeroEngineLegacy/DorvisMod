@@ -1,6 +1,6 @@
 class DamageOnCollide : ScriptComponent
 {
-    [Editable][Serialized]
+    [Property]
     var Damage : Real = 10.0;
     
     // The root cog we originated from (we ignore damage to this cog and its descendents)

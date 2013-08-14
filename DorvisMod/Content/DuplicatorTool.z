@@ -1,6 +1,6 @@
 class DuplicatorTool : ScriptComponent
 {
-    [Editable][Serialized]
+    [Property]
     var FallbackSpawnDistance : Real = 20.0;
     
     var Player : Player = null;

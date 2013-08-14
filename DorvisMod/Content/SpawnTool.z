@@ -9,7 +9,7 @@ class SpawnTool : ScriptComponent
     var IsOverBlock : Boolean = false;
     var DestroyMode : Boolean = false;
     
-    [Editable][Serialized][Archetype]
+    [Property][Archetype]
     var ObjToSpawn : String = "Block";
     
     constructor() : base()

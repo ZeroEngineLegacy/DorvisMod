@@ -1,9 +1,9 @@
 class Health : ScriptComponent
 {
-    [Editable][Serialized]
+    [Property]
     var Total : Real = 100.0;
     
-    [Editable][Serialized]
+    [Property]
     var Current : Real = 100.0;
     
     var Percent : Real

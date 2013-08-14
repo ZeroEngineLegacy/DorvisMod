@@ -1,6 +1,6 @@
 class FadeOutShadowText : ScriptComponent
 {
-    [Editable][Serialized]
+    [Property]
     var Time : Real = 1.0;
     
     var Face : SpriteText = null;

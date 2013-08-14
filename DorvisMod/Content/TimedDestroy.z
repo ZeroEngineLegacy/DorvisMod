@@ -1,7 +1,7 @@
 class TimedDestroy : ScriptComponent
 {
     //The amount of time before this object will be destroyed
-    [Editable][Serialized]
+    [Property]
     var Lifetime : Real = 1.0;
     
     constructor() : base()

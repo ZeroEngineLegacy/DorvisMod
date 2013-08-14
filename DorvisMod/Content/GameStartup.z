@@ -4,7 +4,7 @@ class GameStartup : ScriptComponent
     
     var MainSpace : Space = null;
     
-    [Editable][Serialized][Level]
+    [Property][Level]
     var Level : String = "MainLevel";
     
     constructor() : base()

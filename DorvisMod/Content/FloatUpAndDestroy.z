@@ -1,8 +1,8 @@
 class FloatUpAndDestroy : ScriptComponent
 {
-    [Editable][Serialized]
+    [Property]
     var Speed : Real = 1.0;
-    [Editable][Serialized]
+    [Property]
     var Time : Real = 1.0;
     
     var Timer : Real = 0.0;

@@ -1,23 +1,23 @@
 class Player : ScriptComponent
 {
-    [Editable][Serialized]
+    [Property]
     var Speed : Real = 10.0;
     
-    [Editable][Serialized]
+    [Property]
     var LookSpeed : Real = 0.01;
     
-    [Editable][Serialized]
+    [Property]
     var JumpVelocity : Real = 6.0;
     
-    [Editable][Serialized]
+    [Property]
     var InteractDistance : Real = 6.0;
     
-    [Editable][Serialized]
+    [Property]
     var Active : Boolean = true;
     
-    [Editable][Serialized][SoundCue]
+    [Property][SoundCue]
     var InteractSound : String = "Interact";
-    [Editable][Serialized][SoundCue]
+    [Property][SoundCue]
     var ChangeToolSound : String = "ChangeTool";
     
     

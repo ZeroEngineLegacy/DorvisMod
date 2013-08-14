@@ -2,11 +2,11 @@ class GrabberTool : ScriptComponent
 {
     //The minimum distance we can drag the object towards
     //the camera during mouse scroll.
-    [Editable][Serialized]
+    [Property]
     var MinDistance : Real = 3.0;
     
     //The maximum distance we can drag the objet away from the camera.
-    [Editable][Serialized]
+    [Property]
     var MaxDistance : Real = 100.0;
     
     //The object that we are currently grabbing

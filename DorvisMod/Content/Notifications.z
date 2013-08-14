@@ -1,6 +1,6 @@
 class Notifications : ScriptComponent
 {
-    [Editable][Serialized]
+    [Property]
     var LineHeight : Real = 0.6;
     
     var ExistingNotifications : Array[Cog] = new Array[Cog]();

@@ -1,6 +1,6 @@
 class MegaMaterial : ScriptComponent
 {
-    [Editable][Serialized][Archetype]
+    [Property][Archetype]
     var ProjectileImpact : String = "ImpactEffect";
     
     constructor() : base()

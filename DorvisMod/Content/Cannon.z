@@ -1,8 +1,8 @@
 class Cannon : ScriptComponent
 {
-    [Editable][Serialized]
+    [Property]
     var Speed : Real = 100.0;
-    [Editable][Serialized][Archetype]
+    [Property][Archetype]
     var Projectile : String = "Bullet";
     
     constructor() : base()
