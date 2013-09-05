@@ -15,10 +15,10 @@ class Player : ScriptComponent
     [Property]
     var Active : Boolean = true;
     
-    [Property][SoundCue]
-    var InteractSound : String = "Interact";
-    [Property][SoundCue]
-    var ChangeToolSound : String = "ChangeTool";
+    [Property]
+    var InteractSound : SoundCue = SoundCue.Find("Interact");
+    [Property]
+    var ChangeToolSound : SoundCue = SoundCue.Find("ChangeTool");
     
     
     var Peer : LockStepPeer = null;
@@ -51,6 +51,9 @@ class Player : ScriptComponent
     // Only used for client side effects that have absolutely no baring on gameplay
     var UnsafeIsLocal : Boolean = false;
     
+    [Property]
+    var HudToCreate : Level = Level.Find("Hud");
+    
     
     // For some reason this results in a type not found error
     //var UndoStack : Array[delegate()] = new Array[delegate()]();
@@ -58,15 +61,15 @@ class Player : ScriptComponent
     
     var WorldLookForward : Real3
     {
-        get { return this.CameraCog.Orientation.GetWorldForward(); }
+        get { return this.CameraCog.Orientation.WorldForward; }
     }
     var WorldLookUp : Real3
     {
-        get { return this.CameraCog.Orientation.GetWorldUp(); }
+        get { return this.CameraCog.Orientation.WorldUp; }
     }
     var WorldLookRight : Real3
     {
-        get { return this.CameraCog.Orientation.GetWorldRight(); }
+        get { return this.CameraCog.Orientation.WorldRight; }
     }
     
     var WorldLookPosition : Real3
@@ -76,10 +79,12 @@ class Player : ScriptComponent
     
     constructor() : base()
     {
+        Console.WriteLine("Player CTOR");
     }
 
     function Initialize(init : CogInitializer)
     {
+        Console.WriteLine("Player Initialize");
     }
     
     function LockStepInitialize(peer : LockStepPeer, id : Integer, unsafeIsLocal : Boolean)
@@ -101,9 +106,8 @@ class Player : ScriptComponent
         this.ToolContainer = this.Owner.FindChildByName("ToolContainer");
         
         this.Hud = Zero.Game.CreateSpace("DefaultSpace");
-        this.Hud.GraphicsSpace.SpriteSmoothing = true;
-        this.Hud.GraphicsSpace.PixelSnapping = true;
-        this.Hud.LoadLevel("Hud");
+        
+        this.Hud.LoadLevel(this.HudToCreate);
         this.HudContextText = this.Hud.FindObjectByName("ContextText").ShadowText;
         this.HudToolText = this.Hud.FindObjectByName("ToolText").ShadowText;
         this.HudToolSubText = this.Hud.FindObjectByName("ToolSubText").ShadowText;
@@ -111,7 +115,7 @@ class Player : ScriptComponent
         this.HudNotifications = this.Hud.FindObjectByName("NotificationManager").Notifications;
         
         // Add all the initial tools
-        foreach (var tool in  this.ToolContainer.Hierarchy.GetChildren())
+        foreach (var tool in  this.ToolContainer.Hierarchy.Children)
         {
             this.Tools.Add(tool);
         }
@@ -139,7 +143,7 @@ class Player : ScriptComponent
         this.ActivateTool(this.ActiveTool);
         
         // Because when activating, we could be inside something, attempt to resolve a portion of the collision
-        foreach (var contact in this.Owner.Collider.GetContacts())
+        foreach (var contact in this.Owner.Collider.Contacts)
         {
             this.Owner.Transform.WorldTranslation -= contact.FirstPoint.WorldNormalTowardsOther * local Real3(0.5);
         }
@@ -205,8 +209,8 @@ class Player : ScriptComponent
     {
         var playerRotation = local Real3(0.0, this.RotationAngles.Y, 0.0);
         var cameraRotation = local Real3(this.RotationAngles.X, Math.Pi, 0.0);
-        this.Owner.Transform.SetRotationAngles(playerRotation);
-        this.CameraCog.Transform.SetRotationAngles(cameraRotation);
+        this.Owner.Transform.EulerAngles = playerRotation;
+        this.CameraCog.Transform.EulerAngles  = cameraRotation;
     }
     
     function OnLogicUpdate(e : UpdateEvent)
@@ -262,34 +266,36 @@ class Player : ScriptComponent
     
     function RayCast(filter : delegate(hit : Cog) : Boolean, maxDistance : Real) : HitResult
     {
-        var dir = this.CameraCog.Orientation.GetWorldForward();
-        var start = this.CameraCog.Transform.WorldTranslation;
+        var ray = local Ray();
+        ray.Direction = this.CameraCog.Orientation.WorldForward;
+        ray.Start = this.CameraCog.Transform.WorldTranslation;
         
         var foundObject : Cog = null;
         var worldNormal = local Real3();
         var worldPosition = local Real3();
         
-        var castResults = this.Space.PhysicsSpace.CastRayResults(start, dir, 20);
+        var castResults = this.Space.PhysicsSpace.CastRayResults(ray, 20);
         foreach(var castResult in castResults)
         {
-            if (castResult.GetDistance() > maxDistance)
+            if (castResult.Distance > maxDistance)
             {
                 break;
             }
             
-            var hitObject = castResult.GetObjectHit();
+            var hitObject = castResult.ObjectHit;
             
             // Skip ourself
-            if (hitObject.GetRoot() == this.Owner)
+            if (hitObject.FindRoot() == this.Owner)
             {
                 continue;
             }
             
             if (filter(hitObject))
             {
+                
                 foundObject = hitObject;
-                worldNormal = castResult.GetNormal();
-                worldPosition = castResult.GetWorldPosition();
+                worldNormal = castResult.Normal;
+                worldPosition = castResult.WorldPosition;
                 break;
             }
             

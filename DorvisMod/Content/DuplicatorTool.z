@@ -12,6 +12,12 @@ class DuplicatorTool : ScriptComponent
     
     var IdCounter : Integer = 0;
     
+    [Property]
+    var CopyEffect : Archetype = Archetype.Find("MiscEffect");
+    
+    [Property]
+    var SpawnEffect : Archetype = Archetype.Find("SpawnEffect");
+    
     constructor() : base()
     {
     }
@@ -49,7 +55,7 @@ class DuplicatorTool : ScriptComponent
         
         if (result != null)
         {
-            this.ToDuplicate = result.Object.GetRoot();
+            this.ToDuplicate = result.Object.FindRoot();
             this.HudText.Text = String.Concatenate("Press [Right Mouse] to copy the ", this.ToDuplicate.ArchetypeName);
         }
         else
@@ -86,7 +92,7 @@ class DuplicatorTool : ScriptComponent
                 this.LastCopyId = builder.ToString();
                 Zero.ObjectStore.Store(this.LastCopyId, this.ToDuplicate);
                 
-                this.Space.CreateAtPosition("MiscEffect", this.ToDuplicate.Transform.WorldTranslation);
+                this.Space.CreateAtPosition(this.CopyEffect, this.ToDuplicate.Transform.WorldTranslation);
                 
                 ++this.IdCounter;
             }
@@ -109,7 +115,7 @@ class DuplicatorTool : ScriptComponent
             {
                 object.Transform.WorldTranslation = worldPosition;
                 
-                this.Space.CreateAtPosition("SpawnEffect", object.Transform.WorldTranslation);
+                this.Space.CreateAtPosition(this.SpawnEffect, object.Transform.WorldTranslation);
                 
                 var undo = new SpawnUndo();
                 undo.Object = object;

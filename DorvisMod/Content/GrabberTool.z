@@ -23,6 +23,9 @@ class GrabberTool : ScriptComponent
     var UpRotationAngle : Real = 0.0;
     var RightRotationAngle : Real = 0.0;
     
+    [Property]
+    var Effect : Archetype = Archetype.Find("MiscEffect");
+    
     constructor() : base()
     {
     }
@@ -75,7 +78,7 @@ class GrabberTool : ScriptComponent
             if(this.WeldJoint != null)
             {
                 //the weld only has body angles, so they have to brough to the world first
-                var newAngle = this.WeldJoint.BodyAngle2;
+                var newAngle = this.WeldJoint.LocalAngleB;
                 newAngle = Math.Transform(newAngle, rot);
                 
                 //now actually rotate by the world angle
@@ -83,7 +86,7 @@ class GrabberTool : ScriptComponent
                 
                 //bring back into local space and set it
                 newAngle = Math.Transform(newAngle, rotInv);
-                this.WeldJoint.BodyAngle2 = newAngle;
+                this.WeldJoint.LocalAngleB = newAngle;
             }
             else if(this.PhyGunJoint != null)
             {
@@ -106,7 +109,7 @@ class GrabberTool : ScriptComponent
     
     function FreezeAndGrabFilter(hit : Cog) : Boolean
     {
-        var root = hit.GetRoot();
+        var root = hit.FindRoot();
         return root.RigidBody != null;
     }
     
@@ -114,11 +117,11 @@ class GrabberTool : ScriptComponent
     {
         if(this.SelectedObj != null)
         {
-            var selectedRoot = this.SelectedObj.GetRoot();
+            var selectedRoot = this.SelectedObj.FindRoot();
             if(selectedRoot.RigidBody != null)
             {
                 selectedRoot.RigidBody.Static = !selectedRoot.RigidBody.Static;
-                this.Space.CreateAtPosition("SpawnEffect", selectedRoot.Transform.WorldTranslation);
+                this.Space.CreateAtPosition(this.Effect, selectedRoot.Transform.WorldTranslation);
             }
         }
         else
@@ -128,9 +131,9 @@ class GrabberTool : ScriptComponent
             
             if (result != null)
             {
-                var root = result.Object.GetRoot();
+                var root = result.Object.FindRoot();
                 root.RigidBody.Static = !root.RigidBody.Static;
-                this.Space.CreateAtPosition("SpawnEffect", root.Transform.WorldTranslation);
+                this.Space.CreateAtPosition(this.Effect, root.Transform.WorldTranslation);
             }
         }
     }
@@ -146,7 +149,7 @@ class GrabberTool : ScriptComponent
         
         if (result != null)
         {
-            var root = result.Object.GetRoot();
+            var root = result.Object.FindRoot();
             this.SelectedObj = root;
             
             this.SelectedObj.RigidBody.ForceAwake();
@@ -278,19 +281,19 @@ class GrabberTool : ScriptComponent
         var jointCreator = Zero.JointBuilder.CreateInstance();
         //jointCreator.ConnectToWorld = true;
         
-        obj = obj.GetRoot();
+        obj = obj.FindRoot();
         
         if (obj.RigidBody == null)
         {
             return;
         }
         
-        var mass = obj.RigidBody.GetMass();
+        var mass = obj.RigidBody.Mass;
         //point = obj.RigidBody.WorldCenterOfMass;
         var cog = jointCreator.AttachWorld(this.Player.CameraCog,obj,point,"WeldJoint");
         this.WeldJoint = cog.WeldJoint;
-        this.WeldJoint.WorldPoint1 = point;
-        this.WeldJoint.WorldPoint2 = point;
+        this.WeldJoint.WorldPointA = point;
+        this.WeldJoint.WorldPointB = point;
         this.WeldJoint.MaxForce = mass;
     }
     
@@ -300,14 +303,14 @@ class GrabberTool : ScriptComponent
         var jointCreator = Zero.JointBuilder.CreateInstance();
         jointCreator.ConnectToWorld = true;
         
-        obj = obj.GetRoot();
+        obj = obj.FindRoot();
         
         if (obj.RigidBody == null)
         {
             return;
         }
         
-        var mass = obj.RigidBody.GetMass();
+        var mass = obj.RigidBody.Mass;
         //point = obj.RigidBody.WorldCenterOfMass;
         var cog = jointCreator.AttachWorld(obj,obj,point,"PhyGunJoint");
         this.PhyGunJoint = cog.PhyGunJoint;
@@ -346,7 +349,7 @@ class GrabberTool : ScriptComponent
     
     function UpdateWeldPoint(worldPoint : Real3)
     {
-        this.WeldJoint.WorldPoint1 = worldPoint;
+        this.WeldJoint.WorldPointA = worldPoint;
     }
     
     function UpdatePhyGunPoint(worldPoint : Real3)

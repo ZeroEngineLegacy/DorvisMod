@@ -12,8 +12,8 @@ class RopeRenderer : ScriptComponent
     function OnLogicUpdate(e : UpdateEvent)
     {
         var objectLink = this.Owner.ObjectLink;
-        var body0 = objectLink.BodyPointA;
-        var body1 = objectLink.BodyPointB;
+        var body0 = objectLink.LocalPointA;
+        var body1 = objectLink.LocalPointB;
         
         var world0 = objectLink.ObjectA.Transform.TransformPoint(body0);
         var world1 = objectLink.ObjectB.Transform.TransformPoint(body1);

@@ -77,19 +77,19 @@ class Chair : ScriptComponent
             return;
         }
         
-        var root = this.Owner.GetRoot();
+        var root = this.Owner.FindRoot();
         root.DispatchEvent("PlayerKeyDown", e);
     }
     
     function OnPlayerKeyUp(e : PlayerKeyEvent)
     {
-        var root = this.Owner.GetRoot();
+        var root = this.Owner.FindRoot();
         root.DispatchEvent("PlayerKeyUp", e);
     }
     
     function OnPlayerMouseMove(e : PlayerMouseEvent)
     {
-        var root = this.Owner.GetRoot();
+        var root = this.Owner.FindRoot();
         root.DispatchEvent("PlayerMouseMove", e);
     }
     

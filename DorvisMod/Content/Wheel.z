@@ -20,7 +20,7 @@ class Wheel : ScriptComponent
         
         debug return;
         
-        var parentTx = this.Owner.GetParent().Transform;
+        var parentTx = this.Owner.Parent.Transform;
         
         
         //this.Owner.Transform.WorldTranslation = parentTx.Transform.WorldTranslation;

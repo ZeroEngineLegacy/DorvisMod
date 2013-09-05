@@ -32,7 +32,7 @@ class CommandBlock : ScriptComponent
     // Setup can be called multiple times, but it MUST be called any time our hierarchy is changed
     function Setup()
     {
-        var root = this.Owner.GetRoot();
+        var root = this.Owner.FindRoot();
         
         if (this.Root != null)
         {

@@ -19,7 +19,7 @@ class DamageOnCollide : ScriptComponent
     function OnCollisionStarted(e : CollisionEvent)
     {
         // Don't damage the person we were created from
-        if (e.OtherObject.GetRoot() == this.OriginRoot)
+        if (e.OtherObject.FindRoot() == this.OriginRoot)
         {
             return;
         }

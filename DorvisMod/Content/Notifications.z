@@ -5,6 +5,9 @@ class Notifications : ScriptComponent
     
     var ExistingNotifications : Array[Cog] = new Array[Cog]();
     
+    [Property]
+    var Text : Archetype = Archetype.Find("ShadowTextFadeRed");
+    
     constructor() : base()
     {
     }
@@ -35,7 +38,7 @@ class Notifications : ScriptComponent
             }
         }
         
-        var messageCog = this.Space.Create("ShadowTextFadeRed");
+        var messageCog = this.Space.Create(this.Text);
         messageCog.Transform.WorldTranslation = this.Owner.Transform.WorldTranslation;
         messageCog.ShadowText.Text = message;
         

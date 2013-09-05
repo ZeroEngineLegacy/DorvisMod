@@ -28,6 +28,7 @@ class Health : ScriptComponent
             return;
         }
         
+        
         this.Current += amount;
         
         var toSend = new HealthEvent();

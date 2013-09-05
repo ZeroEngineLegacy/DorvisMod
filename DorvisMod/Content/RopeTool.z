@@ -4,6 +4,9 @@ class RopeTool : ScriptComponent
     var HudText : ShadowText = null;
     var PrevCog : Cog = null;
     
+    [Property]
+    var SpawnEffect : Archetype = Archetype.Find("SpawnEffect");
+    
     constructor() : base()
     {
     }
@@ -56,7 +59,7 @@ class RopeTool : ScriptComponent
             return;
         }
         
-        this.Space.CreateAtPosition("SpawnEffect", result.Object.Transform.WorldTranslation);
+        this.Space.CreateAtPosition(this.SpawnEffect, result.Object.Transform.WorldTranslation);
         
         if(this.PrevCog == null)
         {
@@ -70,8 +73,8 @@ class RopeTool : ScriptComponent
         var p0 = this.PrevCog.Transform.WorldTranslation;
         var p1 = result.Object.Transform.WorldTranslation;
         joint.StickJoint.Length = Math.Length(p0 - p1);
-        joint.StickJoint.BodyR1 = local Real3(0.0, 0.0, 0.0);
-        joint.StickJoint.BodyR2 = local Real3(0.0, 0.0, 0.0);
+        joint.StickJoint.LocalPointA = local Real3(0.0, 0.0, 0.0);
+        joint.StickJoint.LocalPointB = local Real3(0.0, 0.0, 0.0);
         
         joint.AddComponentByName("JointLimit");
         joint.AddComponentByName("RopeRenderer");

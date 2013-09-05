@@ -4,6 +4,9 @@ class CommandBlockTool : ScriptComponent
     var HudText : ShadowText = null;
     var CommandBlockCog : Cog = null;
     
+    [Property]
+    var SpawnEffect : Archetype = Archetype.Find("SpawnEffect");
+    
     constructor() : base()
     {
     }
@@ -61,15 +64,15 @@ class CommandBlockTool : ScriptComponent
             if(result.Object.CommandBlock != null)
             {
                 this.CommandBlockCog = result.Object;
-                this.Space.CreateAtPosition("SpawnEffect", result.Object.Transform.WorldTranslation);
+                this.Space.CreateAtPosition(this.SpawnEffect, result.Object.Transform.WorldTranslation);
             }
         }
         else if(e.Button == MouseButtons.Right && this.CommandBlockCog != null)
         {
-            var root = result.Object.GetRoot();
+            var root = result.Object.FindRoot();
             this.CommandBlockCog.CommandBlock.ReDirectionCog = root;
             this.CommandBlockCog.CommandBlock.Setup();
-            this.Space.CreateAtPosition("SpawnEffect", result.Object.Transform.WorldTranslation);
+            this.Space.CreateAtPosition(this.SpawnEffect, result.Object.Transform.WorldTranslation);
         }
     }
 }

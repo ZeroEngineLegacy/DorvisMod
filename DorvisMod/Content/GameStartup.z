@@ -4,8 +4,11 @@ class GameStartup : ScriptComponent
     
     var MainSpace : Space = null;
     
-    [Property][Level]
-    var Level : String = "MainLevel";
+    [Property]
+    var Level : Level = Level.Find("Environment");
+    
+    [Property]
+    var Player : Archetype = Archetype.Find("Player");
     
     constructor() : base()
     {
@@ -40,16 +43,28 @@ class GameStartup : ScriptComponent
         // A counter for ids
         var idCounter = 0;
         
-        foreach (var peer in e.GetPeers())
+        foreach (var peer in e.Peers)
         {
             var position = this.Random.Real3(0.0, 200.0);
             position.Y = 0.0;
             
-            var player = this.MainSpace.Create("Player");
+            
+            Console.WriteLine("BEFORE Player");
+            Console.WriteLine(Archetype.Find("Player").Name);
+            Console.WriteLine(this.Player.Name);
+            
+            var player = this.MainSpace.Create(this.Player);
+            Console.WriteLine(player.ArchetypeName);
+            Console.WriteLine("AFTER Player");
+            
+            
             
             player.Transform.WorldTranslation = position;
             
-            var unsafeIsLocal = peer == this.Owner.LockStepGame.GetUnsafeLocalPeer();
+            var unsafeIsLocal = peer == this.Owner.LockStepGame.UnsafeLocalPeer;
+            
+            //Console.WriteLine(Archetype.Find("Player").Name);
+            
             
             player.Player.LockStepInitialize(peer, idCounter, unsafeIsLocal);
             ++idCounter;
@@ -59,11 +74,11 @@ class GameStartup : ScriptComponent
                 var camCog = player.FindChildByName("Camera");
                 camCog.Microphone.Active = true;
                 var levelSettings = this.MainSpace.FindObjectByName("LevelSettings");
-                var viewport = levelSettings.CameraViewport.Viewport;
-                levelSettings.CameraViewport.Camera = camCog;
-                this.Owner.LockStepMouse.SetInputViewport(viewport);
-                this.Owner.LockStepKeyboard.SetInputViewport(viewport);
-                viewport.SetMouseTrap(true);
+                //var viewport = levelSettings.CameraViewport.Viewport;
+                //levelSettings.CameraViewport.Camera = camCog;
+                //this.Owner.LockStepMouse.SetInputViewport(viewport);
+                //this.Owner.LockStepKeyboard.SetInputViewport(viewport);
+                //viewport.SetMouseTrap(true);
                 
                 player.Player.Hud.FindObjectByName("Camera").CameraViewport.Active = true;
             }

@@ -37,7 +37,7 @@ class Swivel : ScriptComponent
     // Setup can be called multiple times, but it MUST be called any time our hierarchy is changed
     function Setup()
     {
-        var root = this.Owner.GetRoot();
+        var root = this.Owner.FindRoot();
         
         if (this.Root != null)
         {
@@ -56,12 +56,12 @@ class Swivel : ScriptComponent
         if(this.Axis == SwivelAxis.Up)
         {
             var delta = Math.Clamp(-e.ScreenDelta.X, -this.MaxAngleRotation, this.MaxAngleRotation);
-            rot = Math.ToQuaternion(this.Owner.Orientation.GetWorldUp(), delta);
+            rot = Math.ToQuaternion(this.Owner.Orientation.WorldUp, delta);
         }
         else if(this.Axis == SwivelAxis.Right)
         {
             var delta = Math.Clamp(e.ScreenDelta.Y, -this.MaxAngleRotation, this.MaxAngleRotation);
-            rot = Math.ToQuaternion(this.Owner.Orientation.GetWorldRight(), delta);
+            rot = Math.ToQuaternion(this.Owner.Orientation.WorldRight, delta);
         }
         
         this.Owner.Transform.WorldRotation = Math.Transform(the : objRot, by : rot);

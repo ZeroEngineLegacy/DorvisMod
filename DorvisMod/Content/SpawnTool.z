@@ -9,8 +9,14 @@ class SpawnTool : ScriptComponent
     var IsOverBlock : Boolean = false;
     var DestroyMode : Boolean = false;
     
-    [Property][Archetype]
-    var ObjToSpawn : String = "Block";
+    [Property]
+    var ObjToSpawn : Archetype = Archetype.Find("Block");
+    
+    [Property]
+    var SpawnEffect : Archetype = Archetype.Find("SpawnEffect");
+    
+    [Property]
+    var DestroyEffect : Archetype = Archetype.Find("DestroyEffect");
     
     constructor() : base()
     {
@@ -79,7 +85,7 @@ class SpawnTool : ScriptComponent
             this.HudText.Text = "Press [Left Mouse] to destroy";
         }
         
-        this.Ghost.SpaceId(this.Space.GetRuntimeId());
+        this.Ghost.SpaceId(this.Space.RuntimeId);
         this.Ghost.Float4Color(color);
         this.Ghost.Extents(local Real3(0.5));
         this.Ghost.Rotation(result.Object.Transform.WorldRotation);
@@ -192,7 +198,7 @@ class SpawnTool : ScriptComponent
         return result;
     }
     
-    function SpawnObj(e : PlayerMouseEvent, objToSpawn : String)
+    function SpawnObj(e : PlayerMouseEvent, objToSpawn : Archetype)
     {
         var attach = true;
         var result = this.Player.RayCast(this.BlockFilter);
@@ -252,9 +258,9 @@ class SpawnTool : ScriptComponent
             newObj.Transform.WorldRotation = this.PlayerCog.Transform.WorldRotation;
         }
         
-        this.Space.CreateAtPosition("SpawnEffect", newObj.Transform.WorldTranslation);
+        this.Space.CreateAtPosition(this.SpawnEffect, newObj.Transform.WorldTranslation);
         
-        var undoName = String.Concatenate("spawning a ", this.ObjToSpawn);
+        var undoName = String.Concatenate("spawning a ", this.ObjToSpawn.Name);
         var undo = new SpawnUndo();
         undo.Object = newObj;
         this.Player.QueueUndo(undoName, undo.Action);
@@ -274,7 +280,7 @@ class SpawnTool : ScriptComponent
             return;
         }
         
-        var undoName = String.Concatenate("destroying a ", this.ObjToSpawn);
+        var undoName = String.Concatenate("destroying a ", this.ObjToSpawn.Name);
         var undoInfo = this.Player.QueueUndo(undoName);
         
         // Store it in the object store for undo purposes
@@ -284,12 +290,12 @@ class SpawnTool : ScriptComponent
         
         var undo = new DestroyUndo();
         undo.Space = this.Space;
-        undo.Parent = result.Object.GetParent();
+        undo.Parent = result.Object.Parent;
         undo.WorldPosition = worldPosition;
         undo.WorldRotation = result.Object.Transform.WorldRotation;
         undoInfo.Action = undo.Action;
         
-        this.Space.CreateAtPosition("DestroyEffect", worldPosition);
+        this.Space.CreateAtPosition(this.DestroyEffect, worldPosition);
         result.Object.Destroy();
     }
 }
@@ -297,6 +303,8 @@ class SpawnTool : ScriptComponent
 class SpawnUndo
 {
     var Object : Cog = null;
+    
+    var DestroyEffect : Archetype = Archetype.Find("DestroyEffect");
     
     constructor()
     {
@@ -307,7 +315,7 @@ class SpawnUndo
         if (this.Object != null)
         {
             var worldPosition = this.Object.Transform.WorldTranslation;
-            this.Object.Space.CreateAtPosition("DestroyEffect", worldPosition);
+            this.Object.Space.CreateAtPosition(this.DestroyEffect, worldPosition);
             this.Object.Destroy();
             return true;
         }
@@ -322,6 +330,8 @@ class DestroyUndo
     var Parent : Cog = null;
     var WorldPosition : Real3 = local Real3();
     var WorldRotation : Quat = local Quat();
+    
+    var SpawnEffect : Archetype = Archetype.Find("SpawnEffect");
     
     constructor()
     {
@@ -350,7 +360,7 @@ class DestroyUndo
                     }
                 }
                 
-                this.Space.CreateAtPosition("SpawnEffect", cog.Transform.WorldTranslation);
+                this.Space.CreateAtPosition(this.SpawnEffect, cog.Transform.WorldTranslation);
                 return true;
             }
         }

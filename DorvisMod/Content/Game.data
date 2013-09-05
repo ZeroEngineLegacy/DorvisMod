@@ -14,10 +14,6 @@ GameSession =
 	ZilchState = 
 	{
 	},
-	GameStartup = 
-	{
-		string Level = "519e74c9087e821d:Environment",
-	},
 	LockStepGame = 
 	{
 		uint BufferFramesAllowed = 5,
@@ -31,5 +27,10 @@ GameSession =
 	},
 	LockStepKeyboard = 
 	{
+	},
+	GameStartup = 
+	{
+		string Level = "519e74c9087e821d:Environment",
+		string Player = "519e623f0e5efbef:Player",
 	},
 },

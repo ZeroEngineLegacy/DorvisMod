@@ -6,6 +6,11 @@ class KeySetterTool : ScriptComponent
     var CurrentActivatable : Cog = null;
     var IsBindingKeys : Boolean = false;
     
+    [Property]
+    var GeneralEffect : Archetype = Archetype.Find("MiscEffect");
+    [Property]
+    var KeyEffect : Archetype = Archetype.Find("KeyEffect");
+    
     constructor() : base()
     {
     }
@@ -62,10 +67,10 @@ class KeySetterTool : ScriptComponent
         if (this.CurrentActivatable != null && this.IsBindingKeys)
         {
             var worldPosition = this.CurrentActivatable.Transform.WorldTranslation;
-            this.Space.CreateAtPosition("MiscEffect", worldPosition);
+            this.Space.CreateAtPosition(this.GeneralEffect, worldPosition);
             
             // Create a key effect to let the user know what's happening
-            var keyEffect = this.Space.CreateAtPosition("KeyEffect", worldPosition);
+            var keyEffect = this.Space.CreateAtPosition(this.KeyEffect, worldPosition);
             keyEffect.SpriteText.Text = Zero.Keyboard.GetKeyName(e.Key);
             
             // Set the actual key that the activator uses
@@ -85,10 +90,10 @@ class KeySetterTool : ScriptComponent
             else if (e.Button == MouseButtons.Right)
             {
                 var worldPosition = this.CurrentActivatable.Transform.WorldTranslation;
-                this.Space.CreateAtPosition("MiscEffect", worldPosition);
+                this.Space.CreateAtPosition(this.GeneralEffect, worldPosition);
                 
                 // Create a key effect to let the user know what key the activatable uses
-                var keyEffect = this.Space.CreateAtPosition("KeyEffect", worldPosition);
+                var keyEffect = this.Space.CreateAtPosition(this.KeyEffect, worldPosition);
                 keyEffect.SpriteText.Text = Zero.Keyboard.GetKeyName(this.CurrentActivatable.Activatable.Key);
             }
         }
