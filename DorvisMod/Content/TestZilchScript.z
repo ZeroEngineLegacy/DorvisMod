@@ -1,0 +1,6 @@
+class TestZilchScript
+{
+    constructor()
+    {
+    }
+}

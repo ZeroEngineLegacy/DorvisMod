@@ -6,6 +6,13 @@ Cog =
 		string ProjectOwner = "",
 		string DefaultLevel = "Level",
 		string ProjectSpace = "Space",
-		uint ProjectEngineRevision = 7244,
+		uint ProjectEngineRevision = 7533,
+	},
+	EditorSettings = 
+	{
+		EditorMode EditorMode = Mode2D,
+		float DefaultPixelsPerUnit = 64,
+		bool SpriteSmoothing = true,
+		float DefaultImportScale = 1,
 	},
 },

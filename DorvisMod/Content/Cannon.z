@@ -3,7 +3,7 @@ class Cannon : ScriptComponent
     [Property]
     var Speed : Real = 100.0;
     [Property][Archetype]
-    var Projectile : String = "Bullet";
+    var Projectile : Archetype = Archetype.Find("Bullet");
     
     constructor() : base()
     {
@@ -19,7 +19,7 @@ class Cannon : ScriptComponent
         var worldPosition = this.Owner.Transform.WorldTranslation;
         var bullet = this.Space.Create(this.Projectile);
         
-        bullet.DamageOnCollide.OriginRoot = this.Owner.GetRoot();
+        bullet.DamageOnCollide.OriginRoot = this.Owner.FindRoot();
         
         bullet.Transform.WorldTranslation = worldPosition;
         bullet.Transform.WorldRotation = this.Owner.Transform.WorldRotation;
