@@ -18,7 +18,7 @@ class Thruster : ScriptComponent
         this.OnParticles = this.Owner.FindChildByName("OnParticles");
         this.OnParticles2 = this.Owner.FindChildByName("OnParticles2");
         
-        this.Owner.SoundEmitter.Volume = 0.0;
+        //this.Owner.SoundEmitter.Volume = 0.0;
         
         // SUPER GHETTO, MAKES IT SO WE DON'T NEED TO CHECK FOR NULL!
         //this.VolumeAction = Action.Delay(this.Owner.Actions, 0.0);
