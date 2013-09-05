@@ -25,11 +25,17 @@ class GameStartup : ScriptComponent
 
     function OnLockStepGameStarted(e : LockStepGameStartEvent)
     {
-        // Always clear the store so we can use it for duplicating, copy/paste, and undos
-        Zero.ObjectStore.ClearStore();
-        
         this.MainSpace = Zero.Game.CreateSpace("Space");
         this.MainSpace.LoadLevel(this.Level);
+        
+        
+        if (this.Level != Zero.Editor.EditLevel)
+        {
+            return;
+        }
+        
+        // Always clear the store so we can use it for duplicating, copy/paste, and undos
+        Zero.ObjectStore.ClearStore();
         
         // A counter for ids
         var idCounter = 0;
