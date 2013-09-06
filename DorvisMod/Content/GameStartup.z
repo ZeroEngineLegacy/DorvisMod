@@ -31,12 +31,6 @@ class GameStartup : ScriptComponent
         this.MainSpace = Zero.Game.CreateSpace("Space");
         this.MainSpace.LoadLevel(this.Level);
         
-        
-        if (this.Level != Zero.Editor.EditLevel)
-        {
-            return;
-        }
-        
         // Always clear the store so we can use it for duplicating, copy/paste, and undos
         Zero.ObjectStore.ClearStore();
         
@@ -48,16 +42,7 @@ class GameStartup : ScriptComponent
             var position = this.Random.Real3(0.0, 200.0);
             position.Y = 0.0;
             
-            
-            Console.WriteLine("BEFORE Player");
-            Console.WriteLine(Archetype.Find("Player").Name);
-            Console.WriteLine(this.Player.Name);
-            
             var player = this.MainSpace.Create(this.Player);
-            Console.WriteLine(player.ArchetypeName);
-            Console.WriteLine("AFTER Player");
-            
-            
             
             player.Transform.WorldTranslation = position;
             
@@ -74,11 +59,9 @@ class GameStartup : ScriptComponent
                 var camCog = player.FindChildByName("Camera");
                 camCog.Microphone.Active = true;
                 var levelSettings = this.MainSpace.FindObjectByName("LevelSettings");
-                //var viewport = levelSettings.CameraViewport.Viewport;
-                //levelSettings.CameraViewport.Camera = camCog;
-                //this.Owner.LockStepMouse.SetInputViewport(viewport);
-                //this.Owner.LockStepKeyboard.SetInputViewport(viewport);
-                //viewport.SetMouseTrap(true);
+                levelSettings.CameraViewport.Camera = camCog;
+                this.Owner.LockStepMouse.InputCameraViewport = levelSettings;
+                levelSettings.CameraViewport.MouseTrapped = true;
                 
                 player.Player.Hud.FindObjectByName("Camera").CameraViewport.Active = true;
             }

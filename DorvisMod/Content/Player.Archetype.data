@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-18.421, 1.54263, 26.5816],
+		Vec3 Translation = [-95.6318, -7.87213, 102.712],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -35,13 +35,14 @@ Cog =
 	},
 	Player = 
 	{
-		string ChangeToolSound = "ChangeTool",
-		bool Active = true,
-		float InteractDistance = 6,
 		float Speed = 7.5,
-		float JumpVelocity = 6,
 		float LookSpeed = 0.01,
-		string InteractSound = "Interact",
+		float JumpVelocity = 6,
+		float InteractDistance = 6,
+		bool Active = true,
+		string InteractSound = "51559bcf8afbfa45:Interact",
+		string ChangeToolSound = "515590df86e8a396:ChangeTool",
+		string HudToCreate = "5154e5529a722c1b:Hud",
 	},
 	CapsuleCollider = 
 	{
@@ -64,6 +65,9 @@ Cog =
 		bool WakeUpOnChange = false,
 		float Drag = 0.4,
 	},
+	LockStepSyncChecker = 
+	{
+	},
 	Hierarchy = 
 	{
 		Cog = 
@@ -85,6 +89,8 @@ Cog =
 			Camera = 
 			{
 				ProjectionMode ProjectionMode = Perspective,
+				Facing Facing = NegativeZ,
+				SpriteSort SpriteSort = ViewDepth,
 				float FieldOfView = 60,
 				float NearPlane = 0.1,
 				float FarPlane = 500,
@@ -188,7 +194,9 @@ Cog =
 					},
 					SpawnTool = 
 					{
-						string ObjToSpawn = "Block",
+						string ObjToSpawn = "519e5cfaa4b9c3f4:Block",
+						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
+						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
 					},
 				},
 				Cog = 
@@ -209,7 +217,9 @@ Cog =
 					},
 					SpawnTool = 
 					{
-						string ObjToSpawn = "Thruster",
+						string ObjToSpawn = "519e4cbc821af76f:Thruster",
+						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
+						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
 					},
 					Hierarchy = 
 					{
@@ -233,7 +243,9 @@ Cog =
 					},
 					SpawnTool = 
 					{
-						string ObjToSpawn = "Chair",
+						string ObjToSpawn = "519e4cbc821aa3bb:Chair",
+						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
+						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
 					},
 					Hierarchy = 
 					{
@@ -257,7 +269,9 @@ Cog =
 					},
 					SpawnTool = 
 					{
-						string ObjToSpawn = "Cannon",
+						string ObjToSpawn = "519e45e379f286e6:Cannon",
+						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
+						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
 					},
 					Hierarchy = 
 					{
@@ -283,6 +297,7 @@ Cog =
 					{
 						float MinDistance = 3,
 						float MaxDistance = 100,
+						string Effect = "5155ad131eb55f13:MiscEffect",
 					},
 					Hierarchy = 
 					{
@@ -306,6 +321,8 @@ Cog =
 					},
 					KeySetterTool = 
 					{
+						string GeneralEffect = "5155ad131eb55f13:MiscEffect",
+						string KeyEffect = "5155a9c3f0149967:KeyEffect",
 					},
 				},
 				Cog = 
@@ -327,6 +344,8 @@ Cog =
 					DuplicatorTool = 
 					{
 						float FallbackSpawnDistance = 20,
+						string CopyEffect = "5155ad131eb55f13:MiscEffect",
+						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
 					},
 				},
 				Cog = 
@@ -348,6 +367,8 @@ Cog =
 					SpawnTool = 
 					{
 						string ObjToSpawn = "51564debaa0794af:Wheel",
+						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
+						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
 					},
 					Hierarchy = 
 					{
@@ -371,6 +392,7 @@ Cog =
 					},
 					RopeTool = 
 					{
+						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
 					},
 					Hierarchy = 
 					{
@@ -395,6 +417,8 @@ Cog =
 					SpawnTool = 
 					{
 						string ObjToSpawn = "519dbb34b32b6447:CommandBlock",
+						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
+						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
 					},
 					Hierarchy = 
 					{
@@ -418,6 +442,7 @@ Cog =
 					},
 					CommandBlockTool = 
 					{
+						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
 					},
 					Hierarchy = 
 					{
@@ -442,6 +467,8 @@ Cog =
 					SpawnTool = 
 					{
 						string ObjToSpawn = "52625465bb4680a3:Swivel",
+						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
+						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
 					},
 					Hierarchy = 
 					{
@@ -466,6 +493,8 @@ Cog =
 					SpawnTool = 
 					{
 						string ObjToSpawn = "526374cfe24ee187:VerticalSwivel",
+						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
+						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
 					},
 					Hierarchy = 
 					{
@@ -490,6 +519,8 @@ Cog =
 					SpawnTool = 
 					{
 						string ObjToSpawn = "52631887714b946e:CameraBlock",
+						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
+						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
 					},
 					Hierarchy = 
 					{
@@ -514,6 +545,8 @@ Cog =
 					SpawnTool = 
 					{
 						string ObjToSpawn = "520330a34f8aefe2:Glass",
+						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
+						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
 					},
 				},
 			},

@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0.172207, 11.6966, 4.91383],
+		Vec3 Translation = [-95.2254, -8.36768, 103.052],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -24,7 +24,7 @@ Cog =
 	Cannon = 
 	{
 		float Speed = 100,
-		string Projectile = "Bullet",
+		string Projectile = "519e4a92b38ab8a6:Bullet",
 	},
 	Orientation = 
 	{
@@ -76,5 +76,8 @@ Cog =
 	{
 		float Total = 100,
 		float Current = 100,
+	},
+	LockStepSyncChecker = 
+	{
 	},
 },

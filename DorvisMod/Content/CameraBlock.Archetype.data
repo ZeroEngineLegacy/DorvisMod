@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [3.41078, 15.6641, 5.22389],
+		Vec3 Translation = [-95.5032, -8.15332, 102.761],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -61,6 +61,9 @@ Cog =
 	{
 		int Key = 67,
 	},
+	LockStepSyncChecker = 
+	{
+	},
 	Hierarchy = 
 	{
 		Cog = 
@@ -82,6 +85,8 @@ Cog =
 			Camera = 
 			{
 				ProjectionMode ProjectionMode = Perspective,
+				Facing Facing = NegativeZ,
+				SpriteSort SpriteSort = ViewDepth,
 				float FieldOfView = 70,
 				float NearPlane = 0.1,
 				float FarPlane = 2000,

@@ -41,13 +41,15 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-34.2621, 19.1852, 7.61825],
+			Vec3 Translation = [-3.7185, 8.77857, -9.59594],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.193083, -0.60621, -0.154866, 0.755807],
+			Quat Rotation = [0.0170411, 0.973255, 0.21582, -0.0768479],
 		},
 		Camera = 
 		{
 			ProjectionMode ProjectionMode = Perspective,
+			Facing Facing = NegativeZ,
+			SpriteSort SpriteSort = ViewDepth,
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
@@ -56,10 +58,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 40,
-			float LookAngle = 1.5068,
-			float LookRotation = 2.9228,
-			Vec3 LookTarget = [0, 0, 0],
+			float LookDistance = 11.05,
+			float VerticalAngle = 1.328,
+			float HorizontalAngle = 2.984,
+			Vec3 LookTarget = [-2.14686, 4.10757, 0.294164],
 		},
 		EditorRenderer = 
 		{

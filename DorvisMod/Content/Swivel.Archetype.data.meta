@@ -1,5 +1,13 @@
 DataContent = 
 {
+	ContentTags = 
+	{
+		object Tags = 
+		[
+			"Cog",
+			"Blocks",
+		],
+	},
 	DataBuilder = 
 	{
 		string Name = "Swivel",

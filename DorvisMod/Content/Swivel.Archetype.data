@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-11.1659, 2.17159, 11.5405],
+		Vec3 Translation = [-95.8015, -10.3171, 101.327],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -35,6 +35,7 @@ Cog =
 	},
 	Swivel = 
 	{
+		int Axis = 0,
 	},
 	BlockTag = 
 	{
@@ -53,5 +54,8 @@ Cog =
 	{
 		Vec3 UpVector = [0, 1, 0],
 		Vec3 ForwardVector = [0, 0, 1],
+	},
+	LockStepSyncChecker = 
+	{
 	},
 },

@@ -1,5 +1,13 @@
 DataContent = 
 {
+	ContentTags = 
+	{
+		object Tags = 
+		[
+			"Effects",
+			"Cog",
+		],
+	},
 	DataBuilder = 
 	{
 		string Name = "MiscEffect",

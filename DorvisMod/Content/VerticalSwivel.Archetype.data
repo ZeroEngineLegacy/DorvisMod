@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-11.4682, 3.78838, 11.2212],
+		Vec3 Translation = [-95.1566, -11.6601, 101.604],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -54,5 +54,8 @@ Cog =
 	{
 		Vec3 UpVector = [0, 1, 0],
 		Vec3 ForwardVector = [0, 0, 1],
+	},
+	LockStepSyncChecker = 
+	{
 	},
 },
