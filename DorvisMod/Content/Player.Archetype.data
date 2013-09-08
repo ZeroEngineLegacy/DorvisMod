@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-95.6318, -7.87213, 102.712],
+		Vec3 Translation = [-9.13296, -1.32427, 13.0518],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -58,12 +58,6 @@ Cog =
 	},
 	DynamicMotor = 
 	{
-	},
-	DragEffect = 
-	{
-		bool Active = true,
-		bool WakeUpOnChange = false,
-		float Drag = 0.4,
 	},
 	LockStepSyncChecker = 
 	{
@@ -545,6 +539,52 @@ Cog =
 					SpawnTool = 
 					{
 						string ObjToSpawn = "520330a34f8aefe2:Glass",
+						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
+						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 20,
+					},
+					Named = 
+					{
+						string Name = "Shield Spawner",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					SpawnTool = 
+					{
+						string ObjToSpawn = "520ea43291396f97:Shield",
+						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
+						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 21,
+					},
+					Named = 
+					{
+						string Name = "Rocket Launcher Spawner",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					SpawnTool = 
+					{
+						string ObjToSpawn = "522cbc11b314812c:RocketLauncher",
 						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
 						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
 					},

@@ -10,7 +10,7 @@ ColorGradient =
 			},
 			{
 				Vec4 Value = [1, 1, 1, 1],
-				float Interpolant = 0.5,
+				float Interpolant = 0.086262,
 			},
 			{
 				Vec4 Value = [0, 0, 0, 1],

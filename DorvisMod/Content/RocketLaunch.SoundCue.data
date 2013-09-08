@@ -1,0 +1,44 @@
+SoundCue = 
+{
+	PlayMode PlayMode = Single,
+	float Volume = 0.4,
+	float VolumeVariation = 0,
+	float Pitch = 0,
+	float PitchVariation = 0.1,
+	float MinDistance = 10,
+	float MaxDistance = 10000,
+	float PositionRandomization = 0,
+	uint MaxPlaybacks = 10,
+	int Priority = 128,
+	Array Sounds = 
+	[
+		{
+			string SoundName = "522cb3bfaf4bf14c:RocketLauncher_Shot44",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "522cb3bfaf4a0c12:RocketLauncher_Shot45",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "522cb3bfaf4a28eb:RocketLauncher_Shot46",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "522cb3bfaf4a44cb:RocketLauncher_Shot47",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "522cb3bfaf4a618d:RocketLauncher_Shot48",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "522cb3bfaf4a7c8d:RocketLauncher_Shot49",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "522cb3bfaf4a9c1a:RocketLauncher_Shot50",
+			float Weight = 1,
+		},
+	],
+},

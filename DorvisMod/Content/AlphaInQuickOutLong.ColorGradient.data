@@ -1,0 +1,29 @@
+ColorGradient = 
+{
+	object Gradient = 
+	{
+		Array ControlPoints = 
+		[
+			{
+				Vec4 Value = [1, 1, 1, 0],
+				float Interpolant = 0,
+			},
+			{
+				Vec4 Value = [1, 1, 1, 1],
+				float Interpolant = 0.0447284,
+			},
+			{
+				Vec4 Value = [1, 1, 1, 0.943262],
+				float Interpolant = 0.434505,
+			},
+			{
+				Vec4 Value = [1, 1, 1, 0.784087],
+				float Interpolant = 0.71885,
+			},
+			{
+				Vec4 Value = [1, 1, 1, 0],
+				float Interpolant = 1,
+			},
+		],
+	},
+},

@@ -1,0 +1,11 @@
+DataContent = 
+{
+	DataBuilder = 
+	{
+		string Name = "AlphaInQuickOutLong",
+		uint64 ResourceId = 522cb10e1c1032e4,
+		string LoaderType = "ColorGradient",
+		uint Version = 0,
+		bool ShowInEditor = true,
+	},
+},

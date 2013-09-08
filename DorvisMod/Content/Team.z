@@ -1,0 +1,24 @@
+class Team : ScriptComponent
+{
+    var Id : Integer = -1;
+    
+    constructor() : base()
+    {
+    }
+    
+    [Static]
+    function IsDifferentTeam(a : Cog, b : Cog) : Boolean
+    {
+        var teamA = a.Team;
+        var teamB = b.Team;
+        
+        if (teamA != null && teamB != null)
+        {
+            return teamA.Id != teamB.Id;
+        }
+        
+        // If either one of them didn't have a team...
+        // We always consider them to be on different teams
+        return true;
+    }
+}

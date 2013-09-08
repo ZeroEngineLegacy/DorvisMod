@@ -1,0 +1,11 @@
+DataContent = 
+{
+	DataBuilder = 
+	{
+		string Name = "Region",
+		uint64 ResourceId = 522cf8b6e4cf6711,
+		string LoaderType = "PhysicsMaterial",
+		uint Version = 0,
+		bool ShowInEditor = true,
+	},
+},

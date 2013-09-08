@@ -24,6 +24,7 @@ class DamageOnCollide : ScriptComponent
             return;
         }
         
+        
         var health = e.OtherObject.Health;
         if (health != null)
         {

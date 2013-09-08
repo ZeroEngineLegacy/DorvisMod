@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "CreateOnCollide",
+		uint64 ResourceId = 522cbd669ccab2dd,
+	},
+},

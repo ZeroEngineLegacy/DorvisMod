@@ -4,7 +4,7 @@ ImageContent =
 	{
 		string Name = "Dirt",
 		uint64 ResourceId = 519e734b64186543,
-		OutputTextureFormat Format = AutoColor,
+		OutputTextureFormat Format = Dxt5,
 		FixPowerOf2 FixPowerOf2 = Auto,
 		ImageFilter ResizeFilter = Cubic,
 		bool GenerateMipMaps = true,

@@ -1,0 +1,11 @@
+DataContent = 
+{
+	DataBuilder = 
+	{
+		string Name = "Rocket",
+		uint64 ResourceId = 522cb30ed3ffd11a,
+		string LoaderType = "SoundCue",
+		uint Version = 0,
+		bool ShowInEditor = true,
+	},
+},

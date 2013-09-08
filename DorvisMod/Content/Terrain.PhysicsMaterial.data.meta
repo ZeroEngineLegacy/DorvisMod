@@ -1,0 +1,11 @@
+DataContent = 
+{
+	DataBuilder = 
+	{
+		string Name = "Terrain",
+		uint64 ResourceId = 522cb61c6efc3c66,
+		string LoaderType = "PhysicsMaterial",
+		uint Version = 0,
+		bool ShowInEditor = true,
+	},
+},

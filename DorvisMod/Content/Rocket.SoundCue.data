@@ -1,0 +1,20 @@
+SoundCue = 
+{
+	PlayMode PlayMode = Looping,
+	float Volume = 0.5,
+	float VolumeVariation = 0,
+	float Pitch = 0,
+	float PitchVariation = 0.1,
+	float MinDistance = 5,
+	float MaxDistance = 10000,
+	float PositionRandomization = 0,
+	uint MaxPlaybacks = 10,
+	int Priority = 130,
+	Array Sounds = 
+	[
+		{
+			string SoundName = "522cb30ed3f05724:Rocket_Missile_Loop18",
+			float Weight = 1,
+		},
+	],
+},
