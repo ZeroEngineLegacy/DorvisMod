@@ -53,12 +53,12 @@ class Swivel : ScriptComponent
     {
         var objRot = this.Owner.Transform.WorldRotation;
         var rot : Quat = local Quat();
-        if(this.Axis == SwivelAxis.Up)
+        if (this.Axis == SwivelAxis.Up)
         {
             var delta = Math.Clamp(-e.ScreenDelta.X, -this.MaxAngleRotation, this.MaxAngleRotation);
             rot = Math.ToQuaternion(this.Owner.Orientation.WorldUp, delta);
         }
-        else if(this.Axis == SwivelAxis.Right)
+        else if (this.Axis == SwivelAxis.Right)
         {
             var delta = Math.Clamp(e.ScreenDelta.Y, -this.MaxAngleRotation, this.MaxAngleRotation);
             rot = Math.ToQuaternion(this.Owner.Orientation.WorldRight, delta);

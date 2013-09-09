@@ -1,0 +1,24 @@
+SoundCue = 
+{
+	PlayMode PlayMode = Single,
+	float Volume = 0.35,
+	float VolumeVariation = 0,
+	float Pitch = 0,
+	float PitchVariation = 0.1,
+	float MinDistance = 30,
+	float MaxDistance = 10000,
+	float PositionRandomization = 0,
+	uint MaxPlaybacks = 10,
+	int Priority = 127,
+	Array Sounds = 
+	[
+		{
+			string SoundName = "522b786c245c29bc:EnergyRifle_Shot15",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "522b786c245c45d4:EnergyRifle_Shot14",
+			float Weight = 1,
+		},
+	],
+},

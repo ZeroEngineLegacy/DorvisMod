@@ -36,7 +36,7 @@ class RopeTool : ScriptComponent
     
     function OnLogicUpdate(e : UpdateEvent)
     {
-        if(this.PrevCog == null)
+        if (this.PrevCog == null)
         {
             this.HudText.Text = "Click a block to start connecting a rope";
         }
@@ -61,7 +61,7 @@ class RopeTool : ScriptComponent
         
         this.Space.CreateAtPosition(this.SpawnEffect, result.Object.Transform.WorldTranslation);
         
-        if(this.PrevCog == null)
+        if (this.PrevCog == null)
         {
             this.PrevCog = result.Object;
             return;

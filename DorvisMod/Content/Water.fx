@@ -125,7 +125,7 @@ float4 PixelShader0( VS_OUTPUT In ) : COLOR
 
     //If the sampled point is closer to the eye than the water
     //geometry reset the refractOffsetUv
-    if(samplePos.z + 1 > myViewPos.z)
+    if (samplePos.z + 1 > myViewPos.z)
     {
         refractOffsetUv = screenTex;
         samplePos = otherViewPos;

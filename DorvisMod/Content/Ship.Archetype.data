@@ -10,9 +10,9 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-2.0646, 0.767889, 6.9817],
-		Vec3 Scale = [0.999999, 1, 0.999999],
-		Quat Rotation = [-0.00738835, 0.164504, 0.0042355, 0.98634],
+		Vec3 Translation = [-2.0646, -0.0166355, 7.0397],
+		Vec3 Scale = [0.999999, 0.999996, 0.999999],
+		Quat Rotation = [-0.00738843, 0.164504, 0.00423554, 0.98634],
 	},
 	Model = 
 	{
@@ -56,6 +56,10 @@ Cog =
 	{
 		float Total = 100,
 		float Current = 100,
+	},
+	Team = 
+	{
+		int Id = 1,
 	},
 	Hierarchy = 
 	{
@@ -1273,7 +1277,7 @@ Cog =
 									Cannon = 
 									{
 										float Speed = 100,
-										string Projectile = "Bullet",
+										string Projectile = "519e4a92b38ab8a6:Bullet",
 									},
 									Orientation = 
 									{
@@ -2665,7 +2669,7 @@ Cog =
 									Cannon = 
 									{
 										float Speed = 100,
-										string Projectile = "Bullet",
+										string Projectile = "519e4a92b38ab8a6:Bullet",
 									},
 									Orientation = 
 									{

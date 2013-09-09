@@ -1,0 +1,53 @@
+class Shield : ScriptComponent
+{
+    [Property]
+    var RechargeTime : Real = 4.0;
+    
+    [Property]
+    var ChargeSound : SoundCue = SoundCue.Find("ShieldCharge");
+    [Property]
+    var ImpactSound : SoundCue = SoundCue.Find("ShieldImpact");
+    [Property]
+    var DownSound : SoundCue = SoundCue.Find("ShieldDown");
+    
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, "Death", this.OnDeath);
+        Zero.Connect(this.Owner, "HealthChanged", this.OnHealthChanged);
+    }
+    
+    function OnHealthChanged(e : HealthEvent)
+    {
+        if (e.Amount < 0.0)
+        {
+            this.Flash();
+            this.Owner.SoundEmitter.PlayCue(this.ImpactSound);
+        }
+    }
+
+    function OnDeath(e : HealthEvent)
+    {
+        this.Flash();
+        this.Owner.SoundEmitter.PlayCue(this.DownSound);
+        
+        var sequence = Action.Sequence(this.Owner.Actions);
+        Action.Delay(sequence, this.RechargeTime);
+        Action.Call(sequence, this.FullyRecharged);
+    }
+    
+    function Flash()
+    {
+        this.Owner.SphericalParticleEmitter.ResetCount();
+    }
+    
+    function FullyRecharged()
+    {
+        this.Owner.Health.Current = this.Owner.Health.Total;
+        this.Owner.SoundEmitter.PlayCue(this.ChargeSound);
+        this.Flash();
+    }
+}

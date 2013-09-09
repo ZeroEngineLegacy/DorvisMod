@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-9.13296, -1.32427, 13.0518],
+		Vec3 Translation = [-9.8239, 7.5489, 4.47131],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -400,7 +400,7 @@ Cog =
 					},
 					Named = 
 					{
-						string Name = "CommandBlock Spawner",
+						string Name = "Command Block Spawner",
 					},
 					Transform = 
 					{
@@ -585,6 +585,52 @@ Cog =
 					SpawnTool = 
 					{
 						string ObjToSpawn = "522cbc11b314812c:RocketLauncher",
+						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
+						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 22,
+					},
+					Named = 
+					{
+						string Name = "Star Burst Spawner",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					SpawnTool = 
+					{
+						string ObjToSpawn = "522b774e67fa869a:StarBurst",
+						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
+						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 23,
+					},
+					Named = 
+					{
+						string Name = "Chain Gun Spawner",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					SpawnTool = 
+					{
+						string ObjToSpawn = "522a5cd1617899b0:ChainGun",
 						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
 						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
 					},

@@ -1,0 +1,5243 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Archetyped = 
+	{
+		string Name = "522b4f9c62c0ea40:MouseShip",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-72.9114, 2.967, 98.9197],
+		Vec3 Scale = [0.999998, 1, 1],
+		Quat Rotation = [-0.0329569, -0.673127, 0.00333322, 0.738785],
+	},
+	Model = 
+	{
+		string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+		string MeshName = "519e4cbc821d66d4:Chair",
+		Vec4 Color = [1, 1, 1, 1],
+		bool Visible = true,
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	BoxCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = false,
+		string MaterialName = "4faa6050b8692851:HardMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		Vec3 Size = [0.5, 0.5, 0.5],
+	},
+	Chair = 
+	{
+	},
+	BlockTag = 
+	{
+	},
+	DestroyOnDeath = 
+	{
+	},
+	Health = 
+	{
+		float Total = 100,
+		float Current = 100,
+	},
+	Team = 
+	{
+		int Id = 2,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Archetyped = 
+			{
+				string Name = "519e5cfaa4b9c3f4:Block",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, -1, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 1, -0],
+			},
+			Model = 
+			{
+				string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+				string MeshName = "4de0354322b345ae:Cube",
+				Vec4 Color = [1, 1, 1, 1],
+				bool Visible = true,
+			},
+			RigidBody = 
+			{
+				bool Static = true,
+				bool Asleep = false,
+				bool Kinematic = false,
+				bool RotationLocked = false,
+				bool Mode2D = false,
+				bool AllowSleep = true,
+				bool Inherit2DMode = true,
+				Vec3 Velocity = [0, 0, 0],
+				Vec3 AngularVelocity = [0, 0, 0],
+			},
+			BoxCollider = 
+			{
+				bool Ghost = false,
+				bool SendsMessages = true,
+				bool Seamless = false,
+				string MaterialName = "4faa6050b8692851:HardMaterial",
+				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				Vec3 Offset = [0, 0, 0],
+				Vec3 Size = [0.5, 0.5, 0.5],
+			},
+			BlockTag = 
+			{
+			},
+			DestroyOnDeath = 
+			{
+			},
+			Health = 
+			{
+				float Total = 100,
+				float Current = 100,
+			},
+			Hierarchy = 
+			{
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 3,
+					},
+					Archetyped = 
+					{
+						string Name = "519e5cfaa4b9c3f4:Block",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, -1],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, -0.707107, 0.707107, -0],
+					},
+					Model = 
+					{
+						string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+						string MeshName = "4de0354322b345ae:Cube",
+						Vec4 Color = [1, 1, 1, 1],
+						bool Visible = true,
+					},
+					RigidBody = 
+					{
+						bool Static = true,
+						bool Asleep = false,
+						bool Kinematic = false,
+						bool RotationLocked = false,
+						bool Mode2D = false,
+						bool AllowSleep = true,
+						bool Inherit2DMode = true,
+						Vec3 Velocity = [0, 0, 0],
+						Vec3 AngularVelocity = [0, 0, 0],
+					},
+					BoxCollider = 
+					{
+						bool Ghost = false,
+						bool SendsMessages = true,
+						bool Seamless = false,
+						string MaterialName = "4faa6050b8692851:HardMaterial",
+						string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+						Vec3 Offset = [0, 0, 0],
+						Vec3 Size = [0.5, 0.5, 0.5],
+					},
+					BlockTag = 
+					{
+					},
+					DestroyOnDeath = 
+					{
+					},
+					Health = 
+					{
+						float Total = 100,
+						float Current = 100,
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 4,
+							},
+							Archetyped = 
+							{
+								string Name = "519e5cfaa4b9c3f4:Block",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 1, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0.707107, -0, 0.707107],
+							},
+							Model = 
+							{
+								string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+								string MeshName = "4de0354322b345ae:Cube",
+								Vec4 Color = [1, 1, 1, 1],
+								bool Visible = true,
+							},
+							RigidBody = 
+							{
+								bool Static = true,
+								bool Asleep = false,
+								bool Kinematic = false,
+								bool RotationLocked = false,
+								bool Mode2D = false,
+								bool AllowSleep = true,
+								bool Inherit2DMode = true,
+								Vec3 Velocity = [0, 0, 0],
+								Vec3 AngularVelocity = [0, 0, 0],
+							},
+							BoxCollider = 
+							{
+								bool Ghost = false,
+								bool SendsMessages = true,
+								bool Seamless = false,
+								string MaterialName = "4faa6050b8692851:HardMaterial",
+								string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+								Vec3 Offset = [0, 0, 0],
+								Vec3 Size = [0.5, 0.5, 0.5],
+							},
+							BlockTag = 
+							{
+							},
+							DestroyOnDeath = 
+							{
+							},
+							Health = 
+							{
+								float Total = 100,
+								float Current = 100,
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 5,
+									},
+									Archetyped = 
+									{
+										string Name = "526374cfe24ee187:VerticalSwivel",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 1, 0],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [-0.0103235, 0.707072, 0.0103336, 0.706991],
+									},
+									Model = 
+									{
+										string MaterialName = "51566a1523a57f69:SandStructure",
+										string MeshName = "4de0354322b345ae:Cube",
+										Vec4 Color = [1, 1, 1, 1],
+										bool Visible = true,
+									},
+									RigidBody = 
+									{
+										bool Static = true,
+										bool Asleep = false,
+										bool Kinematic = false,
+										bool RotationLocked = false,
+										bool Mode2D = false,
+										bool AllowSleep = true,
+										bool Inherit2DMode = true,
+										Vec3 Velocity = [0, 0, 0],
+										Vec3 AngularVelocity = [0, 0, 0],
+									},
+									Swivel = 
+									{
+										int Axis = 1,
+									},
+									BlockTag = 
+									{
+									},
+									BoxCollider = 
+									{
+										bool Ghost = false,
+										bool SendsMessages = true,
+										bool Seamless = false,
+										string MaterialName = "4faa6050b8692851:HardMaterial",
+										string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+										Vec3 Offset = [0, 0, 0],
+										Vec3 Size = [0.5, 0.5, 0.5],
+									},
+									Orientation = 
+									{
+										Vec3 UpVector = [0, 1, 0],
+										Vec3 ForwardVector = [0, 0, 1],
+									},
+									Hierarchy = 
+									{
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 6,
+											},
+											Named = 
+											{
+												string Name = "Thruster",
+											},
+											Archetyped = 
+											{
+												string Name = "519e4cbc821af76f:Thruster",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0, 1, 0],
+												Vec3 Scale = [1, 0.999999, 0.999999],
+												Quat Rotation = [0, 0.707107, -0, 0.707107],
+											},
+											Model = 
+											{
+												string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+												string MeshName = "519e4cbc82124da3:Thruster",
+												Vec4 Color = [1, 1, 1, 1],
+												bool Visible = true,
+											},
+											RigidBody = 
+											{
+												bool Static = true,
+												bool Asleep = false,
+												bool Kinematic = false,
+												bool RotationLocked = false,
+												bool Mode2D = false,
+												bool AllowSleep = true,
+												bool Inherit2DMode = true,
+												Vec3 Velocity = [0, 0, 0],
+												Vec3 AngularVelocity = [0, 0, 0],
+											},
+											BoxCollider = 
+											{
+												bool Ghost = false,
+												bool SendsMessages = true,
+												bool Seamless = false,
+												string MaterialName = "4faa6050b8692851:HardMaterial",
+												string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+												Vec3 Offset = [0, 0, 0],
+												Vec3 Size = [0.5, 0.5, 0.5],
+											},
+											Thruster = 
+											{
+											},
+											ThrustEffect = 
+											{
+												bool Active = false,
+												bool WakeUpOnChange = true,
+												bool LocalSpaceDirection = true,
+												float ForceStrength = 200,
+												Vec3 ForceDirection = [0, -1, 0],
+											},
+											BlockTag = 
+											{
+											},
+											Activatable = 
+											{
+												int Key = 87,
+											},
+											SoundEmitter = 
+											{
+												bool StartPlaying = false,
+												int ExtraPriority = 0,
+												string CueName = "51559b749c9e9362:Thruster",
+												float Volume = 1,
+												float Pitch = 1,
+												bool Positional = true,
+											},
+											DestroyOnDeath = 
+											{
+											},
+											Health = 
+											{
+												float Total = 100,
+												float Current = 100,
+											},
+											Hierarchy = 
+											{
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 7,
+													},
+													Named = 
+													{
+														string Name = "IdleParticles",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [0, 0.056366, 0],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [0, 0, 0, 1],
+													},
+													SpriteParticleSystem = 
+													{
+														SystemChildMode ChildMode = Independent,
+														SystemSpace SystemSpace = WorldSpace,
+														uint DrawOrder = 0,
+														ParticleGeometry GeometryMode = Billboarded,
+														ParticleRenderMode RenderMode = Blended,
+														ParticleSortMode SortMode = None,
+														string Texture = "519dae18a6f03073:WhiteCloud",
+														Vec4 Tint = [1, 1, 1, 0.27],
+														float VelocityScale = 1,
+														float LengthScale = 0,
+														float MaxParticleSize = 100,
+														Vec3 SystemSize = [5, 5, 5],
+													},
+													LinearParticleAnimator = 
+													{
+														Vec3 Force = [0, 0.3, 0],
+														Vec3 RandomForce = [0, 0, 0],
+														float Torque = 0,
+														float Growth = 0.6,
+														float Dampening = 0,
+														Vec3 Twist = [0, 0, 0],
+													},
+													SphericalParticleEmitter = 
+													{
+														bool Active = true,
+														uint EmitCount = 0,
+														float EmitRate = 4,
+														float EmitVariance = 0,
+														float Size = 0.8,
+														float SizeVariance = 0.3,
+														float Lifetime = 1,
+														float LifetimeVariance = 0,
+														float Spin = 0,
+														float SpinVariance = 0,
+														bool RandomSpin = true,
+														float Fill = 0,
+														float EmitterVelocityPercent = 0,
+														Vec3 StartVelocity = [0, 1.3, 0],
+														Vec3 RandomVelocity = [0.2, 0.2, 0.2],
+														Vec3 TangentVelocity = [0, 0, 0],
+														Vec3 EmitterSize = [0, 0, 0],
+														bool FastMovingEmitter = false,
+													},
+													ParticleColorAnimator = 
+													{
+														Vec4 Color0 = [1, 1, 1, 1],
+														Vec4 Color1 = [1, 1, 1, 1],
+														Vec4 Color2 = [1, 1, 1, 1],
+														Vec4 Color3 = [1, 1, 1, 1],
+														Vec4 Color4 = [1, 1, 1, 0],
+													},
+												},
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 8,
+													},
+													Named = 
+													{
+														string Name = "OnParticles",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [0, 1.43849, -0.0127583],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [0, 0, 0, 1],
+													},
+													SpriteParticleSystem = 
+													{
+														SystemChildMode ChildMode = Independent,
+														SystemSpace SystemSpace = LocalSpace,
+														uint DrawOrder = 0,
+														ParticleGeometry GeometryMode = Beam,
+														ParticleRenderMode RenderMode = Additive,
+														ParticleSortMode SortMode = None,
+														string Texture = "519dae18a6f03073:WhiteCloud",
+														Vec4 Tint = [1, 1, 1, 0.9999],
+														float VelocityScale = 0.9,
+														float LengthScale = 0.5,
+														float MaxParticleSize = 100,
+														Vec3 SystemSize = [5, 5, 5],
+													},
+													LinearParticleAnimator = 
+													{
+														Vec3 Force = [0, 0, 0],
+														Vec3 RandomForce = [0, 0, 0],
+														float Torque = 0,
+														float Growth = 0,
+														float Dampening = 0,
+														Vec3 Twist = [0, 0, 0],
+													},
+													SphericalParticleEmitter = 
+													{
+														bool Active = false,
+														uint EmitCount = 0,
+														float EmitRate = 50,
+														float EmitVariance = 0,
+														float Size = 0.9,
+														float SizeVariance = 0.1,
+														float Lifetime = 0.05,
+														float LifetimeVariance = 0,
+														float Spin = 0,
+														float SpinVariance = 0,
+														bool RandomSpin = true,
+														float Fill = 0,
+														float EmitterVelocityPercent = 0,
+														Vec3 StartVelocity = [0, 5, 0],
+														Vec3 RandomVelocity = [0.1, 0, 0.1],
+														Vec3 TangentVelocity = [0, 0, 0],
+														Vec3 EmitterSize = [0, 0, 0],
+														bool FastMovingEmitter = false,
+													},
+													ParticleColorAnimator = 
+													{
+														Vec4 Color0 = [1, 1, 1, 1],
+														Vec4 Color1 = [0.515, 0.709, 1, 1],
+														Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+														Vec4 Color3 = [0, 0.0847, 0.385, 1],
+														Vec4 Color4 = [0, 0.58, 1, 0.9999],
+													},
+												},
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 9,
+													},
+													Named = 
+													{
+														string Name = "OnParticles2",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [0, 0.413997, 0],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [0, 0, 0, 1],
+													},
+													SpriteParticleSystem = 
+													{
+														SystemChildMode ChildMode = Independent,
+														SystemSpace SystemSpace = LocalSpace,
+														uint DrawOrder = 0,
+														ParticleGeometry GeometryMode = Billboarded,
+														ParticleRenderMode RenderMode = Additive,
+														ParticleSortMode SortMode = None,
+														string Texture = "519dae18a6f03073:WhiteCloud",
+														Vec4 Tint = [1, 1, 1, 0.9999],
+														float VelocityScale = 1,
+														float LengthScale = 0.5,
+														float MaxParticleSize = 100,
+														Vec3 SystemSize = [5, 5, 5],
+													},
+													LinearParticleAnimator = 
+													{
+														Vec3 Force = [0, 0, 0],
+														Vec3 RandomForce = [0, 0, 0],
+														float Torque = 0,
+														float Growth = 0,
+														float Dampening = 0,
+														Vec3 Twist = [0, 0, 0],
+													},
+													SphericalParticleEmitter = 
+													{
+														bool Active = false,
+														uint EmitCount = 0,
+														float EmitRate = 50,
+														float EmitVariance = 0,
+														float Size = 0.9,
+														float SizeVariance = 0.1,
+														float Lifetime = 0.05,
+														float LifetimeVariance = 0,
+														float Spin = 0,
+														float SpinVariance = 0,
+														bool RandomSpin = true,
+														float Fill = 0,
+														float EmitterVelocityPercent = 0,
+														Vec3 StartVelocity = [0, 0, 0],
+														Vec3 RandomVelocity = [0, 0, 0],
+														Vec3 TangentVelocity = [0, 0, 0],
+														Vec3 EmitterSize = [0, 0, 0],
+														bool FastMovingEmitter = false,
+													},
+													ParticleColorAnimator = 
+													{
+														Vec4 Color0 = [0, 0.4508, 0.92, 0],
+														Vec4 Color1 = [0.515, 0.709, 1, 1],
+														Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+														Vec4 Color3 = [0.20445, 0.314571, 0.705, 1],
+														Vec4 Color4 = [0, 0.58, 1, 0],
+													},
+												},
+											},
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 10,
+					},
+					Archetyped = 
+					{
+						string Name = "519e5cfaa4b9c3f4:Block",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [1, 0, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, -0.707107, 0.707107],
+					},
+					Model = 
+					{
+						string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+						string MeshName = "4de0354322b345ae:Cube",
+						Vec4 Color = [1, 1, 1, 1],
+						bool Visible = true,
+					},
+					RigidBody = 
+					{
+						bool Static = true,
+						bool Asleep = false,
+						bool Kinematic = false,
+						bool RotationLocked = false,
+						bool Mode2D = false,
+						bool AllowSleep = true,
+						bool Inherit2DMode = true,
+						Vec3 Velocity = [0, 0, 0],
+						Vec3 AngularVelocity = [0, 0, 0],
+					},
+					BoxCollider = 
+					{
+						bool Ghost = false,
+						bool SendsMessages = true,
+						bool Seamless = false,
+						string MaterialName = "4faa6050b8692851:HardMaterial",
+						string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+						Vec3 Offset = [0, 0, 0],
+						Vec3 Size = [0.5, 0.5, 0.5],
+					},
+					BlockTag = 
+					{
+					},
+					DestroyOnDeath = 
+					{
+					},
+					Health = 
+					{
+						float Total = 100,
+						float Current = 100,
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 11,
+							},
+							Archetyped = 
+							{
+								string Name = "519e5cfaa4b9c3f4:Block",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 1, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, -0, 1],
+							},
+							Model = 
+							{
+								string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+								string MeshName = "4de0354322b345ae:Cube",
+								Vec4 Color = [1, 1, 1, 1],
+								bool Visible = true,
+							},
+							RigidBody = 
+							{
+								bool Static = true,
+								bool Asleep = false,
+								bool Kinematic = false,
+								bool RotationLocked = false,
+								bool Mode2D = false,
+								bool AllowSleep = true,
+								bool Inherit2DMode = true,
+								Vec3 Velocity = [0, 0, 0],
+								Vec3 AngularVelocity = [0, 0, 0],
+							},
+							BoxCollider = 
+							{
+								bool Ghost = false,
+								bool SendsMessages = true,
+								bool Seamless = false,
+								string MaterialName = "4faa6050b8692851:HardMaterial",
+								string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+								Vec3 Offset = [0, 0, 0],
+								Vec3 Size = [0.5, 0.5, 0.5],
+							},
+							BlockTag = 
+							{
+							},
+							DestroyOnDeath = 
+							{
+							},
+							Health = 
+							{
+								float Total = 100,
+								float Current = 100,
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 12,
+									},
+									Named = 
+									{
+										string Name = "Thruster",
+									},
+									Archetyped = 
+									{
+										string Name = "519e4cbc821af76f:Thruster",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [5.18081e-009, -2.13879e-007, -0.999991],
+										Vec3 Scale = [0.999999, 0.999987, 1.00001],
+										Quat Rotation = [0.5, 0.5, -0.5, -0.5],
+									},
+									Model = 
+									{
+										string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+										string MeshName = "519e4cbc82124da3:Thruster",
+										Vec4 Color = [1, 1, 1, 1],
+										bool Visible = true,
+									},
+									RigidBody = 
+									{
+										bool Static = true,
+										bool Asleep = false,
+										bool Kinematic = false,
+										bool RotationLocked = false,
+										bool Mode2D = false,
+										bool AllowSleep = true,
+										bool Inherit2DMode = true,
+										Vec3 Velocity = [0, 0, 0],
+										Vec3 AngularVelocity = [0, 0, 0],
+									},
+									BoxCollider = 
+									{
+										bool Ghost = false,
+										bool SendsMessages = true,
+										bool Seamless = false,
+										string MaterialName = "4faa6050b8692851:HardMaterial",
+										string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+										Vec3 Offset = [0, 0, 0],
+										Vec3 Size = [0.5, 0.5, 0.5],
+									},
+									Thruster = 
+									{
+									},
+									ThrustEffect = 
+									{
+										bool Active = false,
+										bool WakeUpOnChange = true,
+										bool LocalSpaceDirection = true,
+										float ForceStrength = 200,
+										Vec3 ForceDirection = [0, -1, 0],
+									},
+									BlockTag = 
+									{
+									},
+									Activatable = 
+									{
+										int Key = 87,
+									},
+									SoundEmitter = 
+									{
+										bool StartPlaying = false,
+										int ExtraPriority = 0,
+										string CueName = "51559b749c9e9362:Thruster",
+										float Volume = 1,
+										float Pitch = 1,
+										bool Positional = true,
+									},
+									DestroyOnDeath = 
+									{
+									},
+									Health = 
+									{
+										float Total = 100,
+										float Current = 100,
+									},
+									Hierarchy = 
+									{
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 13,
+											},
+											Named = 
+											{
+												string Name = "IdleParticles",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0, 0.056366, 0],
+												Vec3 Scale = [1, 1, 1],
+												Quat Rotation = [0, 0, 0, 1],
+											},
+											SpriteParticleSystem = 
+											{
+												SystemChildMode ChildMode = Independent,
+												SystemSpace SystemSpace = WorldSpace,
+												uint DrawOrder = 0,
+												ParticleGeometry GeometryMode = Billboarded,
+												ParticleRenderMode RenderMode = Blended,
+												ParticleSortMode SortMode = None,
+												string Texture = "519dae18a6f03073:WhiteCloud",
+												Vec4 Tint = [1, 1, 1, 0.27],
+												float VelocityScale = 1,
+												float LengthScale = 0,
+												float MaxParticleSize = 100,
+												Vec3 SystemSize = [5, 5, 5],
+											},
+											LinearParticleAnimator = 
+											{
+												Vec3 Force = [0, 0.3, 0],
+												Vec3 RandomForce = [0, 0, 0],
+												float Torque = 0,
+												float Growth = 0.6,
+												float Dampening = 0,
+												Vec3 Twist = [0, 0, 0],
+											},
+											SphericalParticleEmitter = 
+											{
+												bool Active = true,
+												uint EmitCount = 0,
+												float EmitRate = 4,
+												float EmitVariance = 0,
+												float Size = 0.8,
+												float SizeVariance = 0.3,
+												float Lifetime = 1,
+												float LifetimeVariance = 0,
+												float Spin = 0,
+												float SpinVariance = 0,
+												bool RandomSpin = true,
+												float Fill = 0,
+												float EmitterVelocityPercent = 0,
+												Vec3 StartVelocity = [0, 1.3, 0],
+												Vec3 RandomVelocity = [0.2, 0.2, 0.2],
+												Vec3 TangentVelocity = [0, 0, 0],
+												Vec3 EmitterSize = [0, 0, 0],
+												bool FastMovingEmitter = false,
+											},
+											ParticleColorAnimator = 
+											{
+												Vec4 Color0 = [1, 1, 1, 1],
+												Vec4 Color1 = [1, 1, 1, 1],
+												Vec4 Color2 = [1, 1, 1, 1],
+												Vec4 Color3 = [1, 1, 1, 1],
+												Vec4 Color4 = [1, 1, 1, 0],
+											},
+										},
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 14,
+											},
+											Named = 
+											{
+												string Name = "OnParticles",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0, 1.43849, -0.0127583],
+												Vec3 Scale = [1, 1, 1],
+												Quat Rotation = [0, 0, 0, 1],
+											},
+											SpriteParticleSystem = 
+											{
+												SystemChildMode ChildMode = Independent,
+												SystemSpace SystemSpace = LocalSpace,
+												uint DrawOrder = 0,
+												ParticleGeometry GeometryMode = Beam,
+												ParticleRenderMode RenderMode = Additive,
+												ParticleSortMode SortMode = None,
+												string Texture = "519dae18a6f03073:WhiteCloud",
+												Vec4 Tint = [1, 1, 1, 0.9999],
+												float VelocityScale = 0.9,
+												float LengthScale = 0.5,
+												float MaxParticleSize = 100,
+												Vec3 SystemSize = [5, 5, 5],
+											},
+											LinearParticleAnimator = 
+											{
+												Vec3 Force = [0, 0, 0],
+												Vec3 RandomForce = [0, 0, 0],
+												float Torque = 0,
+												float Growth = 0,
+												float Dampening = 0,
+												Vec3 Twist = [0, 0, 0],
+											},
+											SphericalParticleEmitter = 
+											{
+												bool Active = false,
+												uint EmitCount = 0,
+												float EmitRate = 50,
+												float EmitVariance = 0,
+												float Size = 0.9,
+												float SizeVariance = 0.1,
+												float Lifetime = 0.05,
+												float LifetimeVariance = 0,
+												float Spin = 0,
+												float SpinVariance = 0,
+												bool RandomSpin = true,
+												float Fill = 0,
+												float EmitterVelocityPercent = 0,
+												Vec3 StartVelocity = [0, 5, 0],
+												Vec3 RandomVelocity = [0.1, 0, 0.1],
+												Vec3 TangentVelocity = [0, 0, 0],
+												Vec3 EmitterSize = [0, 0, 0],
+												bool FastMovingEmitter = false,
+											},
+											ParticleColorAnimator = 
+											{
+												Vec4 Color0 = [1, 1, 1, 1],
+												Vec4 Color1 = [0.515, 0.709, 1, 1],
+												Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+												Vec4 Color3 = [0, 0.0847, 0.385, 1],
+												Vec4 Color4 = [0, 0.58, 1, 0.9999],
+											},
+										},
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 15,
+											},
+											Named = 
+											{
+												string Name = "OnParticles2",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0, 0.413997, 0],
+												Vec3 Scale = [1, 1, 1],
+												Quat Rotation = [0, 0, 0, 1],
+											},
+											SpriteParticleSystem = 
+											{
+												SystemChildMode ChildMode = Independent,
+												SystemSpace SystemSpace = LocalSpace,
+												uint DrawOrder = 0,
+												ParticleGeometry GeometryMode = Billboarded,
+												ParticleRenderMode RenderMode = Additive,
+												ParticleSortMode SortMode = None,
+												string Texture = "519dae18a6f03073:WhiteCloud",
+												Vec4 Tint = [1, 1, 1, 0.9999],
+												float VelocityScale = 1,
+												float LengthScale = 0.5,
+												float MaxParticleSize = 100,
+												Vec3 SystemSize = [5, 5, 5],
+											},
+											LinearParticleAnimator = 
+											{
+												Vec3 Force = [0, 0, 0],
+												Vec3 RandomForce = [0, 0, 0],
+												float Torque = 0,
+												float Growth = 0,
+												float Dampening = 0,
+												Vec3 Twist = [0, 0, 0],
+											},
+											SphericalParticleEmitter = 
+											{
+												bool Active = false,
+												uint EmitCount = 0,
+												float EmitRate = 50,
+												float EmitVariance = 0,
+												float Size = 0.9,
+												float SizeVariance = 0.1,
+												float Lifetime = 0.05,
+												float LifetimeVariance = 0,
+												float Spin = 0,
+												float SpinVariance = 0,
+												bool RandomSpin = true,
+												float Fill = 0,
+												float EmitterVelocityPercent = 0,
+												Vec3 StartVelocity = [0, 0, 0],
+												Vec3 RandomVelocity = [0, 0, 0],
+												Vec3 TangentVelocity = [0, 0, 0],
+												Vec3 EmitterSize = [0, 0, 0],
+												bool FastMovingEmitter = false,
+											},
+											ParticleColorAnimator = 
+											{
+												Vec4 Color0 = [0, 0.4508, 0.92, 0],
+												Vec4 Color1 = [0.515, 0.709, 1, 1],
+												Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+												Vec4 Color3 = [0.20445, 0.314571, 0.705, 1],
+												Vec4 Color4 = [0, 0.58, 1, 0],
+											},
+										},
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 16,
+									},
+									Archetyped = 
+									{
+										string Name = "519e45e379f286e6:Cannon",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 0, 1],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0.707107, 0.707107, -0],
+									},
+									Model = 
+									{
+										string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+										string MeshName = "519e458e6220b09d:Cannon",
+										Vec4 Color = [1, 1, 1, 1],
+										bool Visible = true,
+									},
+									Cannon = 
+									{
+										float Speed = 100,
+										string Projectile = "519e4a92b38ab8a6:Bullet",
+									},
+									Orientation = 
+									{
+										Vec3 UpVector = [1, 0, 0],
+										Vec3 ForwardVector = [0, 1, 0],
+									},
+									RigidBody = 
+									{
+										bool Static = true,
+										bool Asleep = false,
+										bool Kinematic = false,
+										bool RotationLocked = false,
+										bool Mode2D = false,
+										bool AllowSleep = true,
+										bool Inherit2DMode = true,
+										Vec3 Velocity = [0, 0, 0],
+										Vec3 AngularVelocity = [0, 0, 0],
+									},
+									BoxCollider = 
+									{
+										bool Ghost = false,
+										bool SendsMessages = true,
+										bool Seamless = false,
+										string MaterialName = "4faa6050b8692851:HardMaterial",
+										string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+										Vec3 Offset = [0, 0, 0],
+										Vec3 Size = [0.5, 0.5, 0.5],
+									},
+									Activatable = 
+									{
+										int Key = 32,
+									},
+									BlockTag = 
+									{
+									},
+									SoundEmitter = 
+									{
+										bool StartPlaying = false,
+										int ExtraPriority = 0,
+										string CueName = "5155988faf84296a:Cannon",
+										float Volume = 1,
+										float Pitch = 1,
+										bool Positional = true,
+									},
+									DestroyOnDeath = 
+									{
+									},
+									Health = 
+									{
+										float Total = 100,
+										float Current = 100,
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 17,
+									},
+									Archetyped = 
+									{
+										string Name = "52625465bb4680a3:Swivel",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 1, 0],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [4.82835e-006, 5.98058e-005, 1.23417e-006, 1],
+									},
+									Model = 
+									{
+										string MaterialName = "51566a1523a57f69:SandStructure",
+										string MeshName = "4de0354322b345ae:Cube",
+										Vec4 Color = [1, 1, 1, 1],
+										bool Visible = true,
+									},
+									RigidBody = 
+									{
+										bool Static = true,
+										bool Asleep = false,
+										bool Kinematic = false,
+										bool RotationLocked = false,
+										bool Mode2D = false,
+										bool AllowSleep = true,
+										bool Inherit2DMode = true,
+										Vec3 Velocity = [0, 0, 0],
+										Vec3 AngularVelocity = [0, 0, 0],
+									},
+									Swivel = 
+									{
+										int Axis = 0,
+									},
+									BlockTag = 
+									{
+									},
+									BoxCollider = 
+									{
+										bool Ghost = false,
+										bool SendsMessages = true,
+										bool Seamless = false,
+										string MaterialName = "4faa6050b8692851:HardMaterial",
+										string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+										Vec3 Offset = [0, 0, 0],
+										Vec3 Size = [0.5, 0.5, 0.5],
+									},
+									Orientation = 
+									{
+										Vec3 UpVector = [0, 1, 0],
+										Vec3 ForwardVector = [0, 0, 1],
+									},
+									Hierarchy = 
+									{
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 18,
+											},
+											Named = 
+											{
+												string Name = "Thruster",
+											},
+											Archetyped = 
+											{
+												string Name = "519e4cbc821af76f:Thruster",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0, 0, -1],
+												Vec3 Scale = [1, 0.999999, 0.999999],
+												Quat Rotation = [0, -0.707107, 0.707107, -0],
+											},
+											Model = 
+											{
+												string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+												string MeshName = "519e4cbc82124da3:Thruster",
+												Vec4 Color = [1, 1, 1, 1],
+												bool Visible = true,
+											},
+											RigidBody = 
+											{
+												bool Static = true,
+												bool Asleep = false,
+												bool Kinematic = false,
+												bool RotationLocked = false,
+												bool Mode2D = false,
+												bool AllowSleep = true,
+												bool Inherit2DMode = true,
+												Vec3 Velocity = [0, 0, 0],
+												Vec3 AngularVelocity = [0, 0, 0],
+											},
+											BoxCollider = 
+											{
+												bool Ghost = false,
+												bool SendsMessages = true,
+												bool Seamless = false,
+												string MaterialName = "4faa6050b8692851:HardMaterial",
+												string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+												Vec3 Offset = [0, 0, 0],
+												Vec3 Size = [0.5, 0.5, 0.5],
+											},
+											Thruster = 
+											{
+											},
+											ThrustEffect = 
+											{
+												bool Active = false,
+												bool WakeUpOnChange = true,
+												bool LocalSpaceDirection = true,
+												float ForceStrength = 200,
+												Vec3 ForceDirection = [0, -1, 0],
+											},
+											BlockTag = 
+											{
+											},
+											Activatable = 
+											{
+												int Key = 87,
+											},
+											SoundEmitter = 
+											{
+												bool StartPlaying = false,
+												int ExtraPriority = 0,
+												string CueName = "51559b749c9e9362:Thruster",
+												float Volume = 1,
+												float Pitch = 1,
+												bool Positional = true,
+											},
+											DestroyOnDeath = 
+											{
+											},
+											Health = 
+											{
+												float Total = 100,
+												float Current = 100,
+											},
+											Hierarchy = 
+											{
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 19,
+													},
+													Named = 
+													{
+														string Name = "IdleParticles",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [0, 0.056366, 0],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [0, 0, 0, 1],
+													},
+													SpriteParticleSystem = 
+													{
+														SystemChildMode ChildMode = Independent,
+														SystemSpace SystemSpace = WorldSpace,
+														uint DrawOrder = 0,
+														ParticleGeometry GeometryMode = Billboarded,
+														ParticleRenderMode RenderMode = Blended,
+														ParticleSortMode SortMode = None,
+														string Texture = "519dae18a6f03073:WhiteCloud",
+														Vec4 Tint = [1, 1, 1, 0.27],
+														float VelocityScale = 1,
+														float LengthScale = 0,
+														float MaxParticleSize = 100,
+														Vec3 SystemSize = [5, 5, 5],
+													},
+													LinearParticleAnimator = 
+													{
+														Vec3 Force = [0, 0.3, 0],
+														Vec3 RandomForce = [0, 0, 0],
+														float Torque = 0,
+														float Growth = 0.6,
+														float Dampening = 0,
+														Vec3 Twist = [0, 0, 0],
+													},
+													SphericalParticleEmitter = 
+													{
+														bool Active = true,
+														uint EmitCount = 0,
+														float EmitRate = 4,
+														float EmitVariance = 0,
+														float Size = 0.8,
+														float SizeVariance = 0.3,
+														float Lifetime = 1,
+														float LifetimeVariance = 0,
+														float Spin = 0,
+														float SpinVariance = 0,
+														bool RandomSpin = true,
+														float Fill = 0,
+														float EmitterVelocityPercent = 0,
+														Vec3 StartVelocity = [0, 1.3, 0],
+														Vec3 RandomVelocity = [0.2, 0.2, 0.2],
+														Vec3 TangentVelocity = [0, 0, 0],
+														Vec3 EmitterSize = [0, 0, 0],
+														bool FastMovingEmitter = false,
+													},
+													ParticleColorAnimator = 
+													{
+														Vec4 Color0 = [1, 1, 1, 1],
+														Vec4 Color1 = [1, 1, 1, 1],
+														Vec4 Color2 = [1, 1, 1, 1],
+														Vec4 Color3 = [1, 1, 1, 1],
+														Vec4 Color4 = [1, 1, 1, 0],
+													},
+												},
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 20,
+													},
+													Named = 
+													{
+														string Name = "OnParticles",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [0, 1.43849, -0.0127583],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [0, 0, 0, 1],
+													},
+													SpriteParticleSystem = 
+													{
+														SystemChildMode ChildMode = Independent,
+														SystemSpace SystemSpace = LocalSpace,
+														uint DrawOrder = 0,
+														ParticleGeometry GeometryMode = Beam,
+														ParticleRenderMode RenderMode = Additive,
+														ParticleSortMode SortMode = None,
+														string Texture = "519dae18a6f03073:WhiteCloud",
+														Vec4 Tint = [1, 1, 1, 0.9999],
+														float VelocityScale = 0.9,
+														float LengthScale = 0.5,
+														float MaxParticleSize = 100,
+														Vec3 SystemSize = [5, 5, 5],
+													},
+													LinearParticleAnimator = 
+													{
+														Vec3 Force = [0, 0, 0],
+														Vec3 RandomForce = [0, 0, 0],
+														float Torque = 0,
+														float Growth = 0,
+														float Dampening = 0,
+														Vec3 Twist = [0, 0, 0],
+													},
+													SphericalParticleEmitter = 
+													{
+														bool Active = false,
+														uint EmitCount = 0,
+														float EmitRate = 50,
+														float EmitVariance = 0,
+														float Size = 0.9,
+														float SizeVariance = 0.1,
+														float Lifetime = 0.05,
+														float LifetimeVariance = 0,
+														float Spin = 0,
+														float SpinVariance = 0,
+														bool RandomSpin = true,
+														float Fill = 0,
+														float EmitterVelocityPercent = 0,
+														Vec3 StartVelocity = [0, 5, 0],
+														Vec3 RandomVelocity = [0.1, 0, 0.1],
+														Vec3 TangentVelocity = [0, 0, 0],
+														Vec3 EmitterSize = [0, 0, 0],
+														bool FastMovingEmitter = false,
+													},
+													ParticleColorAnimator = 
+													{
+														Vec4 Color0 = [1, 1, 1, 1],
+														Vec4 Color1 = [0.515, 0.709, 1, 1],
+														Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+														Vec4 Color3 = [0, 0.0847, 0.385, 1],
+														Vec4 Color4 = [0, 0.58, 1, 0.9999],
+													},
+												},
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 21,
+													},
+													Named = 
+													{
+														string Name = "OnParticles2",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [0, 0.413997, 0],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [0, 0, 0, 1],
+													},
+													SpriteParticleSystem = 
+													{
+														SystemChildMode ChildMode = Independent,
+														SystemSpace SystemSpace = LocalSpace,
+														uint DrawOrder = 0,
+														ParticleGeometry GeometryMode = Billboarded,
+														ParticleRenderMode RenderMode = Additive,
+														ParticleSortMode SortMode = None,
+														string Texture = "519dae18a6f03073:WhiteCloud",
+														Vec4 Tint = [1, 1, 1, 0.9999],
+														float VelocityScale = 1,
+														float LengthScale = 0.5,
+														float MaxParticleSize = 100,
+														Vec3 SystemSize = [5, 5, 5],
+													},
+													LinearParticleAnimator = 
+													{
+														Vec3 Force = [0, 0, 0],
+														Vec3 RandomForce = [0, 0, 0],
+														float Torque = 0,
+														float Growth = 0,
+														float Dampening = 0,
+														Vec3 Twist = [0, 0, 0],
+													},
+													SphericalParticleEmitter = 
+													{
+														bool Active = false,
+														uint EmitCount = 0,
+														float EmitRate = 50,
+														float EmitVariance = 0,
+														float Size = 0.9,
+														float SizeVariance = 0.1,
+														float Lifetime = 0.05,
+														float LifetimeVariance = 0,
+														float Spin = 0,
+														float SpinVariance = 0,
+														bool RandomSpin = true,
+														float Fill = 0,
+														float EmitterVelocityPercent = 0,
+														Vec3 StartVelocity = [0, 0, 0],
+														Vec3 RandomVelocity = [0, 0, 0],
+														Vec3 TangentVelocity = [0, 0, 0],
+														Vec3 EmitterSize = [0, 0, 0],
+														bool FastMovingEmitter = false,
+													},
+													ParticleColorAnimator = 
+													{
+														Vec4 Color0 = [0, 0.4508, 0.92, 0],
+														Vec4 Color1 = [0.515, 0.709, 1, 1],
+														Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+														Vec4 Color3 = [0.20445, 0.314571, 0.705, 1],
+														Vec4 Color4 = [0, 0.58, 1, 0],
+													},
+												},
+											},
+										},
+									},
+								},
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 22,
+							},
+							Named = 
+							{
+								string Name = "Thruster",
+							},
+							Archetyped = 
+							{
+								string Name = "519e4cbc821af76f:Thruster",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [5.18617e-009, -9.15458e-006, -0.999991],
+								Vec3 Scale = [1.00001, 0.999986, 1.00001],
+								Quat Rotation = [1.03561e-011, -0.707107, 0.707107, 1.10394e-011],
+							},
+							Model = 
+							{
+								string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+								string MeshName = "519e4cbc82124da3:Thruster",
+								Vec4 Color = [1, 1, 1, 1],
+								bool Visible = true,
+							},
+							RigidBody = 
+							{
+								bool Static = true,
+								bool Asleep = false,
+								bool Kinematic = false,
+								bool RotationLocked = false,
+								bool Mode2D = false,
+								bool AllowSleep = true,
+								bool Inherit2DMode = true,
+								Vec3 Velocity = [0, 0, 0],
+								Vec3 AngularVelocity = [0, 0, 0],
+							},
+							BoxCollider = 
+							{
+								bool Ghost = false,
+								bool SendsMessages = true,
+								bool Seamless = false,
+								string MaterialName = "4faa6050b8692851:HardMaterial",
+								string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+								Vec3 Offset = [0, 0, 0],
+								Vec3 Size = [0.5, 0.5, 0.5],
+							},
+							Thruster = 
+							{
+							},
+							ThrustEffect = 
+							{
+								bool Active = false,
+								bool WakeUpOnChange = true,
+								bool LocalSpaceDirection = true,
+								float ForceStrength = 200,
+								Vec3 ForceDirection = [0, -1, 0],
+							},
+							BlockTag = 
+							{
+							},
+							Activatable = 
+							{
+								int Key = 87,
+							},
+							SoundEmitter = 
+							{
+								bool StartPlaying = false,
+								int ExtraPriority = 0,
+								string CueName = "51559b749c9e9362:Thruster",
+								float Volume = 1,
+								float Pitch = 1,
+								bool Positional = true,
+							},
+							DestroyOnDeath = 
+							{
+							},
+							Health = 
+							{
+								float Total = 100,
+								float Current = 100,
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 23,
+									},
+									Named = 
+									{
+										string Name = "IdleParticles",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 0.056366, 0],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+									SpriteParticleSystem = 
+									{
+										SystemChildMode ChildMode = Independent,
+										SystemSpace SystemSpace = WorldSpace,
+										uint DrawOrder = 0,
+										ParticleGeometry GeometryMode = Billboarded,
+										ParticleRenderMode RenderMode = Blended,
+										ParticleSortMode SortMode = None,
+										string Texture = "519dae18a6f03073:WhiteCloud",
+										Vec4 Tint = [1, 1, 1, 0.27],
+										float VelocityScale = 1,
+										float LengthScale = 0,
+										float MaxParticleSize = 100,
+										Vec3 SystemSize = [5, 5, 5],
+									},
+									LinearParticleAnimator = 
+									{
+										Vec3 Force = [0, 0.3, 0],
+										Vec3 RandomForce = [0, 0, 0],
+										float Torque = 0,
+										float Growth = 0.6,
+										float Dampening = 0,
+										Vec3 Twist = [0, 0, 0],
+									},
+									SphericalParticleEmitter = 
+									{
+										bool Active = true,
+										uint EmitCount = 0,
+										float EmitRate = 4,
+										float EmitVariance = 0,
+										float Size = 0.8,
+										float SizeVariance = 0.3,
+										float Lifetime = 1,
+										float LifetimeVariance = 0,
+										float Spin = 0,
+										float SpinVariance = 0,
+										bool RandomSpin = true,
+										float Fill = 0,
+										float EmitterVelocityPercent = 0,
+										Vec3 StartVelocity = [0, 1.3, 0],
+										Vec3 RandomVelocity = [0.2, 0.2, 0.2],
+										Vec3 TangentVelocity = [0, 0, 0],
+										Vec3 EmitterSize = [0, 0, 0],
+										bool FastMovingEmitter = false,
+									},
+									ParticleColorAnimator = 
+									{
+										Vec4 Color0 = [1, 1, 1, 1],
+										Vec4 Color1 = [1, 1, 1, 1],
+										Vec4 Color2 = [1, 1, 1, 1],
+										Vec4 Color3 = [1, 1, 1, 1],
+										Vec4 Color4 = [1, 1, 1, 0],
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 24,
+									},
+									Named = 
+									{
+										string Name = "OnParticles",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 1.43849, -0.0127583],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+									SpriteParticleSystem = 
+									{
+										SystemChildMode ChildMode = Independent,
+										SystemSpace SystemSpace = LocalSpace,
+										uint DrawOrder = 0,
+										ParticleGeometry GeometryMode = Beam,
+										ParticleRenderMode RenderMode = Additive,
+										ParticleSortMode SortMode = None,
+										string Texture = "519dae18a6f03073:WhiteCloud",
+										Vec4 Tint = [1, 1, 1, 0.9999],
+										float VelocityScale = 0.9,
+										float LengthScale = 0.5,
+										float MaxParticleSize = 100,
+										Vec3 SystemSize = [5, 5, 5],
+									},
+									LinearParticleAnimator = 
+									{
+										Vec3 Force = [0, 0, 0],
+										Vec3 RandomForce = [0, 0, 0],
+										float Torque = 0,
+										float Growth = 0,
+										float Dampening = 0,
+										Vec3 Twist = [0, 0, 0],
+									},
+									SphericalParticleEmitter = 
+									{
+										bool Active = false,
+										uint EmitCount = 0,
+										float EmitRate = 50,
+										float EmitVariance = 0,
+										float Size = 0.9,
+										float SizeVariance = 0.1,
+										float Lifetime = 0.05,
+										float LifetimeVariance = 0,
+										float Spin = 0,
+										float SpinVariance = 0,
+										bool RandomSpin = true,
+										float Fill = 0,
+										float EmitterVelocityPercent = 0,
+										Vec3 StartVelocity = [0, 5, 0],
+										Vec3 RandomVelocity = [0.1, 0, 0.1],
+										Vec3 TangentVelocity = [0, 0, 0],
+										Vec3 EmitterSize = [0, 0, 0],
+										bool FastMovingEmitter = false,
+									},
+									ParticleColorAnimator = 
+									{
+										Vec4 Color0 = [1, 1, 1, 1],
+										Vec4 Color1 = [0.515, 0.709, 1, 1],
+										Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+										Vec4 Color3 = [0, 0.0847, 0.385, 1],
+										Vec4 Color4 = [0, 0.58, 1, 0.9999],
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 25,
+									},
+									Named = 
+									{
+										string Name = "OnParticles2",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 0.413997, 0],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+									SpriteParticleSystem = 
+									{
+										SystemChildMode ChildMode = Independent,
+										SystemSpace SystemSpace = LocalSpace,
+										uint DrawOrder = 0,
+										ParticleGeometry GeometryMode = Billboarded,
+										ParticleRenderMode RenderMode = Additive,
+										ParticleSortMode SortMode = None,
+										string Texture = "519dae18a6f03073:WhiteCloud",
+										Vec4 Tint = [1, 1, 1, 0.9999],
+										float VelocityScale = 1,
+										float LengthScale = 0.5,
+										float MaxParticleSize = 100,
+										Vec3 SystemSize = [5, 5, 5],
+									},
+									LinearParticleAnimator = 
+									{
+										Vec3 Force = [0, 0, 0],
+										Vec3 RandomForce = [0, 0, 0],
+										float Torque = 0,
+										float Growth = 0,
+										float Dampening = 0,
+										Vec3 Twist = [0, 0, 0],
+									},
+									SphericalParticleEmitter = 
+									{
+										bool Active = false,
+										uint EmitCount = 0,
+										float EmitRate = 50,
+										float EmitVariance = 0,
+										float Size = 0.9,
+										float SizeVariance = 0.1,
+										float Lifetime = 0.05,
+										float LifetimeVariance = 0,
+										float Spin = 0,
+										float SpinVariance = 0,
+										bool RandomSpin = true,
+										float Fill = 0,
+										float EmitterVelocityPercent = 0,
+										Vec3 StartVelocity = [0, 0, 0],
+										Vec3 RandomVelocity = [0, 0, 0],
+										Vec3 TangentVelocity = [0, 0, 0],
+										Vec3 EmitterSize = [0, 0, 0],
+										bool FastMovingEmitter = false,
+									},
+									ParticleColorAnimator = 
+									{
+										Vec4 Color0 = [0, 0.4508, 0.92, 0],
+										Vec4 Color1 = [0.515, 0.709, 1, 1],
+										Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+										Vec4 Color3 = [0.20445, 0.314571, 0.705, 1],
+										Vec4 Color4 = [0, 0.58, 1, 0],
+									},
+								},
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 26,
+							},
+							Named = 
+							{
+								string Name = "Thruster",
+							},
+							Archetyped = 
+							{
+								string Name = "519e4cbc821af76f:Thruster",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [-1, -2.13879e-007, 2.91263e-006],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [-0.707107, 0.707107, -9.37262e-019, 1.41874e-018],
+							},
+							Model = 
+							{
+								string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+								string MeshName = "519e4cbc82124da3:Thruster",
+								Vec4 Color = [1, 1, 1, 1],
+								bool Visible = true,
+							},
+							RigidBody = 
+							{
+								bool Static = true,
+								bool Asleep = false,
+								bool Kinematic = false,
+								bool RotationLocked = false,
+								bool Mode2D = false,
+								bool AllowSleep = true,
+								bool Inherit2DMode = true,
+								Vec3 Velocity = [0, 0, 0],
+								Vec3 AngularVelocity = [0, 0, 0],
+							},
+							BoxCollider = 
+							{
+								bool Ghost = false,
+								bool SendsMessages = true,
+								bool Seamless = false,
+								string MaterialName = "4faa6050b8692851:HardMaterial",
+								string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+								Vec3 Offset = [0, 0, 0],
+								Vec3 Size = [0.5, 0.5, 0.5],
+							},
+							Thruster = 
+							{
+							},
+							ThrustEffect = 
+							{
+								bool Active = false,
+								bool WakeUpOnChange = true,
+								bool LocalSpaceDirection = true,
+								float ForceStrength = 200,
+								Vec3 ForceDirection = [0, -1, 0],
+							},
+							BlockTag = 
+							{
+							},
+							Activatable = 
+							{
+								int Key = 150,
+							},
+							SoundEmitter = 
+							{
+								bool StartPlaying = false,
+								int ExtraPriority = 0,
+								string CueName = "51559b749c9e9362:Thruster",
+								float Volume = 1,
+								float Pitch = 1,
+								bool Positional = true,
+							},
+							DestroyOnDeath = 
+							{
+							},
+							Health = 
+							{
+								float Total = 100,
+								float Current = 100,
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 27,
+									},
+									Named = 
+									{
+										string Name = "IdleParticles",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 0.056366, 0],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+									SpriteParticleSystem = 
+									{
+										SystemChildMode ChildMode = Independent,
+										SystemSpace SystemSpace = WorldSpace,
+										uint DrawOrder = 0,
+										ParticleGeometry GeometryMode = Billboarded,
+										ParticleRenderMode RenderMode = Blended,
+										ParticleSortMode SortMode = None,
+										string Texture = "519dae18a6f03073:WhiteCloud",
+										Vec4 Tint = [1, 1, 1, 0.27],
+										float VelocityScale = 1,
+										float LengthScale = 0,
+										float MaxParticleSize = 100,
+										Vec3 SystemSize = [5, 5, 5],
+									},
+									LinearParticleAnimator = 
+									{
+										Vec3 Force = [0, 0.3, 0],
+										Vec3 RandomForce = [0, 0, 0],
+										float Torque = 0,
+										float Growth = 0.6,
+										float Dampening = 0,
+										Vec3 Twist = [0, 0, 0],
+									},
+									SphericalParticleEmitter = 
+									{
+										bool Active = true,
+										uint EmitCount = 0,
+										float EmitRate = 4,
+										float EmitVariance = 0,
+										float Size = 0.8,
+										float SizeVariance = 0.3,
+										float Lifetime = 1,
+										float LifetimeVariance = 0,
+										float Spin = 0,
+										float SpinVariance = 0,
+										bool RandomSpin = true,
+										float Fill = 0,
+										float EmitterVelocityPercent = 0,
+										Vec3 StartVelocity = [0, 1.3, 0],
+										Vec3 RandomVelocity = [0.2, 0.2, 0.2],
+										Vec3 TangentVelocity = [0, 0, 0],
+										Vec3 EmitterSize = [0, 0, 0],
+										bool FastMovingEmitter = false,
+									},
+									ParticleColorAnimator = 
+									{
+										Vec4 Color0 = [1, 1, 1, 1],
+										Vec4 Color1 = [1, 1, 1, 1],
+										Vec4 Color2 = [1, 1, 1, 1],
+										Vec4 Color3 = [1, 1, 1, 1],
+										Vec4 Color4 = [1, 1, 1, 0],
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 28,
+									},
+									Named = 
+									{
+										string Name = "OnParticles",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 1.43849, -0.0127583],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+									SpriteParticleSystem = 
+									{
+										SystemChildMode ChildMode = Independent,
+										SystemSpace SystemSpace = LocalSpace,
+										uint DrawOrder = 0,
+										ParticleGeometry GeometryMode = Beam,
+										ParticleRenderMode RenderMode = Additive,
+										ParticleSortMode SortMode = None,
+										string Texture = "519dae18a6f03073:WhiteCloud",
+										Vec4 Tint = [1, 1, 1, 0.9999],
+										float VelocityScale = 0.9,
+										float LengthScale = 0.5,
+										float MaxParticleSize = 100,
+										Vec3 SystemSize = [5, 5, 5],
+									},
+									LinearParticleAnimator = 
+									{
+										Vec3 Force = [0, 0, 0],
+										Vec3 RandomForce = [0, 0, 0],
+										float Torque = 0,
+										float Growth = 0,
+										float Dampening = 0,
+										Vec3 Twist = [0, 0, 0],
+									},
+									SphericalParticleEmitter = 
+									{
+										bool Active = false,
+										uint EmitCount = 0,
+										float EmitRate = 50,
+										float EmitVariance = 0,
+										float Size = 0.9,
+										float SizeVariance = 0.1,
+										float Lifetime = 0.05,
+										float LifetimeVariance = 0,
+										float Spin = 0,
+										float SpinVariance = 0,
+										bool RandomSpin = true,
+										float Fill = 0,
+										float EmitterVelocityPercent = 0,
+										Vec3 StartVelocity = [0, 5, 0],
+										Vec3 RandomVelocity = [0.1, 0, 0.1],
+										Vec3 TangentVelocity = [0, 0, 0],
+										Vec3 EmitterSize = [0, 0, 0],
+										bool FastMovingEmitter = false,
+									},
+									ParticleColorAnimator = 
+									{
+										Vec4 Color0 = [1, 1, 1, 1],
+										Vec4 Color1 = [0.515, 0.709, 1, 1],
+										Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+										Vec4 Color3 = [0, 0.0847, 0.385, 1],
+										Vec4 Color4 = [0, 0.58, 1, 0.9999],
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 29,
+									},
+									Named = 
+									{
+										string Name = "OnParticles2",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 0.413997, 0],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+									SpriteParticleSystem = 
+									{
+										SystemChildMode ChildMode = Independent,
+										SystemSpace SystemSpace = LocalSpace,
+										uint DrawOrder = 0,
+										ParticleGeometry GeometryMode = Billboarded,
+										ParticleRenderMode RenderMode = Additive,
+										ParticleSortMode SortMode = None,
+										string Texture = "519dae18a6f03073:WhiteCloud",
+										Vec4 Tint = [1, 1, 1, 0.9999],
+										float VelocityScale = 1,
+										float LengthScale = 0.5,
+										float MaxParticleSize = 100,
+										Vec3 SystemSize = [5, 5, 5],
+									},
+									LinearParticleAnimator = 
+									{
+										Vec3 Force = [0, 0, 0],
+										Vec3 RandomForce = [0, 0, 0],
+										float Torque = 0,
+										float Growth = 0,
+										float Dampening = 0,
+										Vec3 Twist = [0, 0, 0],
+									},
+									SphericalParticleEmitter = 
+									{
+										bool Active = false,
+										uint EmitCount = 0,
+										float EmitRate = 50,
+										float EmitVariance = 0,
+										float Size = 0.9,
+										float SizeVariance = 0.1,
+										float Lifetime = 0.05,
+										float LifetimeVariance = 0,
+										float Spin = 0,
+										float SpinVariance = 0,
+										bool RandomSpin = true,
+										float Fill = 0,
+										float EmitterVelocityPercent = 0,
+										Vec3 StartVelocity = [0, 0, 0],
+										Vec3 RandomVelocity = [0, 0, 0],
+										Vec3 TangentVelocity = [0, 0, 0],
+										Vec3 EmitterSize = [0, 0, 0],
+										bool FastMovingEmitter = false,
+									},
+									ParticleColorAnimator = 
+									{
+										Vec4 Color0 = [0, 0.4508, 0.92, 0],
+										Vec4 Color1 = [0.515, 0.709, 1, 1],
+										Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+										Vec4 Color3 = [0.20445, 0.314571, 0.705, 1],
+										Vec4 Color4 = [0, 0.58, 1, 0],
+									},
+								},
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 30,
+					},
+					Archetyped = 
+					{
+						string Name = "519e5cfaa4b9c3f4:Block",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [-1, 0, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [-0.707107, 0.707107, 0, 0],
+					},
+					Model = 
+					{
+						string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+						string MeshName = "4de0354322b345ae:Cube",
+						Vec4 Color = [1, 1, 1, 1],
+						bool Visible = true,
+					},
+					RigidBody = 
+					{
+						bool Static = true,
+						bool Asleep = false,
+						bool Kinematic = false,
+						bool RotationLocked = false,
+						bool Mode2D = false,
+						bool AllowSleep = true,
+						bool Inherit2DMode = true,
+						Vec3 Velocity = [0, 0, 0],
+						Vec3 AngularVelocity = [0, 0, 0],
+					},
+					BoxCollider = 
+					{
+						bool Ghost = false,
+						bool SendsMessages = true,
+						bool Seamless = false,
+						string MaterialName = "4faa6050b8692851:HardMaterial",
+						string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+						Vec3 Offset = [0, 0, 0],
+						Vec3 Size = [0.5, 0.5, 0.5],
+					},
+					BlockTag = 
+					{
+					},
+					DestroyOnDeath = 
+					{
+					},
+					Health = 
+					{
+						float Total = 100,
+						float Current = 100,
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 31,
+							},
+							Archetyped = 
+							{
+								string Name = "519e5cfaa4b9c3f4:Block",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 1, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, -0, 1],
+							},
+							Model = 
+							{
+								string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+								string MeshName = "4de0354322b345ae:Cube",
+								Vec4 Color = [1, 1, 1, 1],
+								bool Visible = true,
+							},
+							RigidBody = 
+							{
+								bool Static = true,
+								bool Asleep = false,
+								bool Kinematic = false,
+								bool RotationLocked = false,
+								bool Mode2D = false,
+								bool AllowSleep = true,
+								bool Inherit2DMode = true,
+								Vec3 Velocity = [0, 0, 0],
+								Vec3 AngularVelocity = [0, 0, 0],
+							},
+							BoxCollider = 
+							{
+								bool Ghost = false,
+								bool SendsMessages = true,
+								bool Seamless = false,
+								string MaterialName = "4faa6050b8692851:HardMaterial",
+								string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+								Vec3 Offset = [0, 0, 0],
+								Vec3 Size = [0.5, 0.5, 0.5],
+							},
+							BlockTag = 
+							{
+							},
+							DestroyOnDeath = 
+							{
+							},
+							Health = 
+							{
+								float Total = 100,
+								float Current = 100,
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 32,
+									},
+									Named = 
+									{
+										string Name = "Thruster",
+									},
+									Archetyped = 
+									{
+										string Name = "519e4cbc821af76f:Thruster",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [7.02508e-007, -1.10069e-005, 1],
+										Vec3 Scale = [1.00001, 0.999996, 0.999995],
+										Quat Rotation = [-1.10193e-011, 0.707107, 0.707107, 1.03661e-011],
+									},
+									Model = 
+									{
+										string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+										string MeshName = "519e4cbc82124da3:Thruster",
+										Vec4 Color = [1, 1, 1, 1],
+										bool Visible = true,
+									},
+									RigidBody = 
+									{
+										bool Static = true,
+										bool Asleep = false,
+										bool Kinematic = false,
+										bool RotationLocked = false,
+										bool Mode2D = false,
+										bool AllowSleep = true,
+										bool Inherit2DMode = true,
+										Vec3 Velocity = [0, 0, 0],
+										Vec3 AngularVelocity = [0, 0, 0],
+									},
+									BoxCollider = 
+									{
+										bool Ghost = false,
+										bool SendsMessages = true,
+										bool Seamless = false,
+										string MaterialName = "4faa6050b8692851:HardMaterial",
+										string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+										Vec3 Offset = [0, 0, 0],
+										Vec3 Size = [0.5, 0.5, 0.5],
+									},
+									Thruster = 
+									{
+									},
+									ThrustEffect = 
+									{
+										bool Active = false,
+										bool WakeUpOnChange = true,
+										bool LocalSpaceDirection = true,
+										float ForceStrength = 200,
+										Vec3 ForceDirection = [0, -1, 0],
+									},
+									BlockTag = 
+									{
+									},
+									Activatable = 
+									{
+										int Key = 87,
+									},
+									SoundEmitter = 
+									{
+										bool StartPlaying = false,
+										int ExtraPriority = 0,
+										string CueName = "51559b749c9e9362:Thruster",
+										float Volume = 1,
+										float Pitch = 1,
+										bool Positional = true,
+									},
+									DestroyOnDeath = 
+									{
+									},
+									Health = 
+									{
+										float Total = 100,
+										float Current = 100,
+									},
+									Hierarchy = 
+									{
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 33,
+											},
+											Named = 
+											{
+												string Name = "IdleParticles",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0, 0.056366, 0],
+												Vec3 Scale = [1, 1, 1],
+												Quat Rotation = [0, 0, 0, 1],
+											},
+											SpriteParticleSystem = 
+											{
+												SystemChildMode ChildMode = Independent,
+												SystemSpace SystemSpace = WorldSpace,
+												uint DrawOrder = 0,
+												ParticleGeometry GeometryMode = Billboarded,
+												ParticleRenderMode RenderMode = Blended,
+												ParticleSortMode SortMode = None,
+												string Texture = "519dae18a6f03073:WhiteCloud",
+												Vec4 Tint = [1, 1, 1, 0.27],
+												float VelocityScale = 1,
+												float LengthScale = 0,
+												float MaxParticleSize = 100,
+												Vec3 SystemSize = [5, 5, 5],
+											},
+											LinearParticleAnimator = 
+											{
+												Vec3 Force = [0, 0.3, 0],
+												Vec3 RandomForce = [0, 0, 0],
+												float Torque = 0,
+												float Growth = 0.6,
+												float Dampening = 0,
+												Vec3 Twist = [0, 0, 0],
+											},
+											SphericalParticleEmitter = 
+											{
+												bool Active = true,
+												uint EmitCount = 0,
+												float EmitRate = 4,
+												float EmitVariance = 0,
+												float Size = 0.8,
+												float SizeVariance = 0.3,
+												float Lifetime = 1,
+												float LifetimeVariance = 0,
+												float Spin = 0,
+												float SpinVariance = 0,
+												bool RandomSpin = true,
+												float Fill = 0,
+												float EmitterVelocityPercent = 0,
+												Vec3 StartVelocity = [0, 1.3, 0],
+												Vec3 RandomVelocity = [0.2, 0.2, 0.2],
+												Vec3 TangentVelocity = [0, 0, 0],
+												Vec3 EmitterSize = [0, 0, 0],
+												bool FastMovingEmitter = false,
+											},
+											ParticleColorAnimator = 
+											{
+												Vec4 Color0 = [1, 1, 1, 1],
+												Vec4 Color1 = [1, 1, 1, 1],
+												Vec4 Color2 = [1, 1, 1, 1],
+												Vec4 Color3 = [1, 1, 1, 1],
+												Vec4 Color4 = [1, 1, 1, 0],
+											},
+										},
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 34,
+											},
+											Named = 
+											{
+												string Name = "OnParticles",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0, 1.43849, -0.0127583],
+												Vec3 Scale = [1, 1, 1],
+												Quat Rotation = [0, 0, 0, 1],
+											},
+											SpriteParticleSystem = 
+											{
+												SystemChildMode ChildMode = Independent,
+												SystemSpace SystemSpace = LocalSpace,
+												uint DrawOrder = 0,
+												ParticleGeometry GeometryMode = Beam,
+												ParticleRenderMode RenderMode = Additive,
+												ParticleSortMode SortMode = None,
+												string Texture = "519dae18a6f03073:WhiteCloud",
+												Vec4 Tint = [1, 1, 1, 0.9999],
+												float VelocityScale = 0.9,
+												float LengthScale = 0.5,
+												float MaxParticleSize = 100,
+												Vec3 SystemSize = [5, 5, 5],
+											},
+											LinearParticleAnimator = 
+											{
+												Vec3 Force = [0, 0, 0],
+												Vec3 RandomForce = [0, 0, 0],
+												float Torque = 0,
+												float Growth = 0,
+												float Dampening = 0,
+												Vec3 Twist = [0, 0, 0],
+											},
+											SphericalParticleEmitter = 
+											{
+												bool Active = false,
+												uint EmitCount = 0,
+												float EmitRate = 50,
+												float EmitVariance = 0,
+												float Size = 0.9,
+												float SizeVariance = 0.1,
+												float Lifetime = 0.05,
+												float LifetimeVariance = 0,
+												float Spin = 0,
+												float SpinVariance = 0,
+												bool RandomSpin = true,
+												float Fill = 0,
+												float EmitterVelocityPercent = 0,
+												Vec3 StartVelocity = [0, 5, 0],
+												Vec3 RandomVelocity = [0.1, 0, 0.1],
+												Vec3 TangentVelocity = [0, 0, 0],
+												Vec3 EmitterSize = [0, 0, 0],
+												bool FastMovingEmitter = false,
+											},
+											ParticleColorAnimator = 
+											{
+												Vec4 Color0 = [1, 1, 1, 1],
+												Vec4 Color1 = [0.515, 0.709, 1, 1],
+												Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+												Vec4 Color3 = [0, 0.0847, 0.385, 1],
+												Vec4 Color4 = [0, 0.58, 1, 0.9999],
+											},
+										},
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 35,
+											},
+											Named = 
+											{
+												string Name = "OnParticles2",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0, 0.413997, 0],
+												Vec3 Scale = [1, 1, 1],
+												Quat Rotation = [0, 0, 0, 1],
+											},
+											SpriteParticleSystem = 
+											{
+												SystemChildMode ChildMode = Independent,
+												SystemSpace SystemSpace = LocalSpace,
+												uint DrawOrder = 0,
+												ParticleGeometry GeometryMode = Billboarded,
+												ParticleRenderMode RenderMode = Additive,
+												ParticleSortMode SortMode = None,
+												string Texture = "519dae18a6f03073:WhiteCloud",
+												Vec4 Tint = [1, 1, 1, 0.9999],
+												float VelocityScale = 1,
+												float LengthScale = 0.5,
+												float MaxParticleSize = 100,
+												Vec3 SystemSize = [5, 5, 5],
+											},
+											LinearParticleAnimator = 
+											{
+												Vec3 Force = [0, 0, 0],
+												Vec3 RandomForce = [0, 0, 0],
+												float Torque = 0,
+												float Growth = 0,
+												float Dampening = 0,
+												Vec3 Twist = [0, 0, 0],
+											},
+											SphericalParticleEmitter = 
+											{
+												bool Active = false,
+												uint EmitCount = 0,
+												float EmitRate = 50,
+												float EmitVariance = 0,
+												float Size = 0.9,
+												float SizeVariance = 0.1,
+												float Lifetime = 0.05,
+												float LifetimeVariance = 0,
+												float Spin = 0,
+												float SpinVariance = 0,
+												bool RandomSpin = true,
+												float Fill = 0,
+												float EmitterVelocityPercent = 0,
+												Vec3 StartVelocity = [0, 0, 0],
+												Vec3 RandomVelocity = [0, 0, 0],
+												Vec3 TangentVelocity = [0, 0, 0],
+												Vec3 EmitterSize = [0, 0, 0],
+												bool FastMovingEmitter = false,
+											},
+											ParticleColorAnimator = 
+											{
+												Vec4 Color0 = [0, 0.4508, 0.92, 0],
+												Vec4 Color1 = [0.515, 0.709, 1, 1],
+												Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+												Vec4 Color3 = [0.20445, 0.314571, 0.705, 1],
+												Vec4 Color4 = [0, 0.58, 1, 0],
+											},
+										},
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 36,
+									},
+									Archetyped = 
+									{
+										string Name = "519e45e379f286e6:Cannon",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 0, -1],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [-0.5, -0.5, 0.5, 0.5],
+									},
+									Model = 
+									{
+										string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+										string MeshName = "519e458e6220b09d:Cannon",
+										Vec4 Color = [1, 1, 1, 1],
+										bool Visible = true,
+									},
+									Cannon = 
+									{
+										float Speed = 100,
+										string Projectile = "519e4a92b38ab8a6:Bullet",
+									},
+									Orientation = 
+									{
+										Vec3 UpVector = [1, 0, 0],
+										Vec3 ForwardVector = [0, 1, 0],
+									},
+									RigidBody = 
+									{
+										bool Static = true,
+										bool Asleep = false,
+										bool Kinematic = false,
+										bool RotationLocked = false,
+										bool Mode2D = false,
+										bool AllowSleep = true,
+										bool Inherit2DMode = true,
+										Vec3 Velocity = [0, 0, 0],
+										Vec3 AngularVelocity = [0, 0, 0],
+									},
+									BoxCollider = 
+									{
+										bool Ghost = false,
+										bool SendsMessages = true,
+										bool Seamless = false,
+										string MaterialName = "4faa6050b8692851:HardMaterial",
+										string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+										Vec3 Offset = [0, 0, 0],
+										Vec3 Size = [0.5, 0.5, 0.5],
+									},
+									Activatable = 
+									{
+										int Key = 32,
+									},
+									BlockTag = 
+									{
+									},
+									SoundEmitter = 
+									{
+										bool StartPlaying = false,
+										int ExtraPriority = 0,
+										string CueName = "5155988faf84296a:Cannon",
+										float Volume = 1,
+										float Pitch = 1,
+										bool Positional = true,
+									},
+									DestroyOnDeath = 
+									{
+									},
+									Health = 
+									{
+										float Total = 100,
+										float Current = 100,
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 37,
+									},
+									Archetyped = 
+									{
+										string Name = "52625465bb4680a3:Swivel",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 1, 0],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0.00325721, 0.707123, -0.00317496, 0.707076],
+									},
+									Model = 
+									{
+										string MaterialName = "51566a1523a57f69:SandStructure",
+										string MeshName = "4de0354322b345ae:Cube",
+										Vec4 Color = [1, 1, 1, 1],
+										bool Visible = true,
+									},
+									RigidBody = 
+									{
+										bool Static = true,
+										bool Asleep = false,
+										bool Kinematic = false,
+										bool RotationLocked = false,
+										bool Mode2D = false,
+										bool AllowSleep = true,
+										bool Inherit2DMode = true,
+										Vec3 Velocity = [0, 0, 0],
+										Vec3 AngularVelocity = [0, 0, 0],
+									},
+									Swivel = 
+									{
+										int Axis = 0,
+									},
+									BlockTag = 
+									{
+									},
+									BoxCollider = 
+									{
+										bool Ghost = false,
+										bool SendsMessages = true,
+										bool Seamless = false,
+										string MaterialName = "4faa6050b8692851:HardMaterial",
+										string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+										Vec3 Offset = [0, 0, 0],
+										Vec3 Size = [0.5, 0.5, 0.5],
+									},
+									Orientation = 
+									{
+										Vec3 UpVector = [0, 1, 0],
+										Vec3 ForwardVector = [0, 0, 1],
+									},
+									Hierarchy = 
+									{
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 38,
+											},
+											Named = 
+											{
+												string Name = "Thruster",
+											},
+											Archetyped = 
+											{
+												string Name = "519e4cbc821af76f:Thruster",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [-1, 0, 0],
+												Vec3 Scale = [1, 0.999999, 0.999999],
+												Quat Rotation = [0, 0, 0.707107, 0.707107],
+											},
+											Model = 
+											{
+												string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+												string MeshName = "519e4cbc82124da3:Thruster",
+												Vec4 Color = [1, 1, 1, 1],
+												bool Visible = true,
+											},
+											RigidBody = 
+											{
+												bool Static = true,
+												bool Asleep = false,
+												bool Kinematic = false,
+												bool RotationLocked = false,
+												bool Mode2D = false,
+												bool AllowSleep = true,
+												bool Inherit2DMode = true,
+												Vec3 Velocity = [0, 0, 0],
+												Vec3 AngularVelocity = [0, 0, 0],
+											},
+											BoxCollider = 
+											{
+												bool Ghost = false,
+												bool SendsMessages = true,
+												bool Seamless = false,
+												string MaterialName = "4faa6050b8692851:HardMaterial",
+												string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+												Vec3 Offset = [0, 0, 0],
+												Vec3 Size = [0.5, 0.5, 0.5],
+											},
+											Thruster = 
+											{
+											},
+											ThrustEffect = 
+											{
+												bool Active = false,
+												bool WakeUpOnChange = true,
+												bool LocalSpaceDirection = true,
+												float ForceStrength = 200,
+												Vec3 ForceDirection = [0, -1, 0],
+											},
+											BlockTag = 
+											{
+											},
+											Activatable = 
+											{
+												int Key = 87,
+											},
+											SoundEmitter = 
+											{
+												bool StartPlaying = false,
+												int ExtraPriority = 0,
+												string CueName = "51559b749c9e9362:Thruster",
+												float Volume = 1,
+												float Pitch = 1,
+												bool Positional = true,
+											},
+											DestroyOnDeath = 
+											{
+											},
+											Health = 
+											{
+												float Total = 100,
+												float Current = 100,
+											},
+											Hierarchy = 
+											{
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 39,
+													},
+													Named = 
+													{
+														string Name = "IdleParticles",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [0, 0.056366, 0],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [0, 0, 0, 1],
+													},
+													SpriteParticleSystem = 
+													{
+														SystemChildMode ChildMode = Independent,
+														SystemSpace SystemSpace = WorldSpace,
+														uint DrawOrder = 0,
+														ParticleGeometry GeometryMode = Billboarded,
+														ParticleRenderMode RenderMode = Blended,
+														ParticleSortMode SortMode = None,
+														string Texture = "519dae18a6f03073:WhiteCloud",
+														Vec4 Tint = [1, 1, 1, 0.27],
+														float VelocityScale = 1,
+														float LengthScale = 0,
+														float MaxParticleSize = 100,
+														Vec3 SystemSize = [5, 5, 5],
+													},
+													LinearParticleAnimator = 
+													{
+														Vec3 Force = [0, 0.3, 0],
+														Vec3 RandomForce = [0, 0, 0],
+														float Torque = 0,
+														float Growth = 0.6,
+														float Dampening = 0,
+														Vec3 Twist = [0, 0, 0],
+													},
+													SphericalParticleEmitter = 
+													{
+														bool Active = true,
+														uint EmitCount = 0,
+														float EmitRate = 4,
+														float EmitVariance = 0,
+														float Size = 0.8,
+														float SizeVariance = 0.3,
+														float Lifetime = 1,
+														float LifetimeVariance = 0,
+														float Spin = 0,
+														float SpinVariance = 0,
+														bool RandomSpin = true,
+														float Fill = 0,
+														float EmitterVelocityPercent = 0,
+														Vec3 StartVelocity = [0, 1.3, 0],
+														Vec3 RandomVelocity = [0.2, 0.2, 0.2],
+														Vec3 TangentVelocity = [0, 0, 0],
+														Vec3 EmitterSize = [0, 0, 0],
+														bool FastMovingEmitter = false,
+													},
+													ParticleColorAnimator = 
+													{
+														Vec4 Color0 = [1, 1, 1, 1],
+														Vec4 Color1 = [1, 1, 1, 1],
+														Vec4 Color2 = [1, 1, 1, 1],
+														Vec4 Color3 = [1, 1, 1, 1],
+														Vec4 Color4 = [1, 1, 1, 0],
+													},
+												},
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 40,
+													},
+													Named = 
+													{
+														string Name = "OnParticles",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [0, 1.43849, -0.0127583],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [0, 0, 0, 1],
+													},
+													SpriteParticleSystem = 
+													{
+														SystemChildMode ChildMode = Independent,
+														SystemSpace SystemSpace = LocalSpace,
+														uint DrawOrder = 0,
+														ParticleGeometry GeometryMode = Beam,
+														ParticleRenderMode RenderMode = Additive,
+														ParticleSortMode SortMode = None,
+														string Texture = "519dae18a6f03073:WhiteCloud",
+														Vec4 Tint = [1, 1, 1, 0.9999],
+														float VelocityScale = 0.9,
+														float LengthScale = 0.5,
+														float MaxParticleSize = 100,
+														Vec3 SystemSize = [5, 5, 5],
+													},
+													LinearParticleAnimator = 
+													{
+														Vec3 Force = [0, 0, 0],
+														Vec3 RandomForce = [0, 0, 0],
+														float Torque = 0,
+														float Growth = 0,
+														float Dampening = 0,
+														Vec3 Twist = [0, 0, 0],
+													},
+													SphericalParticleEmitter = 
+													{
+														bool Active = false,
+														uint EmitCount = 0,
+														float EmitRate = 50,
+														float EmitVariance = 0,
+														float Size = 0.9,
+														float SizeVariance = 0.1,
+														float Lifetime = 0.05,
+														float LifetimeVariance = 0,
+														float Spin = 0,
+														float SpinVariance = 0,
+														bool RandomSpin = true,
+														float Fill = 0,
+														float EmitterVelocityPercent = 0,
+														Vec3 StartVelocity = [0, 5, 0],
+														Vec3 RandomVelocity = [0.1, 0, 0.1],
+														Vec3 TangentVelocity = [0, 0, 0],
+														Vec3 EmitterSize = [0, 0, 0],
+														bool FastMovingEmitter = false,
+													},
+													ParticleColorAnimator = 
+													{
+														Vec4 Color0 = [1, 1, 1, 1],
+														Vec4 Color1 = [0.515, 0.709, 1, 1],
+														Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+														Vec4 Color3 = [0, 0.0847, 0.385, 1],
+														Vec4 Color4 = [0, 0.58, 1, 0.9999],
+													},
+												},
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 41,
+													},
+													Named = 
+													{
+														string Name = "OnParticles2",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [0, 0.413997, 0],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [0, 0, 0, 1],
+													},
+													SpriteParticleSystem = 
+													{
+														SystemChildMode ChildMode = Independent,
+														SystemSpace SystemSpace = LocalSpace,
+														uint DrawOrder = 0,
+														ParticleGeometry GeometryMode = Billboarded,
+														ParticleRenderMode RenderMode = Additive,
+														ParticleSortMode SortMode = None,
+														string Texture = "519dae18a6f03073:WhiteCloud",
+														Vec4 Tint = [1, 1, 1, 0.9999],
+														float VelocityScale = 1,
+														float LengthScale = 0.5,
+														float MaxParticleSize = 100,
+														Vec3 SystemSize = [5, 5, 5],
+													},
+													LinearParticleAnimator = 
+													{
+														Vec3 Force = [0, 0, 0],
+														Vec3 RandomForce = [0, 0, 0],
+														float Torque = 0,
+														float Growth = 0,
+														float Dampening = 0,
+														Vec3 Twist = [0, 0, 0],
+													},
+													SphericalParticleEmitter = 
+													{
+														bool Active = false,
+														uint EmitCount = 0,
+														float EmitRate = 50,
+														float EmitVariance = 0,
+														float Size = 0.9,
+														float SizeVariance = 0.1,
+														float Lifetime = 0.05,
+														float LifetimeVariance = 0,
+														float Spin = 0,
+														float SpinVariance = 0,
+														bool RandomSpin = true,
+														float Fill = 0,
+														float EmitterVelocityPercent = 0,
+														Vec3 StartVelocity = [0, 0, 0],
+														Vec3 RandomVelocity = [0, 0, 0],
+														Vec3 TangentVelocity = [0, 0, 0],
+														Vec3 EmitterSize = [0, 0, 0],
+														bool FastMovingEmitter = false,
+													},
+													ParticleColorAnimator = 
+													{
+														Vec4 Color0 = [0, 0.4508, 0.92, 0],
+														Vec4 Color1 = [0.515, 0.709, 1, 1],
+														Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+														Vec4 Color3 = [0.20445, 0.314571, 0.705, 1],
+														Vec4 Color4 = [0, 0.58, 1, 0],
+													},
+												},
+											},
+										},
+									},
+								},
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 42,
+							},
+							Named = 
+							{
+								string Name = "Thruster",
+							},
+							Archetyped = 
+							{
+								string Name = "519e4cbc821af76f:Thruster",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [6.42897e-007, -3.9644e-008, 1],
+								Vec3 Scale = [1, 0.999996, 1],
+								Quat Rotation = [-0.499997, 0.500003, 0.500003, -0.499997],
+							},
+							Model = 
+							{
+								string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+								string MeshName = "519e4cbc82124da3:Thruster",
+								Vec4 Color = [1, 1, 1, 1],
+								bool Visible = true,
+							},
+							RigidBody = 
+							{
+								bool Static = true,
+								bool Asleep = false,
+								bool Kinematic = false,
+								bool RotationLocked = false,
+								bool Mode2D = false,
+								bool AllowSleep = true,
+								bool Inherit2DMode = true,
+								Vec3 Velocity = [0, 0, 0],
+								Vec3 AngularVelocity = [0, 0, 0],
+							},
+							BoxCollider = 
+							{
+								bool Ghost = false,
+								bool SendsMessages = true,
+								bool Seamless = false,
+								string MaterialName = "4faa6050b8692851:HardMaterial",
+								string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+								Vec3 Offset = [0, 0, 0],
+								Vec3 Size = [0.5, 0.5, 0.5],
+							},
+							Thruster = 
+							{
+							},
+							ThrustEffect = 
+							{
+								bool Active = false,
+								bool WakeUpOnChange = true,
+								bool LocalSpaceDirection = true,
+								float ForceStrength = 200,
+								Vec3 ForceDirection = [0, -1, 0],
+							},
+							BlockTag = 
+							{
+							},
+							Activatable = 
+							{
+								int Key = 87,
+							},
+							SoundEmitter = 
+							{
+								bool StartPlaying = false,
+								int ExtraPriority = 0,
+								string CueName = "51559b749c9e9362:Thruster",
+								float Volume = 1,
+								float Pitch = 1,
+								bool Positional = true,
+							},
+							DestroyOnDeath = 
+							{
+							},
+							Health = 
+							{
+								float Total = 100,
+								float Current = 100,
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 43,
+									},
+									Named = 
+									{
+										string Name = "IdleParticles",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 0.056366, 0],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+									SpriteParticleSystem = 
+									{
+										SystemChildMode ChildMode = Independent,
+										SystemSpace SystemSpace = WorldSpace,
+										uint DrawOrder = 0,
+										ParticleGeometry GeometryMode = Billboarded,
+										ParticleRenderMode RenderMode = Blended,
+										ParticleSortMode SortMode = None,
+										string Texture = "519dae18a6f03073:WhiteCloud",
+										Vec4 Tint = [1, 1, 1, 0.27],
+										float VelocityScale = 1,
+										float LengthScale = 0,
+										float MaxParticleSize = 100,
+										Vec3 SystemSize = [5, 5, 5],
+									},
+									LinearParticleAnimator = 
+									{
+										Vec3 Force = [0, 0.3, 0],
+										Vec3 RandomForce = [0, 0, 0],
+										float Torque = 0,
+										float Growth = 0.6,
+										float Dampening = 0,
+										Vec3 Twist = [0, 0, 0],
+									},
+									SphericalParticleEmitter = 
+									{
+										bool Active = true,
+										uint EmitCount = 0,
+										float EmitRate = 4,
+										float EmitVariance = 0,
+										float Size = 0.8,
+										float SizeVariance = 0.3,
+										float Lifetime = 1,
+										float LifetimeVariance = 0,
+										float Spin = 0,
+										float SpinVariance = 0,
+										bool RandomSpin = true,
+										float Fill = 0,
+										float EmitterVelocityPercent = 0,
+										Vec3 StartVelocity = [0, 1.3, 0],
+										Vec3 RandomVelocity = [0.2, 0.2, 0.2],
+										Vec3 TangentVelocity = [0, 0, 0],
+										Vec3 EmitterSize = [0, 0, 0],
+										bool FastMovingEmitter = false,
+									},
+									ParticleColorAnimator = 
+									{
+										Vec4 Color0 = [1, 1, 1, 1],
+										Vec4 Color1 = [1, 1, 1, 1],
+										Vec4 Color2 = [1, 1, 1, 1],
+										Vec4 Color3 = [1, 1, 1, 1],
+										Vec4 Color4 = [1, 1, 1, 0],
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 44,
+									},
+									Named = 
+									{
+										string Name = "OnParticles",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 1.43849, -0.0127583],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+									SpriteParticleSystem = 
+									{
+										SystemChildMode ChildMode = Independent,
+										SystemSpace SystemSpace = LocalSpace,
+										uint DrawOrder = 0,
+										ParticleGeometry GeometryMode = Beam,
+										ParticleRenderMode RenderMode = Additive,
+										ParticleSortMode SortMode = None,
+										string Texture = "519dae18a6f03073:WhiteCloud",
+										Vec4 Tint = [1, 1, 1, 0.9999],
+										float VelocityScale = 0.9,
+										float LengthScale = 0.5,
+										float MaxParticleSize = 100,
+										Vec3 SystemSize = [5, 5, 5],
+									},
+									LinearParticleAnimator = 
+									{
+										Vec3 Force = [0, 0, 0],
+										Vec3 RandomForce = [0, 0, 0],
+										float Torque = 0,
+										float Growth = 0,
+										float Dampening = 0,
+										Vec3 Twist = [0, 0, 0],
+									},
+									SphericalParticleEmitter = 
+									{
+										bool Active = false,
+										uint EmitCount = 0,
+										float EmitRate = 50,
+										float EmitVariance = 0,
+										float Size = 0.9,
+										float SizeVariance = 0.1,
+										float Lifetime = 0.05,
+										float LifetimeVariance = 0,
+										float Spin = 0,
+										float SpinVariance = 0,
+										bool RandomSpin = true,
+										float Fill = 0,
+										float EmitterVelocityPercent = 0,
+										Vec3 StartVelocity = [0, 5, 0],
+										Vec3 RandomVelocity = [0.1, 0, 0.1],
+										Vec3 TangentVelocity = [0, 0, 0],
+										Vec3 EmitterSize = [0, 0, 0],
+										bool FastMovingEmitter = false,
+									},
+									ParticleColorAnimator = 
+									{
+										Vec4 Color0 = [1, 1, 1, 1],
+										Vec4 Color1 = [0.515, 0.709, 1, 1],
+										Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+										Vec4 Color3 = [0, 0.0847, 0.385, 1],
+										Vec4 Color4 = [0, 0.58, 1, 0.9999],
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 45,
+									},
+									Named = 
+									{
+										string Name = "OnParticles2",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 0.413997, 0],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+									SpriteParticleSystem = 
+									{
+										SystemChildMode ChildMode = Independent,
+										SystemSpace SystemSpace = LocalSpace,
+										uint DrawOrder = 0,
+										ParticleGeometry GeometryMode = Billboarded,
+										ParticleRenderMode RenderMode = Additive,
+										ParticleSortMode SortMode = None,
+										string Texture = "519dae18a6f03073:WhiteCloud",
+										Vec4 Tint = [1, 1, 1, 0.9999],
+										float VelocityScale = 1,
+										float LengthScale = 0.5,
+										float MaxParticleSize = 100,
+										Vec3 SystemSize = [5, 5, 5],
+									},
+									LinearParticleAnimator = 
+									{
+										Vec3 Force = [0, 0, 0],
+										Vec3 RandomForce = [0, 0, 0],
+										float Torque = 0,
+										float Growth = 0,
+										float Dampening = 0,
+										Vec3 Twist = [0, 0, 0],
+									},
+									SphericalParticleEmitter = 
+									{
+										bool Active = false,
+										uint EmitCount = 0,
+										float EmitRate = 50,
+										float EmitVariance = 0,
+										float Size = 0.9,
+										float SizeVariance = 0.1,
+										float Lifetime = 0.05,
+										float LifetimeVariance = 0,
+										float Spin = 0,
+										float SpinVariance = 0,
+										bool RandomSpin = true,
+										float Fill = 0,
+										float EmitterVelocityPercent = 0,
+										Vec3 StartVelocity = [0, 0, 0],
+										Vec3 RandomVelocity = [0, 0, 0],
+										Vec3 TangentVelocity = [0, 0, 0],
+										Vec3 EmitterSize = [0, 0, 0],
+										bool FastMovingEmitter = false,
+									},
+									ParticleColorAnimator = 
+									{
+										Vec4 Color0 = [0, 0.4508, 0.92, 0],
+										Vec4 Color1 = [0.515, 0.709, 1, 1],
+										Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+										Vec4 Color3 = [0.20445, 0.314571, 0.705, 1],
+										Vec4 Color4 = [0, 0.58, 1, 0],
+									},
+								},
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 46,
+							},
+							Named = 
+							{
+								string Name = "Thruster",
+							},
+							Archetyped = 
+							{
+								string Name = "519e4cbc821af76f:Thruster",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [-1, -3.97272e-007, 4.29527e-007],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [-5.35216e-020, -1.01648e-018, 0.707105, 0.707108],
+							},
+							Model = 
+							{
+								string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+								string MeshName = "519e4cbc82124da3:Thruster",
+								Vec4 Color = [1, 1, 1, 1],
+								bool Visible = true,
+							},
+							RigidBody = 
+							{
+								bool Static = true,
+								bool Asleep = false,
+								bool Kinematic = false,
+								bool RotationLocked = false,
+								bool Mode2D = false,
+								bool AllowSleep = true,
+								bool Inherit2DMode = true,
+								Vec3 Velocity = [0, 0, 0],
+								Vec3 AngularVelocity = [0, 0, 0],
+							},
+							BoxCollider = 
+							{
+								bool Ghost = false,
+								bool SendsMessages = true,
+								bool Seamless = false,
+								string MaterialName = "4faa6050b8692851:HardMaterial",
+								string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+								Vec3 Offset = [0, 0, 0],
+								Vec3 Size = [0.5, 0.5, 0.5],
+							},
+							Thruster = 
+							{
+							},
+							ThrustEffect = 
+							{
+								bool Active = false,
+								bool WakeUpOnChange = true,
+								bool LocalSpaceDirection = true,
+								float ForceStrength = 200,
+								Vec3 ForceDirection = [0, -1, 0],
+							},
+							BlockTag = 
+							{
+							},
+							Activatable = 
+							{
+								int Key = 150,
+							},
+							SoundEmitter = 
+							{
+								bool StartPlaying = false,
+								int ExtraPriority = 0,
+								string CueName = "51559b749c9e9362:Thruster",
+								float Volume = 1,
+								float Pitch = 1,
+								bool Positional = true,
+							},
+							DestroyOnDeath = 
+							{
+							},
+							Health = 
+							{
+								float Total = 100,
+								float Current = 100,
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 47,
+									},
+									Named = 
+									{
+										string Name = "IdleParticles",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 0.056366, 0],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+									SpriteParticleSystem = 
+									{
+										SystemChildMode ChildMode = Independent,
+										SystemSpace SystemSpace = WorldSpace,
+										uint DrawOrder = 0,
+										ParticleGeometry GeometryMode = Billboarded,
+										ParticleRenderMode RenderMode = Blended,
+										ParticleSortMode SortMode = None,
+										string Texture = "519dae18a6f03073:WhiteCloud",
+										Vec4 Tint = [1, 1, 1, 0.27],
+										float VelocityScale = 1,
+										float LengthScale = 0,
+										float MaxParticleSize = 100,
+										Vec3 SystemSize = [5, 5, 5],
+									},
+									LinearParticleAnimator = 
+									{
+										Vec3 Force = [0, 0.3, 0],
+										Vec3 RandomForce = [0, 0, 0],
+										float Torque = 0,
+										float Growth = 0.6,
+										float Dampening = 0,
+										Vec3 Twist = [0, 0, 0],
+									},
+									SphericalParticleEmitter = 
+									{
+										bool Active = true,
+										uint EmitCount = 0,
+										float EmitRate = 4,
+										float EmitVariance = 0,
+										float Size = 0.8,
+										float SizeVariance = 0.3,
+										float Lifetime = 1,
+										float LifetimeVariance = 0,
+										float Spin = 0,
+										float SpinVariance = 0,
+										bool RandomSpin = true,
+										float Fill = 0,
+										float EmitterVelocityPercent = 0,
+										Vec3 StartVelocity = [0, 1.3, 0],
+										Vec3 RandomVelocity = [0.2, 0.2, 0.2],
+										Vec3 TangentVelocity = [0, 0, 0],
+										Vec3 EmitterSize = [0, 0, 0],
+										bool FastMovingEmitter = false,
+									},
+									ParticleColorAnimator = 
+									{
+										Vec4 Color0 = [1, 1, 1, 1],
+										Vec4 Color1 = [1, 1, 1, 1],
+										Vec4 Color2 = [1, 1, 1, 1],
+										Vec4 Color3 = [1, 1, 1, 1],
+										Vec4 Color4 = [1, 1, 1, 0],
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 48,
+									},
+									Named = 
+									{
+										string Name = "OnParticles",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 1.43849, -0.0127583],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+									SpriteParticleSystem = 
+									{
+										SystemChildMode ChildMode = Independent,
+										SystemSpace SystemSpace = LocalSpace,
+										uint DrawOrder = 0,
+										ParticleGeometry GeometryMode = Beam,
+										ParticleRenderMode RenderMode = Additive,
+										ParticleSortMode SortMode = None,
+										string Texture = "519dae18a6f03073:WhiteCloud",
+										Vec4 Tint = [1, 1, 1, 0.9999],
+										float VelocityScale = 0.9,
+										float LengthScale = 0.5,
+										float MaxParticleSize = 100,
+										Vec3 SystemSize = [5, 5, 5],
+									},
+									LinearParticleAnimator = 
+									{
+										Vec3 Force = [0, 0, 0],
+										Vec3 RandomForce = [0, 0, 0],
+										float Torque = 0,
+										float Growth = 0,
+										float Dampening = 0,
+										Vec3 Twist = [0, 0, 0],
+									},
+									SphericalParticleEmitter = 
+									{
+										bool Active = false,
+										uint EmitCount = 0,
+										float EmitRate = 50,
+										float EmitVariance = 0,
+										float Size = 0.9,
+										float SizeVariance = 0.1,
+										float Lifetime = 0.05,
+										float LifetimeVariance = 0,
+										float Spin = 0,
+										float SpinVariance = 0,
+										bool RandomSpin = true,
+										float Fill = 0,
+										float EmitterVelocityPercent = 0,
+										Vec3 StartVelocity = [0, 5, 0],
+										Vec3 RandomVelocity = [0.1, 0, 0.1],
+										Vec3 TangentVelocity = [0, 0, 0],
+										Vec3 EmitterSize = [0, 0, 0],
+										bool FastMovingEmitter = false,
+									},
+									ParticleColorAnimator = 
+									{
+										Vec4 Color0 = [1, 1, 1, 1],
+										Vec4 Color1 = [0.515, 0.709, 1, 1],
+										Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+										Vec4 Color3 = [0, 0.0847, 0.385, 1],
+										Vec4 Color4 = [0, 0.58, 1, 0.9999],
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 49,
+									},
+									Named = 
+									{
+										string Name = "OnParticles2",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 0.413997, 0],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+									SpriteParticleSystem = 
+									{
+										SystemChildMode ChildMode = Independent,
+										SystemSpace SystemSpace = LocalSpace,
+										uint DrawOrder = 0,
+										ParticleGeometry GeometryMode = Billboarded,
+										ParticleRenderMode RenderMode = Additive,
+										ParticleSortMode SortMode = None,
+										string Texture = "519dae18a6f03073:WhiteCloud",
+										Vec4 Tint = [1, 1, 1, 0.9999],
+										float VelocityScale = 1,
+										float LengthScale = 0.5,
+										float MaxParticleSize = 100,
+										Vec3 SystemSize = [5, 5, 5],
+									},
+									LinearParticleAnimator = 
+									{
+										Vec3 Force = [0, 0, 0],
+										Vec3 RandomForce = [0, 0, 0],
+										float Torque = 0,
+										float Growth = 0,
+										float Dampening = 0,
+										Vec3 Twist = [0, 0, 0],
+									},
+									SphericalParticleEmitter = 
+									{
+										bool Active = false,
+										uint EmitCount = 0,
+										float EmitRate = 50,
+										float EmitVariance = 0,
+										float Size = 0.9,
+										float SizeVariance = 0.1,
+										float Lifetime = 0.05,
+										float LifetimeVariance = 0,
+										float Spin = 0,
+										float SpinVariance = 0,
+										bool RandomSpin = true,
+										float Fill = 0,
+										float EmitterVelocityPercent = 0,
+										Vec3 StartVelocity = [0, 0, 0],
+										Vec3 RandomVelocity = [0, 0, 0],
+										Vec3 TangentVelocity = [0, 0, 0],
+										Vec3 EmitterSize = [0, 0, 0],
+										bool FastMovingEmitter = false,
+									},
+									ParticleColorAnimator = 
+									{
+										Vec4 Color0 = [0, 0.4508, 0.92, 0],
+										Vec4 Color1 = [0.515, 0.709, 1, 1],
+										Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+										Vec4 Color3 = [0.20445, 0.314571, 0.705, 1],
+										Vec4 Color4 = [0, 0.58, 1, 0],
+									},
+								},
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 50,
+					},
+					Archetyped = 
+					{
+						string Name = "519e5cfaa4b9c3f4:Block",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, 1],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0.707107, 0.707107, -0],
+					},
+					Model = 
+					{
+						string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+						string MeshName = "4de0354322b345ae:Cube",
+						Vec4 Color = [1, 1, 1, 1],
+						bool Visible = true,
+					},
+					RigidBody = 
+					{
+						bool Static = true,
+						bool Asleep = false,
+						bool Kinematic = false,
+						bool RotationLocked = false,
+						bool Mode2D = false,
+						bool AllowSleep = true,
+						bool Inherit2DMode = true,
+						Vec3 Velocity = [0, 0, 0],
+						Vec3 AngularVelocity = [0, 0, 0],
+					},
+					BoxCollider = 
+					{
+						bool Ghost = false,
+						bool SendsMessages = true,
+						bool Seamless = false,
+						string MaterialName = "4faa6050b8692851:HardMaterial",
+						string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+						Vec3 Offset = [0, 0, 0],
+						Vec3 Size = [0.5, 0.5, 0.5],
+					},
+					BlockTag = 
+					{
+					},
+					DestroyOnDeath = 
+					{
+					},
+					Health = 
+					{
+						float Total = 100,
+						float Current = 100,
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 51,
+							},
+							Archetyped = 
+							{
+								string Name = "519e5cfaa4b9c3f4:Block",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 1, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, -0, 1],
+							},
+							Model = 
+							{
+								string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+								string MeshName = "4de0354322b345ae:Cube",
+								Vec4 Color = [1, 1, 1, 1],
+								bool Visible = true,
+							},
+							RigidBody = 
+							{
+								bool Static = true,
+								bool Asleep = false,
+								bool Kinematic = false,
+								bool RotationLocked = false,
+								bool Mode2D = false,
+								bool AllowSleep = true,
+								bool Inherit2DMode = true,
+								Vec3 Velocity = [0, 0, 0],
+								Vec3 AngularVelocity = [0, 0, 0],
+							},
+							BoxCollider = 
+							{
+								bool Ghost = false,
+								bool SendsMessages = true,
+								bool Seamless = false,
+								string MaterialName = "4faa6050b8692851:HardMaterial",
+								string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+								Vec3 Offset = [0, 0, 0],
+								Vec3 Size = [0.5, 0.5, 0.5],
+							},
+							BlockTag = 
+							{
+							},
+							DestroyOnDeath = 
+							{
+							},
+							Health = 
+							{
+								float Total = 100,
+								float Current = 100,
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 52,
+									},
+									Archetyped = 
+									{
+										string Name = "519e5cfaa4b9c3f4:Block",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 1, 0],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0, -0, 1],
+									},
+									Model = 
+									{
+										string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+										string MeshName = "4de0354322b345ae:Cube",
+										Vec4 Color = [1, 1, 1, 1],
+										bool Visible = true,
+									},
+									RigidBody = 
+									{
+										bool Static = true,
+										bool Asleep = false,
+										bool Kinematic = false,
+										bool RotationLocked = false,
+										bool Mode2D = false,
+										bool AllowSleep = true,
+										bool Inherit2DMode = true,
+										Vec3 Velocity = [0, 0, 0],
+										Vec3 AngularVelocity = [0, 0, 0],
+									},
+									BoxCollider = 
+									{
+										bool Ghost = false,
+										bool SendsMessages = true,
+										bool Seamless = false,
+										string MaterialName = "4faa6050b8692851:HardMaterial",
+										string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+										Vec3 Offset = [0, 0, 0],
+										Vec3 Size = [0.5, 0.5, 0.5],
+									},
+									BlockTag = 
+									{
+									},
+									DestroyOnDeath = 
+									{
+									},
+									Health = 
+									{
+										float Total = 100,
+										float Current = 100,
+									},
+									Hierarchy = 
+									{
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 53,
+											},
+											Named = 
+											{
+												string Name = "Thruster",
+											},
+											Archetyped = 
+											{
+												string Name = "519e4cbc821af76f:Thruster",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [1, 1.22295e-005, -2.89065e-008],
+												Vec3 Scale = [1.00001, 0.999995, 1],
+												Quat Rotation = [-0.499996, -0.499996, -0.500004, 0.500004],
+											},
+											Model = 
+											{
+												string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+												string MeshName = "519e4cbc82124da3:Thruster",
+												Vec4 Color = [1, 1, 1, 1],
+												bool Visible = true,
+											},
+											RigidBody = 
+											{
+												bool Static = true,
+												bool Asleep = false,
+												bool Kinematic = false,
+												bool RotationLocked = false,
+												bool Mode2D = false,
+												bool AllowSleep = true,
+												bool Inherit2DMode = true,
+												Vec3 Velocity = [0, 0, 0],
+												Vec3 AngularVelocity = [0, 0, 0],
+											},
+											BoxCollider = 
+											{
+												bool Ghost = false,
+												bool SendsMessages = true,
+												bool Seamless = false,
+												string MaterialName = "4faa6050b8692851:HardMaterial",
+												string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+												Vec3 Offset = [0, 0, 0],
+												Vec3 Size = [0.5, 0.5, 0.5],
+											},
+											Thruster = 
+											{
+											},
+											ThrustEffect = 
+											{
+												bool Active = false,
+												bool WakeUpOnChange = true,
+												bool LocalSpaceDirection = true,
+												float ForceStrength = 200,
+												Vec3 ForceDirection = [0, -1, 0],
+											},
+											BlockTag = 
+											{
+											},
+											Activatable = 
+											{
+												int Key = 68,
+											},
+											SoundEmitter = 
+											{
+												bool StartPlaying = false,
+												int ExtraPriority = 0,
+												string CueName = "51559b749c9e9362:Thruster",
+												float Volume = 1,
+												float Pitch = 1,
+												bool Positional = true,
+											},
+											DestroyOnDeath = 
+											{
+											},
+											Health = 
+											{
+												float Total = 100,
+												float Current = 100,
+											},
+											Hierarchy = 
+											{
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 54,
+													},
+													Named = 
+													{
+														string Name = "IdleParticles",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [0, 0.056366, 0],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [0, 0, 0, 1],
+													},
+													SpriteParticleSystem = 
+													{
+														SystemChildMode ChildMode = Independent,
+														SystemSpace SystemSpace = WorldSpace,
+														uint DrawOrder = 0,
+														ParticleGeometry GeometryMode = Billboarded,
+														ParticleRenderMode RenderMode = Blended,
+														ParticleSortMode SortMode = None,
+														string Texture = "519dae18a6f03073:WhiteCloud",
+														Vec4 Tint = [1, 1, 1, 0.27],
+														float VelocityScale = 1,
+														float LengthScale = 0,
+														float MaxParticleSize = 100,
+														Vec3 SystemSize = [5, 5, 5],
+													},
+													LinearParticleAnimator = 
+													{
+														Vec3 Force = [0, 0.3, 0],
+														Vec3 RandomForce = [0, 0, 0],
+														float Torque = 0,
+														float Growth = 0.6,
+														float Dampening = 0,
+														Vec3 Twist = [0, 0, 0],
+													},
+													SphericalParticleEmitter = 
+													{
+														bool Active = true,
+														uint EmitCount = 0,
+														float EmitRate = 4,
+														float EmitVariance = 0,
+														float Size = 0.8,
+														float SizeVariance = 0.3,
+														float Lifetime = 1,
+														float LifetimeVariance = 0,
+														float Spin = 0,
+														float SpinVariance = 0,
+														bool RandomSpin = true,
+														float Fill = 0,
+														float EmitterVelocityPercent = 0,
+														Vec3 StartVelocity = [0, 1.3, 0],
+														Vec3 RandomVelocity = [0.2, 0.2, 0.2],
+														Vec3 TangentVelocity = [0, 0, 0],
+														Vec3 EmitterSize = [0, 0, 0],
+														bool FastMovingEmitter = false,
+													},
+													ParticleColorAnimator = 
+													{
+														Vec4 Color0 = [1, 1, 1, 1],
+														Vec4 Color1 = [1, 1, 1, 1],
+														Vec4 Color2 = [1, 1, 1, 1],
+														Vec4 Color3 = [1, 1, 1, 1],
+														Vec4 Color4 = [1, 1, 1, 0],
+													},
+												},
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 55,
+													},
+													Named = 
+													{
+														string Name = "OnParticles",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [0, 1.43849, -0.0127583],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [0, 0, 0, 1],
+													},
+													SpriteParticleSystem = 
+													{
+														SystemChildMode ChildMode = Independent,
+														SystemSpace SystemSpace = LocalSpace,
+														uint DrawOrder = 0,
+														ParticleGeometry GeometryMode = Beam,
+														ParticleRenderMode RenderMode = Additive,
+														ParticleSortMode SortMode = None,
+														string Texture = "519dae18a6f03073:WhiteCloud",
+														Vec4 Tint = [1, 1, 1, 0.9999],
+														float VelocityScale = 0.9,
+														float LengthScale = 0.5,
+														float MaxParticleSize = 100,
+														Vec3 SystemSize = [5, 5, 5],
+													},
+													LinearParticleAnimator = 
+													{
+														Vec3 Force = [0, 0, 0],
+														Vec3 RandomForce = [0, 0, 0],
+														float Torque = 0,
+														float Growth = 0,
+														float Dampening = 0,
+														Vec3 Twist = [0, 0, 0],
+													},
+													SphericalParticleEmitter = 
+													{
+														bool Active = false,
+														uint EmitCount = 0,
+														float EmitRate = 50,
+														float EmitVariance = 0,
+														float Size = 0.9,
+														float SizeVariance = 0.1,
+														float Lifetime = 0.05,
+														float LifetimeVariance = 0,
+														float Spin = 0,
+														float SpinVariance = 0,
+														bool RandomSpin = true,
+														float Fill = 0,
+														float EmitterVelocityPercent = 0,
+														Vec3 StartVelocity = [0, 5, 0],
+														Vec3 RandomVelocity = [0.1, 0, 0.1],
+														Vec3 TangentVelocity = [0, 0, 0],
+														Vec3 EmitterSize = [0, 0, 0],
+														bool FastMovingEmitter = false,
+													},
+													ParticleColorAnimator = 
+													{
+														Vec4 Color0 = [1, 1, 1, 1],
+														Vec4 Color1 = [0.515, 0.709, 1, 1],
+														Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+														Vec4 Color3 = [0, 0.0847, 0.385, 1],
+														Vec4 Color4 = [0, 0.58, 1, 0.9999],
+													},
+												},
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 56,
+													},
+													Named = 
+													{
+														string Name = "OnParticles2",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [0, 0.413997, 0],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [0, 0, 0, 1],
+													},
+													SpriteParticleSystem = 
+													{
+														SystemChildMode ChildMode = Independent,
+														SystemSpace SystemSpace = LocalSpace,
+														uint DrawOrder = 0,
+														ParticleGeometry GeometryMode = Billboarded,
+														ParticleRenderMode RenderMode = Additive,
+														ParticleSortMode SortMode = None,
+														string Texture = "519dae18a6f03073:WhiteCloud",
+														Vec4 Tint = [1, 1, 1, 0.9999],
+														float VelocityScale = 1,
+														float LengthScale = 0.5,
+														float MaxParticleSize = 100,
+														Vec3 SystemSize = [5, 5, 5],
+													},
+													LinearParticleAnimator = 
+													{
+														Vec3 Force = [0, 0, 0],
+														Vec3 RandomForce = [0, 0, 0],
+														float Torque = 0,
+														float Growth = 0,
+														float Dampening = 0,
+														Vec3 Twist = [0, 0, 0],
+													},
+													SphericalParticleEmitter = 
+													{
+														bool Active = false,
+														uint EmitCount = 0,
+														float EmitRate = 50,
+														float EmitVariance = 0,
+														float Size = 0.9,
+														float SizeVariance = 0.1,
+														float Lifetime = 0.05,
+														float LifetimeVariance = 0,
+														float Spin = 0,
+														float SpinVariance = 0,
+														bool RandomSpin = true,
+														float Fill = 0,
+														float EmitterVelocityPercent = 0,
+														Vec3 StartVelocity = [0, 0, 0],
+														Vec3 RandomVelocity = [0, 0, 0],
+														Vec3 TangentVelocity = [0, 0, 0],
+														Vec3 EmitterSize = [0, 0, 0],
+														bool FastMovingEmitter = false,
+													},
+													ParticleColorAnimator = 
+													{
+														Vec4 Color0 = [0, 0.4508, 0.92, 0],
+														Vec4 Color1 = [0.515, 0.709, 1, 1],
+														Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+														Vec4 Color3 = [0.20445, 0.314571, 0.705, 1],
+														Vec4 Color4 = [0, 0.58, 1, 0],
+													},
+												},
+											},
+										},
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 57,
+											},
+											Named = 
+											{
+												string Name = "Thruster",
+											},
+											Archetyped = 
+											{
+												string Name = "519e4cbc821af76f:Thruster",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [-0.999994, 6.5075e-006, -2.89099e-008],
+												Vec3 Scale = [0.999997, 0.999998, 1.00001],
+												Quat Rotation = [-0.707107, 0.707107, -1.04856e-011, -1.07344e-011],
+											},
+											Model = 
+											{
+												string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+												string MeshName = "519e4cbc82124da3:Thruster",
+												Vec4 Color = [1, 1, 1, 1],
+												bool Visible = true,
+											},
+											RigidBody = 
+											{
+												bool Static = true,
+												bool Asleep = false,
+												bool Kinematic = false,
+												bool RotationLocked = false,
+												bool Mode2D = false,
+												bool AllowSleep = true,
+												bool Inherit2DMode = true,
+												Vec3 Velocity = [0, 0, 0],
+												Vec3 AngularVelocity = [0, 0, 0],
+											},
+											BoxCollider = 
+											{
+												bool Ghost = false,
+												bool SendsMessages = true,
+												bool Seamless = false,
+												string MaterialName = "4faa6050b8692851:HardMaterial",
+												string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+												Vec3 Offset = [0, 0, 0],
+												Vec3 Size = [0.5, 0.5, 0.5],
+											},
+											Thruster = 
+											{
+											},
+											ThrustEffect = 
+											{
+												bool Active = false,
+												bool WakeUpOnChange = true,
+												bool LocalSpaceDirection = true,
+												float ForceStrength = 200,
+												Vec3 ForceDirection = [0, -1, 0],
+											},
+											BlockTag = 
+											{
+											},
+											Activatable = 
+											{
+												int Key = 65,
+											},
+											SoundEmitter = 
+											{
+												bool StartPlaying = false,
+												int ExtraPriority = 0,
+												string CueName = "51559b749c9e9362:Thruster",
+												float Volume = 1,
+												float Pitch = 1,
+												bool Positional = true,
+											},
+											DestroyOnDeath = 
+											{
+											},
+											Health = 
+											{
+												float Total = 100,
+												float Current = 100,
+											},
+											Hierarchy = 
+											{
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 58,
+													},
+													Named = 
+													{
+														string Name = "IdleParticles",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [0, 0.056366, 0],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [0, 0, 0, 1],
+													},
+													SpriteParticleSystem = 
+													{
+														SystemChildMode ChildMode = Independent,
+														SystemSpace SystemSpace = WorldSpace,
+														uint DrawOrder = 0,
+														ParticleGeometry GeometryMode = Billboarded,
+														ParticleRenderMode RenderMode = Blended,
+														ParticleSortMode SortMode = None,
+														string Texture = "519dae18a6f03073:WhiteCloud",
+														Vec4 Tint = [1, 1, 1, 0.27],
+														float VelocityScale = 1,
+														float LengthScale = 0,
+														float MaxParticleSize = 100,
+														Vec3 SystemSize = [5, 5, 5],
+													},
+													LinearParticleAnimator = 
+													{
+														Vec3 Force = [0, 0.3, 0],
+														Vec3 RandomForce = [0, 0, 0],
+														float Torque = 0,
+														float Growth = 0.6,
+														float Dampening = 0,
+														Vec3 Twist = [0, 0, 0],
+													},
+													SphericalParticleEmitter = 
+													{
+														bool Active = true,
+														uint EmitCount = 0,
+														float EmitRate = 4,
+														float EmitVariance = 0,
+														float Size = 0.8,
+														float SizeVariance = 0.3,
+														float Lifetime = 1,
+														float LifetimeVariance = 0,
+														float Spin = 0,
+														float SpinVariance = 0,
+														bool RandomSpin = true,
+														float Fill = 0,
+														float EmitterVelocityPercent = 0,
+														Vec3 StartVelocity = [0, 1.3, 0],
+														Vec3 RandomVelocity = [0.2, 0.2, 0.2],
+														Vec3 TangentVelocity = [0, 0, 0],
+														Vec3 EmitterSize = [0, 0, 0],
+														bool FastMovingEmitter = false,
+													},
+													ParticleColorAnimator = 
+													{
+														Vec4 Color0 = [1, 1, 1, 1],
+														Vec4 Color1 = [1, 1, 1, 1],
+														Vec4 Color2 = [1, 1, 1, 1],
+														Vec4 Color3 = [1, 1, 1, 1],
+														Vec4 Color4 = [1, 1, 1, 0],
+													},
+												},
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 59,
+													},
+													Named = 
+													{
+														string Name = "OnParticles",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [0, 1.43849, -0.0127583],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [0, 0, 0, 1],
+													},
+													SpriteParticleSystem = 
+													{
+														SystemChildMode ChildMode = Independent,
+														SystemSpace SystemSpace = LocalSpace,
+														uint DrawOrder = 0,
+														ParticleGeometry GeometryMode = Beam,
+														ParticleRenderMode RenderMode = Additive,
+														ParticleSortMode SortMode = None,
+														string Texture = "519dae18a6f03073:WhiteCloud",
+														Vec4 Tint = [1, 1, 1, 0.9999],
+														float VelocityScale = 0.9,
+														float LengthScale = 0.5,
+														float MaxParticleSize = 100,
+														Vec3 SystemSize = [5, 5, 5],
+													},
+													LinearParticleAnimator = 
+													{
+														Vec3 Force = [0, 0, 0],
+														Vec3 RandomForce = [0, 0, 0],
+														float Torque = 0,
+														float Growth = 0,
+														float Dampening = 0,
+														Vec3 Twist = [0, 0, 0],
+													},
+													SphericalParticleEmitter = 
+													{
+														bool Active = false,
+														uint EmitCount = 0,
+														float EmitRate = 50,
+														float EmitVariance = 0,
+														float Size = 0.9,
+														float SizeVariance = 0.1,
+														float Lifetime = 0.05,
+														float LifetimeVariance = 0,
+														float Spin = 0,
+														float SpinVariance = 0,
+														bool RandomSpin = true,
+														float Fill = 0,
+														float EmitterVelocityPercent = 0,
+														Vec3 StartVelocity = [0, 5, 0],
+														Vec3 RandomVelocity = [0.1, 0, 0.1],
+														Vec3 TangentVelocity = [0, 0, 0],
+														Vec3 EmitterSize = [0, 0, 0],
+														bool FastMovingEmitter = false,
+													},
+													ParticleColorAnimator = 
+													{
+														Vec4 Color0 = [1, 1, 1, 1],
+														Vec4 Color1 = [0.515, 0.709, 1, 1],
+														Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+														Vec4 Color3 = [0, 0.0847, 0.385, 1],
+														Vec4 Color4 = [0, 0.58, 1, 0.9999],
+													},
+												},
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 60,
+													},
+													Named = 
+													{
+														string Name = "OnParticles2",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [0, 0.413997, 0],
+														Vec3 Scale = [1, 1, 1],
+														Quat Rotation = [0, 0, 0, 1],
+													},
+													SpriteParticleSystem = 
+													{
+														SystemChildMode ChildMode = Independent,
+														SystemSpace SystemSpace = LocalSpace,
+														uint DrawOrder = 0,
+														ParticleGeometry GeometryMode = Billboarded,
+														ParticleRenderMode RenderMode = Additive,
+														ParticleSortMode SortMode = None,
+														string Texture = "519dae18a6f03073:WhiteCloud",
+														Vec4 Tint = [1, 1, 1, 0.9999],
+														float VelocityScale = 1,
+														float LengthScale = 0.5,
+														float MaxParticleSize = 100,
+														Vec3 SystemSize = [5, 5, 5],
+													},
+													LinearParticleAnimator = 
+													{
+														Vec3 Force = [0, 0, 0],
+														Vec3 RandomForce = [0, 0, 0],
+														float Torque = 0,
+														float Growth = 0,
+														float Dampening = 0,
+														Vec3 Twist = [0, 0, 0],
+													},
+													SphericalParticleEmitter = 
+													{
+														bool Active = false,
+														uint EmitCount = 0,
+														float EmitRate = 50,
+														float EmitVariance = 0,
+														float Size = 0.9,
+														float SizeVariance = 0.1,
+														float Lifetime = 0.05,
+														float LifetimeVariance = 0,
+														float Spin = 0,
+														float SpinVariance = 0,
+														bool RandomSpin = true,
+														float Fill = 0,
+														float EmitterVelocityPercent = 0,
+														Vec3 StartVelocity = [0, 0, 0],
+														Vec3 RandomVelocity = [0, 0, 0],
+														Vec3 TangentVelocity = [0, 0, 0],
+														Vec3 EmitterSize = [0, 0, 0],
+														bool FastMovingEmitter = false,
+													},
+													ParticleColorAnimator = 
+													{
+														Vec4 Color0 = [0, 0.4508, 0.92, 0],
+														Vec4 Color1 = [0.515, 0.709, 1, 1],
+														Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+														Vec4 Color3 = [0.20445, 0.314571, 0.705, 1],
+														Vec4 Color4 = [0, 0.58, 1, 0],
+													},
+												},
+											},
+										},
+										Cog = 
+										{
+											LinkId = 
+											{
+												uint Id = 61,
+											},
+											Archetyped = 
+											{
+												string Name = "526374cfe24ee187:VerticalSwivel",
+											},
+											Transform = 
+											{
+												Vec3 Translation = [0, 1, 0],
+												Vec3 Scale = [1, 1, 1],
+												Quat Rotation = [4.85811e-006, 0.999808, -0.0196058, -1.4439e-006],
+											},
+											Model = 
+											{
+												string MaterialName = "51566a1523a57f69:SandStructure",
+												string MeshName = "4de0354322b345ae:Cube",
+												Vec4 Color = [1, 1, 1, 1],
+												bool Visible = true,
+											},
+											RigidBody = 
+											{
+												bool Static = true,
+												bool Asleep = false,
+												bool Kinematic = false,
+												bool RotationLocked = false,
+												bool Mode2D = false,
+												bool AllowSleep = true,
+												bool Inherit2DMode = true,
+												Vec3 Velocity = [0, 0, 0],
+												Vec3 AngularVelocity = [0, 0, 0],
+											},
+											Swivel = 
+											{
+												int Axis = 1,
+											},
+											BlockTag = 
+											{
+											},
+											BoxCollider = 
+											{
+												bool Ghost = false,
+												bool SendsMessages = true,
+												bool Seamless = false,
+												string MaterialName = "4faa6050b8692851:HardMaterial",
+												string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+												Vec3 Offset = [0, 0, 0],
+												Vec3 Size = [0.5, 0.5, 0.5],
+											},
+											Orientation = 
+											{
+												Vec3 UpVector = [0, 1, 0],
+												Vec3 ForwardVector = [0, 0, 1],
+											},
+											Hierarchy = 
+											{
+												Cog = 
+												{
+													LinkId = 
+													{
+														uint Id = 62,
+													},
+													Named = 
+													{
+														string Name = "Thruster",
+													},
+													Archetyped = 
+													{
+														string Name = "519e4cbc821af76f:Thruster",
+													},
+													Transform = 
+													{
+														Vec3 Translation = [0, 1, 0],
+														Vec3 Scale = [1, 0.999999, 0.999999],
+														Quat Rotation = [0, 0, -0, 1],
+													},
+													Model = 
+													{
+														string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+														string MeshName = "519e4cbc82124da3:Thruster",
+														Vec4 Color = [1, 1, 1, 1],
+														bool Visible = true,
+													},
+													RigidBody = 
+													{
+														bool Static = true,
+														bool Asleep = false,
+														bool Kinematic = false,
+														bool RotationLocked = false,
+														bool Mode2D = false,
+														bool AllowSleep = true,
+														bool Inherit2DMode = true,
+														Vec3 Velocity = [0, 0, 0],
+														Vec3 AngularVelocity = [0, 0, 0],
+													},
+													BoxCollider = 
+													{
+														bool Ghost = false,
+														bool SendsMessages = true,
+														bool Seamless = false,
+														string MaterialName = "4faa6050b8692851:HardMaterial",
+														string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+														Vec3 Offset = [0, 0, 0],
+														Vec3 Size = [0.5, 0.5, 0.5],
+													},
+													Thruster = 
+													{
+													},
+													ThrustEffect = 
+													{
+														bool Active = false,
+														bool WakeUpOnChange = true,
+														bool LocalSpaceDirection = true,
+														float ForceStrength = 200,
+														Vec3 ForceDirection = [0, -1, 0],
+													},
+													BlockTag = 
+													{
+													},
+													Activatable = 
+													{
+														int Key = 87,
+													},
+													SoundEmitter = 
+													{
+														bool StartPlaying = false,
+														int ExtraPriority = 0,
+														string CueName = "51559b749c9e9362:Thruster",
+														float Volume = 1,
+														float Pitch = 1,
+														bool Positional = true,
+													},
+													DestroyOnDeath = 
+													{
+													},
+													Health = 
+													{
+														float Total = 100,
+														float Current = 100,
+													},
+													Hierarchy = 
+													{
+														Cog = 
+														{
+															LinkId = 
+															{
+																uint Id = 63,
+															},
+															Named = 
+															{
+																string Name = "IdleParticles",
+															},
+															Transform = 
+															{
+																Vec3 Translation = [0, 0.056366, 0],
+																Vec3 Scale = [1, 1, 1],
+																Quat Rotation = [0, 0, 0, 1],
+															},
+															SpriteParticleSystem = 
+															{
+																SystemChildMode ChildMode = Independent,
+																SystemSpace SystemSpace = WorldSpace,
+																uint DrawOrder = 0,
+																ParticleGeometry GeometryMode = Billboarded,
+																ParticleRenderMode RenderMode = Blended,
+																ParticleSortMode SortMode = None,
+																string Texture = "519dae18a6f03073:WhiteCloud",
+																Vec4 Tint = [1, 1, 1, 0.27],
+																float VelocityScale = 1,
+																float LengthScale = 0,
+																float MaxParticleSize = 100,
+																Vec3 SystemSize = [5, 5, 5],
+															},
+															LinearParticleAnimator = 
+															{
+																Vec3 Force = [0, 0.3, 0],
+																Vec3 RandomForce = [0, 0, 0],
+																float Torque = 0,
+																float Growth = 0.6,
+																float Dampening = 0,
+																Vec3 Twist = [0, 0, 0],
+															},
+															SphericalParticleEmitter = 
+															{
+																bool Active = true,
+																uint EmitCount = 0,
+																float EmitRate = 4,
+																float EmitVariance = 0,
+																float Size = 0.8,
+																float SizeVariance = 0.3,
+																float Lifetime = 1,
+																float LifetimeVariance = 0,
+																float Spin = 0,
+																float SpinVariance = 0,
+																bool RandomSpin = true,
+																float Fill = 0,
+																float EmitterVelocityPercent = 0,
+																Vec3 StartVelocity = [0, 1.3, 0],
+																Vec3 RandomVelocity = [0.2, 0.2, 0.2],
+																Vec3 TangentVelocity = [0, 0, 0],
+																Vec3 EmitterSize = [0, 0, 0],
+																bool FastMovingEmitter = false,
+															},
+															ParticleColorAnimator = 
+															{
+																Vec4 Color0 = [1, 1, 1, 1],
+																Vec4 Color1 = [1, 1, 1, 1],
+																Vec4 Color2 = [1, 1, 1, 1],
+																Vec4 Color3 = [1, 1, 1, 1],
+																Vec4 Color4 = [1, 1, 1, 0],
+															},
+														},
+														Cog = 
+														{
+															LinkId = 
+															{
+																uint Id = 64,
+															},
+															Named = 
+															{
+																string Name = "OnParticles",
+															},
+															Transform = 
+															{
+																Vec3 Translation = [0, 1.43849, -0.0127583],
+																Vec3 Scale = [1, 1, 1],
+																Quat Rotation = [0, 0, 0, 1],
+															},
+															SpriteParticleSystem = 
+															{
+																SystemChildMode ChildMode = Independent,
+																SystemSpace SystemSpace = LocalSpace,
+																uint DrawOrder = 0,
+																ParticleGeometry GeometryMode = Beam,
+																ParticleRenderMode RenderMode = Additive,
+																ParticleSortMode SortMode = None,
+																string Texture = "519dae18a6f03073:WhiteCloud",
+																Vec4 Tint = [1, 1, 1, 0.9999],
+																float VelocityScale = 0.9,
+																float LengthScale = 0.5,
+																float MaxParticleSize = 100,
+																Vec3 SystemSize = [5, 5, 5],
+															},
+															LinearParticleAnimator = 
+															{
+																Vec3 Force = [0, 0, 0],
+																Vec3 RandomForce = [0, 0, 0],
+																float Torque = 0,
+																float Growth = 0,
+																float Dampening = 0,
+																Vec3 Twist = [0, 0, 0],
+															},
+															SphericalParticleEmitter = 
+															{
+																bool Active = false,
+																uint EmitCount = 0,
+																float EmitRate = 50,
+																float EmitVariance = 0,
+																float Size = 0.9,
+																float SizeVariance = 0.1,
+																float Lifetime = 0.05,
+																float LifetimeVariance = 0,
+																float Spin = 0,
+																float SpinVariance = 0,
+																bool RandomSpin = true,
+																float Fill = 0,
+																float EmitterVelocityPercent = 0,
+																Vec3 StartVelocity = [0, 5, 0],
+																Vec3 RandomVelocity = [0.1, 0, 0.1],
+																Vec3 TangentVelocity = [0, 0, 0],
+																Vec3 EmitterSize = [0, 0, 0],
+																bool FastMovingEmitter = false,
+															},
+															ParticleColorAnimator = 
+															{
+																Vec4 Color0 = [1, 1, 1, 1],
+																Vec4 Color1 = [0.515, 0.709, 1, 1],
+																Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+																Vec4 Color3 = [0, 0.0847, 0.385, 1],
+																Vec4 Color4 = [0, 0.58, 1, 0.9999],
+															},
+														},
+														Cog = 
+														{
+															LinkId = 
+															{
+																uint Id = 65,
+															},
+															Named = 
+															{
+																string Name = "OnParticles2",
+															},
+															Transform = 
+															{
+																Vec3 Translation = [0, 0.413997, 0],
+																Vec3 Scale = [1, 1, 1],
+																Quat Rotation = [0, 0, 0, 1],
+															},
+															SpriteParticleSystem = 
+															{
+																SystemChildMode ChildMode = Independent,
+																SystemSpace SystemSpace = LocalSpace,
+																uint DrawOrder = 0,
+																ParticleGeometry GeometryMode = Billboarded,
+																ParticleRenderMode RenderMode = Additive,
+																ParticleSortMode SortMode = None,
+																string Texture = "519dae18a6f03073:WhiteCloud",
+																Vec4 Tint = [1, 1, 1, 0.9999],
+																float VelocityScale = 1,
+																float LengthScale = 0.5,
+																float MaxParticleSize = 100,
+																Vec3 SystemSize = [5, 5, 5],
+															},
+															LinearParticleAnimator = 
+															{
+																Vec3 Force = [0, 0, 0],
+																Vec3 RandomForce = [0, 0, 0],
+																float Torque = 0,
+																float Growth = 0,
+																float Dampening = 0,
+																Vec3 Twist = [0, 0, 0],
+															},
+															SphericalParticleEmitter = 
+															{
+																bool Active = false,
+																uint EmitCount = 0,
+																float EmitRate = 50,
+																float EmitVariance = 0,
+																float Size = 0.9,
+																float SizeVariance = 0.1,
+																float Lifetime = 0.05,
+																float LifetimeVariance = 0,
+																float Spin = 0,
+																float SpinVariance = 0,
+																bool RandomSpin = true,
+																float Fill = 0,
+																float EmitterVelocityPercent = 0,
+																Vec3 StartVelocity = [0, 0, 0],
+																Vec3 RandomVelocity = [0, 0, 0],
+																Vec3 TangentVelocity = [0, 0, 0],
+																Vec3 EmitterSize = [0, 0, 0],
+																bool FastMovingEmitter = false,
+															},
+															ParticleColorAnimator = 
+															{
+																Vec4 Color0 = [0, 0.4508, 0.92, 0],
+																Vec4 Color1 = [0.515, 0.709, 1, 1],
+																Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+																Vec4 Color3 = [0.20445, 0.314571, 0.705, 1],
+																Vec4 Color4 = [0, 0.58, 1, 0],
+															},
+														},
+													},
+												},
+											},
+										},
+									},
+								},
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 66,
+							},
+							Named = 
+							{
+								string Name = "Thruster",
+							},
+							Archetyped = 
+							{
+								string Name = "519e4cbc821af76f:Thruster",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [1.44562e-006, -1.47949e-006, 1],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0.707106, 0.707107, 0],
+							},
+							Model = 
+							{
+								string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+								string MeshName = "519e4cbc82124da3:Thruster",
+								Vec4 Color = [1, 1, 1, 1],
+								bool Visible = true,
+							},
+							RigidBody = 
+							{
+								bool Static = true,
+								bool Asleep = false,
+								bool Kinematic = false,
+								bool RotationLocked = false,
+								bool Mode2D = false,
+								bool AllowSleep = true,
+								bool Inherit2DMode = true,
+								Vec3 Velocity = [0, 0, 0],
+								Vec3 AngularVelocity = [0, 0, 0],
+							},
+							BoxCollider = 
+							{
+								bool Ghost = false,
+								bool SendsMessages = true,
+								bool Seamless = false,
+								string MaterialName = "4faa6050b8692851:HardMaterial",
+								string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+								Vec3 Offset = [0, 0, 0],
+								Vec3 Size = [0.5, 0.5, 0.5],
+							},
+							Thruster = 
+							{
+							},
+							ThrustEffect = 
+							{
+								bool Active = false,
+								bool WakeUpOnChange = true,
+								bool LocalSpaceDirection = true,
+								float ForceStrength = 200,
+								Vec3 ForceDirection = [0, -1, 0],
+							},
+							BlockTag = 
+							{
+							},
+							Activatable = 
+							{
+								int Key = 150,
+							},
+							SoundEmitter = 
+							{
+								bool StartPlaying = false,
+								int ExtraPriority = 0,
+								string CueName = "51559b749c9e9362:Thruster",
+								float Volume = 1,
+								float Pitch = 1,
+								bool Positional = true,
+							},
+							DestroyOnDeath = 
+							{
+							},
+							Health = 
+							{
+								float Total = 100,
+								float Current = 100,
+							},
+							Hierarchy = 
+							{
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 67,
+									},
+									Named = 
+									{
+										string Name = "IdleParticles",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 0.056366, 0],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+									SpriteParticleSystem = 
+									{
+										SystemChildMode ChildMode = Independent,
+										SystemSpace SystemSpace = WorldSpace,
+										uint DrawOrder = 0,
+										ParticleGeometry GeometryMode = Billboarded,
+										ParticleRenderMode RenderMode = Blended,
+										ParticleSortMode SortMode = None,
+										string Texture = "519dae18a6f03073:WhiteCloud",
+										Vec4 Tint = [1, 1, 1, 0.27],
+										float VelocityScale = 1,
+										float LengthScale = 0,
+										float MaxParticleSize = 100,
+										Vec3 SystemSize = [5, 5, 5],
+									},
+									LinearParticleAnimator = 
+									{
+										Vec3 Force = [0, 0.3, 0],
+										Vec3 RandomForce = [0, 0, 0],
+										float Torque = 0,
+										float Growth = 0.6,
+										float Dampening = 0,
+										Vec3 Twist = [0, 0, 0],
+									},
+									SphericalParticleEmitter = 
+									{
+										bool Active = true,
+										uint EmitCount = 0,
+										float EmitRate = 4,
+										float EmitVariance = 0,
+										float Size = 0.8,
+										float SizeVariance = 0.3,
+										float Lifetime = 1,
+										float LifetimeVariance = 0,
+										float Spin = 0,
+										float SpinVariance = 0,
+										bool RandomSpin = true,
+										float Fill = 0,
+										float EmitterVelocityPercent = 0,
+										Vec3 StartVelocity = [0, 1.3, 0],
+										Vec3 RandomVelocity = [0.2, 0.2, 0.2],
+										Vec3 TangentVelocity = [0, 0, 0],
+										Vec3 EmitterSize = [0, 0, 0],
+										bool FastMovingEmitter = false,
+									},
+									ParticleColorAnimator = 
+									{
+										Vec4 Color0 = [1, 1, 1, 1],
+										Vec4 Color1 = [1, 1, 1, 1],
+										Vec4 Color2 = [1, 1, 1, 1],
+										Vec4 Color3 = [1, 1, 1, 1],
+										Vec4 Color4 = [1, 1, 1, 0],
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 68,
+									},
+									Named = 
+									{
+										string Name = "OnParticles",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 1.43849, -0.0127583],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+									SpriteParticleSystem = 
+									{
+										SystemChildMode ChildMode = Independent,
+										SystemSpace SystemSpace = LocalSpace,
+										uint DrawOrder = 0,
+										ParticleGeometry GeometryMode = Beam,
+										ParticleRenderMode RenderMode = Additive,
+										ParticleSortMode SortMode = None,
+										string Texture = "519dae18a6f03073:WhiteCloud",
+										Vec4 Tint = [1, 1, 1, 0.9999],
+										float VelocityScale = 0.9,
+										float LengthScale = 0.5,
+										float MaxParticleSize = 100,
+										Vec3 SystemSize = [5, 5, 5],
+									},
+									LinearParticleAnimator = 
+									{
+										Vec3 Force = [0, 0, 0],
+										Vec3 RandomForce = [0, 0, 0],
+										float Torque = 0,
+										float Growth = 0,
+										float Dampening = 0,
+										Vec3 Twist = [0, 0, 0],
+									},
+									SphericalParticleEmitter = 
+									{
+										bool Active = false,
+										uint EmitCount = 0,
+										float EmitRate = 50,
+										float EmitVariance = 0,
+										float Size = 0.9,
+										float SizeVariance = 0.1,
+										float Lifetime = 0.05,
+										float LifetimeVariance = 0,
+										float Spin = 0,
+										float SpinVariance = 0,
+										bool RandomSpin = true,
+										float Fill = 0,
+										float EmitterVelocityPercent = 0,
+										Vec3 StartVelocity = [0, 5, 0],
+										Vec3 RandomVelocity = [0.1, 0, 0.1],
+										Vec3 TangentVelocity = [0, 0, 0],
+										Vec3 EmitterSize = [0, 0, 0],
+										bool FastMovingEmitter = false,
+									},
+									ParticleColorAnimator = 
+									{
+										Vec4 Color0 = [1, 1, 1, 1],
+										Vec4 Color1 = [0.515, 0.709, 1, 1],
+										Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+										Vec4 Color3 = [0, 0.0847, 0.385, 1],
+										Vec4 Color4 = [0, 0.58, 1, 0.9999],
+									},
+								},
+								Cog = 
+								{
+									LinkId = 
+									{
+										uint Id = 69,
+									},
+									Named = 
+									{
+										string Name = "OnParticles2",
+									},
+									Transform = 
+									{
+										Vec3 Translation = [0, 0.413997, 0],
+										Vec3 Scale = [1, 1, 1],
+										Quat Rotation = [0, 0, 0, 1],
+									},
+									SpriteParticleSystem = 
+									{
+										SystemChildMode ChildMode = Independent,
+										SystemSpace SystemSpace = LocalSpace,
+										uint DrawOrder = 0,
+										ParticleGeometry GeometryMode = Billboarded,
+										ParticleRenderMode RenderMode = Additive,
+										ParticleSortMode SortMode = None,
+										string Texture = "519dae18a6f03073:WhiteCloud",
+										Vec4 Tint = [1, 1, 1, 0.9999],
+										float VelocityScale = 1,
+										float LengthScale = 0.5,
+										float MaxParticleSize = 100,
+										Vec3 SystemSize = [5, 5, 5],
+									},
+									LinearParticleAnimator = 
+									{
+										Vec3 Force = [0, 0, 0],
+										Vec3 RandomForce = [0, 0, 0],
+										float Torque = 0,
+										float Growth = 0,
+										float Dampening = 0,
+										Vec3 Twist = [0, 0, 0],
+									},
+									SphericalParticleEmitter = 
+									{
+										bool Active = false,
+										uint EmitCount = 0,
+										float EmitRate = 50,
+										float EmitVariance = 0,
+										float Size = 0.9,
+										float SizeVariance = 0.1,
+										float Lifetime = 0.05,
+										float LifetimeVariance = 0,
+										float Spin = 0,
+										float SpinVariance = 0,
+										bool RandomSpin = true,
+										float Fill = 0,
+										float EmitterVelocityPercent = 0,
+										Vec3 StartVelocity = [0, 0, 0],
+										Vec3 RandomVelocity = [0, 0, 0],
+										Vec3 TangentVelocity = [0, 0, 0],
+										Vec3 EmitterSize = [0, 0, 0],
+										bool FastMovingEmitter = false,
+									},
+									ParticleColorAnimator = 
+									{
+										Vec4 Color0 = [0, 0.4508, 0.92, 0],
+										Vec4 Color1 = [0.515, 0.709, 1, 1],
+										Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+										Vec4 Color3 = [0.20445, 0.314571, 0.705, 1],
+										Vec4 Color4 = [0, 0.58, 1, 0],
+									},
+								},
+							},
+						},
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 70,
+					},
+					Named = 
+					{
+						string Name = "Thruster",
+					},
+					Archetyped = 
+					{
+						string Name = "519e4cbc821af76f:Thruster",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 1, 0],
+						Vec3 Scale = [1, 0.999999, 0.999999],
+						Quat Rotation = [0, 0, -0, 1],
+					},
+					Model = 
+					{
+						string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+						string MeshName = "519e4cbc82124da3:Thruster",
+						Vec4 Color = [1, 1, 1, 1],
+						bool Visible = true,
+					},
+					RigidBody = 
+					{
+						bool Static = true,
+						bool Asleep = false,
+						bool Kinematic = false,
+						bool RotationLocked = false,
+						bool Mode2D = false,
+						bool AllowSleep = true,
+						bool Inherit2DMode = true,
+						Vec3 Velocity = [0, 0, 0],
+						Vec3 AngularVelocity = [0, 0, 0],
+					},
+					BoxCollider = 
+					{
+						bool Ghost = false,
+						bool SendsMessages = true,
+						bool Seamless = false,
+						string MaterialName = "4faa6050b8692851:HardMaterial",
+						string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+						Vec3 Offset = [0, 0, 0],
+						Vec3 Size = [0.5, 0.5, 0.5],
+					},
+					Thruster = 
+					{
+					},
+					ThrustEffect = 
+					{
+						bool Active = false,
+						bool WakeUpOnChange = true,
+						bool LocalSpaceDirection = true,
+						float ForceStrength = 200,
+						Vec3 ForceDirection = [0, -1, 0],
+					},
+					BlockTag = 
+					{
+					},
+					Activatable = 
+					{
+						int Key = 150,
+					},
+					SoundEmitter = 
+					{
+						bool StartPlaying = false,
+						int ExtraPriority = 0,
+						string CueName = "51559b749c9e9362:Thruster",
+						float Volume = 1,
+						float Pitch = 1,
+						bool Positional = true,
+					},
+					DestroyOnDeath = 
+					{
+					},
+					Health = 
+					{
+						float Total = 100,
+						float Current = 100,
+					},
+					Hierarchy = 
+					{
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 71,
+							},
+							Named = 
+							{
+								string Name = "IdleParticles",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0.056366, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+							SpriteParticleSystem = 
+							{
+								SystemChildMode ChildMode = Independent,
+								SystemSpace SystemSpace = WorldSpace,
+								uint DrawOrder = 0,
+								ParticleGeometry GeometryMode = Billboarded,
+								ParticleRenderMode RenderMode = Blended,
+								ParticleSortMode SortMode = None,
+								string Texture = "519dae18a6f03073:WhiteCloud",
+								Vec4 Tint = [1, 1, 1, 0.27],
+								float VelocityScale = 1,
+								float LengthScale = 0,
+								float MaxParticleSize = 100,
+								Vec3 SystemSize = [5, 5, 5],
+							},
+							LinearParticleAnimator = 
+							{
+								Vec3 Force = [0, 0.3, 0],
+								Vec3 RandomForce = [0, 0, 0],
+								float Torque = 0,
+								float Growth = 0.6,
+								float Dampening = 0,
+								Vec3 Twist = [0, 0, 0],
+							},
+							SphericalParticleEmitter = 
+							{
+								bool Active = true,
+								uint EmitCount = 0,
+								float EmitRate = 4,
+								float EmitVariance = 0,
+								float Size = 0.8,
+								float SizeVariance = 0.3,
+								float Lifetime = 1,
+								float LifetimeVariance = 0,
+								float Spin = 0,
+								float SpinVariance = 0,
+								bool RandomSpin = true,
+								float Fill = 0,
+								float EmitterVelocityPercent = 0,
+								Vec3 StartVelocity = [0, 1.3, 0],
+								Vec3 RandomVelocity = [0.2, 0.2, 0.2],
+								Vec3 TangentVelocity = [0, 0, 0],
+								Vec3 EmitterSize = [0, 0, 0],
+								bool FastMovingEmitter = false,
+							},
+							ParticleColorAnimator = 
+							{
+								Vec4 Color0 = [1, 1, 1, 1],
+								Vec4 Color1 = [1, 1, 1, 1],
+								Vec4 Color2 = [1, 1, 1, 1],
+								Vec4 Color3 = [1, 1, 1, 1],
+								Vec4 Color4 = [1, 1, 1, 0],
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 72,
+							},
+							Named = 
+							{
+								string Name = "OnParticles",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 1.43849, -0.0127583],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+							SpriteParticleSystem = 
+							{
+								SystemChildMode ChildMode = Independent,
+								SystemSpace SystemSpace = LocalSpace,
+								uint DrawOrder = 0,
+								ParticleGeometry GeometryMode = Beam,
+								ParticleRenderMode RenderMode = Additive,
+								ParticleSortMode SortMode = None,
+								string Texture = "519dae18a6f03073:WhiteCloud",
+								Vec4 Tint = [1, 1, 1, 0.9999],
+								float VelocityScale = 0.9,
+								float LengthScale = 0.5,
+								float MaxParticleSize = 100,
+								Vec3 SystemSize = [5, 5, 5],
+							},
+							LinearParticleAnimator = 
+							{
+								Vec3 Force = [0, 0, 0],
+								Vec3 RandomForce = [0, 0, 0],
+								float Torque = 0,
+								float Growth = 0,
+								float Dampening = 0,
+								Vec3 Twist = [0, 0, 0],
+							},
+							SphericalParticleEmitter = 
+							{
+								bool Active = false,
+								uint EmitCount = 0,
+								float EmitRate = 50,
+								float EmitVariance = 0,
+								float Size = 0.9,
+								float SizeVariance = 0.1,
+								float Lifetime = 0.05,
+								float LifetimeVariance = 0,
+								float Spin = 0,
+								float SpinVariance = 0,
+								bool RandomSpin = true,
+								float Fill = 0,
+								float EmitterVelocityPercent = 0,
+								Vec3 StartVelocity = [0, 5, 0],
+								Vec3 RandomVelocity = [0.1, 0, 0.1],
+								Vec3 TangentVelocity = [0, 0, 0],
+								Vec3 EmitterSize = [0, 0, 0],
+								bool FastMovingEmitter = false,
+							},
+							ParticleColorAnimator = 
+							{
+								Vec4 Color0 = [1, 1, 1, 1],
+								Vec4 Color1 = [0.515, 0.709, 1, 1],
+								Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+								Vec4 Color3 = [0, 0.0847, 0.385, 1],
+								Vec4 Color4 = [0, 0.58, 1, 0.9999],
+							},
+						},
+						Cog = 
+						{
+							LinkId = 
+							{
+								uint Id = 73,
+							},
+							Named = 
+							{
+								string Name = "OnParticles2",
+							},
+							Transform = 
+							{
+								Vec3 Translation = [0, 0.413997, 0],
+								Vec3 Scale = [1, 1, 1],
+								Quat Rotation = [0, 0, 0, 1],
+							},
+							SpriteParticleSystem = 
+							{
+								SystemChildMode ChildMode = Independent,
+								SystemSpace SystemSpace = LocalSpace,
+								uint DrawOrder = 0,
+								ParticleGeometry GeometryMode = Billboarded,
+								ParticleRenderMode RenderMode = Additive,
+								ParticleSortMode SortMode = None,
+								string Texture = "519dae18a6f03073:WhiteCloud",
+								Vec4 Tint = [1, 1, 1, 0.9999],
+								float VelocityScale = 1,
+								float LengthScale = 0.5,
+								float MaxParticleSize = 100,
+								Vec3 SystemSize = [5, 5, 5],
+							},
+							LinearParticleAnimator = 
+							{
+								Vec3 Force = [0, 0, 0],
+								Vec3 RandomForce = [0, 0, 0],
+								float Torque = 0,
+								float Growth = 0,
+								float Dampening = 0,
+								Vec3 Twist = [0, 0, 0],
+							},
+							SphericalParticleEmitter = 
+							{
+								bool Active = false,
+								uint EmitCount = 0,
+								float EmitRate = 50,
+								float EmitVariance = 0,
+								float Size = 0.9,
+								float SizeVariance = 0.1,
+								float Lifetime = 0.05,
+								float LifetimeVariance = 0,
+								float Spin = 0,
+								float SpinVariance = 0,
+								bool RandomSpin = true,
+								float Fill = 0,
+								float EmitterVelocityPercent = 0,
+								Vec3 StartVelocity = [0, 0, 0],
+								Vec3 RandomVelocity = [0, 0, 0],
+								Vec3 TangentVelocity = [0, 0, 0],
+								Vec3 EmitterSize = [0, 0, 0],
+								bool FastMovingEmitter = false,
+							},
+							ParticleColorAnimator = 
+							{
+								Vec4 Color0 = [0, 0.4508, 0.92, 0],
+								Vec4 Color1 = [0.515, 0.709, 1, 1],
+								Vec4 Color2 = [0.116, 0.48749, 0.725, 1],
+								Vec4 Color3 = [0.20445, 0.314571, 0.705, 1],
+								Vec4 Color4 = [0, 0.58, 1, 0],
+							},
+						},
+					},
+				},
+			},
+		},
+	},
+},

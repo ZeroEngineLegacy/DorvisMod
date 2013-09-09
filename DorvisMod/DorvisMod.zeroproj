@@ -10,7 +10,7 @@ Cog =
 	},
 	EditorSettings = 
 	{
-		EditorMode EditorMode = Mode2D,
+		EditorMode EditorMode = Mode3D,
 		float DefaultPixelsPerUnit = 64,
 		bool SpriteSmoothing = true,
 		float DefaultImportScale = 1,

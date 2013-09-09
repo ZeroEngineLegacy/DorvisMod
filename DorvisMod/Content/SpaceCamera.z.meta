@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "SpaceCamera",
+		uint64 ResourceId = 522a81f1ff328c4a,
+	},
+},

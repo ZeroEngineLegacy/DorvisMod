@@ -1,0 +1,141 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Archetyped = 
+	{
+		string Name = "522caf701b8ba50a:Rocket",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-1.28767, 0.378851, 16.2002],
+		Vec3 Scale = [0.2, 1, 0.2],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		string MaterialName = "51566ba330c5ee99:Metal",
+		string MeshName = "4de0354322b3572e:Cylinder",
+		Vec4 Color = [1, 1, 1, 1],
+		bool Visible = true,
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = false,
+		bool Mode2D = false,
+		bool AllowSleep = true,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	CylinderCollider = 
+	{
+		bool Ghost = true,
+		bool SendsMessages = true,
+		bool Seamless = false,
+		string MaterialName = "4faa6050b8692851:HardMaterial",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, -0.2, 0],
+		float Radius = 1.2,
+		float Height = 1.4,
+		uint Direction = 1,
+	},
+	SpriteParticleSystem = 
+	{
+		SystemChildMode ChildMode = Independent,
+		SystemSpace SystemSpace = WorldSpace,
+		uint DrawOrder = 0,
+		ParticleGeometry GeometryMode = Billboarded,
+		ParticleRenderMode RenderMode = Blended,
+		ParticleSortMode SortMode = None,
+		string Texture = "519dae18a6f03073:WhiteCloud",
+		Vec4 Tint = [0.895, 0.895, 0.895, 0.715],
+		float VelocityScale = 2,
+		float LengthScale = 0,
+		float MaxParticleSize = 100,
+		Vec3 SystemSize = [2, 10, 2],
+	},
+	SphericalParticleEmitter = 
+	{
+		bool Active = true,
+		uint EmitCount = 0,
+		float EmitRate = 40,
+		float EmitVariance = 0,
+		float Size = 2,
+		float SizeVariance = 0,
+		float Lifetime = 3,
+		float LifetimeVariance = 1,
+		float Spin = 0,
+		float SpinVariance = 100,
+		bool RandomSpin = false,
+		float Fill = 1,
+		float EmitterVelocityPercent = 0,
+		Vec3 StartVelocity = [0, 1, 0],
+		Vec3 RandomVelocity = [0, 0, 0],
+		Vec3 TangentVelocity = [0, 0, 0],
+		Vec3 EmitterSize = [0.2, 0.5, 0.2],
+		bool FastMovingEmitter = true,
+	},
+	LinearParticleAnimator = 
+	{
+		Vec3 Force = [0, 0, 0],
+		Vec3 RandomForce = [0, 0, 0],
+		float Torque = 0,
+		float Growth = 0.7,
+		float Dampening = 0,
+		Vec3 Twist = [0, 0, 0],
+	},
+	ParticleGradientAnimator = 
+	{
+		string ColorGradientName = "522cb10e1c1032e4:AlphaInQuickOutLong",
+	},
+	ThrustEffect = 
+	{
+		bool Active = true,
+		bool WakeUpOnChange = false,
+		bool LocalSpaceDirection = true,
+		float ForceStrength = 15,
+		Vec3 ForceDirection = [0, 1, 0],
+	},
+	DragEffect = 
+	{
+		bool Active = true,
+		bool WakeUpOnChange = false,
+		float Drag = 0.5,
+	},
+	MassOverride = 
+	{
+		bool Active = true,
+		float invMass = 3.33333,
+		Vec3 invInertiaX = [18.7547, 1.79547e-006, 7.08115e-011],
+		Vec3 invInertiaY = [1.50938e-021, 115.741, 3.99766e-010],
+		Vec3 invInertiaZ = [7.08114e-011, 3.99766e-010, 18.7547],
+		Vec3 LocalCenterOfMass = [0, 0, 0],
+	},
+	SoundEmitter = 
+	{
+		bool StartPlaying = true,
+		int ExtraPriority = 0,
+		string CueName = "522cb30ed3ffd11a:Rocket",
+		float Volume = 1,
+		float Pitch = 1,
+		bool Positional = true,
+	},
+	TimedDestroy = 
+	{
+		float Lifetime = 20,
+	},
+	CreateOnCollide = 
+	{
+		string ToCreate = "4ed29ae3e05453cb:Explosion",
+		bool DestroySelf = true,
+	},
+	Team = 
+	{
+	},
+},

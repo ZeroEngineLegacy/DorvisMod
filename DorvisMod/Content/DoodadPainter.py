@@ -44,8 +44,8 @@ class DoodadPainter:
         
     def GetWorldPos(self, start, dir, space):
         for CastResult in space.PhysicsSpace.CastRayResults(start, dir, 25):
-            if(not CastResult.GetObjectHit().HeightMap):
-            #if(CastResult.GetObjectHit().HeightMap == self.PreviewObject):
+            if (not CastResult.GetObjectHit().HeightMap):
+            #if (CastResult.GetObjectHit().HeightMap == self.PreviewObject):
                 continue;
                 
             pos = CastResult.GetWorldPosition();
@@ -54,12 +54,12 @@ class DoodadPainter:
         
     def KeyDown(self, Viewport, KeyboardEvent):
         #print(KeyboardEvent.Key == Zero.Keys.D);
-        if(KeyboardEvent.Key == Zero.Keys.Shift):
+        if (KeyboardEvent.Key == Zero.Keys.Shift):
             self.ShiftDown = True;
         return False
     
     def KeyUp(self, Viewport, KeyboardEvent):
-        if(KeyboardEvent.Key == Zero.Keys.Shift):
+        if (KeyboardEvent.Key == Zero.Keys.Shift):
             self.ShiftDown = False;
         #print(KeyboardEvent.Key == Zero.Keys.D);
         return False; 
@@ -71,7 +71,7 @@ class DoodadPainter:
         self.Tool.BeginManipulation(Viewport);
         return True;
         ret = self.GetWorldPosEvent(Viewport, MouseEvent);
-        if(ret[0]):
+        if (ret[0]):
             pos = ret[1];
             
             space = Viewport.TargetSpace;
@@ -98,11 +98,11 @@ class DoodadPainter:
     def MouseMoveOnViewport(self, Viewport, MouseEvent):
         space = Viewport.TargetSpace;
         ret = self.GetWorldPosEvent(Viewport, MouseEvent);
-        if(ret[0]):
+        if (ret[0]):
             pos = ret[1];
-            #if(not self.PreviewObject):
+            #if (not self.PreviewObject):
                 #self.PreviewObject = space.Create(self.Object0);
-                #if(self.PreviewObject.Model):
+                #if (self.PreviewObject.Model):
                     #self.PreviewObject.Model.Visible = False;
                 #self.PreviewObject.RemoveComponentByName("RigidBody");
                 #self.PreviewObject.RemoveComponentByName("Collider");
@@ -111,7 +111,7 @@ class DoodadPainter:
             self.LastSpace = space;
             return True
             
-        if(self.PreviewObject):
+        if (self.PreviewObject):
             self.PreviewObject.Destroy();
             
        #return False
@@ -140,24 +140,24 @@ class DoodadPainter:
                                onTop = False);
         
     def FocusLost(self, Viewport, FocusEvent):
-        if(self.PreviewObject):
+        if (self.PreviewObject):
             self.PreviewObject.Destroy();
         
     def Activate(self):
         print("Activate");
         
     def Deactivate(self):
-        if(self.PreviewObject):
+        if (self.PreviewObject):
             self.PreviewObject.Destroy();
         
     def Draw(self):
-        #if(self.PreviewObject):
+        #if (self.PreviewObject):
         self.DrawCircle(self.LastPos, self.Radius, self.DebugDrawResolution, self.LastSpace);
         return;
         
     def MouseScroll(self, Viewport, MouseEvent):
         #print("Scroll")
-        if(self.ShiftDown):
+        if (self.ShiftDown):
             self.Radius -= MouseEvent.Scroll.y;
             return True;
         return False
@@ -180,7 +180,7 @@ class DoodadPainter:
     def GetSpawnPositions(self, center):
         area = math.pi * self.Radius * self.Radius;
         doodadCount = int(area * self.Density);
-        if(doodadCount <= 0):
+        if (doodadCount <= 0):
             doodadCount = 1;
         spawnPositions = [];
         
@@ -189,7 +189,7 @@ class DoodadPainter:
             rayStart.x += random.uniform(-self.Radius, +self.Radius);
             rayStart.z += random.uniform(-self.Radius, +self.Radius);
             
-            if(rayStart.length() > self.Radius):
+            if (rayStart.length() > self.Radius):
                 n-=1;
                 continue
             
@@ -200,7 +200,7 @@ class DoodadPainter:
                 objectHit = CastResult.GetObjectHit();
                 
                 # Continue if it wasn't the height map
-                if(not objectHit.HeightMap or objectHit.DoNotSpawnOn):
+                if (not objectHit.HeightMap or objectHit.DoNotSpawnOn):
                     n -= 1;
                     continue
                      
@@ -212,7 +212,7 @@ class DoodadPainter:
         
     def CreateAtPositions(self, spawnPositions):
         root = self.Space.FindObjectByName("TestTrees");
-        if(not root):
+        if (not root):
             root = self.Space.CreateAtPosition("Transform", Vec3(0,0,0));
             root.Name = "TestTrees";
              

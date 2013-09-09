@@ -1,0 +1,124 @@
+class Explosion : ScriptComponent
+{
+    [Property]
+    var DeathTime : Real = 1.6;
+    [Property]
+    var LightTime : Real = 0.3;
+    
+    [Property]
+    var Damage : Real = 50.0;
+    
+    [Property]
+    var DamageRadius : Real = 8.0;
+    [Property]
+    var PushRadius : Real = 20.0;
+    [Property]
+    var PushForce : Real = 1000.0;
+    [Property]
+    var PushTorque : Real = 100.0;
+    [Property]
+    var DebrisCount : Integer = 3;
+    [Property]
+    var DebrisSpawnRadius : Real = 1.0;
+    [Property]
+    var DebrisMinSize : Real = 0.02;
+    [Property]
+    var DebrisMaxSize : Real = 0.20;
+    [Property]
+    var DebrisVelocity : Real = 10.0;
+    [Property]
+    var DebrisTable : WeightedTable = WeightedTable.Find("ExplosionDebris");
+    [Property]
+    var ScreenShake : Real = 3.0;
+    
+    var Random : Random = new Random();
+    
+    constructor() : base()
+    {
+        this.Random.Seed(543);
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        var group1 = Action.Group(this.Owner.Actions);
+        Action.Property(group1, @this.Owner.Light.Intensity, 0.0, this.LightTime, Ease.QuadOut);
+        Action.Property(group1, @this.Owner.Light.Range, 0.0, this.LightTime, Ease.QuadOut);
+        
+        Action.Call(group1, this.PushObjects);
+        
+        for (var i = 0; i < this.DebrisCount; ++i)
+        {
+            Action.Call(group1, this.CreateDebris);
+        }
+        
+        var seq1 = Action.Sequence(this.Owner.Actions);
+        Action.Delay(seq1, this.DeathTime);
+        Action.Call(seq1, this.Owner.Destroy);
+    }
+    
+    function PushObjects()
+    {
+        this.Space.PhysicsSpace.FlushPhysicsQueue();
+        
+        var castDistance = Math.Max(this.DamageRadius, this.PushRadius);
+        
+        var origin = this.Owner.Transform.WorldTranslation;
+        var filter = this.Space.PhysicsSpace.CreateDefaultCastFilter();
+        var results = this.Space.PhysicsSpace.CastSphereResults(origin, castDistance, 10, filter);
+        
+        foreach (var result in results)
+        {
+            var hit = result.ObjectHit;
+            
+            // Technically we'd want this to be result.WorldPosition, however for some reason
+            // when we do that we end up not applying any force or damage
+            var distance = Math.Length(hit.Transform.WorldTranslation - origin);
+            
+            var damageScale = Math.Max((this.DamageRadius - distance) / this.DamageRadius, 0.0);
+            var damageAmount = -this.Damage * damageScale;
+            
+            var health = hit.Health;
+            if (health != null)
+            {
+                health.Change(damageAmount);
+            }
+            
+            //if (hit.Character)
+            //{
+            //    shakeScale = max((castDistance - distance) / castDistance, 0);
+            //    Cog.Character.Shake += this.ScreenShake * shakeScale;
+            //}
+            
+            var hitBody = result.Collider.ActiveBody;
+            if (hitBody != null)
+            {
+                if (!hitBody.Static && !hitBody.Kinematic && !result.Collider.Ghost)
+                {
+                    hitBody.ForceAwake();
+                    var pushScale = Math.Max((this.PushRadius - distance) / this.PushRadius, 0.0);
+                    var force = result.WorldPosition - this.Owner.Transform.Translation;
+                    force = Math.Normalize(force);
+                    force *= this.PushForce * pushScale;
+                    hitBody.ApplyForceAtPoint(force, result.WorldPosition);
+                    hitBody.ApplyTorque(this.Random.Real3(0.0, this.PushTorque * pushScale));
+                }
+            }
+        }
+    }
+    
+    function CreateDebris()
+    {
+        var debrisName = this.DebrisTable.Sample(this.Random.Real(), this.Random.Real());
+        var debrisArchetype = Archetype.Find(debrisName);
+        var debris = this.Space.Create(debrisArchetype);
+        
+        debris.Transform.Translation = this.Owner.Transform.Translation + this.Random.Real3(0.0, this.DebrisSpawnRadius);
+        var sx = this.Random.Range(this.DebrisMinSize, this.DebrisMaxSize);
+        var sy = this.Random.Range(this.DebrisMinSize, this.DebrisMaxSize);
+        var sz = this.Random.Range(this.DebrisMinSize, this.DebrisMaxSize);
+        debris.Transform.Scale = local Real3(sx, sy, sz);
+        
+        debris.RigidBody.Velocity = this.Random.Real3(this.DebrisVelocity, this.DebrisVelocity);
+        debris.RigidBody.AngularVelocity = this.Random.Real3(0.0, this.DebrisVelocity);
+    }
+}

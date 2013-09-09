@@ -71,7 +71,7 @@ class Chair : ScriptComponent
     
     function OnPlayerKeyDown(e : PlayerKeyEvent)
     {
-        if(e.Key == Keys.Back && this.ActivePlayerCog == e.PlayerCog)
+        if (e.Key == Keys.Back && this.ActivePlayerCog == e.PlayerCog)
         {
             this.UnseatPlayer();
             return;

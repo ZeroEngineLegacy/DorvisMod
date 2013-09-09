@@ -36,7 +36,7 @@ class CommandBlockTool : ScriptComponent
     
     function OnLogicUpdate(e : UpdateEvent)
     {
-        if(this.CommandBlockCog == null)
+        if (this.CommandBlockCog == null)
         {
             this.HudText.Text = "Left click a command block to bind it";
         }
@@ -59,15 +59,15 @@ class CommandBlockTool : ScriptComponent
             return;
         }
         
-        if(e.Button == MouseButtons.Left)
+        if (e.Button == MouseButtons.Left)
         {
-            if(result.Object.CommandBlock != null)
+            if (result.Object.CommandBlock != null)
             {
                 this.CommandBlockCog = result.Object;
                 this.Space.CreateAtPosition(this.SpawnEffect, result.Object.Transform.WorldTranslation);
             }
         }
-        else if(e.Button == MouseButtons.Right && this.CommandBlockCog != null)
+        else if (e.Button == MouseButtons.Right && this.CommandBlockCog != null)
         {
             var root = result.Object.FindRoot();
             this.CommandBlockCog.CommandBlock.ReDirectionCog = root;

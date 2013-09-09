@@ -1,0 +1,40 @@
+class SpaceCamera : ScriptComponent
+{
+    [Property]
+    var SpaceToCreate : Archetype = Archetype.Find("DefaultSpace");
+    
+    [Property]
+    var LevelToCreate : Level = Level.Find("SpawnIcon");
+    
+    [Property]
+    var OurCameraName : String = "Camera";
+    
+    var SubSpace : Space = null;
+    var SubCameraCog : Cog = null;
+    var OurCameraViewport : CameraViewport = null;
+    
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function OnAllObjectsCreated()
+    {
+        var ourCameraCog = this.Space.FindObjectByName(this.OurCameraName);
+        
+        this.OurCameraViewport = ourCameraCog.Camera.Viewport.CameraViewport;
+        
+        this.SubSpace = Zero.Game.CreateSpace(this.SpaceToCreate.Name);
+        this.SubSpace.LoadLevel(this.LevelToCreate);
+        
+        this.SubCameraCog = this.SubSpace.FindObjectByName("Camera");
+        
+        var screenPos = this.OurCameraViewport.WorldToScreen(this.Owner.Transform.WorldTranslation);
+        
+        this.SubCameraCog.CameraViewport.Offset = local Real2(screenPos.X, screenPos.Y);
+    }
+}

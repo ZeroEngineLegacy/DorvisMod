@@ -3,21 +3,31 @@ class CreateOnCollide : ScriptComponent
     [Property]
     var ToCreate : Archetype = Archetype.Find("Explosion");
     
+    [Property]
+    var DestroySelf : Boolean = true;
+    
     constructor() : base()
     {
     }
 
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(this.Space, Events.CollisionStarted, this.OnCollisionStarted);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
     }
 
     function OnCollisionStarted(e : CollisionEvent)
     {
-        if (Team.IsDifferentTeam(this.Owner, e.OtherObject))
+        if (Team.IsSameTeam(this.Owner, e.OtherObject))
         {
-            var position = this.Owner.Transform.WorldTranslation;
-            this.Space.CreateAtPosition(this.ToCreate, position);
+            return;
+        }
+        
+        var position = this.Owner.Transform.WorldTranslation;
+        this.Space.CreateAtPosition(this.ToCreate, position);
+        
+        if (this.DestroySelf)
+        {
+            this.Owner.Destroy();
         }
     }
 }

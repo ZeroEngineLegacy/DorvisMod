@@ -1,0 +1,29 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Archetyped = 
+	{
+		string Name = "522a82a1ae146005:SpaceCamera",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-6.72088, 6.70397, 13.8404],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		string MaterialName = "4de020863e85bb61:DefaultMaterial",
+		string MeshName = "4de0354322b345ae:Cube",
+		Vec4 Color = [1, 1, 1, 1],
+		bool Visible = false,
+	},
+	SpaceCamera = 
+	{
+		string Space = "4e39ae0ad564493d:DefaultSpace",
+		string Level = "522a86e94795ae0e:SpawnIcon",
+	},
+},

@@ -1,7 +1,7 @@
 class MegaMaterial : ScriptComponent
 {
     [Property]
-    var ProjectileImpact : Archetype = Archetype.Find("ImpactEffect");
+    var ProjectileImpact : Archetype = null;
     
     constructor() : base()
     {

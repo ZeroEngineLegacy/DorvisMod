@@ -63,7 +63,7 @@ class GrabberTool : ScriptComponent
     
     function OnLogicUpdate(e : UpdateEvent)
     {
-        if(this.SelectedObj != null)
+        if (this.SelectedObj != null)
         {
             var rot = this.SelectedObj.Transform.WorldRotation;
             var rotInv = Math.Invert(rot);
@@ -75,7 +75,7 @@ class GrabberTool : ScriptComponent
             var upRot = Math.ToQuaternion(up, this.UpRotationAngle);
             var totalRot = Math.Transform(upRot, rightRot);
             
-            if(this.WeldJoint != null)
+            if (this.WeldJoint != null)
             {
                 //the weld only has body angles, so they have to brough to the world first
                 var newAngle = this.WeldJoint.LocalAngleB;
@@ -88,7 +88,7 @@ class GrabberTool : ScriptComponent
                 newAngle = Math.Transform(newAngle, rotInv);
                 this.WeldJoint.LocalAngleB = newAngle;
             }
-            else if(this.PhyGunJoint != null)
+            else if (this.PhyGunJoint != null)
             {
                 //the PhyGunJoint is in world space, so no inverse is needed,
                 //however the rotation angle needs to be negated for some reason...
@@ -115,10 +115,10 @@ class GrabberTool : ScriptComponent
     
     function FreezeObject(e : PlayerMouseEvent)
     {
-        if(this.SelectedObj != null)
+        if (this.SelectedObj != null)
         {
             var selectedRoot = this.SelectedObj.FindRoot();
-            if(selectedRoot.RigidBody != null)
+            if (selectedRoot.RigidBody != null)
             {
                 selectedRoot.RigidBody.Static = !selectedRoot.RigidBody.Static;
                 this.Space.CreateAtPosition(this.Effect, selectedRoot.Transform.WorldTranslation);
@@ -140,7 +140,7 @@ class GrabberTool : ScriptComponent
     
     function GrabObject(e : PlayerMouseEvent)
     {
-        if(this.SelectedObj != null)
+        if (this.SelectedObj != null)
         {
             this.DeselectObj();
         }
@@ -159,7 +159,7 @@ class GrabberTool : ScriptComponent
             //find how far away the pick point is (for keeping the object on a sphere around us)
             this.Distance = Math.Length(selectedPoint - this.Player.WorldLookPosition);
             
-            if(!e.ShiftPressed)
+            if (!e.ShiftPressed)
             {
                 this.CreateWeld(this.SelectedObj,selectedPoint);
             }
@@ -172,11 +172,11 @@ class GrabberTool : ScriptComponent
     
     function OnPlayerMouseDown(e : PlayerMouseEvent)
     {
-        if(e.Button == MouseButtons.Right)
+        if (e.Button == MouseButtons.Right)
         {
             this.FreezeObject(e);
         }
-        else if(e.Button == MouseButtons.Left)
+        else if (e.Button == MouseButtons.Left)
         {
             this.GrabObject(e);
         }
@@ -190,7 +190,7 @@ class GrabberTool : ScriptComponent
     function OnPlayerMouseScroll(e : PlayerMouseEvent)
     {
         //if we do not have a selected object, there is nothing to drag
-        if(this.SelectedObj == null)
+        if (this.SelectedObj == null)
         {
             return;
         }
@@ -201,11 +201,11 @@ class GrabberTool : ScriptComponent
         
         //now compute the new world position of the mouse
         var newWorldPoint = this.ComputeWorldPoint(e);
-        if(this.WeldJoint != null)
+        if (this.WeldJoint != null)
         {
             this.UpdateWeldPoint(newWorldPoint);
         }
-        else if(this.PhyGunJoint != null)
+        else if (this.PhyGunJoint != null)
         {
             this.UpdatePhyGunPoint(newWorldPoint);
         }
@@ -214,19 +214,19 @@ class GrabberTool : ScriptComponent
     function OnPlayerKeyDown(e : PlayerKeyEvent)
     {
         //rotation logic for the held object
-        if(e.Key == Keys.I)
+        if (e.Key == Keys.I)
         {
             this.RightRotationAngle += 0.1;
         }
-        if(e.Key == Keys.K)
+        if (e.Key == Keys.K)
         {
             this.RightRotationAngle -= 0.1;
         }
-        if(e.Key == Keys.J)
+        if (e.Key == Keys.J)
         {
             this.UpRotationAngle += 0.1;
         }
-        if(e.Key == Keys.L)
+        if (e.Key == Keys.L)
         {
             this.UpRotationAngle -= 0.1;
         }
@@ -235,19 +235,19 @@ class GrabberTool : ScriptComponent
     function OnPlayerKeyUp(e : PlayerKeyEvent)
     {
         //rotation logic for the held object
-        if(e.Key == Keys.I)
+        if (e.Key == Keys.I)
         {
             this.RightRotationAngle -= 0.1;
         }
-        if(e.Key == Keys.K)
+        if (e.Key == Keys.K)
         {
             this.RightRotationAngle += 0.1;
         }
-        if(e.Key == Keys.J)
+        if (e.Key == Keys.J)
         {
             this.UpRotationAngle -= 0.1;
         }
-        if(e.Key == Keys.L)
+        if (e.Key == Keys.L)
         {
             this.UpRotationAngle += 0.1;
         }
@@ -255,7 +255,7 @@ class GrabberTool : ScriptComponent
     
     function DeselectObj()
     {
-        if(this.SelectedObj == null)
+        if (this.SelectedObj == null)
         {
             return;
         }
@@ -263,12 +263,12 @@ class GrabberTool : ScriptComponent
         //mark that we have no selected object, and destroy the joint
         this.SelectedObj = null;
         
-        if(this.WeldJoint != null)
+        if (this.WeldJoint != null)
         {
             this.WeldJoint.Owner.Destroy();
             this.WeldJoint = null;
         }
-        else if(this.PhyGunJoint != null)
+        else if (this.PhyGunJoint != null)
         {
             this.PhyGunJoint.Owner.Destroy();
             this.PhyGunJoint = null;
@@ -320,18 +320,18 @@ class GrabberTool : ScriptComponent
     function UpdateDraggedObject(e : PlayerMouseEvent)
     {
         //if we do not have a selected object, there is nothing to drag
-        if(this.SelectedObj == null)
+        if (this.SelectedObj == null)
         {
             return;
         }
         
         var newWorldPoint = this.ComputeWorldPoint(e);
         
-        if(this.WeldJoint != null)
+        if (this.WeldJoint != null)
         {
             this.UpdateWeldPoint(newWorldPoint);
         }
-        else if(this.PhyGunJoint != null)
+        else if (this.PhyGunJoint != null)
         {
             this.UpdatePhyGunPoint(newWorldPoint);
         }

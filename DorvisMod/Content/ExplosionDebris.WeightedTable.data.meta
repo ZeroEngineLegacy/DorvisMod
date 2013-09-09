@@ -1,0 +1,11 @@
+DataContent = 
+{
+	DataBuilder = 
+	{
+		string Name = "ExplosionDebris",
+		uint64 ResourceId = 519f7783f7c0e059,
+		string LoaderType = "WeightedTable",
+		uint Version = 0,
+		bool ShowInEditor = true,
+	},
+},

@@ -1,0 +1,24 @@
+SoundCue = 
+{
+	PlayMode PlayMode = Looping,
+	float Volume = 0.8,
+	float VolumeVariation = 0.2,
+	float Pitch = 0,
+	float PitchVariation = 0.2,
+	float MinDistance = 3,
+	float MaxDistance = 10000,
+	float PositionRandomization = 0,
+	uint MaxPlaybacks = 10,
+	int Priority = 130,
+	Array Sounds = 
+	[
+		{
+			string SoundName = "5155fe8e036aa16e:Fire_Loop09",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "5155f9c5c46166d0:Fire_Loop10",
+			float Weight = 1,
+		},
+	],
+},

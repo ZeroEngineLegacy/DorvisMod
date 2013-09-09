@@ -41,13 +41,15 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [23.2699, 11.2163, 38.2909],
+			Vec3 Translation = [-0.975802, 6.71554, 49.8904],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0698803, 0.243474, 0.0175905, 0.967227],
+			Quat Rotation = [0, -2.1494e-008, -0, 1],
 		},
 		Camera = 
 		{
 			ProjectionMode ProjectionMode = Perspective,
+			Facing Facing = NegativeZ,
+			SpriteSort SpriteSort = ViewDepth,
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
@@ -56,10 +58,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 28.05,
-			float LookAngle = 0.451591,
-			float LookRotation = -5.20559,
-			Vec3 LookTarget = [10.1276, 7.18419, 13.8404],
+			float LookDistance = 36.05,
+			float VerticalAngle = 0,
+			float HorizontalAngle = 0,
+			Vec3 LookTarget = [-0.9758, 6.71554, 13.8404],
 		},
 		EditorRenderer = 
 		{
@@ -103,6 +105,8 @@ Level =
 		Camera = 
 		{
 			ProjectionMode ProjectionMode = Orthographic,
+			Facing Facing = NegativeZ,
+			SpriteSort SpriteSort = ViewDepth,
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 200,
@@ -154,6 +158,7 @@ Level =
 			bool Visible = true,
 			bool OnTop = false,
 			bool AnimationActive = true,
+			float AnimationSpeed = 1,
 			uint StartFrame = 0,
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
@@ -245,6 +250,7 @@ Level =
 		Notifications = 
 		{
 			float LineHeight = 0.6,
+			string Text = "5156e45015e435cf:ShadowTextFadeRed",
 		},
 	},
 	Cog = 
@@ -280,6 +286,7 @@ Level =
 			BlendMode BlendMode = Alpha,
 			Vec2 Size = [0, 0],
 			TextAlign Align = Left,
+			float PixelsPerUnit = 64,
 		},
 		ShadowText = 
 		{
@@ -316,8 +323,23 @@ Level =
 					BlendMode BlendMode = Alpha,
 					Vec2 Size = [0, 0],
 					TextAlign Align = Left,
+					float PixelsPerUnit = 64,
 				},
 			},
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "522a82a1ae146005:SpaceCamera",
+		LinkId = 
+		{
+			uint Id = 12,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-6.72088, 6.70397, 13.8404],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
 		},
 	},
 },

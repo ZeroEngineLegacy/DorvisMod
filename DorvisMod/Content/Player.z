@@ -215,7 +215,7 @@ class Player : ScriptComponent
     
     function OnLogicUpdate(e : UpdateEvent)
     {
-        if(this.FreezeMouseInput == false)
+        if (this.FreezeMouseInput == false)
         {
             this.UpdateRotationAngles();
         }
@@ -303,7 +303,7 @@ class Player : ScriptComponent
         
         var nullResult : HitResult = null;
         
-        if(foundObject == null)
+        if (foundObject == null)
         {
             return nullResult;
         }
@@ -401,36 +401,40 @@ class Player : ScriptComponent
         
         if (this.Active)
         {
-            if(e.Key == Keys.Space)
+            if (e.Key == Keys.Space)
             {
                 this.Owner.RigidBody.ApplyLinearVelocity(local Real3(0.0, this.JumpVelocity, 0.0));
             }
             
-            var index = e.Key - Keys.One;
-            
-            // Handle the '0' button case
-            if(index == -1)
+            if (e.Key >= Keys.Zero && e.Key <= Keys.Nine)
             {
-                index = 9;
-            }
-            if(e.ShiftPressed)
-            {
-                index += 10;
-            }
-            
-            // Check if the key was a valid key
-            if(index >= 0 && index < this.Tools.Count)
-            {
-                var newTool = this.Tools.Get(index);
-                if(this.ActiveTool != newTool)
+                var index = e.Key - Keys.One;
+                
+                // Handle the '0' button case
+                if (index == -1)
                 {
-                    this.DeactivateTool();
-                    this.ActivateTool(newTool);
+                    index = 9;
+                }
+                
+                if (e.ShiftPressed)
+                {
+                    index += 10;
+                }
+                
+                // Check if the key was a valid key
+                if (index >= 0 && index < this.Tools.Count)
+                {
+                    var newTool = this.Tools.Get(index);
+                    if (this.ActiveTool != newTool)
+                    {
+                        this.DeactivateTool();
+                        this.ActivateTool(newTool);
+                    }
                 }
             }
         }
         
-        if(e.Key == Keys.Z && this.UndoStack.Count != 0)
+        if (e.Key == Keys.Z && this.UndoStack.Count != 0)
         {
             var undo = this.UndoStack.Pop();
             var result = undo.Action(undo);
@@ -458,7 +462,7 @@ class Player : ScriptComponent
             this.Notify("Test of the notification system");
         }
         
-        if(e.Key == Keys.E && this.InteractCog != null)
+        if (e.Key == Keys.E && this.InteractCog != null)
         {
             this.Space.SoundSpace.PlayCueAt(this.InteractSound, this.InteractCog.Transform.WorldTranslation);
             this.SendInteractEvent("Interact", this.InteractCog);

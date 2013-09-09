@@ -1,0 +1,148 @@
+class StarBurst : ScriptComponent
+{
+    var StreamParticles : Cog = null;
+    var FlameParticles : Cog = null;
+    var FlareParticles : Cog = null;
+    var BurstParticles : Cog = null;
+    
+    
+    var IsBursting : Boolean = false;
+    
+    [Property]
+    var ChargeSound : SoundCue = SoundCue.Find("StarBurstCharge");
+    
+    [Property]
+    var BurstSound : SoundCue = SoundCue.Find("StarBurst");
+    
+    [Property]
+    var LoopSound : SoundCue = SoundCue.Find("StarBurstLoop");
+    
+    [Property]
+    var EndSound : SoundCue = SoundCue.Find("StarBurstEnd");
+    
+    [Property]
+    var BootupBursts : Integer = 3;
+    
+    [Property]
+    var BootupTime : Real = 2.0;
+    
+    [Property]
+    var FlyTime : Real = 4.0;
+    
+    [Property]
+    var AngularDamping : Real = 0.75;
+    
+    [Property]
+    var Force : Real = 2000.0;
+    
+    [Property]
+    var RandomTorque : Real = 200.0;
+    
+    // Depending on where the star-burst is placed, a massive amount of torque can be applied
+    // Since the purpose of star-burst is to move in a mostly straight line, then it is recommended
+    // that we don't actually apply force at the position of the star-burst, but rather at a scaled
+    // down position more towards the center of mass
+    [Property]
+    var CenterOfMassTorque : Real = 0.1;
+    
+    var Random : Random = new Random();
+    
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        this.Random.Seed(34593);
+        
+        Zero.Connect(this.Owner, "Activate", this.OnActivate);
+        this.StreamParticles = this.Owner.FindChildByName("StreamParticles");
+        this.FlameParticles = this.Owner.FindChildByName("FlameParticles");
+        this.FlareParticles = this.Owner.FindChildByName("FlareParticles");
+        this.BurstParticles = this.Owner.FindChildByName("BurstParticles");
+    }
+    
+    function BurstEffect()
+    {
+        var emitter = this.BurstParticles.SphericalParticleEmitter;
+        emitter.Active = true;
+        emitter.ResetCount();
+        
+        this.Owner.SoundEmitter.PlayCue(this.BurstSound);
+    }
+    
+    function BeginBurst()
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.SetFlyState(true);
+        this.Owner.SoundEmitter.PlayCue(this.LoopSound);
+        
+        var body = this.Owner.Collider.ActiveBody;
+        body.ForceAwake();
+    }
+    
+    function EndBurst()
+    {
+        Zero.Disconnect(this.Space, Events.LogicUpdate, this);
+        this.SetFlyState(false);
+        this.Owner.SoundEmitter.Stop();
+        this.BurstEffect();
+        this.Owner.SoundEmitter.PlayCue(this.EndSound);
+        this.IsBursting = false;
+    }
+    
+    function OnLogicUpdate(e : UpdateEvent)
+    {
+        var tx = this.Owner.Transform;
+        
+        var body = this.Owner.Collider.ActiveBody;
+        
+        var positionWorld = tx.WorldTranslation;
+        
+        var offsetWorld = positionWorld - body.Owner.Transform.WorldTranslation;
+        
+        var offsetWorldAdjusted = offsetWorld * this.CenterOfMassTorque;
+        
+        var forceWorld = tx.TransformNormal(local Real3(0.0, -1.0, 0.0)) * this.Force;
+        
+        this.Owner.Collider.ActiveBody.AngularVelocity *= this.AngularDamping;
+        
+        body.ApplyForceAtOffsetVector(forceWorld, offsetWorldAdjusted);
+        
+        body.ApplyTorque(this.Random.UnitReal3() * this.RandomTorque);
+    }
+
+    function OnActivate(e : PlayerEvent)
+    {
+        if (this.IsBursting)
+        {
+            return;
+        }
+        
+        this.IsBursting = true;
+        
+        this.Owner.SoundEmitter.PlayCue(this.ChargeSound);
+        
+        var sequence = Action.Sequence(this.Owner.Actions);
+        
+        var timePerBurst = this.BootupTime / (this.BootupBursts as Real);
+        
+        for (var i = 0; i < this.BootupBursts; ++i)
+        {
+            Action.Call(sequence, this.BurstEffect);
+            Action.Delay(sequence, timePerBurst);
+        }
+        
+        
+        Action.Call(sequence, this.BeginBurst);
+        Action.Delay(sequence, this.FlyTime);
+        Action.Call(sequence, this.EndBurst);
+    }
+    
+    function SetFlyState(state : Boolean)
+    {
+        this.StreamParticles.SphericalParticleEmitter.Active = state;
+        this.FlameParticles.SphericalParticleEmitter.Active = state;
+        this.FlareParticles.SphericalParticleEmitter.Active = state;
+    }
+}

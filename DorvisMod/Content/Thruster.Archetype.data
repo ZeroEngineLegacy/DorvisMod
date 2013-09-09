@@ -4,19 +4,15 @@ Cog =
 	{
 		uint Id = 1,
 	},
-	Named = 
-	{
-		string Name = "Thruster",
-	},
 	Archetyped = 
 	{
 		string Name = "519e4cbc821af76f:Thruster",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-94.0455, -11.0196, 103.467],
+		Vec3 Translation = [-13.9652, 10.9431, -0.864872],
 		Vec3 Scale = [1, 1, 1],
-		Quat Rotation = [-0.729491, 0, 0, 0.68399],
+		Quat Rotation = [0, 0, 0, 1],
 	},
 	Model = 
 	{

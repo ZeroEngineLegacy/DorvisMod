@@ -112,7 +112,7 @@ class SpawnTool : ScriptComponent
     
     function OnPlayerMouseDown(e : PlayerMouseEvent)
     {
-        if(this.DestroyMode)
+        if (this.DestroyMode)
         {
             this.DestroyObj(e);
         }
@@ -246,7 +246,7 @@ class SpawnTool : ScriptComponent
             
             newObj.Transform.SetRotationBases(localForward, localNormal, localRight);
             //newObj.Transform.Rotation = Math.RotationQuaternionBetween(local Real3(0.0, 1.0, 0.0), localNormal);
-            if(newObj.RigidBody != null)
+            if (newObj.RigidBody != null)
             {
                 newObj.RigidBody.Static = true;
             }

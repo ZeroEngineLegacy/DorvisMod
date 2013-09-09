@@ -3,10 +3,6 @@ class DamageOnCollide : ScriptComponent
     [Property]
     var Damage : Real = 10.0;
     
-    // The root cog we originated from (we ignore damage to this cog and its descendents)
-    // Set this to null to damage everything
-    var OriginRoot : Cog = null;
-    
     constructor() : base()
     {
     }
@@ -19,7 +15,7 @@ class DamageOnCollide : ScriptComponent
     function OnCollisionStarted(e : CollisionEvent)
     {
         // Don't damage the person we were created from
-        if (e.OtherObject.FindRoot() == this.OriginRoot)
+        if (Team.IsSameTeam(this.Owner, e.OtherObject))
         {
             return;
         }
@@ -28,6 +24,12 @@ class DamageOnCollide : ScriptComponent
         var health = e.OtherObject.Health;
         if (health != null)
         {
+            // If the other object is already dead, then skip everything (supports shield like logic)
+            if (health.IsDead)
+            {
+                return;
+            }
+            
             health.Change(-this.Damage);
         }
         

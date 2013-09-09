@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-15.3872, 6.18618, 20.5365],
+		Vec3 Translation = [-13.44, 2.1681, 1.33484],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -47,10 +47,14 @@ Cog =
 	},
 	DamageOnCollide = 
 	{
-		float Damage = 10,
+		float Damage = 12,
 	},
 	TimedDestroy = 
 	{
 		float Lifetime = 5,
+	},
+	Team = 
+	{
+		int Id = -1,
 	},
 },

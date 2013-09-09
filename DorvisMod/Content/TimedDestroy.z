@@ -16,7 +16,7 @@ class TimedDestroy : ScriptComponent
     function OnLogicUpdate(e : UpdateEvent)
     {
         this.Lifetime -= e.Dt;
-        if(this.Lifetime < 0.0)
+        if (this.Lifetime < 0.0)
         {
             var toSend = new Event();
             this.Owner.DispatchEvent("Death", toSend);

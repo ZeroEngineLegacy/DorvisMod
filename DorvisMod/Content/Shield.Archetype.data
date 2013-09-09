@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-7.46916, -2.11503, 10.5193],
+		Vec3 Translation = [-14.479, 0.357099, 2.20051],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -134,6 +134,27 @@ Cog =
 			MegaMaterial = 
 			{
 				string ProjectileImpact = "4faa6050b86884ec:DefaultArchetype",
+			},
+			Health = 
+			{
+				float Total = 200,
+				float Current = 200,
+			},
+			Shield = 
+			{
+				float RechargeTime = 4,
+				string ChargeSound = "522ba482d46bed80:ShieldCharge",
+				string ImpactSound = "522ba43ccd467f2b:ShieldImpact",
+				string DownSound = "522ba482d46b88bd:ShieldDown",
+			},
+			SoundEmitter = 
+			{
+				bool StartPlaying = true,
+				int ExtraPriority = 0,
+				string CueName = "522ba482d46bed80:ShieldCharge",
+				float Volume = 1,
+				float Pitch = 1,
+				bool Positional = true,
 			},
 		},
 	},

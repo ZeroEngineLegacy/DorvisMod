@@ -1,0 +1,85 @@
+class TimedDestroyEffectFader : ScriptComponent
+{
+    [Property]
+    var Time : Real = 5.0;
+    [Property]
+    var Variance : Real = 1.0;
+    [Property]
+    var ManualActivation : Boolean = false;
+    
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        if (!this.ManualActivation)
+        {
+            this.Activate();
+        }
+    }
+    
+    function Activate()
+    {
+        var random = new Random();
+        random.Seed(345);
+        
+        this.Time += random.Range(-this.Variance, this.Variance);
+        
+        var group = Action.Group(this.Owner.Actions);
+        
+        this.TraverseChildren(group, this.Owner);
+        
+        var seq = Action.Sequence(this.Owner.Actions);
+        Action.Delay(seq, this.Time);
+        Action.Call(seq, this.Owner.Destroy);
+    }
+    
+    function TraverseChildren(group : ActionSet, cog : Cog)
+    {
+        var particles = cog.SpriteParticleSystem;
+        if (particles != null)
+        {
+            var colorAlpha = particles.Tint;
+            colorAlpha.W = 0.0;
+            Action.Property(group, @particles.Tint, colorAlpha, this.Time, Ease.QuadInOut);
+        }
+        
+        var light = cog.Light;
+        if (light != null)
+        {
+            Action.Property(group, @light.Intensity, 0.0, this.Time, Ease.QuadInOut);
+        }
+        
+        var sprite = cog.Sprite;
+        if (sprite != null)
+        {
+            var colorAlpha = sprite.Color;
+            colorAlpha.W = 0.0;
+            Action.Property(group, @sprite.Color, colorAlpha, this.Time, Ease.QuadInOut);
+        }
+        
+        var model = cog.Model;
+        if (model != null)
+        {
+            var colorAlpha = model.Color;
+            colorAlpha.W = 0.0;
+            Action.Property(group, @model.Color, colorAlpha, this.Time, Ease.QuadInOut);
+        }
+        
+        var sound = cog.SoundEmitter;
+        if (sound != null)
+        {
+            Action.Property(group, @sound.Volume, 0.0, this.Time, Ease.QuadInOut);
+        }
+        
+        var hierarchy = cog.Hierarchy;
+        if (hierarchy != null)
+        {
+            foreach (var child in hierarchy.Children)
+            {
+                this.TraverseChildren(group, child);
+            }
+        }
+    }
+}

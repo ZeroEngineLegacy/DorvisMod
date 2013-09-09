@@ -12,6 +12,12 @@ class Health : ScriptComponent
         set { this.Current = this.Total * value; }
     }
     
+    var IsDead : Boolean
+    {
+        get { return this.Current <= 0.0; }
+    }
+    
+    
     constructor() : base()
     {
     }
@@ -23,7 +29,7 @@ class Health : ScriptComponent
     function Change(amount : Real)
     {
         // If we're already dead, ignore this
-        if (this.Current <= 0.0)
+        if (this.IsDead)
         {
             return;
         }
@@ -36,7 +42,7 @@ class Health : ScriptComponent
         toSend.Health = this;
         
         // If we just died...
-        if (this.Current <= 0.0)
+        if (this.IsDead)
         {
             this.Owner.DispatchEvent("Death", toSend);
         }

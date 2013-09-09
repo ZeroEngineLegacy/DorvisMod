@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "StarBurst",
+		uint64 ResourceId = 522b77964f6acade,
+	},
+},

@@ -1,0 +1,122 @@
+class ChainGun : ScriptComponent
+{
+    [Property]
+    var SpreadDegrees : Real = 10.0;
+    
+    [Property]
+    var ShotsPerSecond : Real = 20.0;
+    
+    [Property]
+    var RevTime : Real = 2.0;
+    
+    [Property]
+    var RevUpSound : SoundCue = SoundCue.Find("ChainGunRevUp");
+    [Property]
+    var RevDownSound : SoundCue = SoundCue.Find("ChainGunRevDown");
+    [Property]
+    var LoopSound : SoundCue = SoundCue.Find("ChainGunShotLoop");
+    
+    var Rev : Real = 0.0;
+    
+    var TimeAccumulator : Real = 0.0;
+    
+    var TriggerHeld : Boolean = false;
+    var Firing : Boolean = false;
+    
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, "Activate", this.OnActivate);
+        Zero.Connect(this.Owner, "Deactivate", this.OnDeactivate);
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(e : UpdateEvent)
+    {
+        var timePerShot = 1.0 / this.ShotsPerSecond;
+        
+        this.TimeAccumulator += e.Dt;
+        
+        if (this.TriggerHeld)
+        {
+            this.Rev += e.Dt;
+            
+            if (this.Rev > this.RevTime)
+            {
+                this.Rev = this.RevTime;
+                
+                if (this.Firing == false)
+                {
+                    if (this.TimeAccumulator > timePerShot)
+                    {
+                        this.TimeAccumulator = timePerShot;
+                    }
+                    
+                    this.Owner.SoundEmitter.PlayCue(this.LoopSound);
+                    this.Firing = true;
+                }
+            }
+        }
+        else
+        {
+            this.Rev -= e.Dt;
+            
+            if (this.Rev < 0.0)
+            {
+                this.Rev = 0.0;
+            }
+        }
+        
+        if (this.Rev >= this.RevTime)
+        {
+            while (this.TimeAccumulator >= timePerShot)
+            {
+                this.TimeAccumulator -= timePerShot;
+                
+                var worldRay = local Ray();
+                worldRay.Start = this.Owner.Transform.WorldTranslation;
+                worldRay.Direction = this.Owner.Orientation.WorldForward;
+                
+                var results = this.Space.PhysicsSpace.CastRayResults(worldRay, 10);
+                
+                foreach (var result in results)
+                {
+                    //// Don't damage the person we were created from
+                    //if (Team.IsSameTeam(this.Owner, result.OtherObject))
+                    //{
+                    //    return;
+                    //}
+                    
+                    //// We only ignore ghosts if they don't have a Health component
+                    //if (result.Collider.Ghost)
+                    //{
+                    //    continue;
+                    //}
+                }
+            }
+        }
+    }
+    
+    function OnDeactivate(e : PlayerEvent)
+    {
+        this.TriggerHeld = false;
+        this.Firing = false;
+        this.Owner.SoundEmitter.Stop();
+        
+        if (this.Rev >= this.RevTime * 0.5)
+        {
+            this.Owner.SoundEmitter.PlayCue(this.RevDownSound);
+        }
+    }
+
+    function OnActivate(e : PlayerEvent)
+    {
+        this.TriggerHeld = true;
+        this.Owner.SoundEmitter.Stop();
+        this.Owner.SoundEmitter.PlayCue(this.RevUpSound);
+    }
+}

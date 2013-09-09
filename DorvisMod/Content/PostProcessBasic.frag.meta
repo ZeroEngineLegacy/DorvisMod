@@ -1,0 +1,8 @@
+TextContent = 
+{
+	FragmentBuilder = 
+	{
+		string Name = "PostProcessBasic",
+		uint64 ResourceId = 522cada922d9ccf5,
+	},
+},

@@ -1,0 +1,18 @@
+DataContent = 
+{
+	ContentTags = 
+	{
+		object Tags = 
+		[
+			"Projectiles",
+		],
+	},
+	DataBuilder = 
+	{
+		string Name = "Rocket",
+		uint64 ResourceId = 522caf701b8ba50a,
+		string LoaderType = "Cog",
+		uint Version = 0,
+		bool ShowInEditor = true,
+	},
+},

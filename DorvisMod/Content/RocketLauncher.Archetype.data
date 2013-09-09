@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-10.1137, -1.35462, 13.6662],
+		Vec3 Translation = [-1.98155, -0.130602, -9.79534],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -23,8 +23,8 @@ Cog =
 	},
 	Cannon = 
 	{
-		float Speed = 50,
-		string Projectile = "522cbc11b314812c:RocketLauncher",
+		float Speed = 45,
+		string Projectile = "522caf701b8ba50a:Rocket",
 	},
 	Orientation = 
 	{
@@ -64,7 +64,7 @@ Cog =
 	{
 		bool StartPlaying = false,
 		int ExtraPriority = 0,
-		string CueName = "5155988faf84296a:Cannon",
+		string CueName = "522cb3a0af6ded7e:RocketLaunch",
 		float Volume = 1,
 		float Pitch = 1,
 		bool Positional = true,

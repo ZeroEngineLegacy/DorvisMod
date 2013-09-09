@@ -26,7 +26,7 @@ class JointSwivel : ScriptComponent
     
     //function OnLogicUpdate(e : UpdateEvent)
     //{
-    //    if(this.Joint != null)
+    //    if (this.Joint != null)
     //    {
     //        this.Joint.DebugDraw();
     //    }
@@ -43,7 +43,7 @@ class JointSwivel : ScriptComponent
         var motor = this.Joint.JointMotor;
         
         motor.MotorSpeed -= 5.0;
-        if(motor.MotorSpeed < -5.0)
+        if (motor.MotorSpeed < -5.0)
         {
             motor.MotorSpeed = 5.0;
         }
@@ -60,11 +60,11 @@ class JointSwivel : ScriptComponent
         var parent = this.Owner.Parent;
         
         var axis = local Real3();
-        if(this.Axis == SwivelAxis.Up)
+        if (this.Axis == SwivelAxis.Up)
         {
             axis = this.Owner.Orientation.WorldUp;
         }
-        else if(this.Axis == SwivelAxis.Right)
+        else if (this.Axis == SwivelAxis.Right)
         {
             axis = this.Owner.Orientation.WorldRight;
         }
@@ -80,7 +80,7 @@ class JointSwivel : ScriptComponent
         revoluteJoint.LocalPointA *= 1.02;
         revoluteJoint.LocalPointB *= 1.02;
         
-        if(this.Motorized == true)
+        if (this.Motorized == true)
         {
             jointCreator.AttachMotor(this.Joint);
             var jointMotor = this.Joint.JointMotor;
@@ -108,21 +108,21 @@ class JointSwivel : ScriptComponent
     {
         var delta = 0.0;
         
-        if(this.Axis == SwivelAxis.Up)
+        if (this.Axis == SwivelAxis.Up)
         {
             delta = -e.ScreenDelta.X;
         }
-        else if(this.Axis == SwivelAxis.Right)
+        else if (this.Axis == SwivelAxis.Right)
         {
             delta = e.ScreenDelta.Y;
         }
         
         
-        if(delta < 0.0)
+        if (delta < 0.0)
         {
             this.Joint.JointMotor.MotorSpeed = delta;
         }
-        else if(delta > 0.0)
+        else if (delta > 0.0)
         {
             this.Joint.JointMotor.MotorSpeed = delta;
         }
