@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-6.72088, 6.70397, 13.8404],
+		Vec3 Translation = [-10.8777, 6.70397, 3.44414],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -23,7 +23,12 @@ Cog =
 	},
 	SpaceCamera = 
 	{
-		string Space = "4e39ae0ad564493d:DefaultSpace",
-		string Level = "522a86e94795ae0e:SpawnIcon",
+		string SpaceToCreate = "4e39ae0ad564493d:DefaultSpace",
+		string LevelToCreate = "522a86e94795ae0e:SpawnIcon",
+		string OurCameraViewportName = "Camera",
+	},
+	SpaceCameraObjectIcon = 
+	{
+		string Object = "4de020863e85dcdf:Cube",
 	},
 },

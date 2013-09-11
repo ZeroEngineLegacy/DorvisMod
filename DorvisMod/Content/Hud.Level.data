@@ -41,9 +41,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.975802, 6.71554, 49.8904],
+			Vec3 Translation = [-2.04931, 7.5064, 10.9938],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, -2.1494e-008, -0, 1],
+			Quat Rotation = [-0.0521481, 0.457439, 0.0268843, 0.887304],
 		},
 		Camera = 
 		{
@@ -58,10 +58,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 36.05,
-			float VerticalAngle = 0,
-			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-0.9758, 6.71554, 13.8404],
+			float LookDistance = 18.1,
+			float VerticalAngle = 0.368001,
+			float HorizontalAngle = -0.952002,
+			Vec3 LookTarget = [-16.6917, 5.38619, 0.56714],
 		},
 		EditorRenderer = 
 		{
@@ -94,7 +94,7 @@ Level =
 		},
 		Named = 
 		{
-			string Name = "Camera",
+			string Name = "HudCamera",
 		},
 		Transform = 
 		{
@@ -328,18 +328,35 @@ Level =
 			},
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "522a82a1ae146005:SpaceCamera",
 		LinkId = 
 		{
 			uint Id = 12,
 		},
+		Named = 
+		{
+			string Name = "SpawnToolHud",
+		},
 		Transform = 
 		{
-			Vec3 Translation = [-6.72088, 6.70397, 13.8404],
+			Vec3 Translation = [-16, 6, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
+		},
+		Model = 
+		{
+			string MaterialName = "4de020863e85bb61:DefaultMaterial",
+			string MeshName = "4de0354322b345ae:Cube",
+			Vec4 Color = [1, 1, 1, 1],
+			bool Visible = false,
+		},
+		SpawnToolHud = 
+		{
+			string Blocks = "524dcf9ba65bba7e:Blocks",
+		},
+		Hierarchy = 
+		{
 		},
 	},
 },

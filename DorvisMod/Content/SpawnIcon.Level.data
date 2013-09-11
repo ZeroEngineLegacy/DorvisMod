@@ -37,9 +37,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [3.46576, 8.24295, 75.7492],
+			Vec3 Translation = [77.2787, 14.3723, -31.6424],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0497142, 0.0119855, 0.000596632, 0.998691],
+			Quat Rotation = [-0.0512579, 0.804503, 0.0701842, 0.587556],
 		},
 		Camera = 
 		{
@@ -55,9 +55,9 @@ Level =
 		{
 			ControlMode ControlMode = Orbit,
 			float LookDistance = 83,
-			float VerticalAngle = 0.312,
-			float HorizontalAngle = -0.0240014,
-			Vec3 LookTarget = [1.48369, 0, -6.81665],
+			float VerticalAngle = 0.544,
+			float HorizontalAngle = -1.88,
+			Vec3 LookTarget = [-0.590712, 0, -6.76685],
 		},
 		EditorRenderer = 
 		{
@@ -92,32 +92,18 @@ Level =
 		},
 		CameraViewport = 
 		{
-			bool Background = true,
+			bool Background = false,
 			Vec2 Offset = [0, 0],
 			Vec2 Size = [1, 1],
 			uint Layer = 0,
 			bool Active = true,
 			bool Blocking = false,
-			uint Renderer = 4294967293,
+			uint Renderer = 3,
 			uint Camera = 3,
 		},
 		ForwardRenderer = 
 		{
 			Vec4 ClearColor = [0, 0, 0, 1],
-		},
-	},
-	ArchetypeInstance = 
-	{
-		string Name = "519e5cfaa4b9c3f4:Block",
-		LinkId = 
-		{
-			uint Id = 4,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [0, 0, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
 		},
 	},
 },

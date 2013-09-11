@@ -7,7 +7,7 @@ class SpaceCamera : ScriptComponent
     var LevelToCreate : Level = Level.Find("SpawnIcon");
     
     [Property]
-    var OurCameraName : String = "Camera";
+    var OurCameraViewportName : String = "Camera";
     
     var SubSpace : Space = null;
     var SubCameraCog : Cog = null;
@@ -19,22 +19,76 @@ class SpaceCamera : ScriptComponent
 
     function Initialize(init : CogInitializer)
     {
-        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
     
     function OnAllObjectsCreated()
     {
-        var ourCameraCog = this.Space.FindObjectByName(this.OurCameraName);
+        var ourCameraViewportCog = this.Space.FindObjectByName(this.OurCameraViewportName);
+        this.OurCameraViewport = ourCameraViewportCog.Camera.Viewport.CameraViewport;
+    }
+    
+    [Static]
+    function NdcToViweport(input : Real3) : Real3
+    {
+        input += local Real3(1.0);
+        input /= local Real3(2.0);
         
-        this.OurCameraViewport = ourCameraCog.Camera.Viewport.CameraViewport;
+        input.Y = 1.0 - input.Y;
+        input.Z = 0.0;
+        return input;
+    }
+    
+    function OnLogicUpdate(e : UpdateEvent)
+    {
+        if (this.OurCameraViewport.Active == false)
+        {
+            return;
+        }
         
-        this.SubSpace = Zero.Game.CreateSpace(this.SpaceToCreate.Name);
-        this.SubSpace.LoadLevel(this.LevelToCreate);
+        // We lazy create the space so that we don't needlessly create spaces for disabled viewports
+        if (this.SubSpace == null)
+        {
+            this.SubSpace = Zero.Game.CreateSpace(this.SpaceToCreate.Name);
+            this.SubSpace.LoadLevel(this.LevelToCreate);
+            this.SubCameraCog = this.SubSpace.FindObjectByName("Camera");
+            
+            var toSend = new SpaceCameraEvent();
+            toSend.Space = this.SubSpace;
+            
+            this.Owner.DispatchEvent("SpaceCameraCreated", toSend);
+        }
         
-        this.SubCameraCog = this.SubSpace.FindObjectByName("Camera");
         
-        var screenPos = this.OurCameraViewport.WorldToScreen(this.Owner.Transform.WorldTranslation);
+        var tx = this.Owner.Transform;
         
-        this.SubCameraCog.CameraViewport.Offset = local Real2(screenPos.X, screenPos.Y);
+        var offset = local Real3(tx.WorldScale.X, -tx.WorldScale.Y, 0.0);
+        var topLeft = tx.WorldTranslation - offset;
+        var bottomRight = tx.WorldTranslation + offset;
+        
+        var topLeftScreenNdc = this.OurCameraViewport.WorldToScreen(topLeft);
+        var bottomRightScreenNdc = this.OurCameraViewport.WorldToScreen(bottomRight);
+        
+        var topLeftViewport = SpaceCamera.NdcToViweport(topLeftScreenNdc);
+        var bottomRightViewport = SpaceCamera.NdcToViweport(bottomRightScreenNdc);
+        
+        var subCameraViewport = this.SubCameraCog.CameraViewport;
+        
+        Console.WriteLine(topLeftViewport);
+        Console.WriteLine(bottomRightViewport);
+        
+        Console.WriteLine(bottomRightViewport - topLeftViewport);
+        
+        subCameraViewport.Offset = topLeftViewport.XY;
+        subCameraViewport.Size = (bottomRightViewport - topLeftViewport).XY;
+    }
+}
+
+class SpaceCameraEvent : Event
+{
+    var Space : Space = null;
+    
+    constructor() : base()
+    {
     }
 }

@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "SpawnToolHud",
+		uint64 ResourceId = 524dc9c012fd6d1c,
+	},
+},

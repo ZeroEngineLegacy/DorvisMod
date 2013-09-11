@@ -79,7 +79,6 @@ class Player : ScriptComponent
     
     constructor() : base()
     {
-        Console.WriteLine("Player CTOR");
     }
 
     function Initialize(init : CogInitializer)

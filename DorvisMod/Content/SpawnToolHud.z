@@ -1,0 +1,47 @@
+class SpawnToolHud : ScriptComponent
+{
+    [Property]
+    var Blocks : ResourceTable = ResourceTable.Find("Blocks");
+    
+    var Spawnables : Array[Archetype] = new Array[Archetype]();
+    
+    var SpinAngle : Real = 0.0;
+    
+    constructor() : base()
+    {
+        
+    }
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnAllObjectsCreated()
+    {
+        var count = this.Blocks.Size;
+        for (var i = 0; i < count; ++i)
+        {
+            var resource = this.Blocks.GetResourceAt(i) as Archetype;
+            
+            this.Spawnables.Add(resource);
+            
+            var block = this.Space.Create(resource);
+            
+            Console.WriteLine(block.ArchetypeName);
+            Console.WriteLine(block.Name);
+            
+            block.RigidBody.Static = true;
+            
+            block.AttachTo(this.Owner);
+            
+            block.Transform.LocalTranslation = local Real3(0.0, -i as Real * 1.6, 0.0);
+        }
+    }
+
+    function OnLogicUpdate(e : UpdateEvent)
+    {
+        this.SpinAngle += e.Dt;
+        this.Owner.Transform.SetEulerAnglesXYZ(0.0, this.SpinAngle, 0.0);
+    }
+}

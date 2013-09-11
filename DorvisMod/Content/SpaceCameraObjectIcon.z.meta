@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "SpaceCameraObjectIcon",
+		uint64 ResourceId = 524d1d8f19726fc2,
+	},
+},

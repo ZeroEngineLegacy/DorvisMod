@@ -63,7 +63,11 @@ class GameStartup : ScriptComponent
                 this.Owner.LockStepMouse.InputCameraViewport = levelSettings;
                 levelSettings.CameraViewport.MouseTrapped = true;
                 
-                player.Player.Hud.FindObjectByName("Camera").CameraViewport.Active = true;
+                var hudCameraCog = player.Player.Hud.FindObjectByName("HudCamera");
+                
+                Console.WriteLine(hudCameraCog.Name);
+                
+                hudCameraCog.CameraViewport.Active = true;
             }
         }
     }

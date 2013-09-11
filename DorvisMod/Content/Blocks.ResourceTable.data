@@ -1,0 +1,78 @@
+ResourceTable = 
+{
+	string ResourceType = "Archetype",
+	Array EntryList = 
+	[
+		{
+			string Name = "Name1",
+			string Value = "519e5cfaa4b9c3f4:Block",
+			float Weight = 1,
+		},
+		{
+			string Name = "Name2",
+			string Value = "519e4cbc821aa3bb:Chair",
+			float Weight = 1,
+		},
+		{
+			string Name = "Name3",
+			string Value = "519e4cbc821af76f:Thruster",
+			float Weight = 1,
+		},
+		{
+			string Name = "Name4",
+			string Value = "51564debaa0794af:Wheel",
+			float Weight = 1,
+		},
+		{
+			string Name = "Name5",
+			string Value = "520330a34f8aefe2:Glass",
+			float Weight = 1,
+		},
+		{
+			string Name = "Name6",
+			string Value = "519e45e379f286e6:Cannon",
+			float Weight = 1,
+		},
+		{
+			string Name = "Name7",
+			string Value = "522cbc11b314812c:RocketLauncher",
+			float Weight = 1,
+		},
+		{
+			string Name = "Name8",
+			string Value = "522a5cd1617899b0:ChainGun",
+			float Weight = 1,
+		},
+		{
+			string Name = "Name9",
+			string Value = "52625465bb4680a3:Swivel",
+			float Weight = 1,
+		},
+		{
+			string Name = "Name10",
+			string Value = "526374cfe24ee187:VerticalSwivel",
+			float Weight = 1,
+		},
+		{
+			string Name = "Name11",
+			string Value = "52631887714b946e:CameraBlock",
+			float Weight = 1,
+		},
+		{
+			string Name = "Name12",
+			string Value = "520ea43291396f97:Shield",
+			float Weight = 1,
+		},
+		{
+			string Name = "Name13",
+			string Value = "522b774e67fa869a:StarBurst",
+			float Weight = 1,
+		},
+		{
+			string Name = "Name14",
+			string Value = "519dbb34b32b6447:CommandBlock",
+			float Weight = 1,
+		},
+	],
+	float MaxWeight = 1,
+},
