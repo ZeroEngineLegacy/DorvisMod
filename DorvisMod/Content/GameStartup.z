@@ -65,8 +65,6 @@ class GameStartup : ScriptComponent
                 
                 var hudCameraCog = player.Player.Hud.FindObjectByName("HudCamera");
                 
-                Console.WriteLine(hudCameraCog.Name);
-                
                 hudCameraCog.CameraViewport.Active = true;
             }
         }

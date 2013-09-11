@@ -10,8 +10,7 @@ class SpawnTool : ScriptComponent
     
     var HudElement : Cog = null;
     
-    [Property]
-    var ObjToSpawn : Archetype = Archetype.Find("Block");
+    var ObjToSpawn : Archetype = null;
     
     [Property]
     var SpawnEffect : Archetype = Archetype.Find("SpawnEffect");
@@ -40,10 +39,15 @@ class SpawnTool : ScriptComponent
         Zero.Connect(e.PlayerCog, "PlayerMouseDown", this.OnPlayerMouseDown);
         Zero.Connect(e.PlayerCog, "PlayerMouseScroll", this.OnPlayerMouseScroll);
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+        this.HudElement.SpawnToolHud.Activate();
+        this.UpdateObjectToSpawn();
     }
     
     function OnDeativateTool(e : ToolChangeEvent)
     {
+        this.HudElement.SpawnToolHud.Deactivate();
+        
         this.PlayerCog = null;
         this.Player = null;
         this.HudText = null;
@@ -65,7 +69,7 @@ class SpawnTool : ScriptComponent
         {
             if (this.DestroyMode == false)
             {
-                this.HudText.Text = "Press [Left Mouse] to spawn";
+                this.HudText.Text = String.Concatenate("Press [Left Mouse] to spawn a ", this.ObjToSpawn.Name);
             }
             else
             {
@@ -81,7 +85,7 @@ class SpawnTool : ScriptComponent
         
         if (this.DestroyMode == false)
         {
-            this.HudText.Text = "Press [Left Mouse] to attach";
+            this.HudText.Text = String.Concatenate("Press [Left Mouse] to attach a ", this.ObjToSpawn.Name);
             pos  += result.WorldNormal;
             color = local Real4(1.0);
         }
@@ -99,10 +103,19 @@ class SpawnTool : ScriptComponent
         this.Ghost.Draw();
     }
     
+    function UpdateObjectToSpawn()
+    {
+        var spawnToolHud = this.HudElement.SpawnToolHud;
+        var icons = spawnToolHud.Icons;
+        var iconCog = icons.Get(spawnToolHud.SelectedIndex);
+        
+        this.ObjToSpawn = Archetype.Find(iconCog.ArchetypeName);
+    }
+    
     function OnPlayerMouseScroll(e : PlayerMouseEvent)
     {
         this.HudElement.SpawnToolHud.ChangeSelection(e.ScrollDelta.Y as Integer);
-            this.ObjToSpawn = Archetype.Find(this.HudElement.SpawnToolHud.Icons.Get(this.HudElement.SpawnToolHud.SelectedIndex).ArchetypeName);
+        this.UpdateObjectToSpawn();
     }
     
     function OnPlayerKeyDown(e : PlayerKeyEvent)
@@ -114,12 +127,12 @@ class SpawnTool : ScriptComponent
         else if (e.Key == Keys.Left)
         {
             this.HudElement.SpawnToolHud.ChangeSelection(-1);
-            this.ObjToSpawn = Archetype.Find(this.HudElement.SpawnToolHud.Icons.Get(this.HudElement.SpawnToolHud.SelectedIndex).ArchetypeName);
+            this.UpdateObjectToSpawn();
         }
         else if (e.Key == Keys.Right)
         {
             this.HudElement.SpawnToolHud.ChangeSelection(1);
-            this.ObjToSpawn = Archetype.Find(this.HudElement.SpawnToolHud.Icons.Get(this.HudElement.SpawnToolHud.SelectedIndex).ArchetypeName);
+            this.UpdateObjectToSpawn();
         }
     }
     

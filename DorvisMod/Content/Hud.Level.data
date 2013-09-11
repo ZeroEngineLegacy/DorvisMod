@@ -41,9 +41,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-2.22454, -9.48657, 20.1275],
+			Vec3 Translation = [-30.7749, -6.28323, 2.3194],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.0983641, -0.0556975, 0.00551406, 0.993575],
+			Quat Rotation = [0.0488386, -0.69023, 0.0467919, 0.720422],
 		},
 		Camera = 
 		{
@@ -58,10 +58,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 20.5981,
-			float VerticalAngle = -0.615999,
-			float HorizontalAngle = 0.111998,
-			Vec3 LookTarget = [0.0329002, -5.44773, 0.0558071],
+			float LookDistance = 32.5981,
+			float VerticalAngle = -0.423999,
+			float HorizontalAngle = 1.528,
+			Vec3 LookTarget = [1.49537, -1.88369, 0.937445],
 		},
 		EditorRenderer = 
 		{
@@ -77,7 +77,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, -6.10416, 0],
+			Vec3 Translation = [0, -5.69058, 0],
 			Vec3 Scale = [0.5, 0.5, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -236,7 +236,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, -4.82546, 0],
+			Vec3 Translation = [0, -4.41188, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -253,86 +253,29 @@ Level =
 			string Text = "5156e45015e435cf:ShadowTextFadeRed",
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "51553868096c8e02:ShadowTextSmall",
 		LinkId = 
 		{
 			uint Id = 10,
 		},
-		Named = 
-		{
-			string Name = "UndoText",
-		},
-		Archetyped = 
-		{
-			string Name = "51553868096c8e02:ShadowTextSmall",
-		},
 		Transform = 
 		{
-			Vec3 Translation = [0, -7.10416, 0],
+			Vec3 Translation = [0, -6.69058, 0],
 			Vec3 Scale = [0.5, 0.5, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		SpriteText = 
+		Named = 
 		{
-			SpriteGeometryMode GeometryMode = ZPlane,
-			TextPositionMode Position = Centered,
-			string FontName = "5154fda3d0e09e6c:HemiHead",
-			uint FontSize = 40,
-			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = true,
-			string Text = "Hello",
-			bool OnTop = false,
-			BlendMode BlendMode = Alpha,
-			Vec2 Size = [0, 0],
-			TextAlign Align = Left,
-			float PixelsPerUnit = 64,
-		},
-		ShadowText = 
-		{
-			string InitialText = "",
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 11,
-				},
-				Named = 
-				{
-					string Name = "Shadow",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0.1, -0.1, -0.2],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				SpriteText = 
-				{
-					SpriteGeometryMode GeometryMode = ZPlane,
-					TextPositionMode Position = Centered,
-					string FontName = "5154fda3d0e09e6c:HemiHead",
-					uint FontSize = 40,
-					Vec4 Color = [0, 0, 0, 1],
-					bool Visible = true,
-					string Text = "Hello",
-					bool OnTop = false,
-					BlendMode BlendMode = Alpha,
-					Vec2 Size = [0, 0],
-					TextAlign Align = Left,
-					float PixelsPerUnit = 64,
-				},
-			},
+			string Name = "UndoText",
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 12,
+			uint Id = 11,
 		},
 		Named = 
 		{
@@ -340,7 +283,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, -9.41751, 0],
+			Vec3 Translation = [0, -8.25, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -354,6 +297,9 @@ Level =
 		SpawnToolHud = 
 		{
 			string Blocks = "524dcf9ba65bba7e:Blocks",
+			float IconScale = 1.8,
+			float Width = 10,
+			float Height = 5,
 		},
 		Hierarchy = 
 		{

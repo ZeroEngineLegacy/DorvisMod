@@ -63,7 +63,7 @@ Level =
 			bool Hdr = true,
 			bool Glow = true,
 			bool ToneMapping = false,
-			float BrightThreshold = 1,
+			float BrightThreshold = 1.3,
 			float Exposure = 0.5,
 			bool Refraction = true,
 		},
@@ -3723,6 +3723,7 @@ Level =
 			bool SoftShadows = true,
 			float Size = 1,
 			Vec4 Color = [0, 0, 0, 1],
+			bool Active = true,
 		},
 	},
 	Cog = 
@@ -4946,9 +4947,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-32.9762, 14.5944, -2.39792],
+			Vec3 Translation = [5.7161, 18.9054, 18.9596],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0943121, -0.827237, -0.146024, 0.534286],
+			Quat Rotation = [-0.1676, 0.651338, 0.150666, 0.724547],
 		},
 		Camera = 
 		{
@@ -4964,9 +4965,9 @@ Level =
 		{
 			ControlMode ControlMode = Orbit,
 			float LookDistance = 25.5981,
-			float VerticalAngle = 1.07559,
-			float HorizontalAngle = -48.2708,
-			Vec3 LookTarget = [-11.0536, 5.83035, 7.49398],
+			float VerticalAngle = 1.37959,
+			float HorizontalAngle = -45.4468,
+			Vec3 LookTarget = [-17.1519, 7.66435, 16.5192],
 		},
 		EditorRenderer = 
 		{
@@ -4998,7 +4999,7 @@ Level =
 		{
 			Vec3 Translation = [-72.9114, 2.967, 98.9197],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0329569, -0.673127, 0.00333321, 0.738785],
+			Quat Rotation = [-0.0329569, -0.673127, 0.00333318, 0.738785],
 		},
 	},
 	ArchetypeInstance = 

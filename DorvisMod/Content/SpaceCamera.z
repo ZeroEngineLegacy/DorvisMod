@@ -74,11 +74,6 @@ class SpaceCamera : ScriptComponent
         
         var subCameraViewport = this.SubCameraCog.CameraViewport;
         
-        Console.WriteLine(topLeftViewport);
-        Console.WriteLine(bottomRightViewport);
-        
-        Console.WriteLine(bottomRightViewport - topLeftViewport);
-        
         subCameraViewport.Offset = topLeftViewport.XY;
         subCameraViewport.Size = (bottomRightViewport - topLeftViewport).XY;
     }

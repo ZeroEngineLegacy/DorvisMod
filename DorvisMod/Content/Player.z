@@ -83,7 +83,6 @@ class Player : ScriptComponent
 
     function Initialize(init : CogInitializer)
     {
-        Console.WriteLine("Player Initialize");
     }
     
     function LockStepInitialize(peer : LockStepPeer, id : Integer, unsafeIsLocal : Boolean)
@@ -104,7 +103,7 @@ class Player : ScriptComponent
         
         this.ToolContainer = this.Owner.FindChildByName("ToolContainer");
         
-        this.Hud = Zero.Game.CreateSpace("DefaultSpace");
+        this.Hud = Zero.Game.CreateSpace("Space");
         
         this.Hud.LoadLevel(this.HudToCreate);
         this.HudContextText = this.Hud.FindObjectByName("ContextText").ShadowText;
@@ -141,11 +140,36 @@ class Player : ScriptComponent
         this.Active = true;
         this.ActivateTool(this.ActiveTool);
         
-        // Because when activating, we could be inside something, attempt to resolve a portion of the collision
-        foreach (var contact in this.Owner.Collider.Contacts)
+        var filter = this.Space.PhysicsSpace.CreateDefaultCastFilter();
+        
+        for (var i = 0; i < 100; ++i)
         {
-            this.Owner.Transform.WorldTranslation -= contact.FirstPoint.WorldNormalTowardsOther * local Real3(0.5);
+            var results = this.Space.PhysicsSpace.CastColliderResults(local Real3(), this.Owner.Collider, filter);
+            // Because when activating, we could be inside something, attempt to resolve a portion of the collision
+            foreach (var contact in results)
+            {
+                if (contact.Collider.Ghost)
+                {
+                    continue;
+                }
+                
+                var hitRoot = contact.ObjectHit.FindRoot();
+                
+                if (hitRoot == this.Owner.FindRoot())
+                {
+                    continue;
+                }
+                
+                this.Owner.Transform.WorldTranslation += contact.Normal * local Real3(0.5);
+            }
         }
+        
+        
+        //foreach (var contact in this.Owner.Collider.Contacts)
+        //{
+        //    Console.WriteLine(contact.FirstPoint.WorldNormalTowardsOther);
+        //    this.Owner.Transform.WorldTranslation -= contact.FirstPoint.WorldNormalTowardsOther * local Real3(0.75);
+        //}
     }
     
     function Deactivate()

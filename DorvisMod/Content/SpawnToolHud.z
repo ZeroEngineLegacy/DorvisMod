@@ -3,6 +3,19 @@ class SpawnToolHud : ScriptComponent
     [Property]
     var Blocks : ResourceTable = ResourceTable.Find("Blocks");
     
+    [Property]
+    var IconScale : Real = 1.8;
+    
+    [Property]
+    var Width : Real = 10.0;
+    
+    [Property]
+    var Height : Real = 5.0;
+    
+    [Property]
+    var Smoothing : Real = 0.3;
+    
+    
     var Spawnables : Array[Archetype] = new Array[Archetype]();
     
     var SpinAngle : Real = 0.0;
@@ -21,35 +34,34 @@ class SpawnToolHud : ScriptComponent
     
     function Initialize(init : CogInitializer)
     {
+    }
+    
+    function Activate()
+    {
+        this.CreateIcons();
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
-
-    function OnAllObjectsCreated()
+    
+    function Deactivate()
     {
-        var count = this.Blocks.Size;
-        for (var i = 0; i < count; ++i)
-        {
-            var resource = this.Blocks.GetResourceAt(i) as Archetype;
-            
-            this.Spawnables.Add(resource);
-            
-            var block = this.Space.Create(resource);
-            
-            this.Icons.Add(block);
-            
-            SpawnToolHud.MakeStatic(block);
-            block.AttachTo(this.Owner);
-            block.Transform.LocalTranslation = local Real3(0.0, 0.0, 0.0);
-        }
+        Zero.Disconnect(this.Space, Events.LogicUpdate, this);
+        this.DestroyIcons();
     }
     
     [Static]
-    function MakeStatic(cog : Cog)
+    function DisableEffects(cog : Cog)
     {
         var rigidBody = cog.RigidBody;
         if (rigidBody != null)
         {
-            rigidBody.Static = true;
+            rigidBody.Static = false;
+            rigidBody.Kinematic = true;
+        }
+        
+        var emitter = cog.SphericalParticleEmitter;
+        if (emitter != null)
+        {
+            emitter.Active = false;
         }
         
         var hierarchy = cog.Hierarchy;
@@ -58,7 +70,7 @@ class SpawnToolHud : ScriptComponent
         {
             foreach (var child in hierarchy.Children)
             {
-                SpawnToolHud.MakeStatic(child);
+                SpawnToolHud.DisableEffects(child);
             }
         }
     }
@@ -75,11 +87,44 @@ class SpawnToolHud : ScriptComponent
         }
     }
 
+    function CreateIcons()
+    {
+        var count = this.Blocks.Size;
+        for (var i = 0; i < count; ++i)
+        {
+            var resource = this.Blocks.GetResourceAt(i) as Archetype;
+            
+            this.Spawnables.Add(resource);
+            
+            var block = this.Space.Create(resource);
+            
+            block.Transform.Scale *= this.IconScale;
+            
+            this.Icons.Add(block);
+            
+            SpawnToolHud.DisableEffects(block);
+            block.AttachTo(this.Owner);
+            block.Transform.LocalTranslation = local Real3(0.0, 0.0, 0.0);
+        }
+    }
+
+    function DestroyIcons()
+    {
+        this.Spawnables.Clear();
+        
+        foreach (var icon in this.Icons)
+        {
+            icon.Destroy();
+        }
+        
+        this.Icons.Clear();
+    }
+
     function OnLogicUpdate(e : UpdateEvent)
     {
         var count = this.Icons.Count;
         var targetAngle = -((this.SelectedNonWrappedIndex as Real) / count as Real) * Math.Pi * 2.0 + Math.Pi / 2.0;
-        this.ActualAngle = Math.Lerp(this.ActualAngle, targetAngle, 0.3);
+        this.ActualAngle = Math.Lerp(this.ActualAngle, targetAngle, this.Smoothing);
         
         this.SpinAngle += e.Dt;
         for (var i = 0; i < count; ++i)
@@ -88,23 +133,24 @@ class SpawnToolHud : ScriptComponent
             
             var angle = this.ActualAngle + (i as Real / count as Real) * Math.Pi * 2.0;
             
-            var x = Math.Cos(angle) * 5.0;
-            var y = Math.Sin(angle) * 2.0 - 1.0;
-            
+            var x = Math.Cos(angle) * this.Width;
+            var y = Math.Sin(angle) * this.Height - this.Height;
             var targetTranslation = local Real3(x, y, 0.0);
             var currentTranslation = block.Transform.Translation;
             
             //block.Transform.Translation = Math.Lerp(currentTranslation, targetTranslation, 0.1);
             block.Transform.Translation = targetTranslation;
             
-            //if (i == this.SelectedIndex)
-            //{
-            //    block.Model.Material = Material.Find("Caution");
-            //}
-            //else
-            //{
-            //    block.Model.Material = Material.Find("Grid");
-            //}
+            if (i == this.SelectedIndex)
+            {
+                var rotating = Math.ToQuaternion(Math.Pi / 8.0, this.SpinAngle, 0.0);
+                block.Transform.Rotation = Math.Slerp(block.Transform.Rotation, rotating, this.Smoothing);
+                //block.Transform.SetEulerAnglesXYZ(Math.Pi / 8.0, this.SpinAngle, 0.0);
+            }
+            else
+            {
+                block.Transform.Rotation = Math.Slerp(block.Transform.Rotation, local Quat(), this.Smoothing);
+            }
         }
         
         //this.Owner.Transform.SetEulerAnglesXYZ(0.0, this.SpinAngle, 0.0);

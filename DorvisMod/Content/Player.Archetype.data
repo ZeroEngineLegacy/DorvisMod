@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0.681431, 12.0587, 2.15375],
+		Vec3 Translation = [-11.3035, 7.77832, 9.77347],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -138,7 +138,7 @@ Cog =
 			Transform = 
 			{
 				Vec3 Translation = [0, 0, 0],
-				Vec3 Scale = [1, 1, 1],
+				Vec3 Scale = [0.1, 0.1, 0.1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
 			BoxCollider = 
@@ -178,7 +178,7 @@ Cog =
 					},
 					Named = 
 					{
-						string Name = "Block Spawner",
+						string Name = "Spawner",
 					},
 					Transform = 
 					{
@@ -188,7 +188,6 @@ Cog =
 					},
 					SpawnTool = 
 					{
-						string ObjToSpawn = "519e5cfaa4b9c3f4:Block",
 						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
 						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
 					},
@@ -198,84 +197,6 @@ Cog =
 					LinkId = 
 					{
 						uint Id = 6,
-					},
-					Named = 
-					{
-						string Name = "Thruster Spawner",
-					},
-					Transform = 
-					{
-						Vec3 Translation = [0, 0, 0],
-						Vec3 Scale = [1, 1, 1],
-						Quat Rotation = [0, 0, 0, 1],
-					},
-					SpawnTool = 
-					{
-						string ObjToSpawn = "519e4cbc821af76f:Thruster",
-						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
-						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
-					},
-					Hierarchy = 
-					{
-					},
-				},
-				Cog = 
-				{
-					LinkId = 
-					{
-						uint Id = 7,
-					},
-					Named = 
-					{
-						string Name = "Chair Spawner",
-					},
-					Transform = 
-					{
-						Vec3 Translation = [0, 0, 0],
-						Vec3 Scale = [1, 1, 1],
-						Quat Rotation = [0, 0, 0, 1],
-					},
-					SpawnTool = 
-					{
-						string ObjToSpawn = "519e4cbc821aa3bb:Chair",
-						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
-						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
-					},
-					Hierarchy = 
-					{
-					},
-				},
-				Cog = 
-				{
-					LinkId = 
-					{
-						uint Id = 8,
-					},
-					Named = 
-					{
-						string Name = "Cannon Spawner",
-					},
-					Transform = 
-					{
-						Vec3 Translation = [0, 0, 0],
-						Vec3 Scale = [1, 1, 1],
-						Quat Rotation = [0, 0, 0, 1],
-					},
-					SpawnTool = 
-					{
-						string ObjToSpawn = "519e45e379f286e6:Cannon",
-						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
-						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
-					},
-					Hierarchy = 
-					{
-					},
-				},
-				Cog = 
-				{
-					LinkId = 
-					{
-						uint Id = 9,
 					},
 					Named = 
 					{
@@ -301,7 +222,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 10,
+						uint Id = 7,
 					},
 					Named = 
 					{
@@ -323,7 +244,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 11,
+						uint Id = 8,
 					},
 					Named = 
 					{
@@ -346,37 +267,11 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 12,
+						uint Id = 9,
 					},
 					Named = 
 					{
-						string Name = "Wheel Spawner",
-					},
-					Transform = 
-					{
-						Vec3 Translation = [0, 0, 0],
-						Vec3 Scale = [1, 1, 1],
-						Quat Rotation = [0, 0, 0, 1],
-					},
-					SpawnTool = 
-					{
-						string ObjToSpawn = "51564debaa0794af:Wheel",
-						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
-						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
-					},
-					Hierarchy = 
-					{
-					},
-				},
-				Cog = 
-				{
-					LinkId = 
-					{
-						uint Id = 13,
-					},
-					Named = 
-					{
-						string Name = "Rope Spawner",
+						string Name = "Lasso",
 					},
 					Transform = 
 					{
@@ -396,37 +291,11 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 14,
+						uint Id = 10,
 					},
 					Named = 
 					{
-						string Name = "Command Block Spawner",
-					},
-					Transform = 
-					{
-						Vec3 Translation = [0, 0, 0],
-						Vec3 Scale = [1, 1, 1],
-						Quat Rotation = [0, 0, 0, 1],
-					},
-					SpawnTool = 
-					{
-						string ObjToSpawn = "519dbb34b32b6447:CommandBlock",
-						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
-						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
-					},
-					Hierarchy = 
-					{
-					},
-				},
-				Cog = 
-				{
-					LinkId = 
-					{
-						uint Id = 15,
-					},
-					Named = 
-					{
-						string Name = "Command Block Tool",
+						string Name = "Command Router",
 					},
 					Transform = 
 					{
@@ -440,199 +309,6 @@ Cog =
 					},
 					Hierarchy = 
 					{
-					},
-				},
-				Cog = 
-				{
-					LinkId = 
-					{
-						uint Id = 16,
-					},
-					Named = 
-					{
-						string Name = "Swivel Tool",
-					},
-					Transform = 
-					{
-						Vec3 Translation = [0, 0, 0],
-						Vec3 Scale = [1, 1, 1],
-						Quat Rotation = [0, 0, 0, 1],
-					},
-					SpawnTool = 
-					{
-						string ObjToSpawn = "52625465bb4680a3:Swivel",
-						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
-						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
-					},
-					Hierarchy = 
-					{
-					},
-				},
-				Cog = 
-				{
-					LinkId = 
-					{
-						uint Id = 17,
-					},
-					Named = 
-					{
-						string Name = "Vertical Swivel Tool",
-					},
-					Transform = 
-					{
-						Vec3 Translation = [0, 0, 0],
-						Vec3 Scale = [1, 1, 1],
-						Quat Rotation = [0, 0, 0, 1],
-					},
-					SpawnTool = 
-					{
-						string ObjToSpawn = "526374cfe24ee187:VerticalSwivel",
-						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
-						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
-					},
-					Hierarchy = 
-					{
-					},
-				},
-				Cog = 
-				{
-					LinkId = 
-					{
-						uint Id = 18,
-					},
-					Named = 
-					{
-						string Name = "Camera Spawner",
-					},
-					Transform = 
-					{
-						Vec3 Translation = [0, 0, 0],
-						Vec3 Scale = [1, 1, 1],
-						Quat Rotation = [0, 0, 0, 1],
-					},
-					SpawnTool = 
-					{
-						string ObjToSpawn = "52631887714b946e:CameraBlock",
-						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
-						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
-					},
-					Hierarchy = 
-					{
-					},
-				},
-				Cog = 
-				{
-					LinkId = 
-					{
-						uint Id = 19,
-					},
-					Named = 
-					{
-						string Name = "Glass Spawner",
-					},
-					Transform = 
-					{
-						Vec3 Translation = [0, 0, 0],
-						Vec3 Scale = [1, 1, 1],
-						Quat Rotation = [0, 0, 0, 1],
-					},
-					SpawnTool = 
-					{
-						string ObjToSpawn = "520330a34f8aefe2:Glass",
-						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
-						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
-					},
-				},
-				Cog = 
-				{
-					LinkId = 
-					{
-						uint Id = 20,
-					},
-					Named = 
-					{
-						string Name = "Shield Spawner",
-					},
-					Transform = 
-					{
-						Vec3 Translation = [0, 0, 0],
-						Vec3 Scale = [1, 1, 1],
-						Quat Rotation = [0, 0, 0, 1],
-					},
-					SpawnTool = 
-					{
-						string ObjToSpawn = "520ea43291396f97:Shield",
-						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
-						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
-					},
-				},
-				Cog = 
-				{
-					LinkId = 
-					{
-						uint Id = 21,
-					},
-					Named = 
-					{
-						string Name = "Rocket Launcher Spawner",
-					},
-					Transform = 
-					{
-						Vec3 Translation = [0, 0, 0],
-						Vec3 Scale = [1, 1, 1],
-						Quat Rotation = [0, 0, 0, 1],
-					},
-					SpawnTool = 
-					{
-						string ObjToSpawn = "522cbc11b314812c:RocketLauncher",
-						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
-						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
-					},
-				},
-				Cog = 
-				{
-					LinkId = 
-					{
-						uint Id = 22,
-					},
-					Named = 
-					{
-						string Name = "Star Burst Spawner",
-					},
-					Transform = 
-					{
-						Vec3 Translation = [0, 0, 0],
-						Vec3 Scale = [1, 1, 1],
-						Quat Rotation = [0, 0, 0, 1],
-					},
-					SpawnTool = 
-					{
-						string ObjToSpawn = "522b774e67fa869a:StarBurst",
-						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
-						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
-					},
-				},
-				Cog = 
-				{
-					LinkId = 
-					{
-						uint Id = 23,
-					},
-					Named = 
-					{
-						string Name = "Chain Gun Spawner",
-					},
-					Transform = 
-					{
-						Vec3 Translation = [0, 0, 0],
-						Vec3 Scale = [1, 1, 1],
-						Quat Rotation = [0, 0, 0, 1],
-					},
-					SpawnTool = 
-					{
-						string ObjToSpawn = "522a5cd1617899b0:ChainGun",
-						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
-						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
 					},
 				},
 			},

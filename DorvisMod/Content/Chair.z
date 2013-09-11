@@ -1,5 +1,8 @@
 class Chair : ScriptComponent
 {
+    [Property]
+    var PlayerPopUpAmount : Real = 2.0;
+    
     var ActivePlayerCog : Cog = null;
     
     constructor() : base()
@@ -60,6 +63,8 @@ class Chair : ScriptComponent
         this.ActivePlayerCog = null;
         
         playerCog.DetachRelative();
+        var worldUp = this.Owner.Transform.TransformNormal(local Real3(0.0, 1.0, 0.0));
+        playerCog.Transform.WorldTranslation += worldUp * this.PlayerPopUpAmount;
         playerCog.Player.Activate();
         playerCog.Player.FreezeMouseInput = false;
         

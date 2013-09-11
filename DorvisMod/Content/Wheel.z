@@ -23,8 +23,19 @@ class Wheel : ScriptComponent
             return;
         }
         
-        //Zero.Disconnect(this.Space, Events.LogicUpdate, this);
-        this.Owner.RigidBody.Static = false;
+        Zero.Disconnect(this.Space, Events.LogicUpdate, this);
+        var rigidBody = this.Owner.RigidBody;
+        rigidBody.Static = false;
+        rigidBody.ForceAwake();
+        
+        var root = this.Owner.FindRoot();
+        var rootRigidBody = root.RigidBody;
+        if (rootRigidBody != null)
+        {
+            rootRigidBody.ForceAwake();
+        }
+        
+        
         
         debug return;
         
