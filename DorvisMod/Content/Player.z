@@ -500,6 +500,7 @@ class Player : ScriptComponent
         var toSend = new ToolChangeEvent();
         this.FillPlayerEvent(toSend);
         toSend.HudText = this.HudToolSubText;
+        toSend.Hud = this.Hud;
         to.DispatchEvent(eventName, toSend);
     }
     
@@ -562,8 +563,11 @@ class InteractEvent : PlayerEvent
 class ToolChangeEvent : PlayerEvent
 {
     var HudText : ShadowText = null;
+    var Hud : Space = null;
     
-    constructor() : base() {}
+    constructor() : base()
+    {
+    }
 }
 
 class PlayerInputEvent : PlayerEvent

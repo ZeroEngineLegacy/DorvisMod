@@ -1,6 +1,5 @@
 class SpawnTool : ScriptComponent
 {
-    var GameViewport : GameViewport = null;
     var Index : Integer = 0;
     var PlayerCog : Cog = null;
     var Player : Player = null;
@@ -8,6 +7,8 @@ class SpawnTool : ScriptComponent
     var Ghost : DebugObb = new DebugObb();
     var IsOverBlock : Boolean = false;
     var DestroyMode : Boolean = false;
+    
+    var HudElement : Cog = null;
     
     [Property]
     var ObjToSpawn : Archetype = Archetype.Find("Block");
@@ -33,9 +34,11 @@ class SpawnTool : ScriptComponent
         this.PlayerCog = e.PlayerCog;
         this.Player = e.Player;
         this.HudText = e.HudText;
+        this.HudElement = e.Hud.FindObjectByName("SpawnToolHud");
         Zero.Connect(e.PlayerCog, "PlayerKeyDown", this.OnPlayerKeyDown);
         Zero.Connect(e.PlayerCog, "PlayerKeyUp", this.OnPlayerKeyUp);
         Zero.Connect(e.PlayerCog, "PlayerMouseDown", this.OnPlayerMouseDown);
+        Zero.Connect(e.PlayerCog, "PlayerMouseScroll", this.OnPlayerMouseScroll);
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
     
@@ -44,10 +47,12 @@ class SpawnTool : ScriptComponent
         this.PlayerCog = null;
         this.Player = null;
         this.HudText = null;
+        this.HudElement = null;
         this.DestroyMode = false;
         Zero.Disconnect(e.PlayerCog, "PlayerKeyDown", this);
         Zero.Disconnect(e.PlayerCog, "PlayerKeyUp", this);
         Zero.Disconnect(e.PlayerCog, "PlayerMouseDown", this);
+        Zero.Disconnect(e.PlayerCog, "PlayerMouseScroll", this);
         Zero.Disconnect(this.Space, Events.LogicUpdate, this);
     }
     
@@ -94,11 +99,27 @@ class SpawnTool : ScriptComponent
         this.Ghost.Draw();
     }
     
+    function OnPlayerMouseScroll(e : PlayerMouseEvent)
+    {
+        this.HudElement.SpawnToolHud.ChangeSelection(e.ScrollDelta.Y as Integer);
+            this.ObjToSpawn = Archetype.Find(this.HudElement.SpawnToolHud.Icons.Get(this.HudElement.SpawnToolHud.SelectedIndex).ArchetypeName);
+    }
+    
     function OnPlayerKeyDown(e : PlayerKeyEvent)
     {
         if (e.Key == Keys.Shift)
         {
             this.DestroyMode = true;
+        }
+        else if (e.Key == Keys.Left)
+        {
+            this.HudElement.SpawnToolHud.ChangeSelection(-1);
+            this.ObjToSpawn = Archetype.Find(this.HudElement.SpawnToolHud.Icons.Get(this.HudElement.SpawnToolHud.SelectedIndex).ArchetypeName);
+        }
+        else if (e.Key == Keys.Right)
+        {
+            this.HudElement.SpawnToolHud.ChangeSelection(1);
+            this.ObjToSpawn = Archetype.Find(this.HudElement.SpawnToolHud.Icons.Get(this.HudElement.SpawnToolHud.SelectedIndex).ArchetypeName);
         }
     }
     

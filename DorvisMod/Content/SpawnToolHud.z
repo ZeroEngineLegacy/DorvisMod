@@ -7,6 +7,13 @@ class SpawnToolHud : ScriptComponent
     
     var SpinAngle : Real = 0.0;
     
+    var Icons : Array[Cog] = new Array[Cog]();
+    
+    var SelectedNonWrappedIndex : Integer = 0;
+    var SelectedIndex : Integer = 0;
+    
+    var ActualAngle : Real = 0.0;
+    
     constructor() : base()
     {
         
@@ -28,20 +35,78 @@ class SpawnToolHud : ScriptComponent
             
             var block = this.Space.Create(resource);
             
-            Console.WriteLine(block.ArchetypeName);
-            Console.WriteLine(block.Name);
+            this.Icons.Add(block);
             
-            block.RigidBody.Static = true;
-            
+            SpawnToolHud.MakeStatic(block);
             block.AttachTo(this.Owner);
-            
-            block.Transform.LocalTranslation = local Real3(0.0, -i as Real * 1.6, 0.0);
+            block.Transform.LocalTranslation = local Real3(0.0, 0.0, 0.0);
+        }
+    }
+    
+    [Static]
+    function MakeStatic(cog : Cog)
+    {
+        var rigidBody = cog.RigidBody;
+        if (rigidBody != null)
+        {
+            rigidBody.Static = true;
+        }
+        
+        var hierarchy = cog.Hierarchy;
+        
+        if (hierarchy != null)
+        {
+            foreach (var child in hierarchy.Children)
+            {
+                SpawnToolHud.MakeStatic(child);
+            }
+        }
+    }
+    
+    function ChangeSelection(delta : Integer)
+    {
+        this.SelectedNonWrappedIndex -= delta;
+        this.SelectedIndex = this.SelectedNonWrappedIndex;
+        this.SelectedIndex %= this.Icons.Count;
+        
+        if (this.SelectedIndex < 0)
+        {
+            this.SelectedIndex += this.Icons.Count;
         }
     }
 
     function OnLogicUpdate(e : UpdateEvent)
     {
+        var count = this.Icons.Count;
+        var targetAngle = -((this.SelectedNonWrappedIndex as Real) / count as Real) * Math.Pi * 2.0 + Math.Pi / 2.0;
+        this.ActualAngle = Math.Lerp(this.ActualAngle, targetAngle, 0.3);
+        
         this.SpinAngle += e.Dt;
-        this.Owner.Transform.SetEulerAnglesXYZ(0.0, this.SpinAngle, 0.0);
+        for (var i = 0; i < count; ++i)
+        {
+            var block = this.Icons.Get(i);
+            
+            var angle = this.ActualAngle + (i as Real / count as Real) * Math.Pi * 2.0;
+            
+            var x = Math.Cos(angle) * 5.0;
+            var y = Math.Sin(angle) * 2.0 - 1.0;
+            
+            var targetTranslation = local Real3(x, y, 0.0);
+            var currentTranslation = block.Transform.Translation;
+            
+            //block.Transform.Translation = Math.Lerp(currentTranslation, targetTranslation, 0.1);
+            block.Transform.Translation = targetTranslation;
+            
+            //if (i == this.SelectedIndex)
+            //{
+            //    block.Model.Material = Material.Find("Caution");
+            //}
+            //else
+            //{
+            //    block.Model.Material = Material.Find("Grid");
+            //}
+        }
+        
+        //this.Owner.Transform.SetEulerAnglesXYZ(0.0, this.SpinAngle, 0.0);
     }
 }

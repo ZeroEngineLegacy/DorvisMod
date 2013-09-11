@@ -15,6 +15,14 @@ class Wheel : ScriptComponent
     
     function OnFirstUpdate(e : UpdateEvent)
     {
+        // This is a very silly little hack to compliment the InWorld hack below
+        // Basically we also spawn elements like these in the hud, however we want the tire to be
+        // disabled in that case. If we ever mark this as kinematic, it means it's being spawned in hud
+        if (this.Owner.RigidBody.Kinematic)
+        {
+            return;
+        }
+        
         //Zero.Disconnect(this.Space, Events.LogicUpdate, this);
         this.Owner.RigidBody.Static = false;
         
