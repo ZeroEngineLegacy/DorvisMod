@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-11.3035, 7.77832, 9.77347],
+		Vec3 Translation = [10.4668, 13.6879, -2.58101],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -86,8 +86,8 @@ Cog =
 				Facing Facing = NegativeZ,
 				SpriteSort SpriteSort = ViewDepth,
 				float FieldOfView = 60,
-				float NearPlane = 0.1,
-				float FarPlane = 2000,
+				float NearPlane = 0.3,
+				float FarPlane = 1500,
 				float Size = 20,
 			},
 			Orientation = 
@@ -133,33 +133,6 @@ Cog =
 			},
 			Named = 
 			{
-				string Name = "ExtraCollision",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [0, 0, 0],
-				Vec3 Scale = [0.1, 0.1, 0.1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			BoxCollider = 
-			{
-				bool Ghost = false,
-				bool SendsMessages = true,
-				bool Seamless = false,
-				string MaterialName = "5155a62385c0e753:Player",
-				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-				Vec3 Offset = [0, 0, 0],
-				Vec3 Size = [0.4, 0.7, 0.4],
-			},
-		},
-		Cog = 
-		{
-			LinkId = 
-			{
-				uint Id = 4,
-			},
-			Named = 
-			{
 				string Name = "ToolContainer",
 			},
 			Transform = 
@@ -174,7 +147,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 5,
+						uint Id = 4,
 					},
 					Named = 
 					{
@@ -196,7 +169,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 6,
+						uint Id = 5,
 					},
 					Named = 
 					{
@@ -212,6 +185,7 @@ Cog =
 					{
 						float MinDistance = 3,
 						float MaxDistance = 100,
+						float RotationSpeed = 0.05,
 						string Effect = "5155ad131eb55f13:MiscEffect",
 					},
 					Hierarchy = 
@@ -222,7 +196,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 7,
+						uint Id = 6,
 					},
 					Named = 
 					{
@@ -244,7 +218,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 8,
+						uint Id = 7,
 					},
 					Named = 
 					{
@@ -267,7 +241,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 9,
+						uint Id = 8,
 					},
 					Named = 
 					{
@@ -291,7 +265,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 10,
+						uint Id = 9,
 					},
 					Named = 
 					{

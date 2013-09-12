@@ -98,7 +98,7 @@ class SpawnToolHud : ScriptComponent
             
             var block = this.Space.Create(resource);
             
-            block.Transform.Scale *= this.IconScale;
+            block.Transform.Scale = local Real3(this.IconScale);
             
             this.Icons.Add(block);
             
@@ -145,11 +145,13 @@ class SpawnToolHud : ScriptComponent
             {
                 var rotating = Math.ToQuaternion(Math.Pi / 8.0, this.SpinAngle, 0.0);
                 block.Transform.Rotation = Math.Slerp(block.Transform.Rotation, rotating, this.Smoothing);
+                block.Transform.Scale = local Real3(this.IconScale + 0.2);
                 //block.Transform.SetEulerAnglesXYZ(Math.Pi / 8.0, this.SpinAngle, 0.0);
             }
             else
             {
                 block.Transform.Rotation = Math.Slerp(block.Transform.Rotation, local Quat(), this.Smoothing);
+                block.Transform.Scale = local Real3(this.IconScale);
             }
         }
         

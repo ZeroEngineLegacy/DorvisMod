@@ -9,6 +9,10 @@ class GrabberTool : ScriptComponent
     [Property]
     var MaxDistance : Real = 100.0;
     
+    //The speed that we rotate an object.
+    [Property]
+    var RotationSpeed : Real = 0.05;
+    
     //The object that we are currently grabbing
     var SelectedObj : Cog = null;
     //The current distance away from the camera that
@@ -216,19 +220,19 @@ class GrabberTool : ScriptComponent
         //rotation logic for the held object
         if (e.Key == Keys.I)
         {
-            this.RightRotationAngle += 0.1;
+            this.RightRotationAngle += this.RotationSpeed;
         }
         if (e.Key == Keys.K)
         {
-            this.RightRotationAngle -= 0.1;
+            this.RightRotationAngle -= this.RotationSpeed;
         }
         if (e.Key == Keys.J)
         {
-            this.UpRotationAngle += 0.1;
+            this.UpRotationAngle += this.RotationSpeed;
         }
         if (e.Key == Keys.L)
         {
-            this.UpRotationAngle -= 0.1;
+            this.UpRotationAngle -= this.RotationSpeed;
         }
     }
     
@@ -237,19 +241,19 @@ class GrabberTool : ScriptComponent
         //rotation logic for the held object
         if (e.Key == Keys.I)
         {
-            this.RightRotationAngle -= 0.1;
+            this.RightRotationAngle -= this.RotationSpeed;
         }
         if (e.Key == Keys.K)
         {
-            this.RightRotationAngle += 0.1;
+            this.RightRotationAngle += this.RotationSpeed;
         }
         if (e.Key == Keys.J)
         {
-            this.UpRotationAngle -= 0.1;
+            this.UpRotationAngle -= this.RotationSpeed;
         }
         if (e.Key == Keys.L)
         {
-            this.UpRotationAngle += 0.1;
+            this.UpRotationAngle += this.RotationSpeed;
         }
     }
     

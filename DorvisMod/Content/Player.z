@@ -23,7 +23,6 @@ class Player : ScriptComponent
     
     var Peer : LockStepPeer = null;
     var CameraCog : Cog = null;
-    var ExtraCollision : Cog = null;
     
     var RotationAngles : Real2 = local Real2(0.0, 0.0);
     var ToolContainer : Cog = null;
@@ -91,7 +90,6 @@ class Player : ScriptComponent
         this.Id = id;
         this.Peer = peer;
         this.CameraCog = this.Owner.FindChildByName("Camera");
-        this.ExtraCollision = this.Owner.FindChildByName("ExtraCollision");
         
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(peer, Events.LockStepMouseMove, this.OnLockStepMouseMove);
@@ -135,7 +133,6 @@ class Player : ScriptComponent
     {
         this.Owner.RigidBody.Static = false;
         this.Owner.Collider.Ghost = false;
-        this.ExtraCollision.Collider.Ghost = false;
         this.Owner.DynamicMotor.Activate();
         this.Active = true;
         this.ActivateTool(this.ActiveTool);
@@ -176,7 +173,6 @@ class Player : ScriptComponent
     {
         this.Owner.RigidBody.Static = true;
         this.Owner.Collider.Ghost = true;
-        this.ExtraCollision.Collider.Ghost = true;
         this.Owner.DynamicMotor.Deactivate();
         this.Active = false;
         this.DeactivateTool();
