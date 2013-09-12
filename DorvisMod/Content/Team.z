@@ -32,10 +32,10 @@ class Team : ScriptComponent
         var teamIdA = Team.GetTeamIdFrom(a);
         var teamIdB = Team.GetTeamIdFrom(b);
         
-        if (teamIdA == -1 || teamIdB == -1)
-        {
-            return true;
-        }
+        //if (teamIdA == -1 || teamIdB == -1)
+        //{
+        //    return true;
+        //}
         
         return teamIdA != teamIdB;
     }

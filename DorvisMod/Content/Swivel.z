@@ -56,12 +56,12 @@ class Swivel : ScriptComponent
         if (this.Axis == SwivelAxis.Up)
         {
             var delta = Math.Clamp(-e.ScreenDelta.X, -this.MaxAngleRotation, this.MaxAngleRotation);
-            rot = Math.ToQuaternion(this.Owner.Orientation.WorldUp, delta);
+            rot = Math.ToQuaternion(this.Owner.Orientation.WorldUp, -e.ScreenDelta.X * 0.01);
         }
         else if (this.Axis == SwivelAxis.Right)
         {
             var delta = Math.Clamp(e.ScreenDelta.Y, -this.MaxAngleRotation, this.MaxAngleRotation);
-            rot = Math.ToQuaternion(this.Owner.Orientation.WorldRight, delta);
+            rot = Math.ToQuaternion(this.Owner.Orientation.WorldRight, e.ScreenDelta.Y * 0.003);
         }
         
         this.Owner.Transform.WorldRotation = Math.Transform(the : objRot, by : rot);

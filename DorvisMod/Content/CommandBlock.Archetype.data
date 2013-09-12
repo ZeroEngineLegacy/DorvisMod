@@ -10,13 +10,13 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-0.529102, 1.3822, 19.179],
+		Vec3 Translation = [-1.1398, 1.29891, -3.79178],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Model = 
 	{
-		string MaterialName = "519e7a6c96244177:DiamondDiffuse",
+		string MaterialName = "4de020863e85bb61:DefaultMaterial",
 		string MeshName = "4de0354322b345ae:Cube",
 		Vec4 Color = [1, 1, 1, 1],
 		bool Visible = true,

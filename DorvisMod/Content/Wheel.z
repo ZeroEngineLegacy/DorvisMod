@@ -1,5 +1,8 @@
 class Wheel : ScriptComponent
 {
+    [Property]
+    var AngularDamping : Real = 0.998;
+    
     constructor() : base()
     {
     }
@@ -7,33 +10,27 @@ class Wheel : ScriptComponent
     function Initialize(init : CogInitializer)
     {
         // This is put in because wheels can't be moved as a whole
-        Zero.Connect(this.Space, Events.LogicUpdate, this.OnFirstUpdate);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         this.Owner.ModifiedFromArchetype();
         this.Owner.RigidBody.Velocity = local Real3();
         this.Owner.RigidBody.AngularVelocity = local Real3();
     }
     
-    function OnFirstUpdate(e : UpdateEvent)
+    function OnLogicUpdate(e : UpdateEvent)
     {
+        var rigidBody = this.Owner.RigidBody;
+        
+        rigidBody.AngularVelocity *= this.AngularDamping;
+        
         // This is a very silly little hack to compliment the InWorld hack below
         // Basically we also spawn elements like these in the hud, however we want the tire to be
         // disabled in that case. If we ever mark this as kinematic, it means it's being spawned in hud
-        if (this.Owner.RigidBody.Kinematic)
+        if (rigidBody.Kinematic)
         {
             return;
         }
         
-        Zero.Disconnect(this.Space, Events.LogicUpdate, this);
-        var rigidBody = this.Owner.RigidBody;
         rigidBody.Static = false;
-        rigidBody.ForceAwake();
-        
-        var root = this.Owner.FindRoot();
-        var rootRigidBody = root.RigidBody;
-        if (rootRigidBody != null)
-        {
-            rootRigidBody.ForceAwake();
-        }
         
         
         
