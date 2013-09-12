@@ -7,7 +7,7 @@ Material =
 	},
 	EmissiveMapping = 
 	{
-		float EmissiveScale = 1,
+		float EmissiveScale = 0.6,
 		string EmissiveMapTexture = "51566a023d88839c:SandEmissive",
 		Vec2 EmissiveScroll = [0, 0],
 		Vec2 EmissiveTiling = [1, 1],

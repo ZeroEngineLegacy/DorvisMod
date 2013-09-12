@@ -13,10 +13,19 @@ class SwivelAxis
 
 class Swivel : ScriptComponent
 {
-    [Serialized][Editable]
+    [Property]
     var Axis : Integer = SwivelAxis.Up;
     
+    [Property]
     var MaxAngleRotation : Real = 0.03;
+    
+    [Property]
+    var XSensativity : Real = 0.01;
+    
+    [Property]
+    var YSensativity : Real = 0.003;
+    
+    
     var Root : Cog = null;
     
     constructor() : base()
@@ -55,13 +64,13 @@ class Swivel : ScriptComponent
         var rot : Quat = local Quat();
         if (this.Axis == SwivelAxis.Up)
         {
-            var delta = Math.Clamp(-e.ScreenDelta.X, -this.MaxAngleRotation, this.MaxAngleRotation);
-            rot = Math.ToQuaternion(this.Owner.Orientation.WorldUp, -e.ScreenDelta.X * 0.01);
+            var delta = Math.Clamp(-e.ScreenDelta.X * this.XSensativity, -this.MaxAngleRotation, this.MaxAngleRotation);
+            rot = Math.ToQuaternion(this.Owner.Orientation.WorldUp, delta);
         }
         else if (this.Axis == SwivelAxis.Right)
         {
-            var delta = Math.Clamp(e.ScreenDelta.Y, -this.MaxAngleRotation, this.MaxAngleRotation);
-            rot = Math.ToQuaternion(this.Owner.Orientation.WorldRight, e.ScreenDelta.Y * 0.003);
+            var delta = Math.Clamp(e.ScreenDelta.Y * this.YSensativity, -this.MaxAngleRotation, this.MaxAngleRotation);
+            rot = Math.ToQuaternion(this.Owner.Orientation.WorldRight, delta);
         }
         
         this.Owner.Transform.WorldRotation = Math.Transform(the : objRot, by : rot);

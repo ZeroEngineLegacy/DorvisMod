@@ -24,8 +24,13 @@ class Cannon : ScriptComponent
         bullet.RigidBody.Velocity = this.Owner.Orientation.WorldForward * local Real3(this.Speed);
         bullet.Team.Id = Team.GetTeamIdFrom(this.Owner);
         
-        var cannonVelocity = this.Owner.Collider.ActiveBody.GetPointVelocity(this.Owner.Transform.WorldTranslation);
-        bullet.RigidBody.Velocity += cannonVelocity;
         this.Owner.SoundEmitter.Play();
+        
+        var body = this.Owner.Collider.ActiveBody;
+        if (body != null)
+        {
+            var cannonVelocity = body.GetPointVelocity(this.Owner.Transform.WorldTranslation);
+            bullet.RigidBody.Velocity += cannonVelocity;
+        }
     }
 }

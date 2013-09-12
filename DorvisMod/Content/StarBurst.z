@@ -78,7 +78,10 @@ class StarBurst : ScriptComponent
         this.Owner.SoundEmitter.PlayCue(this.LoopSound);
         
         var body = this.Owner.Collider.ActiveBody;
-        body.ForceAwake();
+        if (body != null)
+        {
+            body.ForceAwake();
+        }
     }
     
     function EndBurst()
@@ -97,6 +100,11 @@ class StarBurst : ScriptComponent
         
         var body = this.Owner.Collider.ActiveBody;
         
+        if (body == null)
+        {
+            return;
+        }
+        
         var positionWorld = tx.WorldTranslation;
         
         var offsetWorld = positionWorld - body.Owner.Transform.WorldTranslation;
@@ -105,7 +113,7 @@ class StarBurst : ScriptComponent
         
         var forceWorld = tx.TransformNormal(local Real3(0.0, -1.0, 0.0)) * this.Force;
         
-        this.Owner.Collider.ActiveBody.AngularVelocity *= this.AngularDamping;
+        body.AngularVelocity *= this.AngularDamping;
         
         body.ApplyForceAtOffsetVector(forceWorld, offsetWorldAdjusted);
         

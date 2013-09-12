@@ -1,0 +1,51 @@
+class OrientToVelocity : ScriptComponent
+{
+    //[Dependency]
+    var Orientation : Orientation = null;
+    
+    //[Dependency]
+    var RigidBody : RigidBody = null;
+    
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        this.Orientation = this.Owner.Orientation;
+        this.RigidBody = this.Owner.RigidBody;
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(e : UpdateEvent)
+    {
+        var worldVelocity = this.RigidBody.Velocity;
+        
+        if (Math.Length(worldVelocity) < 0.0001)
+        {
+            return;
+        }
+        
+        var worldForward = Math.Normalize(worldVelocity);
+        var worldUp = this.Orientation.WorldUp;
+        
+        var worldRight = Math.Cross(worldForward, worldUp);
+        
+        if (Math.Length(worldRight) < 0.0001)
+        {
+            return;
+        }
+        
+        worldUp = Math.Cross(worldRight, worldForward);
+        
+        var localRotation = Math.ToQuaternion(this.Orientation.LocalForward, this.Orientation.LocalUp, this.Orientation.LocalRight);
+        
+        localRotation = Math.Invert(localRotation);
+        
+        var worldRotation = Math.ToQuaternion(worldForward, worldUp, worldRight);
+        
+        var finalRotation = Math.Transform(localRotation, worldRotation);
+        
+        this.Owner.Transform.Rotation = finalRotation;
+    }
+}
