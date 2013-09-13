@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [10.4668, 13.6879, -2.58101],
+		Vec3 Translation = [5.60532, -11.6305, 10.9773],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -42,6 +42,9 @@ Cog =
 		bool Active = true,
 		string InteractSound = "51559bcf8afbfa45:Interact",
 		string ChangeToolSound = "515590df86e8a396:ChangeTool",
+		float FovToSpeed = 0.5,
+		float MaxFovChange = 15,
+		float MinSpeedForFovChange = 18,
 		string HudToCreate = "5154e5529a722c1b:Hud",
 	},
 	CapsuleCollider = 
@@ -85,7 +88,7 @@ Cog =
 				ProjectionMode ProjectionMode = Perspective,
 				Facing Facing = NegativeZ,
 				SpriteSort SpriteSort = ViewDepth,
-				float FieldOfView = 60,
+				float FieldOfView = 70,
 				float NearPlane = 0.3,
 				float FarPlane = 1500,
 				float Size = 20,

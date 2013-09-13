@@ -20,6 +20,16 @@ class Player : ScriptComponent
     [Property]
     var ChangeToolSound : SoundCue = SoundCue.Find("ChangeTool");
     
+    [Property]
+    var FovToSpeed : Real = 3.0;
+    [Property]
+    var MaxFovChange : Real = 5.0;
+    [Property]
+    var FovSmoothing : Real = 0.3;
+    
+    [Property]
+    var MinSpeedForFovChange : Real = 20.0;
+    
     
     var Peer : LockStepPeer = null;
     var CameraCog : Cog = null;
@@ -49,6 +59,9 @@ class Player : ScriptComponent
     
     // Only used for client side effects that have absolutely no baring on gameplay
     var UnsafeIsLocal : Boolean = false;
+    
+    var InitialFieldOfView : Real = 80.0;
+    var FovTarget : Real = 80.0;
     
     [Property]
     var HudToCreate : Level = Level.Find("Hud");
@@ -90,6 +103,9 @@ class Player : ScriptComponent
         this.Id = id;
         this.Peer = peer;
         this.CameraCog = this.Owner.FindChildByName("Camera");
+        
+        this.InitialFieldOfView = this.CameraCog.Camera.FieldOfView;
+        this.FovTarget = this.InitialFieldOfView;
         
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(peer, Events.LockStepMouseMove, this.OnLockStepMouseMove);
@@ -258,6 +274,34 @@ class Player : ScriptComponent
             this.InteractCog = result.Object;
             this.HudContextText.Text = String.Concatenate("Press [E] to ", this.InteractMessage);
         }
+        
+        this.FovTarget = this.InitialFieldOfView;
+        
+        var body = this.Owner.Collider.ActiveBody;
+        if (body != null)
+        {
+            var velocity = body.GetPointVelocity(this.Owner.Transform.WorldTranslation);
+            var speed = Math.Length(velocity);
+            Console.WriteLine(speed);
+            speed -= this.MinSpeedForFovChange;
+            
+            if (speed > 0.0)
+            {
+                var fovChange = this.FovToSpeed * speed;
+                
+                if (fovChange > this.MaxFovChange)
+                {
+                    fovChange = this.MaxFovChange;
+                }
+                
+                this.FovTarget += fovChange;
+            }
+        }
+        
+        var actualFov = this.CameraCog.Camera.FieldOfView;
+        var newFov = Math.Lerp(actualFov, this.FovTarget, this.FovSmoothing);
+        
+        this.CameraCog.Camera.FieldOfView = newFov;
     }
     
     function SendInteractEvent(eventName : String, to : Cog) : InteractEvent
