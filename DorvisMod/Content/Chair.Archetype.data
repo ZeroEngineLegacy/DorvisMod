@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-0.594091, 1.47699, 19.1726],
+		Vec3 Translation = [-2.06667, 6.6336, 1.47444],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -45,6 +45,7 @@ Cog =
 	},
 	Chair = 
 	{
+		float PlayerPopUpAmount = 2,
 	},
 	BlockTag = 
 	{
@@ -56,8 +57,5 @@ Cog =
 	{
 		float Total = 100,
 		float Current = 100,
-	},
-	LockStepSyncChecker = 
-	{
 	},
 },

@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [5.60532, -11.6305, 10.9773],
+		Vec3 Translation = [-1.3382, 8.37564, 2.18142],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -43,7 +43,8 @@ Cog =
 		string InteractSound = "51559bcf8afbfa45:Interact",
 		string ChangeToolSound = "515590df86e8a396:ChangeTool",
 		float FovToSpeed = 0.5,
-		float MaxFovChange = 15,
+		float MaxFovChange = 0,
+		float FovSmoothing = 0.3,
 		float MinSpeedForFovChange = 18,
 		string HudToCreate = "5154e5529a722c1b:Hud",
 	},
@@ -64,6 +65,7 @@ Cog =
 	},
 	LockStepSyncChecker = 
 	{
+		bool IncludeHierarchy = true,
 	},
 	Hierarchy = 
 	{

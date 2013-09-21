@@ -22,8 +22,10 @@ class Player : ScriptComponent
     
     [Property]
     var FovToSpeed : Real = 3.0;
+    
+    // For right now, we disable fov
     [Property]
-    var MaxFovChange : Real = 5.0;
+    var MaxFovChange : Real = 0.0;
     [Property]
     var FovSmoothing : Real = 0.3;
     
@@ -95,6 +97,8 @@ class Player : ScriptComponent
 
     function Initialize(init : CogInitializer)
     {
+        
+        
     }
     
     function LockStepInitialize(peer : LockStepPeer, id : Integer, unsafeIsLocal : Boolean)
@@ -152,6 +156,9 @@ class Player : ScriptComponent
         this.Owner.DynamicMotor.Activate();
         this.Active = true;
         this.ActivateTool(this.ActiveTool);
+        
+        
+        
         
         var filter = this.Space.PhysicsSpace.CreateDefaultCastFilter();
         
@@ -250,6 +257,12 @@ class Player : ScriptComponent
     
     function OnLogicUpdate(e : UpdateEvent)
     {
+        // PURPOSEFUL DESYNC
+        if (Zero.Keyboard.KeyIsDown(Keys.P))
+        {
+            this.Owner.Transform.Translation += local Real3(0.0, 1.0, 0.0);
+        }
+        
         if (this.FreezeMouseInput == false)
         {
             this.UpdateRotationAngles();
@@ -282,7 +295,6 @@ class Player : ScriptComponent
         {
             var velocity = body.GetPointVelocity(this.Owner.Transform.WorldTranslation);
             var speed = Math.Length(velocity);
-            Console.WriteLine(speed);
             speed -= this.MinSpeedForFovChange;
             
             if (speed > 0.0)
@@ -439,12 +451,21 @@ class Player : ScriptComponent
     function SendKeyEvent(eventName : String, e : LockStepKeyEvent)
     {
         var toSend = new PlayerKeyEvent();
+        
+        
         this.FillPlayerEvent(toSend);
         toSend.Key = e.Key;
         toSend.AltPressed = e.AltPressed;
         toSend.ShiftPressed = e.ShiftPressed;
         toSend.CtrlPressed = e.CtrlPressed;
         this.Owner.DispatchEvent(eventName, toSend);
+        var g = new StringBuilder();
+        
+        if (true)
+        {
+            var f = new StringBuilder();
+            
+        }
     }
     
     function OnLockStepKeyDown(e : LockStepKeyEvent)

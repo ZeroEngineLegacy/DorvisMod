@@ -1,5 +1,12 @@
 DataContent = 
 {
+	ContentTags = 
+	{
+		object Tags = 
+		[
+			"Blocks",
+		],
+	},
 	DataBuilder = 
 	{
 		string Name = "ChainGun",

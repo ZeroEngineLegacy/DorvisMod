@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-12.6391, 9.97066, -1.07605],
+		Vec3 Translation = [-2.72832, 7.95958, 2.20583],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -66,9 +66,6 @@ Cog =
 	{
 		float Total = 100,
 		float Current = 100,
-	},
-	LockStepSyncChecker = 
-	{
 	},
 	StarBurst = 
 	{

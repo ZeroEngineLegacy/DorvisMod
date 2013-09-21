@@ -154,6 +154,7 @@ ContentLibrary =
 		"Player.z",
 		"PostProcessBasic.frag",
 		"Region.PhysicsMaterial.data",
+		"Robot.Archetype.data",
 		"Rock1.Archetype.data",
 		"Rock1.Material.data",
 		"Rock1Diffuse.Material.data",

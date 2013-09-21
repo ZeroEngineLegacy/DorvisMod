@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-12.4614, 8.49282, 12.9729],
+		Vec3 Translation = [-1.41027, 7.40264, 1.73334],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -71,9 +71,6 @@ Cog =
 	{
 		float Total = 100,
 		float Current = 100,
-	},
-	LockStepSyncChecker = 
-	{
 	},
 	ChainGun = 
 	{

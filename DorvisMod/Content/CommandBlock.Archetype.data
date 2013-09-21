@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-1.1398, 1.29891, -3.79178],
+		Vec3 Translation = [-4.16527, 6.67519, 1.82757],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -55,9 +55,6 @@ Cog =
 		float Current = 100,
 	},
 	CommandBlock = 
-	{
-	},
-	LockStepSyncChecker = 
 	{
 	},
 },

@@ -11,8 +11,8 @@ Cog =
 	Transform = 
 	{
 		Vec3 Translation = [-2.0646, -0.0166355, 7.0397],
-		Vec3 Scale = [0.999999, 0.999996, 0.999999],
-		Quat Rotation = [-0.00738843, 0.164504, 0.00423554, 0.98634],
+		Vec3 Scale = [0.999999, 0.999992, 0.999999],
+		Quat Rotation = [-0.00738851, 0.164504, 0.0042356, 0.98634],
 	},
 	Model = 
 	{
@@ -45,6 +45,7 @@ Cog =
 	},
 	Chair = 
 	{
+		float PlayerPopUpAmount = 2,
 	},
 	BlockTag = 
 	{
@@ -60,6 +61,10 @@ Cog =
 	Team = 
 	{
 		int Id = 1,
+	},
+	LockStepSyncChecker = 
+	{
+		bool IncludeHierarchy = true,
 	},
 	Hierarchy = 
 	{

@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-96.7299, -11.1849, 99.6137],
+		Vec3 Translation = [-1.61789, 6.54644, 1.36196],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -53,9 +53,6 @@ Cog =
 	{
 		float Total = 100,
 		float Current = 100,
-	},
-	LockStepSyncChecker = 
-	{
 	},
 	Hierarchy = 
 	{
@@ -108,6 +105,7 @@ Cog =
 			},
 			Wheel = 
 			{
+				float AngularDamping = 0.998,
 			},
 			IgnoreSpaceEffects = 
 			{

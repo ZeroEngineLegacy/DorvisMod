@@ -11,8 +11,8 @@ Cog =
 	Transform = 
 	{
 		Vec3 Translation = [-26.9009, -0.891718, -10.1148],
-		Vec3 Scale = [1.00001, 0.999996, 1.00001],
-		Quat Rotation = [0.00152575, 0.999997, -0.00195089, 0.000431515],
+		Vec3 Scale = [1.00002, 0.999992, 1.00002],
+		Quat Rotation = [0.00152574, 0.999997, -0.00195091, 0.000431512],
 	},
 	Model = 
 	{
@@ -57,6 +57,10 @@ Cog =
 	Team = 
 	{
 		int Id = 0,
+	},
+	LockStepSyncChecker = 
+	{
+		bool IncludeHierarchy = true,
 	},
 	Hierarchy = 
 	{
@@ -17472,6 +17476,7 @@ Cog =
 							},
 							Chair = 
 							{
+								float PlayerPopUpAmount = 2,
 							},
 							BlockTag = 
 							{
@@ -17528,6 +17533,9 @@ Cog =
 					Swivel = 
 					{
 						int Axis = 0,
+						float MaxAngleRotation = 0.03,
+						float XSensativity = 0.01,
+						float YSensativity = 0.003,
 					},
 					BlockTag = 
 					{
@@ -17587,6 +17595,9 @@ Cog =
 							Swivel = 
 							{
 								int Axis = 1,
+								float MaxAngleRotation = 0.03,
+								float XSensativity = 0.01,
+								float YSensativity = 0.003,
 							},
 							BlockTag = 
 							{
