@@ -150,7 +150,7 @@ class SpawnToolHud : ScriptComponent
             }
             else
             {
-                block.Transform.Rotation = Math.Slerp(block.Transform.Rotation, local Quat(), this.Smoothing);
+                block.Transform.Rotation = Math.Slerp(block.Transform.Rotation, local Quaternion(), this.Smoothing);
                 block.Transform.Scale = local Real3(this.IconScale);
             }
         }

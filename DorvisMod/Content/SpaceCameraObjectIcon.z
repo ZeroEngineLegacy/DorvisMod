@@ -24,6 +24,6 @@ class SpaceCameraObjectIcon : ScriptComponent
         
         var tx = object.Transform;
         tx.WorldTranslation = local Real3();
-        tx.WorldRotation = local Quat();
+        tx.WorldRotation = local Quaternion();
     }
 }

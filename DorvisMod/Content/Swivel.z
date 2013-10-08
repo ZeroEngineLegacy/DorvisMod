@@ -61,7 +61,7 @@ class Swivel : ScriptComponent
     function OnUserMouseMove(e : PlayerMouseEvent)
     {
         var objRot = this.Owner.Transform.WorldRotation;
-        var rot : Quat = local Quat();
+        var rot : Quaternion = local Quaternion();
         if (this.Axis == SwivelAxis.Up)
         {
             var delta = Math.Clamp(-e.ScreenDelta.X * this.XSensativity, -this.MaxAngleRotation, this.MaxAngleRotation);

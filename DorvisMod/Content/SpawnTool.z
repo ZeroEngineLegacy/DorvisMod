@@ -363,7 +363,7 @@ class DestroyUndo
     var Space : Space = null;
     var Parent : Cog = null;
     var WorldPosition : Real3 = local Real3();
-    var WorldRotation : Quat = local Quat();
+    var WorldRotation : Quaternion = local Quaternion();
     
     var SpawnEffect : Archetype = Archetype.Find("SpawnEffect");
     

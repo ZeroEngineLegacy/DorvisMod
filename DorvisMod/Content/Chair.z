@@ -39,7 +39,7 @@ class Chair : ScriptComponent
             e.Player.ResetRotationAngles();
             e.PlayerCog.AttachTo(this.Owner);
             e.PlayerCog.Transform.Translation = local Real3();
-            e.PlayerCog.Transform.Rotation = local Quat();
+            e.PlayerCog.Transform.Rotation = local Quaternion();
             e.Player.FreezeMouseInput = true;
             
             this.ActivePlayerCog = e.PlayerCog;
