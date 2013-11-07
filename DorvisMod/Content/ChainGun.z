@@ -2,9 +2,15 @@ class ChainGun : ScriptComponent
 {
     [Property]
     var SpreadDegrees : Real = 10.0;
+    [Property]
+    var SpreadOffset : Real = 0.05;
     
     [Property]
     var ShotsPerSecond : Real = 20.0;
+    [Property]
+    var DamagePerShot : Real = 2.0;
+    [Property]
+    var ForcePerShot : Real = 600.0;
     
     [Property]
     var RevTime : Real = 2.0;
@@ -16,12 +22,21 @@ class ChainGun : ScriptComponent
     [Property]
     var LoopSound : SoundCue = SoundCue.Find("ChainGunShotLoop");
     
+    [Property]
+    var TracerMaxDistance : Real = 80.0;
+    [Property]
+    var Tracer : Archetype = Archetype.Find("Tracer");
+    [Property]
+    var ImpactEffect : Archetype = Archetype.Find("BulletPuff");
+    
     var Rev : Real = 0.0;
     
     var TimeAccumulator : Real = 0.0;
     
     var TriggerHeld : Boolean = false;
     var Firing : Boolean = false;
+    
+    var Random : Random = new Random();
     
     constructor() : base()
     {
@@ -71,32 +86,77 @@ class ChainGun : ScriptComponent
             }
         }
         
-        if (this.Rev >= this.RevTime)
+        if (this.Firing)
         {
             while (this.TimeAccumulator >= timePerShot)
             {
                 this.TimeAccumulator -= timePerShot;
                 
+                var ourTx = this.Owner.Transform;
+                var worldForward = this.Owner.Orientation.WorldForward;
+                var worldPosition = ourTx.WorldTranslation;
+                
+                worldPosition += this.Random.Real3(0.0, this.SpreadOffset);
+                
                 var worldRay = local Ray();
-                worldRay.Start = this.Owner.Transform.WorldTranslation;
-                worldRay.Direction = this.Owner.Orientation.WorldForward;
+                worldRay.Start = worldPosition;
+                worldRay.Direction = worldForward;
                 
                 var results = this.Space.PhysicsSpace.CastRayResults(worldRay, 10);
                 
+                
+                var tracerDistance = this.TracerMaxDistance;
+                var actualDistance = 100000.0;
+                
                 foreach (var result in results)
                 {
-                    //// Don't damage the person we were created from
-                    //if (Team.IsSameTeam(this.Owner, result.OtherObject))
-                    //{
-                    //    return;
-                    //}
+                    // Don't damage the person we were created from
+                    if (Team.IsSameTeam(this.Owner, result.ObjectHit))
+                    {
+                        continue;
+                    }
                     
-                    //// We only ignore ghosts if they don't have a Health component
-                    //if (result.Collider.Ghost)
-                    //{
-                    //    continue;
-                    //}
+                    var health = result.ObjectHit.Health;
+                    
+                    // We only ignore ghosts if they don't have a Health component
+                    if (result.Collider.Ghost && health == null)
+                    {
+                        continue;
+                    }
+                    
+                    tracerDistance = Math.Min(tracerDistance, result.Distance);
+                    actualDistance = result.Distance;
+                    
+                    if (health != null)
+                    {
+                        health.Change(-this.DamagePerShot);
+                    }
+                    
+                    var body = result.ObjectHit.RigidBody;
+                    if (body != null)
+                    {
+                        body.ForceAwake();
+                        body.ApplyForceAtPoint(this.ForcePerShot * worldForward, result.WorldPosition);
+                    }
+                    break;
                 }
+                
+                var halfDistance = tracerDistance / 2.0;
+                var tracerEnd = halfDistance + this.Random.Range(0.0, halfDistance);
+                
+                var tracer = this.Space.Create(this.Tracer);
+                var tracerTx = tracer.Transform;
+                tracerTx.WorldTranslation = worldPosition + worldForward * tracerEnd;
+                tracerTx.WorldRotation = ourTx.WorldRotation;
+                
+                var scale = this.Random.Range(halfDistance, tracerEnd);
+                
+                tracerTx.Scale = local Real3(1.0, scale, 1.0);
+                
+                var impact = this.Space.Create(this.ImpactEffect);
+                var impactTx = impact.Transform;
+                impactTx.WorldTranslation = worldPosition + worldForward * actualDistance;
+                impactTx.WorldRotation = ourTx.WorldRotation;
             }
         }
     }

@@ -1,0 +1,33 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Archetyped = 
+	{
+		string Name = "52198b082a8b26d1:Tracer",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-1.49614, 0.430954, -0.536362],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Model = 
+	{
+		string MaterialName = "519e4bef9e1064cf:Tracer",
+		string MeshName = "519e4ba4886088bf:Tracer",
+		Vec4 Color = [1, 1, 1, 1],
+		bool Visible = true,
+	},
+	TimedDestroy = 
+	{
+		float Lifetime = 0.05,
+	},
+	Orientation = 
+	{
+		Vec3 UpVector = [1, 0, 0],
+		Vec3 ForwardVector = [0, 1, 0],
+	},
+},
