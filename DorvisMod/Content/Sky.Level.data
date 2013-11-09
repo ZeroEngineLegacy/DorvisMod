@@ -1,0 +1,187 @@
+Level = 
+{
+	LevelSettings = 
+	{
+		LinkId = 
+		{
+			uint Id = 1,
+		},
+		Named = 
+		{
+			string Name = "LevelSettings",
+		},
+		GravityEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = false,
+			bool LocalSpaceDirection = true,
+			float Strength = 10,
+			Vec3 Direction = [0, -1, 0],
+		},
+		DragEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = false,
+			float Drag = 0.7,
+		},
+		CameraViewport = 
+		{
+			bool Background = true,
+			Vec2 Offset = [0, 0],
+			Vec2 Size = [1, 1],
+			int Layer = -1,
+			bool Active = true,
+			bool Blocking = true,
+			uint Renderer = 1,
+			uint Camera = 2,
+		},
+		SkyBox = 
+		{
+			string Texture = "519e4513413133eb:Miramar",
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		FixedAspectRatio = 
+		{
+			float Width = 16,
+			float Height = 9,
+		},
+		DeferredRenderer = 
+		{
+			Vec4 ClearColor = [0, 0, 0, 0.9999],
+			bool Hdr = true,
+			bool Glow = false,
+			bool ToneMapping = false,
+			float BrightThreshold = 1,
+			float Exposure = 0.5,
+			bool Refraction = false,
+			bool Shadows = false,
+		},
+		AmbientLight = 
+		{
+			Vec4 Color = [0.564706, 0.564706, 0.564706, 1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 3,
+		},
+		Named = 
+		{
+			string Name = "EditorCamera",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.59029, 16.9545, -26.0892],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0.000358792, 0.95455, 0.29805, -0.00114908],
+		},
+		Camera = 
+		{
+			ProjectionMode ProjectionMode = Perspective,
+			Facing Facing = NegativeZ,
+			SpriteSort SpriteSort = ViewDepth,
+			float FieldOfView = 45,
+			float NearPlane = 0.5,
+			float FarPlane = 500,
+			float Size = 20,
+		},
+		EditorCameraController = 
+		{
+			ControlMode ControlMode = Orbit,
+			float LookDistance = 31.1,
+			float VerticalAngle = 1.78759,
+			float HorizontalAngle = -3.144,
+			Vec3 LookTarget = [0.651863, -0.741662, -0.514759],
+		},
+		EditorRenderer = 
+		{
+			Vec4 ClearColor = [0.278431, 0.278431, 0.278431, 1],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 2,
+		},
+		Named = 
+		{
+			string Name = "Camera",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Camera = 
+		{
+			ProjectionMode ProjectionMode = Perspective,
+			Facing Facing = NegativeZ,
+			SpriteSort SpriteSort = ViewDepth,
+			float FieldOfView = 100,
+			float NearPlane = 0.5,
+			float FarPlane = 200,
+			float Size = 20,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 4,
+		},
+		Named = 
+		{
+			string Name = "HeightMap",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, -2.84006, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		HeightMap = 
+		{
+			float UnitsPerPatch = 10,
+			string SourceName = "521f5f29b0074499:521f5f29b0074499",
+		},
+		HeightMapRenderer = 
+		{
+			string MaterialName = "519e70f3443bfe6b:HeightMapGrass",
+			bool CastShadows = false,
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 5,
+		},
+		Named = 
+		{
+			string Name = "Sun",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 16.567, -14.0956],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [-0.906249, 0.0824548, 0.223012, 0.349543],
+		},
+		Light = 
+		{
+			LightType LightType = Directional,
+			bool Active = true,
+			float Range = 100,
+			float MinRange = 6.1,
+			float Angle = 10,
+			float Intensity = 1,
+			Vec4 Color = [1, 1, 1, 1],
+			float MinRange = 6.1,
+			float Size = 20,
+			bool Baked = false,
+		},
+	},
+},

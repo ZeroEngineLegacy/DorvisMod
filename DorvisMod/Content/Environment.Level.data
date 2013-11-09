@@ -38,39 +38,40 @@ Level =
 		},
 		CameraViewport = 
 		{
-			bool Background = true,
+			bool Background = false,
 			Vec2 Offset = [0, 0],
 			Vec2 Size = [1, 1],
-			uint Layer = 0,
+			int Layer = 0,
 			bool Active = true,
 			bool Blocking = true,
 			uint Renderer = 1,
 			uint Camera = 4294967293,
 		},
-		SkyBox = 
-		{
-			string Texture = "519e4513413133eb:Miramar",
-			Quat Rotation = [0, 0, 0, 1],
-		},
 		DeferredRenderer = 
 		{
-			Vec4 ClearColor = [0, 0, 0, 0],
+			Vec4 ClearColor = [0.545, 0.545, 0.545, 0],
 			bool Hdr = true,
 			bool Glow = true,
 			bool ToneMapping = false,
 			float BrightThreshold = 1.5,
 			float Exposure = 0.5,
 			bool Refraction = true,
+			bool Shadows = true,
 		},
 		FixedAspectRatio = 
 		{
 			float Width = 16,
 			float Height = 9,
 		},
+		SkyLevel = 
+		{
+			string SpaceToCreate = "519e634c69a6ca5c:Space",
+			string Level = "521e66ccef728790:Sky",
+		},
 		Fog = 
 		{
-			float BeginDepth = 200,
-			float EndDepth = 400,
+			float BeginDepth = 1000,
+			float EndDepth = 1500,
 			float BeginDensity = 0,
 			float EndDensity = 1,
 			Vec4 Color = [0.5, 0.5, 0.5, 0],
@@ -4919,9 +4920,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-65.0848, 13.0931, -12.274],
+			Vec3 Translation = [3.0222, 3.58673, -80.3964],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0931474, -0.793853, -0.125841, 0.587609],
+			Quat Rotation = [0.00171717, 0.983877, -0.0094604, 0.178585],
 		},
 		Camera = 
 		{
@@ -4936,10 +4937,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 41.9786,
-			float VerticalAngle = 0.971592,
-			float HorizontalAngle = -4.41599,
-			Vec3 LookTarget = [-26.905, 0.110506, -0.614018],
+			float LookDistance = 107.1,
+			float VerticalAngle = -0.0604099,
+			float HorizontalAngle = -53.048,
+			Vec3 LookTarget = [-34.6105, 5.64616, 19.853],
 		},
 		EditorRenderer = 
 		{
@@ -4971,7 +4972,7 @@ Level =
 		{
 			Vec3 Translation = [-72.9114, 2.967, 98.9197],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0329569, -0.673127, 0.0033331, 0.738785],
+			Quat Rotation = [-0.0329569, -0.673127, 0.00333296, 0.738785],
 		},
 	},
 	ArchetypeInstance = 
@@ -4990,24 +4991,10 @@ Level =
 	},
 	ArchetypeInstance = 
 	{
-		string Name = "519e4a92b38ab8a6:Bullet",
-		LinkId = 
-		{
-			uint Id = 325,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-73.3826, 15.9956, 26.0428],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-	},
-	ArchetypeInstance = 
-	{
 		string Name = "5255f6965d053a5d:Robot",
 		LinkId = 
 		{
-			uint Id = 326,
+			uint Id = 325,
 		},
 		Transform = 
 		{
@@ -5020,560 +5007,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 327,
-		},
-		Named = 
-		{
-			string Name = "Cube",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-5.67191, 1.07237, -13.4086],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		Model = 
-		{
-			string MaterialName = "4de020863e85bb61:DefaultMaterial",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = true,
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = false,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
-		},
-		Orientation = 
-		{
-			Vec3 UpVector = [0, 1, 0],
-			Vec3 ForwardVector = [0, 0, 1],
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 328,
-		},
-		Archetyped = 
-		{
-			string Name = "519e5cfaa4b9c3f4:Block",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-6.1356, -2.10448, -1.0354],
-			Vec3 Scale = [0.999997, 1, 0.999999],
-			Quat Rotation = [-0.00768506, -0.560521, -0.000137634, 0.828105],
-		},
-		Model = 
-		{
-			string MaterialName = "519e7a6c96244177:DiamondDiffuse",
-			string MeshName = "4de0354322b345ae:Cube",
-			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = true,
-		},
-		RigidBody = 
-		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = false,
-			bool Mode2D = false,
-			bool AllowSleep = true,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = false,
-			string MaterialName = "4faa6050b8692851:HardMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 0.5],
-		},
-		BlockTag = 
-		{
-		},
-		DestroyOnDeath = 
-		{
-		},
-		Health = 
-		{
-			float Total = 100,
-			float Current = 100,
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 329,
-				},
-				Archetyped = 
-				{
-					string Name = "519e5cfaa4b9c3f4:Block",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, -1],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, -0.707107, 0.707107, -0],
-				},
-				Model = 
-				{
-					string MaterialName = "519e7a6c96244177:DiamondDiffuse",
-					string MeshName = "4de0354322b345ae:Cube",
-					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = true,
-				},
-				RigidBody = 
-				{
-					bool Static = true,
-					bool Asleep = false,
-					bool Kinematic = false,
-					bool RotationLocked = false,
-					bool Mode2D = false,
-					bool AllowSleep = true,
-					bool Inherit2DMode = true,
-					Vec3 Velocity = [0, 0, 0],
-					Vec3 AngularVelocity = [0, 0, 0],
-				},
-				BoxCollider = 
-				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = false,
-					string MaterialName = "4faa6050b8692851:HardMaterial",
-					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.5],
-				},
-				BlockTag = 
-				{
-				},
-				DestroyOnDeath = 
-				{
-				},
-				Health = 
-				{
-					float Total = 100,
-					float Current = 100,
-				},
-				Hierarchy = 
-				{
-					Cog = 
-					{
-						LinkId = 
-						{
-							uint Id = 330,
-						},
-						Archetyped = 
-						{
-							string Name = "519e5cfaa4b9c3f4:Block",
-						},
-						Transform = 
-						{
-							Vec3 Translation = [0, 1, 0],
-							Vec3 Scale = [1, 1, 1],
-							Quat Rotation = [0, 0, -0, 1],
-						},
-						Model = 
-						{
-							string MaterialName = "519e7a6c96244177:DiamondDiffuse",
-							string MeshName = "4de0354322b345ae:Cube",
-							Vec4 Color = [1, 1, 1, 1],
-							bool Visible = true,
-						},
-						RigidBody = 
-						{
-							bool Static = true,
-							bool Asleep = false,
-							bool Kinematic = false,
-							bool RotationLocked = false,
-							bool Mode2D = false,
-							bool AllowSleep = true,
-							bool Inherit2DMode = true,
-							Vec3 Velocity = [0, 0, 0],
-							Vec3 AngularVelocity = [0, 0, 0],
-						},
-						BoxCollider = 
-						{
-							bool Ghost = false,
-							bool SendsMessages = true,
-							bool Seamless = false,
-							string MaterialName = "4faa6050b8692851:HardMaterial",
-							string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-							Vec3 Offset = [0, 0, 0],
-							Vec3 Size = [0.5, 0.5, 0.5],
-						},
-						BlockTag = 
-						{
-						},
-						DestroyOnDeath = 
-						{
-						},
-						Health = 
-						{
-							float Total = 100,
-							float Current = 100,
-						},
-						Hierarchy = 
-						{
-							Cog = 
-							{
-								LinkId = 
-								{
-									uint Id = 331,
-								},
-								Archetyped = 
-								{
-									string Name = "519e5cfaa4b9c3f4:Block",
-								},
-								Transform = 
-								{
-									Vec3 Translation = [0, 1, 0],
-									Vec3 Scale = [1, 1, 1],
-									Quat Rotation = [0, 0, -0, 1],
-								},
-								Model = 
-								{
-									string MaterialName = "519e7a6c96244177:DiamondDiffuse",
-									string MeshName = "4de0354322b345ae:Cube",
-									Vec4 Color = [1, 1, 1, 1],
-									bool Visible = true,
-								},
-								RigidBody = 
-								{
-									bool Static = true,
-									bool Asleep = false,
-									bool Kinematic = false,
-									bool RotationLocked = false,
-									bool Mode2D = false,
-									bool AllowSleep = true,
-									bool Inherit2DMode = true,
-									Vec3 Velocity = [0, 0, 0],
-									Vec3 AngularVelocity = [0, 0, 0],
-								},
-								BoxCollider = 
-								{
-									bool Ghost = false,
-									bool SendsMessages = true,
-									bool Seamless = false,
-									string MaterialName = "4faa6050b8692851:HardMaterial",
-									string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-									Vec3 Offset = [0, 0, 0],
-									Vec3 Size = [0.5, 0.5, 0.5],
-								},
-								BlockTag = 
-								{
-								},
-								DestroyOnDeath = 
-								{
-								},
-								Health = 
-								{
-									float Total = 100,
-									float Current = 100,
-								},
-							},
-							Cog = 
-							{
-								LinkId = 
-								{
-									uint Id = 332,
-								},
-								Archetyped = 
-								{
-									string Name = "519e5cfaa4b9c3f4:Block",
-								},
-								Transform = 
-								{
-									Vec3 Translation = [-1, 0, 0],
-									Vec3 Scale = [1, 1, 1],
-									Quat Rotation = [0.5, -0.5, 0.5, 0.5],
-								},
-								Model = 
-								{
-									string MaterialName = "519e7a6c96244177:DiamondDiffuse",
-									string MeshName = "4de0354322b345ae:Cube",
-									Vec4 Color = [1, 1, 1, 1],
-									bool Visible = true,
-								},
-								RigidBody = 
-								{
-									bool Static = true,
-									bool Asleep = false,
-									bool Kinematic = false,
-									bool RotationLocked = false,
-									bool Mode2D = false,
-									bool AllowSleep = true,
-									bool Inherit2DMode = true,
-									Vec3 Velocity = [0, 0, 0],
-									Vec3 AngularVelocity = [0, 0, 0],
-								},
-								BoxCollider = 
-								{
-									bool Ghost = false,
-									bool SendsMessages = true,
-									bool Seamless = false,
-									string MaterialName = "4faa6050b8692851:HardMaterial",
-									string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-									Vec3 Offset = [0, 0, 0],
-									Vec3 Size = [0.5, 0.5, 0.5],
-								},
-								BlockTag = 
-								{
-								},
-								DestroyOnDeath = 
-								{
-								},
-								Health = 
-								{
-									float Total = 100,
-									float Current = 100,
-								},
-							},
-							Cog = 
-							{
-								LinkId = 
-								{
-									uint Id = 333,
-								},
-								Archetyped = 
-								{
-									string Name = "519e5cfaa4b9c3f4:Block",
-								},
-								Transform = 
-								{
-									Vec3 Translation = [1, 0, 0],
-									Vec3 Scale = [1, 1, 1],
-									Quat Rotation = [-0.5, -0.5, 0.5, -0.5],
-								},
-								Model = 
-								{
-									string MaterialName = "519e7a6c96244177:DiamondDiffuse",
-									string MeshName = "4de0354322b345ae:Cube",
-									Vec4 Color = [1, 1, 1, 1],
-									bool Visible = true,
-								},
-								RigidBody = 
-								{
-									bool Static = true,
-									bool Asleep = false,
-									bool Kinematic = false,
-									bool RotationLocked = false,
-									bool Mode2D = false,
-									bool AllowSleep = true,
-									bool Inherit2DMode = true,
-									Vec3 Velocity = [0, 0, 0],
-									Vec3 AngularVelocity = [0, 0, 0],
-								},
-								BoxCollider = 
-								{
-									bool Ghost = false,
-									bool SendsMessages = true,
-									bool Seamless = false,
-									string MaterialName = "4faa6050b8692851:HardMaterial",
-									string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-									Vec3 Offset = [0, 0, 0],
-									Vec3 Size = [0.5, 0.5, 0.5],
-								},
-								BlockTag = 
-								{
-								},
-								DestroyOnDeath = 
-								{
-								},
-								Health = 
-								{
-									float Total = 100,
-									float Current = 100,
-								},
-							},
-							Cog = 
-							{
-								LinkId = 
-								{
-									uint Id = 334,
-								},
-								Archetyped = 
-								{
-									string Name = "519e4cbc821aa3bb:Chair",
-								},
-								Transform = 
-								{
-									Vec3 Translation = [0, 0, -1],
-									Vec3 Scale = [1, 1, 1],
-									Quat Rotation = [0, -0.707107, 0.707107, -0],
-								},
-								Model = 
-								{
-									string MaterialName = "519e7a6c96244177:DiamondDiffuse",
-									string MeshName = "519e4cbc821d66d4:Chair",
-									Vec4 Color = [1, 1, 1, 1],
-									bool Visible = true,
-								},
-								RigidBody = 
-								{
-									bool Static = true,
-									bool Asleep = false,
-									bool Kinematic = false,
-									bool RotationLocked = false,
-									bool Mode2D = false,
-									bool AllowSleep = true,
-									bool Inherit2DMode = true,
-									Vec3 Velocity = [0, 0, 0],
-									Vec3 AngularVelocity = [0, 0, 0],
-								},
-								BoxCollider = 
-								{
-									bool Ghost = false,
-									bool SendsMessages = true,
-									bool Seamless = false,
-									string MaterialName = "4faa6050b8692851:HardMaterial",
-									string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-									Vec3 Offset = [0, 0, 0],
-									Vec3 Size = [0.5, 0.5, 0.5],
-								},
-								Chair = 
-								{
-									float PlayerPopUpAmount = 2,
-								},
-								BlockTag = 
-								{
-								},
-								DestroyOnDeath = 
-								{
-								},
-								Health = 
-								{
-									float Total = 100,
-									float Current = 100,
-								},
-							},
-						},
-					},
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 335,
-				},
-				Archetyped = 
-				{
-					string Name = "522a5cd1617899b0:ChainGun",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 1],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0.707107, 0, -0, 0.707107],
-				},
-				Model = 
-				{
-					string MaterialName = "51566a1523a57f69:SandStructure",
-					string MeshName = "519e458e6220b09d:Cannon",
-					Vec4 Color = [1, 1, 1, 1],
-					bool Visible = true,
-				},
-				Orientation = 
-				{
-					Vec3 UpVector = [1, 0, 0],
-					Vec3 ForwardVector = [0, 1, 0],
-				},
-				RigidBody = 
-				{
-					bool Static = true,
-					bool Asleep = false,
-					bool Kinematic = false,
-					bool RotationLocked = false,
-					bool Mode2D = false,
-					bool AllowSleep = true,
-					bool Inherit2DMode = true,
-					Vec3 Velocity = [0, 0, 0],
-					Vec3 AngularVelocity = [0, 0, 0],
-				},
-				BoxCollider = 
-				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = false,
-					string MaterialName = "4faa6050b8692851:HardMaterial",
-					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.5],
-				},
-				Activatable = 
-				{
-					int Key = 87,
-				},
-				BlockTag = 
-				{
-				},
-				SoundEmitter = 
-				{
-					bool StartPlaying = false,
-					int ExtraPriority = 0,
-					string CueName = "5155988faf84296a:Cannon",
-					float Volume = 1,
-					float Pitch = 1,
-					bool Positional = true,
-				},
-				DestroyOnDeath = 
-				{
-				},
-				Health = 
-				{
-					float Total = 100,
-					float Current = 100,
-				},
-				ChainGun = 
-				{
-					float SpreadDegrees = 10,
-					float SpreadOffset = 0.1,
-					float ShotsPerSecond = 20,
-					float DamagePerShot = 2,
-					float ForcePerShot = 500,
-					float RevTime = 2,
-					string RevUpSound = "522a5265c67e2909:ChainGunRevUp",
-					string RevDownSound = "522a5265c67e8421:ChainGunRevDown",
-					string LoopSound = "522a5265c67fc418:ChainGunShotLoop",
-					float TracerMaxDistance = 80,
-					string Tracer = "52198b082a8b26d1:Tracer",
-					string ImpactEffect = "521983e542c6f2c2:BulletPuff",
-				},
-			},
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 336,
+			uint Id = 326,
 		},
 		Named = 
 		{

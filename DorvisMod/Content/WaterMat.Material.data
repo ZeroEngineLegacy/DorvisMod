@@ -3,6 +3,10 @@ Material =
 	Lambert = 
 	{
 	},
+	AlphaTest = 
+	{
+		float Value = 0,
+	},
 	ModulateModelColor = 
 	{
 	},
@@ -10,14 +14,14 @@ Material =
 	{
 		float Bumpiness = 2,
 		string NormalMapTexture = "519e4a3a88c1206a:Waterbump",
-		Vec2 NormalScroll = [0.01, 0.01],
-		Vec2 NormalTiling = [10, 10],
+		Vec2 NormalScroll = [0.004, 0],
+		Vec2 NormalTiling = [5, 5],
 		Vec2 NormalOffset = [0, 0],
 	},
 	TextureDiffuse = 
 	{
 		string DiffuseTexture = "519e4a3a88c28cd0:Water",
-		Vec2 DiffuseScroll = [1, 0],
+		Vec2 DiffuseScroll = [0, 0],
 		Vec2 DiffuseTiling = [1, 1],
 		Vec2 DiffuseOffset = [0, 0],
 	},

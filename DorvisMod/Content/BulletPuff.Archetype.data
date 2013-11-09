@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-5.9616, 6.29514, 1.33806],
+		Vec3 Translation = [-6.90017, 0.737904, 14.3342],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -70,6 +70,15 @@ Cog =
 	TimedDestroy = 
 	{
 		float Lifetime = 0.4,
+	},
+	SoundEmitter = 
+	{
+		bool StartPlaying = true,
+		int ExtraPriority = 0,
+		string CueName = "521f56ceacf4432c:Impact",
+		float Volume = 1,
+		float Pitch = 1,
+		bool Positional = true,
 	},
 	Hierarchy = 
 	{

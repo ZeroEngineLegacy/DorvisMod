@@ -1,0 +1,40 @@
+SoundCue = 
+{
+	PlayMode PlayMode = Single,
+	float Volume = 0.35,
+	float VolumeVariation = 0.1,
+	float Pitch = 0,
+	float PitchVariation = 0.1,
+	float MinDistance = 10,
+	float MaxDistance = 10000,
+	float PositionRandomization = 0,
+	uint MaxPlaybacks = 10,
+	int Priority = 128,
+	Array Sounds = 
+	[
+		{
+			string SoundName = "521f56cfaced5ae8:Impact04",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "521f56cfacec352d:Impact05",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "521f56cfacec58d6:Impact06",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "521f56cfacec7b2c:Impact01",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "521f56cfacec9d9d:Impact02",
+			float Weight = 1,
+		},
+		{
+			string SoundName = "521f56cfacecbe0c:Impact03",
+			float Weight = 1,
+		},
+	],
+},
