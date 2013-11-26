@@ -46,6 +46,9 @@ Level =
 			bool Blocking = true,
 			uint Renderer = 1,
 			uint Camera = 4294967293,
+			ViewportScaling Scaling = Letterbox,
+			Vec2 Resolution = [16, 9],
+			Vec4 MarginColor = [0, 0, 0, 1],
 		},
 		DeferredRenderer = 
 		{
@@ -57,11 +60,6 @@ Level =
 			float Exposure = 0.5,
 			bool Refraction = true,
 			bool Shadows = true,
-		},
-		FixedAspectRatio = 
-		{
-			float Width = 16,
-			float Height = 9,
 		},
 		SkyLevel = 
 		{
@@ -3673,7 +3671,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-115.665, 242.517, -280.884],
+			Vec3 Translation = [-123.487, 257.646, -295.693],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0.906249, 0.0824548, 0.223012, 0.349543],
 		},
@@ -3692,7 +3690,7 @@ Level =
 		},
 		Shadow = 
 		{
-			Quality Quality = VeryHighQuality,
+			Quality Quality = UltraHighQuality,
 			bool SoftShadows = true,
 			float Size = 1,
 			Vec4 Color = [0, 0, 0, 1],
@@ -4920,9 +4918,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [3.0222, 3.58673, -80.3964],
+			Vec3 Translation = [-66.5268, 328.934, -375.026],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.00171717, 0.983877, -0.0094604, 0.178585],
+			Quat Rotation = [-0.0623211, 0.895849, 0.419338, 0.133139],
 		},
 		Camera = 
 		{
@@ -4937,10 +4935,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 107.1,
-			float VerticalAngle = -0.0604099,
-			float HorizontalAngle = -53.048,
-			Vec3 LookTarget = [-34.6105, 5.64616, 19.853],
+			float LookDistance = 66.1,
+			float VerticalAngle = 0.87559,
+			float HorizontalAngle = -53.112,
+			Vec3 LookTarget = [-78.8398, 278.174, -334.516],
 		},
 		EditorRenderer = 
 		{
@@ -4972,7 +4970,7 @@ Level =
 		{
 			Vec3 Translation = [-72.9114, 2.967, 98.9197],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0329569, -0.673127, 0.00333296, 0.738785],
+			Quat Rotation = [-0.0329569, -0.673127, 0.00333292, 0.738785],
 		},
 	},
 	ArchetypeInstance = 
@@ -5034,7 +5032,7 @@ Level =
 			bool Ghost = false,
 			bool SendsMessages = true,
 			bool Seamless = false,
-			string MaterialName = "522cb61c6efc3c66:Terrain",
+			string MaterialName = "5155a62385c0e753:Player",
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			float Thickness = 1,

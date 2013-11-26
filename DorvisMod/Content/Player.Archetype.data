@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-1.3382, 8.37564, 2.18142],
+		Vec3 Translation = [-94.7209, 28.2166, -27.8471],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -91,7 +91,7 @@ Cog =
 				Facing Facing = NegativeZ,
 				SpriteSort SpriteSort = ViewDepth,
 				float FieldOfView = 70,
-				float NearPlane = 0.3,
+				float NearPlane = 0.1,
 				float FarPlane = 1500,
 				float Size = 20,
 			},
