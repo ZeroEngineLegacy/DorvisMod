@@ -38,7 +38,7 @@ Level =
 		},
 		CameraViewport = 
 		{
-			bool Background = false,
+			bool Background = true,
 			Vec2 Offset = [0, 0],
 			Vec2 Size = [1, 1],
 			int Layer = 0,
@@ -52,7 +52,7 @@ Level =
 		},
 		DeferredRenderer = 
 		{
-			Vec4 ClearColor = [0.545, 0.545, 0.545, 0],
+			Vec4 ClearColor = [0, 0, 0, 0.975],
 			bool Hdr = true,
 			bool Glow = true,
 			bool ToneMapping = false,
@@ -61,18 +61,10 @@ Level =
 			bool Refraction = true,
 			bool Shadows = true,
 		},
-		SkyLevel = 
+		SkyBox = 
 		{
-			string SpaceToCreate = "519e634c69a6ca5c:Space",
-			string Level = "521e66ccef728790:Sky",
-		},
-		Fog = 
-		{
-			float BeginDepth = 1000,
-			float EndDepth = 1500,
-			float BeginDensity = 0,
-			float EndDensity = 1,
-			Vec4 Color = [0.5, 0.5, 0.5, 0],
+			string Texture = "519e4513413133eb:Miramar",
+			Quat Rotation = [0, 0, 0, 1],
 		},
 	},
 	Cog = 
@@ -3690,7 +3682,7 @@ Level =
 		},
 		Shadow = 
 		{
-			Quality Quality = UltraHighQuality,
+			Quality Quality = HighQuality,
 			bool SoftShadows = true,
 			float Size = 1,
 			Vec4 Color = [0, 0, 0, 1],
@@ -4918,15 +4910,16 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-66.5268, 328.934, -375.026],
+			Vec3 Translation = [-43.6953, 29.4656, -30.9033],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0623211, 0.895849, 0.419338, 0.133139],
+			Quat Rotation = [0.112731, 0.857198, 0.212136, -0.455523],
 		},
 		Camera = 
 		{
 			ProjectionMode ProjectionMode = Perspective,
 			Facing Facing = NegativeZ,
 			SpriteSort SpriteSort = ViewDepth,
+			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
@@ -4935,10 +4928,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 66.1,
-			float VerticalAngle = 0.87559,
-			float HorizontalAngle = -53.112,
-			Vec3 LookTarget = [-78.8398, 278.174, -334.516],
+			float LookDistance = 60.8349,
+			float VerticalAngle = 0.485204,
+			float HorizontalAngle = -54.384,
+			Vec3 LookTarget = [0.903901, 1.09285, -0.790382],
 		},
 		EditorRenderer = 
 		{
@@ -4970,7 +4963,7 @@ Level =
 		{
 			Vec3 Translation = [-72.9114, 2.967, 98.9197],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0329569, -0.673127, 0.00333292, 0.738785],
+			Quat Rotation = [-0.0329569, -0.673127, 0.00333288, 0.738785],
 		},
 	},
 	ArchetypeInstance = 

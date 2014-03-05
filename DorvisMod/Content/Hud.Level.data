@@ -41,15 +41,16 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [10.7957, 2.33515, 43.3226],
+			Vec3 Translation = [19.0102, 2.9458, 40.118],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0481579, 0.107664, 0.00522137, 0.993007],
+			Quat Rotation = [-0.039255, 0.19067, 0.00763097, 0.980839],
 		},
 		Camera = 
 		{
 			ProjectionMode ProjectionMode = Perspective,
 			Facing Facing = NegativeZ,
 			SpriteSort SpriteSort = ViewDepth,
+			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
@@ -59,9 +60,9 @@ Level =
 		{
 			ControlMode ControlMode = Orbit,
 			float LookDistance = 43.5981,
-			float VerticalAngle = 0.304001,
-			float HorizontalAngle = -0.216,
-			Vec3 LookTarget = [1.49537, -1.88369, 0.937445],
+			float VerticalAngle = 0.080001,
+			float HorizontalAngle = -0.384,
+			Vec3 LookTarget = [2.72921, -0.538372, -0.17574],
 		},
 		EditorRenderer = 
 		{
@@ -107,6 +108,7 @@ Level =
 			ProjectionMode ProjectionMode = Orthographic,
 			Facing Facing = NegativeZ,
 			SpriteSort SpriteSort = ViewDepth,
+			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 200,
@@ -117,20 +119,18 @@ Level =
 			bool Background = false,
 			Vec2 Offset = [0, 0],
 			Vec2 Size = [1, 1],
-			uint Layer = 1,
+			int Layer = 1,
 			bool Active = false,
-			bool Blocking = true,
+			bool Blocking = false,
 			uint Renderer = 4,
 			uint Camera = 4,
+			ViewportScaling Scaling = Letterbox,
+			Vec2 Resolution = [16, 9],
+			Vec4 MarginColor = [0, 0, 0, 1],
 		},
 		ForwardRenderer = 
 		{
 			Vec4 ClearColor = [0.278431, 0.278431, 0.278431, 1],
-		},
-		FixedAspectRatio = 
-		{
-			float Width = 16,
-			float Height = 9,
 		},
 	},
 	Cog = 

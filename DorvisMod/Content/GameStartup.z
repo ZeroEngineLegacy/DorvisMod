@@ -61,7 +61,8 @@ class GameStartup : ScriptComponent
                 var levelSettings = this.MainSpace.FindObjectByName("LevelSettings");
                 levelSettings.CameraViewport.Camera = camCog;
                 this.Owner.LockStepMouse.InputCameraViewport = levelSettings;
-                levelSettings.CameraViewport.MouseTrapped = true;
+                
+                Zero.Mouse.Trapped = true;
                 
                 var hudCameraCog = player.Player.Hud.FindObjectByName("HudCamera");
                 

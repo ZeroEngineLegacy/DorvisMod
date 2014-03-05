@@ -1,5 +1,11 @@
 ImageContent = 
 {
+	TextureFiltering = 
+	{
+		TextrueAddressing Addressing = Repeat,
+		TextureFilter Filter = Trilinear,
+		float Anisotropy = 5,
+	},
 	TextureBuilder = 
 	{
 		string Name = "Rocks",
@@ -9,11 +15,5 @@ ImageContent =
 		ImageFilter ResizeFilter = Cubic,
 		bool GenerateMipMaps = true,
 		ImageFilter MipFilter = Cubic,
-	},
-	TextureFiltering = 
-	{
-		TextrueAddressing Addressing = Repeat,
-		TextureFilter Filter = Trilinear,
-		float Anisotropy = 5,
 	},
 },

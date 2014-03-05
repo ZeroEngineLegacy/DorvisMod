@@ -23,7 +23,7 @@ class SkyLevel : ScriptComponent
         
         this.SkyCamera = this.CreateSpace.FindObjectByName("Camera");
         
-        Zero.Connect(this.Space, Events.PreDraw, this.OnPreDraw);
+        //Zero.Connect(this.Space, Events.PreDraw, this.OnPreDraw);
     }
     
     function OnPreDraw(e : Event)
