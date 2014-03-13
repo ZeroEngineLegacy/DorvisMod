@@ -20,9 +20,10 @@ class SpaceCamera : ScriptComponent
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(init, Events.AllObjectsInitialized, this.OnAllObjectsCreated);
     }
     
-    function OnAllObjectsCreated()
+    function OnAllObjectsCreated(e : CogInitializer)
     {
         var ourCameraViewportCog = this.Space.FindObjectByName(this.OurCameraViewportName);
         this.OurCameraViewport = ourCameraViewportCog.Camera.Viewport.CameraViewport;
