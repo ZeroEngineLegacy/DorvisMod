@@ -1,4 +1,4 @@
-class Shield : ScriptComponent
+class Shield : ZilchComponent
 {
     [Property]
     var RechargeTime : Real = 4.0;

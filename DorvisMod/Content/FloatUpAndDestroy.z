@@ -1,4 +1,4 @@
-class FloatUpAndDestroy : ScriptComponent
+class FloatUpAndDestroy : ZilchComponent
 {
     [Property]
     var Speed : Real = 1.0;

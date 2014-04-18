@@ -11,7 +11,7 @@ class SwivelAxis
     var Forward : Integer { get { return 2; } }
 }
 
-class Swivel : ScriptComponent
+class Swivel : ZilchComponent
 {
     [Property]
     var Axis : Integer = SwivelAxis.Up;

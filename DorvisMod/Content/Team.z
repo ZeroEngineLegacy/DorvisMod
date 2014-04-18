@@ -1,4 +1,4 @@
-class Team : ScriptComponent
+class Team : ZilchComponent
 {
     [Property]
     var Id : Integer = -1;

@@ -1,4 +1,4 @@
-class BlockTag : ScriptComponent
+class BlockTag : ZilchComponent
 {
     constructor() : base()
     {

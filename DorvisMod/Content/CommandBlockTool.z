@@ -1,4 +1,4 @@
-class CommandBlockTool : ScriptComponent
+class CommandBlockTool : ZilchComponent
 {
     var Player : Player = null;
     var HudText : ShadowText = null;

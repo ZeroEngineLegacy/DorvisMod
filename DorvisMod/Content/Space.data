@@ -10,9 +10,10 @@ Space =
 	},
 	TimeSpace = 
 	{
+		float MaxDt = 0.3,
+		float MinDt = 1e-006,
 		float TimeScale = 1,
-		float Framerate = 60,
-		float FramelossCap = 0.5,
+		uint TimeMode = 0,
 	},
 	GraphicsSpace = 
 	{
@@ -27,6 +28,9 @@ Space =
 		bool Deterministic = true,
 		uint SubStepCount = 1,
 		string CollisionFilterName = "4e66a5c0b9dc59b9:DefaultCollisionTable",
+		uint IterationCount = 15,
+		uint StabilizationCount = 1,
+		float VelocityThreshold = 3,
 	},
 	SoundSpace = 
 	{

@@ -1,4 +1,4 @@
-class RopeTool : ScriptComponent
+class RopeTool : ZilchComponent
 {
     var Player : Player = null;
     var HudText : ShadowText = null;

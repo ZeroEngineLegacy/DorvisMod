@@ -1,4 +1,4 @@
-class JointSwivel : ScriptComponent
+class JointSwivel : ZilchComponent
 {
     [Serialized][Editable]
     var Axis : Integer = SwivelAxis.Up;

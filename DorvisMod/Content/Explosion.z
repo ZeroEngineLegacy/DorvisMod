@@ -1,4 +1,4 @@
-class Explosion : ScriptComponent
+class Explosion : ZilchComponent
 {
     [Property]
     var DeathTime : Real = 1.6;

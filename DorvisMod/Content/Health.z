@@ -1,4 +1,4 @@
-class Health : ScriptComponent
+class Health : ZilchComponent
 {
     [Property]
     var Total : Real = 100.0;

@@ -1,4 +1,4 @@
-class TimedDestroyEffectFader : ScriptComponent
+class TimedDestroyEffectFader : ZilchComponent
 {
     [Property]
     var Time : Real = 5.0;

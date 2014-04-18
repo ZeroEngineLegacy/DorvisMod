@@ -1,4 +1,4 @@
-class Wheel : ScriptComponent
+class Wheel : ZilchComponent
 {
     [Property]
     var AngularDamping : Real = 0.998;

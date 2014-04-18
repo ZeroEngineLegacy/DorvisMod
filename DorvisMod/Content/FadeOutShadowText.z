@@ -1,4 +1,4 @@
-class FadeOutShadowText : ScriptComponent
+class FadeOutShadowText : ZilchComponent
 {
     [Property]
     var Time : Real = 1.0;

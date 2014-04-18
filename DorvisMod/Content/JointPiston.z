@@ -1,4 +1,4 @@
-class JointPiston : ScriptComponent
+class JointPiston : ZilchComponent
 {
     var Root : Cog = null;
     var Joint : Cog = null;

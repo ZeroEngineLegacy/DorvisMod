@@ -1,4 +1,4 @@
-class ShadowText : ScriptComponent
+class ShadowText : ZilchComponent
 {
     var ShadowSpriteText : SpriteText = null;
     var NormalSpriteText : SpriteText = null;

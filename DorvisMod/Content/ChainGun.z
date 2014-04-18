@@ -1,4 +1,4 @@
-class ChainGun : ScriptComponent
+class ChainGun : ZilchComponent
 {
     [Property]
     var SpreadDegrees : Real = 10.0;

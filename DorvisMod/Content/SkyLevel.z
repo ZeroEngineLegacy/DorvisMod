@@ -1,4 +1,4 @@
-class SkyLevel : ScriptComponent
+class SkyLevel : ZilchComponent
 {
     [Property]
     var SpaceToCreate : Archetype = Archetype.Find("Space");
@@ -18,7 +18,7 @@ class SkyLevel : ScriptComponent
 
     function Initialize(init : CogInitializer)
     {
-        this.CreateSpace = Zero.Game.CreateSpace(this.SpaceToCreate.Name);
+        this.CreateSpace = this.GameSession.CreateSpace(this.SpaceToCreate);
         this.CreateSpace.LoadLevel(this.Level);
         
         this.SkyCamera = this.CreateSpace.FindObjectByName("Camera");

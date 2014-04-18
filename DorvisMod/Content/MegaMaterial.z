@@ -1,4 +1,4 @@
-class MegaMaterial : ScriptComponent
+class MegaMaterial : ZilchComponent
 {
     [Property]
     var ProjectileImpact : Archetype = null;

@@ -1,4 +1,4 @@
-class SpawnTool : ScriptComponent
+class SpawnTool : ZilchComponent
 {
     var Index : Integer = 0;
     var PlayerCog : Cog = null;

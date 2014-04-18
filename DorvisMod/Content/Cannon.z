@@ -1,4 +1,4 @@
-class Cannon : ScriptComponent
+class Cannon : ZilchComponent
 {
     [Property]
     var Speed : Real = 100.0;

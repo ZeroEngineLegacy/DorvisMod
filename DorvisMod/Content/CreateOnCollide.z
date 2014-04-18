@@ -1,4 +1,4 @@
-class CreateOnCollide : ScriptComponent
+class CreateOnCollide : ZilchComponent
 {
     [Property]
     var ToCreate : Archetype = Archetype.Find("Explosion");

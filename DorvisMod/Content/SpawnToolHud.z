@@ -1,4 +1,4 @@
-class SpawnToolHud : ScriptComponent
+class SpawnToolHud : ZilchComponent
 {
     [Property]
     var Blocks : ResourceTable = ResourceTable.Find("Blocks");

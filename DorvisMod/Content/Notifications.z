@@ -1,4 +1,4 @@
-class Notifications : ScriptComponent
+class Notifications : ZilchComponent
 {
     [Property]
     var LineHeight : Real = 0.6;

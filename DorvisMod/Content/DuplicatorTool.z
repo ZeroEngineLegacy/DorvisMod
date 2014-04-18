@@ -1,4 +1,4 @@
-class DuplicatorTool : ScriptComponent
+class DuplicatorTool : ZilchComponent
 {
     [Property]
     var FallbackSpawnDistance : Real = 20.0;

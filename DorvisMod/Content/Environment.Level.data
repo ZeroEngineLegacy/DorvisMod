@@ -3682,11 +3682,15 @@ Level =
 		},
 		Shadow = 
 		{
-			Quality Quality = HighQuality,
-			bool SoftShadows = true,
+			Quality Quality = VeryHighQuality,
+			ShadowType ShadowType = Esm,
+			bool SoftShadows = false,
 			float Size = 1,
+			uint Splits = 1,
+			uint CurrentSplit = 0,
+			float PaddingScaler = 0.3,
 			Vec4 Color = [0, 0, 0, 1],
-			bool Active = true,
+			bool Active = false,
 		},
 	},
 	Cog = 
@@ -4910,9 +4914,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-43.6953, 29.4656, -30.9033],
+			Vec3 Translation = [-101.756, 194.647, -237.915],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.112731, 0.857198, 0.212136, -0.455523],
+			Quat Rotation = [0.0987014, 0.901084, 0.288044, -0.308765],
 		},
 		Camera = 
 		{
@@ -4922,16 +4926,16 @@ Level =
 			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
-			float FarPlane = 500,
+			float FarPlane = 1200,
 			float Size = 20,
 		},
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 60.8349,
-			float VerticalAngle = 0.485204,
-			float HorizontalAngle = -54.384,
-			Vec3 LookTarget = [0.903901, 1.09285, -0.790382],
+			float LookDistance = 99.05,
+			float VerticalAngle = 0.618797,
+			float HorizontalAngle = -110.616,
+			Vec3 LookTarget = [-52.272, 137.192, -174.187],
 		},
 		EditorRenderer = 
 		{
@@ -4949,7 +4953,7 @@ Level =
 		{
 			Vec3 Translation = [-2.0646, -0.0166355, 7.0397],
 			Vec3 Scale = [0.999999, 0.999992, 0.999999],
-			Quat Rotation = [-0.00738852, 0.164504, 0.00423561, 0.98634],
+			Quat Rotation = [-0.00738853, 0.164504, 0.00423561, 0.98634],
 		},
 	},
 	ArchetypeInstance = 
@@ -4963,7 +4967,7 @@ Level =
 		{
 			Vec3 Translation = [-72.9114, 2.967, 98.9197],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0329569, -0.673127, 0.00333288, 0.738785],
+			Quat Rotation = [-0.0329569, -0.673127, 0.00333281, 0.738785],
 		},
 	},
 	ArchetypeInstance = 

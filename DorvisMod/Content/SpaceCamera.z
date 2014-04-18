@@ -1,4 +1,4 @@
-class SpaceCamera : ScriptComponent
+class SpaceCamera : ZilchComponent
 {
     [Property]
     var SpaceToCreate : Archetype = Archetype.Find("DefaultSpace");
@@ -50,7 +50,7 @@ class SpaceCamera : ScriptComponent
         // We lazy create the space so that we don't needlessly create spaces for disabled viewports
         if (this.SubSpace == null)
         {
-            this.SubSpace = Zero.Game.CreateSpace(this.SpaceToCreate.Name);
+            this.SubSpace = this.GameSession.CreateSpace(this.SpaceToCreate);
             this.SubSpace.LoadLevel(this.LevelToCreate);
             this.SubCameraCog = this.SubSpace.FindObjectByName("Camera");
             

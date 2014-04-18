@@ -1,4 +1,4 @@
-class GameStartup : ScriptComponent
+class GameStartup : ZilchComponent
 {
     var Random : Random = new Random();
     
@@ -6,6 +6,8 @@ class GameStartup : ScriptComponent
     
     [Property]
     var Level : Level = Level.Find("Environment");
+    [Property]
+    var SpaceToCreate : Archetype = Archetype.Find("Space");
     
     [Property]
     var Player : Archetype = Archetype.Find("Player");
@@ -28,7 +30,7 @@ class GameStartup : ScriptComponent
 
     function OnLockStepGameStarted(e : LockStepGameStartEvent)
     {
-        this.MainSpace = Zero.Game.CreateSpace("Space");
+        this.MainSpace = this.GameSession.CreateSpace(this.SpaceToCreate);
         this.MainSpace.LoadLevel(this.Level);
         
         // Always clear the store so we can use it for duplicating, copy/paste, and undos
@@ -50,7 +52,6 @@ class GameStartup : ScriptComponent
             
             //Console.WriteLine(Archetype.Find("Player").Name);
             
-            
             player.Player.LockStepInitialize(peer, idCounter, unsafeIsLocal);
             ++idCounter;
             
@@ -66,7 +67,7 @@ class GameStartup : ScriptComponent
                 
                 var hudCameraCog = player.Player.Hud.FindObjectByName("HudCamera");
                 
-                //hudCameraCog.CameraViewport.Active = true;
+                hudCameraCog.CameraViewport.Active = true;
             }
         }
     }

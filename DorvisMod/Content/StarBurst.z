@@ -1,4 +1,4 @@
-class StarBurst : ScriptComponent
+class StarBurst : ZilchComponent
 {
     var StreamParticles : Cog = null;
     var FlameParticles : Cog = null;

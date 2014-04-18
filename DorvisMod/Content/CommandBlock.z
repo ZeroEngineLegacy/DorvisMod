@@ -1,4 +1,4 @@
-class CommandBlock : ScriptComponent
+class CommandBlock : ZilchComponent
 {
     var ReDirectionCog : Cog = null;
     var Root : Cog = null;

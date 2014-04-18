@@ -1,4 +1,4 @@
-class Player : ScriptComponent
+class Player : ZilchComponent
 {
     [Property]
     var Speed : Real = 10.0;
@@ -67,6 +67,8 @@ class Player : ScriptComponent
     
     [Property]
     var HudToCreate : Level = Level.Find("Hud");
+    [Property]
+    var HudSpace : Archetype = Archetype.Find("Space");
     
     
     // For some reason this results in a type not found error
@@ -97,8 +99,6 @@ class Player : ScriptComponent
 
     function Initialize(init : CogInitializer)
     {
-        
-        
     }
     
     function LockStepInitialize(peer : LockStepPeer, id : Integer, unsafeIsLocal : Boolean)
@@ -121,7 +121,7 @@ class Player : ScriptComponent
         
         this.ToolContainer = this.Owner.FindChildByName("ToolContainer");
         
-        this.Hud = Zero.Game.CreateSpace("Space");
+        this.Hud = this.GameSession.CreateSpace(this.HudSpace);
         
         this.Hud.LoadLevel(this.HudToCreate);
         this.HudContextText = this.Hud.FindObjectByName("ContextText").ShadowText;
@@ -492,7 +492,7 @@ class Player : ScriptComponent
             
             if (e.Key >= Keys.Zero && e.Key <= Keys.Nine)
             {
-                var index = e.Key - Keys.One;
+                var index = (e.Key - Keys.One) as Integer;
                 
                 // Handle the '0' button case
                 if (index == -1)

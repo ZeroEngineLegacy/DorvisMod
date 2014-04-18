@@ -1,4 +1,4 @@
-class OrientToVelocity : ScriptComponent
+class OrientToVelocity : ZilchComponent
 {
     //[Dependency]
     var Orientation : Orientation = null;

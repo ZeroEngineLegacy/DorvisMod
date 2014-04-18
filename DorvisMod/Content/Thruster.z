@@ -1,4 +1,4 @@
-class Thruster : ScriptComponent
+class Thruster : ZilchComponent
 {
     var IdleParticles : Cog = null;
     var OnParticles : Cog = null;

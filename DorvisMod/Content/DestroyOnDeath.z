@@ -1,4 +1,4 @@
-class DestroyOnDeath : ScriptComponent
+class DestroyOnDeath : ZilchComponent
 {
     constructor() : base()
     {

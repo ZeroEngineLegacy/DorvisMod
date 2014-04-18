@@ -1,4 +1,4 @@
-class DamageOnCollide : ScriptComponent
+class DamageOnCollide : ZilchComponent
 {
     [Property]
     var Damage : Real = 10.0;

@@ -1,4 +1,4 @@
-class KeySetterTool : ScriptComponent
+class KeySetterTool : ZilchComponent
 {
     var Player : Player = null;
     var HudText : ShadowText = null;

@@ -1,4 +1,4 @@
-class Activatable : ScriptComponent
+class Activatable : ZilchComponent
 {
     // The default key is spacebar
     [Property]

@@ -1,4 +1,4 @@
-class SpaceCameraObjectIcon : ScriptComponent
+class SpaceCameraObjectIcon : ZilchComponent
 {
     [Property]
     var Object : Archetype = Archetype.Find("Cube");

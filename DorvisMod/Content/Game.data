@@ -31,6 +31,7 @@ GameSession =
 	GameStartup = 
 	{
 		string Level = "519e74c9087e821d:Environment",
+		string SpaceToCreate = "519e634c69a6ca5c:Space",
 		string Player = "519e623f0e5efbef:Player",
 	},
 },

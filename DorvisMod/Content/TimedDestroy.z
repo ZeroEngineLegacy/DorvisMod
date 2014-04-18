@@ -1,4 +1,4 @@
-class TimedDestroy : ScriptComponent
+class TimedDestroy : ZilchComponent
 {
     //The amount of time before this object will be destroyed
     [Property]

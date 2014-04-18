@@ -1,4 +1,4 @@
-class RopeRenderer : ScriptComponent
+class RopeRenderer : ZilchComponent
 {
     constructor() : base()
     {

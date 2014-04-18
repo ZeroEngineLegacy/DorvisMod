@@ -1,4 +1,4 @@
-class GrabberTool : ScriptComponent
+class GrabberTool : ZilchComponent
 {
     //The minimum distance we can drag the object towards
     //the camera during mouse scroll.
