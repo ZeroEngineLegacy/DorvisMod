@@ -23,7 +23,7 @@ class SkyLevel : ZilchComponent
         
         this.SkyCamera = this.CreateSpace.FindObjectByName("Camera");
         
-        //Zero.Connect(this.Space, Events.PreDraw, this.OnPreDraw);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnPreDraw);
     }
     
     function OnPreDraw(e : Event)
@@ -31,6 +31,7 @@ class SkyLevel : ZilchComponent
         var cameraCog = this.CameraViewport.Camera;
         if (cameraCog != null)
         {
+            
             this.SkyCamera.Camera.FieldOfView = cameraCog.Camera.FieldOfView;
             this.SkyCamera.Transform.WorldRotation = cameraCog.Transform.WorldRotation;
         }

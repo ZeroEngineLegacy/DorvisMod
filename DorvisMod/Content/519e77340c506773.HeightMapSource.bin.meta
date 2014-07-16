@@ -7,5 +7,6 @@ BinaryContent =
 		string LoaderType = "HeightMapSource",
 		uint Version = 0,
 		string FilterTag = "",
+		string ResourceOwner = "519e74c9087e821d:Environment",
 	},
 },
