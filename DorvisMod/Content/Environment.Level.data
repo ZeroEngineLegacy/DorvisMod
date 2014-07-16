@@ -4914,9 +4914,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-15.2948, 226.121, -197.321],
+			Vec3 Translation = [-74.3657, 190.709, -254.553],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.256327, 0.742345, 0.462727, 0.411222],
+			Quat Rotation = [0.0376542, 0.950929, 0.279012, -0.128332],
 		},
 		Camera = 
 		{
@@ -4933,8 +4933,8 @@ Level =
 		{
 			ControlMode ControlMode = Orbit,
 			float LookDistance = 99.05,
-			float VerticalAngle = 1.1148,
-			float HorizontalAngle = -108.944,
+			float VerticalAngle = 0.5708,
+			float HorizontalAngle = -110.224,
 			Vec3 LookTarget = [-52.272, 137.192, -174.187],
 		},
 		EditorRenderer = 
@@ -4967,7 +4967,7 @@ Level =
 		{
 			Vec3 Translation = [-72.9114, 2.967, 98.9197],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0329569, -0.673127, 0.0033328, 0.738785],
+			Quat Rotation = [-0.0329569, -0.673127, 0.00333279, 0.738785],
 		},
 	},
 	ArchetypeInstance = 
