@@ -3684,13 +3684,13 @@ Level =
 		{
 			Quality Quality = VeryHighQuality,
 			ShadowType ShadowType = Esm,
-			bool SoftShadows = false,
+			bool SoftShadows = true,
 			float Size = 1,
 			uint Splits = 1,
 			uint CurrentSplit = 0,
 			float PaddingScaler = 0.3,
 			Vec4 Color = [0, 0, 0, 1],
-			bool Active = false,
+			bool Active = true,
 		},
 	},
 	Cog = 
@@ -4914,9 +4914,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-101.756, 194.647, -237.915],
+			Vec3 Translation = [-15.2948, 226.121, -197.321],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.0987014, 0.901084, 0.288044, -0.308765],
+			Quat Rotation = [-0.256327, 0.742345, 0.462727, 0.411222],
 		},
 		Camera = 
 		{
@@ -4933,8 +4933,8 @@ Level =
 		{
 			ControlMode ControlMode = Orbit,
 			float LookDistance = 99.05,
-			float VerticalAngle = 0.618797,
-			float HorizontalAngle = -110.616,
+			float VerticalAngle = 1.1148,
+			float HorizontalAngle = -108.944,
 			Vec3 LookTarget = [-52.272, 137.192, -174.187],
 		},
 		EditorRenderer = 
@@ -4967,7 +4967,7 @@ Level =
 		{
 			Vec3 Translation = [-72.9114, 2.967, 98.9197],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0329569, -0.673127, 0.00333281, 0.738785],
+			Quat Rotation = [-0.0329569, -0.673127, 0.0033328, 0.738785],
 		},
 	},
 	ArchetypeInstance = 
