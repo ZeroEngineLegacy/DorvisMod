@@ -60,6 +60,10 @@ class JointPiston : ZilchComponent
         var jointCreator = Zero.JointBuilder.CreateInstance();
         var worldPoint = this.Owner.Transform.WorldTranslation;
         this.Joint = jointCreator.AttachWorld(parent, this.Owner, worldPoint, "PrismaticJoint");
+        if(this.Joint == null)
+        {
+            return;
+        }
         
         var revoluteJoint = this.Joint.PrismaticJoint;
         
