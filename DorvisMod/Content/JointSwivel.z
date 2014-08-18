@@ -72,6 +72,10 @@ class JointSwivel : ZilchComponent
         var jointCreator = Zero.JointBuilder.CreateInstance();
         var worldPoint = this.Owner.Transform.WorldTranslation;
         this.Joint = jointCreator.AttachWorld(parent, this.Owner, worldPoint, "RevoluteJoint");
+        if(this.Joint == null)
+        {
+            return;
+        }
         
         var revoluteJoint = this.Joint.RevoluteJoint;
         revoluteJoint.CollideConnected = false;
