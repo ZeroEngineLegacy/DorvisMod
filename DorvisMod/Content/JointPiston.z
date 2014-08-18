@@ -35,13 +35,13 @@ class JointPiston : ZilchComponent
     {
         var motor = this.Joint.JointMotor;
         
-        if (motor.MotorSpeed < 0.0)
+        if (motor.Speed < 0.0)
         {
-            motor.MotorSpeed = 5.0;
+            motor.Speed = 5.0;
         }
         else
         {
-            motor.MotorSpeed = -5.0;
+            motor.Speed = -5.0;
         }
     }
 
@@ -72,7 +72,7 @@ class JointPiston : ZilchComponent
             jointCreator.AttachMotor(this.Joint);
             var jointMotor = this.Joint.JointMotor;
             jointMotor.MaxForce = 50.0;
-            jointMotor.MotorSpeed = 0.0;
+            jointMotor.Speed = 0.0;
             
             jointCreator.AttachLimit(this.Joint);
             var jointLimit = this.Joint.JointLimit;
