@@ -42,10 +42,10 @@ class JointSwivel : ZilchComponent
     {
         var motor = this.Joint.JointMotor;
         
-        motor.MotorSpeed -= 5.0;
-        if (motor.MotorSpeed < -5.0)
+        motor.Speed -= 5.0;
+        if (motor.Speed < -5.0)
         {
-            motor.MotorSpeed = 5.0;
+            motor.Speed = 5.0;
         }
     }
 
@@ -72,6 +72,10 @@ class JointSwivel : ZilchComponent
         var jointCreator = Zero.JointBuilder.CreateInstance();
         var worldPoint = this.Owner.Transform.WorldTranslation;
         this.Joint = jointCreator.AttachWorld(parent, this.Owner, worldPoint, "RevoluteJoint");
+        if(this.Joint == null)
+        {
+            return;
+        }
         
         var revoluteJoint = this.Joint.RevoluteJoint;
         revoluteJoint.CollideConnected = false;
@@ -85,7 +89,7 @@ class JointSwivel : ZilchComponent
             jointCreator.AttachMotor(this.Joint);
             var jointMotor = this.Joint.JointMotor;
             jointMotor.MaxForce = 50.0;
-            jointMotor.MotorSpeed = 0.0;
+            jointMotor.Speed = 0.0;
         }
     }
     
@@ -120,15 +124,15 @@ class JointSwivel : ZilchComponent
         
         if (delta < 0.0)
         {
-            this.Joint.JointMotor.MotorSpeed = delta;
+            this.Joint.JointMotor.Speed = delta;
         }
         else if (delta > 0.0)
         {
-            this.Joint.JointMotor.MotorSpeed = delta;
+            this.Joint.JointMotor.Speed = delta;
         }
         else
         {
-            this.Joint.JointMotor.MotorSpeed = 0.0;
+            this.Joint.JointMotor.Speed = 0.0;
         }
     }
 }

@@ -99,7 +99,7 @@ class SpawnTool : ZilchComponent
         this.Ghost.Extents(local Real3(0.5));
         this.Ghost.Rotation(result.Object.Transform.WorldRotation);
         this.Ghost.Position(pos);
-        this.Ghost.Partial(true);
+        this.Ghost.BackShade(true);
         this.Ghost.Draw();
     }
     

@@ -26,6 +26,7 @@ class CommandBlock : ZilchComponent
         line.Start(start);
         line.End(end);
         line.HeadSize(0.2);
+        line.SpaceId(this.Owner.Space.RuntimeId);
         line.Draw();
     }
     

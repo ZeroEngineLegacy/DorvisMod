@@ -30,7 +30,7 @@ class GameStartup : ZilchComponent
 
     function OnLockStepGameStarted(e : LockStepGameStartEvent)
     {
-        this.MainSpace = this.GameSession.CreateSpace(this.SpaceToCreate);
+        this.MainSpace = this.GameSession.CreateNamedSpace("Main", this.SpaceToCreate);
         this.MainSpace.LoadLevel(this.Level);
         
         // Always clear the store so we can use it for duplicating, copy/paste, and undos
