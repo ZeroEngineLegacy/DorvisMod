@@ -53,7 +53,7 @@ class StarBurst : ZilchComponent
 
     function Initialize(init : CogInitializer)
     {
-        this.Random.Seed(34593);
+        this.Random.Seed = 34593;
         
         Zero.Connect(this.Owner, "Activate", this.OnActivate);
         this.StreamParticles = this.Owner.FindChildByName("StreamParticles");

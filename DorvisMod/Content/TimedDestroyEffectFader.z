@@ -22,7 +22,7 @@ class TimedDestroyEffectFader : ZilchComponent
     function Activate()
     {
         var random = new Random();
-        random.Seed(345);
+        random.Seed = 345;
         
         this.Time += random.Range(-this.Variance, this.Variance);
         
