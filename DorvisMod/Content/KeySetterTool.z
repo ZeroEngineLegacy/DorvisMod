@@ -71,7 +71,7 @@ class KeySetterTool : ZilchComponent
             
             // Create a key effect to let the user know what's happening
             var keyEffect = this.Space.CreateAtPosition(this.KeyEffect, worldPosition);
-            keyEffect.SpriteText.Text = Zero.Keyboard.GetKeyName(e.Key);
+            keyEffect.SpriteText.Text = Zero.Keyboard.GetKeyName(e.Key as Keys);
             
             // Set the actual key that the activator uses
             this.CurrentActivatable.Activatable.Key = e.Key;
@@ -94,7 +94,7 @@ class KeySetterTool : ZilchComponent
                 
                 // Create a key effect to let the user know what key the activatable uses
                 var keyEffect = this.Space.CreateAtPosition(this.KeyEffect, worldPosition);
-                keyEffect.SpriteText.Text = Zero.Keyboard.GetKeyName(this.CurrentActivatable.Activatable.Key);
+                keyEffect.SpriteText.Text = Zero.Keyboard.GetKeyName(this.CurrentActivatable.Activatable.Key as Keys);
             }
         }
     }
