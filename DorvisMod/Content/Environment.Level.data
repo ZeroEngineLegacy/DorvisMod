@@ -24,14 +24,6 @@ Level =
 			bool WakeUpOnChange = false,
 			float Drag = 0.4,
 		},
-		WaterEffect = 
-		{
-			bool Active = true,
-			string MeshName = "4de0354322b33457:Cone",
-			string WaterMaterialName = "4de020863e85bb61:DefaultMaterial",
-			float Height = 0,
-			float Size = -0.00132704,
-		},
 		AmbientLight = 
 		{
 			Vec4 Color = [0.575, 0.575, 0.575, 1],
@@ -53,13 +45,20 @@ Level =
 		DeferredRenderer = 
 		{
 			Vec4 ClearColor = [0, 0, 0, 0.975],
+			bool DrawNonVisible = false,
+			bool DrawDebugObjects = true,
+			bool DrawEditorIcons = true,
+			bool EditorIconDepth = true,
 			bool Hdr = true,
-			bool Glow = true,
-			bool ToneMapping = false,
-			float BrightThreshold = 1.5,
-			float Exposure = 0.5,
-			bool Refraction = true,
 			bool Shadows = true,
+			bool AntiAliasing = false,
+			bool Refraction = true,
+			bool Reflections = true,
+			string ReflectionEnvironmentName = "4fab71e8bcb7a8ce:DefaultTexture",
+			bool GodRays = true,
+			bool RenderMasks = false,
+			bool Glow = true,
+			float GlowThreshold = 1.5,
 		},
 		SkyBox = 
 		{
@@ -85,10 +84,13 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "4de020863e85bb61:DefaultMaterial",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = false,
 		},
 	},
 	Cog = 
@@ -109,10 +111,13 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "51566a1523a57f69:SandStructure",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = true,
 		},
 		BoxCollider = 
 		{
@@ -143,10 +148,13 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "519e45b1746657f8:WaterMat",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [0.36075, 0.362797, 0.39, 1],
-			bool Visible = true,
 		},
 		BoxCollider = 
 		{
@@ -3669,28 +3677,26 @@ Level =
 		},
 		Light = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
 			LightType LightType = Directional,
-			bool Active = true,
-			float Range = 1200,
-			float MinRange = 6.1,
-			float Angle = 10,
-			float Intensity = 1,
 			Vec4 Color = [1, 1, 1, 1],
-			float MinRange = 6.1,
+			float Intensity = 1,
+			float Range = 1200,
+			float Falloff = 1,
+			float Angle = 10,
 			float Size = 700,
-			bool Baked = false,
 		},
 		Shadow = 
 		{
-			Quality Quality = VeryHighQuality,
-			ShadowType ShadowType = Esm,
-			bool SoftShadows = true,
-			float Size = 1,
-			uint Splits = 1,
-			uint CurrentSplit = 0,
-			float PaddingScaler = 0.3,
-			Vec4 Color = [0, 0, 0, 1],
 			bool Active = true,
+			Quality Quality = VeryHighQuality,
+			ShadowMapping ShadowMapping = Standard,
+			ShadowSoftening ShadowSoftening = None,
+			Vec4 Color = [0, 0, 0, 1],
+			float SplitPlaneDistribution = 0.8,
 		},
 	},
 	Cog = 
@@ -4892,10 +4898,13 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "4de020863e85bb61:DefaultMaterial",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = false,
 		},
 	},
 	Cog = 
@@ -4914,16 +4923,15 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-74.3657, 190.709, -254.553],
+			Vec3 Translation = [-114.752, 186.274, -233.332],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.0376542, 0.950929, 0.279012, -0.128332],
+			Quat Rotation = [0.101329, 0.887859, 0.235448, -0.382104],
 		},
 		Camera = 
 		{
 			ProjectionMode ProjectionMode = Perspective,
 			Facing Facing = NegativeZ,
-			SpriteSort SpriteSort = ViewDepth,
-			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
+			CameraTransparentSort TransparentSort = InheritFromSpace,
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 1200,
@@ -4933,13 +4941,18 @@ Level =
 		{
 			ControlMode ControlMode = Orbit,
 			float LookDistance = 99.05,
-			float VerticalAngle = 0.5708,
-			float HorizontalAngle = -110.224,
+			float VerticalAngle = 0.51844,
+			float HorizontalAngle = -110.769,
 			Vec3 LookTarget = [-52.272, 137.192, -174.187],
+			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
 		{
 			Vec4 ClearColor = [0.278431, 0.278431, 0.278431, 1],
+			bool DrawNonVisible = true,
+			bool DrawDebugObjects = true,
+			bool DrawEditorIcons = true,
+			bool Wireframe = false,
 		},
 	},
 	ArchetypeInstance = 
@@ -5019,10 +5032,13 @@ Level =
 			float UnitsPerPatch = 100,
 			string SourceName = "519e77340c506773:519e77340c506773",
 		},
-		HeightMapRenderer = 
+		HeightMapModel = 
 		{
-			string MaterialName = "519e70f3443bfe6b:HeightMapGrass",
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
 			bool CastShadows = false,
+			string MaterialName = "519e70f3443bfe6b:HeightMapGrass",
 		},
 		HeightMapCollider = 
 		{

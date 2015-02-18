@@ -34,4 +34,7 @@ GameSession =
 		string SpaceToCreate = "519e634c69a6ca5c:Space",
 		string Player = "519e623f0e5efbef:Player",
 	},
+	CameraViewports = 
+	{
+	},
 },
