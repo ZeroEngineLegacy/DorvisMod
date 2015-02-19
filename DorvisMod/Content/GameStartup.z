@@ -67,7 +67,7 @@ class GameStartup : ZilchComponent
                 
                 var hudCameraCog = player.Player.Hud.FindObjectByName("HudCamera");
                 
-                hudCameraCog.CameraViewport.Active = true;
+                //hudCameraCog.CameraViewport.Active = true;
             }
         }
     }

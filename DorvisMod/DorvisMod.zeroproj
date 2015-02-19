@@ -6,7 +6,7 @@ Cog =
 		string ProjectOwner = "",
 		string DefaultLevel = "Level",
 		string ProjectSpace = "Space",
-		uint ProjectEngineRevision = 9903,
+		uint ProjectEngineRevision = 10797,
 	},
 	EditorSettings = 
 	{
@@ -14,5 +14,7 @@ Cog =
 		float DefaultPixelsPerUnit = 64,
 		bool SpriteSmoothing = true,
 		float DefaultImportScale = 1,
+		ScriptReloadMethod ScriptReloadEditor = ReInitializeObjects,
+		ScriptReloadMethod ScriptReloadGame = PatchObjects,
 	},
 },

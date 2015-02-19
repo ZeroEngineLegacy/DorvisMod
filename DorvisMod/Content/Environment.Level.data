@@ -47,7 +47,7 @@ Level =
 			uint Renderer = 1,
 			uint Camera = 4294967293,
 			ViewportScaling Scaling = Letterbox,
-			Vec2 Resolution = [16, 9],
+			Vec2 Resolution = [1280, 720],
 			Vec4 MarginColor = [0, 0, 0, 1],
 		},
 		DeferredRenderer = 
@@ -4898,48 +4898,58 @@ Level =
 			bool Visible = false,
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "4de020863e840530:EditorCamera",
 		LinkId = 
 		{
 			uint Id = 321,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, 0, 50],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
 		Named = 
 		{
 			string Name = "EditorCamera",
 		},
-		Archetyped = 
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "4de020863e840530:EditorCamera",
+		LinkId = 
 		{
-			string Name = "4de020863e840530:EditorCamera",
+			uint Id = 322,
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-74.3657, 190.709, -254.553],
+			Vec3 Translation = [0, 0, 50],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.0376542, 0.950929, 0.279012, -0.128332],
+			Quat Rotation = [-0, -1.09278e-008, 0, 1],
 		},
-		Camera = 
+		Named = 
 		{
-			ProjectionMode ProjectionMode = Perspective,
-			Facing Facing = NegativeZ,
-			SpriteSort SpriteSort = ViewDepth,
-			string SpriteLayerOrder = "52b23ad3c402d436:DefaultSpriteLayerOrder",
-			float FieldOfView = 45,
-			float NearPlane = 0.5,
-			float FarPlane = 1200,
-			float Size = 20,
+			string Name = "EditorCamera",
 		},
-		EditorCameraController = 
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "4de020863e840530:EditorCamera",
+		LinkId = 
 		{
-			ControlMode ControlMode = Orbit,
-			float LookDistance = 99.05,
-			float VerticalAngle = 0.5708,
-			float HorizontalAngle = -110.224,
-			Vec3 LookTarget = [-52.272, 137.192, -174.187],
+			uint Id = 323,
 		},
-		EditorRenderer = 
+		Transform = 
 		{
-			Vec4 ClearColor = [0.278431, 0.278431, 0.278431, 1],
+			Vec3 Translation = [-35.7754, 19.8216, 30.9439],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [-0.0261582, -0.575513, -0.0184227, 0.817166],
+		},
+		Named = 
+		{
+			string Name = "EditorCamera",
 		},
 	},
 	ArchetypeInstance = 
@@ -4947,7 +4957,7 @@ Level =
 		string Name = "519d899f2d9a3b64:Ship",
 		LinkId = 
 		{
-			uint Id = 322,
+			uint Id = 324,
 		},
 		Transform = 
 		{
@@ -4961,13 +4971,13 @@ Level =
 		string Name = "522b4f9c62c0ea40:MouseShip",
 		LinkId = 
 		{
-			uint Id = 323,
+			uint Id = 325,
 		},
 		Transform = 
 		{
 			Vec3 Translation = [-72.9114, 2.967, 98.9197],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0329569, -0.673127, 0.00333279, 0.738785],
+			Quat Rotation = [-0.0329569, -0.673127, 0.00333278, 0.738785],
 		},
 	},
 	ArchetypeInstance = 
@@ -4975,7 +4985,7 @@ Level =
 		string Name = "522b5e68e616198b:BigShip",
 		LinkId = 
 		{
-			uint Id = 324,
+			uint Id = 326,
 		},
 		Transform = 
 		{
@@ -4989,7 +4999,7 @@ Level =
 		string Name = "5255f6965d053a5d:Robot",
 		LinkId = 
 		{
-			uint Id = 325,
+			uint Id = 327,
 		},
 		Transform = 
 		{
@@ -5002,7 +5012,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 326,
+			uint Id = 328,
 		},
 		Named = 
 		{
@@ -5019,7 +5029,7 @@ Level =
 			float UnitsPerPatch = 100,
 			string SourceName = "519e77340c506773:519e77340c506773",
 		},
-		HeightMapRenderer = 
+		HeightMapModel = 
 		{
 			string MaterialName = "519e70f3443bfe6b:HeightMapGrass",
 			bool CastShadows = false,

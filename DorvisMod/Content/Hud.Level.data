@@ -24,12 +24,30 @@ Level =
 			bool WakeUpOnChange = false,
 			float Drag = 0.7,
 		},
+		CameraViewport = 
+		{
+			bool Background = false,
+			Vec2 Offset = [0, 0],
+			Vec2 Size = [1, 1],
+			int Layer = 0,
+			bool Active = true,
+			bool Blocking = false,
+			uint Renderer = 1,
+			uint Camera = 2,
+			ViewportScaling Scaling = Letterbox,
+			Vec2 Resolution = [1280, 720],
+			Vec4 MarginColor = [0, 0, 0, 1],
+		},
+		ForwardRenderer = 
+		{
+			Vec4 ClearColor = [0, 0, 0, 1],
+		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 2,
+			uint Id = 3,
 		},
 		Named = 
 		{
@@ -41,9 +59,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [19.0102, 2.9458, 40.118],
+			Vec3 Translation = [13.6308, 25.7856, 61.1244],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.039255, 0.19067, 0.00763097, 0.980839],
+			Quat Rotation = [-0.197901, 0.0861345, 0.0174603, 0.976274],
 		},
 		Camera = 
 		{
@@ -59,9 +77,9 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 43.5981,
-			float VerticalAngle = 0.080001,
-			float HorizontalAngle = -0.384,
+			float LookDistance = 67.5981,
+			float VerticalAngle = 0.400001,
+			float HorizontalAngle = -0.176,
 			Vec3 LookTarget = [2.72921, -0.538372, -0.17574],
 		},
 		EditorRenderer = 
@@ -74,7 +92,7 @@ Level =
 		string Name = "515539d215bf3be2:ShadowText",
 		LinkId = 
 		{
-			uint Id = 3,
+			uint Id = 4,
 		},
 		Transform = 
 		{
@@ -91,7 +109,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 4,
+			uint Id = 2,
 		},
 		Named = 
 		{
@@ -99,7 +117,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0, 0, 5],
+			Vec3 Translation = [0, 0, 26.572],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -113,24 +131,6 @@ Level =
 			float NearPlane = 0.5,
 			float FarPlane = 200,
 			float Size = 20,
-		},
-		CameraViewport = 
-		{
-			bool Background = false,
-			Vec2 Offset = [0, 0],
-			Vec2 Size = [1, 1],
-			int Layer = 1,
-			bool Active = false,
-			bool Blocking = false,
-			uint Renderer = 4,
-			uint Camera = 4,
-			ViewportScaling Scaling = Letterbox,
-			Vec2 Resolution = [16, 9],
-			Vec4 MarginColor = [0, 0, 0, 1],
-		},
-		ForwardRenderer = 
-		{
-			Vec4 ClearColor = [0.278431, 0.278431, 0.278431, 1],
 		},
 	},
 	Cog = 
@@ -162,6 +162,7 @@ Level =
 			uint StartFrame = 0,
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 		},
 	},
 	ArchetypeInstance = 

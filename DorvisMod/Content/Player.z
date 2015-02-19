@@ -342,7 +342,7 @@ class Player : ZilchComponent
     function RayCast(filter : delegate(hit : Cog) : Boolean, maxDistance : Real) : HitResult
     {
         var ray = local Ray();
-        ray.Direction = this.CameraCog.Orientation.WorldForward;
+        ray.Direction = Math.Normalize(this.CameraCog.Orientation.WorldForward);
         ray.Start = this.CameraCog.Transform.WorldTranslation;
         
         var foundObject : Cog = null;
@@ -625,7 +625,7 @@ class Undo
     }
 }
 
-class PlayerEvent : Event
+class PlayerEvent : ZilchEvent
 {
     var Player : Player = null;
     var PlayerCog : Cog = null;
