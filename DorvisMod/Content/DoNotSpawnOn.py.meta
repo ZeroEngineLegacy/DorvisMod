@@ -1,0 +1,8 @@
+TextContent = 
+{
+	PyScriptBuilder = 
+	{
+		string Name = "DoNotSpawnOn",
+		uint64 ResourceId = 519e4807d00b7e88,
+	},
+},
