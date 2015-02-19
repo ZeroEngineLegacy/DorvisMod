@@ -24,14 +24,6 @@ Level =
 			bool WakeUpOnChange = false,
 			float Drag = 0.4,
 		},
-		WaterEffect = 
-		{
-			bool Active = true,
-			string MeshName = "4de0354322b33457:Cone",
-			string WaterMaterialName = "4de020863e85bb61:DefaultMaterial",
-			float Height = 0,
-			float Size = -0.00132704,
-		},
 		AmbientLight = 
 		{
 			Vec4 Color = [0.575, 0.575, 0.575, 1],
@@ -53,13 +45,20 @@ Level =
 		DeferredRenderer = 
 		{
 			Vec4 ClearColor = [0, 0, 0, 0.975],
+			bool DrawNonVisible = false,
+			bool DrawDebugObjects = true,
+			bool DrawEditorIcons = true,
+			bool EditorIconDepth = true,
 			bool Hdr = true,
-			bool Glow = true,
-			bool ToneMapping = false,
-			float BrightThreshold = 1.5,
-			float Exposure = 0.5,
-			bool Refraction = true,
 			bool Shadows = true,
+			bool AntiAliasing = false,
+			bool Refraction = true,
+			bool Reflections = true,
+			string ReflectionEnvironmentName = "4fab71e8bcb7a8ce:DefaultTexture",
+			bool GodRays = true,
+			bool RenderMasks = false,
+			bool Glow = true,
+			float GlowThreshold = 1.5,
 		},
 		SkyBox = 
 		{
@@ -85,10 +84,13 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "4de020863e85bb61:DefaultMaterial",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = false,
 		},
 	},
 	Cog = 
@@ -109,10 +111,13 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "51566a1523a57f69:SandStructure",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = true,
 		},
 		BoxCollider = 
 		{
@@ -143,10 +148,13 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "519e45b1746657f8:WaterMat",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [0.36075, 0.362797, 0.39, 1],
-			bool Visible = true,
 		},
 		BoxCollider = 
 		{
@@ -3669,28 +3677,26 @@ Level =
 		},
 		Light = 
 		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = false,
 			LightType LightType = Directional,
-			bool Active = true,
-			float Range = 1200,
-			float MinRange = 6.1,
-			float Angle = 10,
-			float Intensity = 1,
 			Vec4 Color = [1, 1, 1, 1],
-			float MinRange = 6.1,
+			float Intensity = 1,
+			float Range = 1200,
+			float Falloff = 1,
+			float Angle = 10,
 			float Size = 700,
-			bool Baked = false,
 		},
 		Shadow = 
 		{
-			Quality Quality = VeryHighQuality,
-			ShadowType ShadowType = Esm,
-			bool SoftShadows = true,
-			float Size = 1,
-			uint Splits = 1,
-			uint CurrentSplit = 0,
-			float PaddingScaler = 0.3,
-			Vec4 Color = [0, 0, 0, 1],
 			bool Active = true,
+			Quality Quality = VeryHighQuality,
+			ShadowMapping ShadowMapping = Standard,
+			ShadowSoftening ShadowSoftening = None,
+			Vec4 Color = [0, 0, 0, 1],
+			float SplitPlaneDistribution = 0.8,
 		},
 	},
 	Cog = 
@@ -4892,10 +4898,13 @@ Level =
 		},
 		Model = 
 		{
+			bool Visible = false,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
+			bool CastShadows = true,
 			string MaterialName = "4de020863e85bb61:DefaultMaterial",
 			string MeshName = "4de0354322b345ae:Cube",
 			Vec4 Color = [1, 1, 1, 1],
-			bool Visible = false,
 		},
 	},
 	ArchetypeInstance = 
@@ -4940,12 +4949,17 @@ Level =
 		LinkId = 
 		{
 			uint Id = 323,
+			float MoveSensitivity = 1,
 		},
 		Transform = 
 		{
 			Vec3 Translation = [-35.7754, 19.8216, 30.9439],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0.0261582, -0.575513, -0.0184227, 0.817166],
+			bool DrawNonVisible = true,
+			bool DrawDebugObjects = true,
+			bool DrawEditorIcons = true,
+			bool Wireframe = false,
 		},
 		Named = 
 		{
@@ -5031,8 +5045,11 @@ Level =
 		},
 		HeightMapModel = 
 		{
-			string MaterialName = "519e70f3443bfe6b:HeightMapGrass",
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = false,
 			bool CastShadows = false,
+			string MaterialName = "519e70f3443bfe6b:HeightMapGrass",
 		},
 		HeightMapCollider = 
 		{

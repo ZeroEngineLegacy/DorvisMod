@@ -35,7 +35,7 @@ class Explosion : ZilchComponent
     
     constructor() : base()
     {
-        this.Random.Seed(543);
+        this.Random.Seed = 543;
     }
 
     function Initialize(init : CogInitializer)

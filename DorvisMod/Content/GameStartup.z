@@ -14,7 +14,7 @@ class GameStartup : ZilchComponent
     
     constructor() : base()
     {
-        this.Random.Seed(10239);
+        this.Random.Seed = 10239;
     }
 
     function Initialize(init : CogInitializer)
