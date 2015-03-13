@@ -37,4 +37,7 @@ GameSession =
 	CameraViewports = 
 	{
 	},
+	UnitTests = 
+	{
+	},
 },

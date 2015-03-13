@@ -1,0 +1,31 @@
+[RunInEditor]
+class UnitTests : ZilchComponent
+{
+    var RunningGame : GameSession = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(Zero.Engine, "RunUnitTests", this.OnRunUnitTests);
+    }
+
+    function OnRunUnitTests(event : Event)
+    {
+        var seq = Actions.Sequence(Zero.Editor.Actions);
+        Action.Delay(seq, 1.0);
+        Action.Call(seq, this.PlayGame);
+        Action.Delay(seq, 20.0);
+        Action.Call(seq, this.QuitRunningGame);
+        Action.Call(seq, this.GameSession.Quit);
+    }
+    
+    function PlayGame()
+    {
+        this.RunningGame = Zero.Editor.PlaySingleGame();
+        Zero.Editor.ZoomOnGame(this.RunningGame);
+    }
+    
+    function QuitRunningGame()
+    {
+        this.RunningGame.Quit();
+    }
+}

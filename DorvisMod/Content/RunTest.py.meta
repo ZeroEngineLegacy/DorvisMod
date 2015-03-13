@@ -1,8 +1,0 @@
-TextContent = 
-{
-	PyScriptBuilder = 
-	{
-		string Name = "RunTest",
-		uint64 ResourceId = 5432abfc95869c09,
-	},
-},
