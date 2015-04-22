@@ -59,10 +59,8 @@ class GameStartup : ZilchComponent
             {
                 var camCog = player.FindChildByName("Camera");
                 camCog.Microphone.Active = true;
-                var levelSettings = this.MainSpace.FindObjectByName("LevelSettings");
-                var cam = levelSettings.CameraViewport.Camera;
-                cam.Cog = camCog;
-                levelSettings.CameraViewport.Camera = cam;
+                var levelSettings = this.MainSpace.LevelSettings;
+                levelSettings.CameraViewport.Camera = camCog;
                 this.Owner.LockStepMouse.InputCameraViewport = levelSettings;
                 
                 Zero.Mouse.Trapped = true;
