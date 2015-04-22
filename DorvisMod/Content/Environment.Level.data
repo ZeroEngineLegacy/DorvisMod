@@ -1,6 +1,6 @@
 Level = 
 {
-	LevelSettings = 
+	Cog = 
 	{
 		LinkId = 
 		{
@@ -36,8 +36,34 @@ Level =
 			int Layer = 0,
 			bool Active = true,
 			bool Blocking = true,
-			uint Renderer = 1,
-			uint Camera = 4294967293,
+			CogPath Renderer = 
+			{
+				string Path = ".",
+				bool ErrorOnResolveToNull = false,
+				bool ErrorOnPathCantCompute = true,
+				bool UpdateCogOnPathChange = true,
+				bool UpdatePathOnCogChange = true,
+				bool UpdateCogOnInitialize = true,
+				bool ResolvedNullErrorOccurred = false,
+				uint ResolvedCog = 1,
+				CogPathPreference PathPreference0 = CogRelative,
+				CogPathPreference PathPreference1 = SpaceRelative,
+				CogPathPreference PathPreference2 = Absolute,
+			},
+			CogPath Camera = 
+			{
+				string Path = "",
+				bool ErrorOnResolveToNull = false,
+				bool ErrorOnPathCantCompute = false,
+				bool UpdateCogOnPathChange = true,
+				bool UpdatePathOnCogChange = true,
+				bool UpdateCogOnInitialize = true,
+				bool ResolvedNullErrorOccurred = false,
+				uint ResolvedCog = 4294967293,
+				CogPathPreference PathPreference0 = CogRelative,
+				CogPathPreference PathPreference1 = SpaceRelative,
+				CogPathPreference PathPreference2 = Absolute,
+			},
 			ViewportScaling Scaling = Letterbox,
 			Vec2 Resolution = [1280, 720],
 			Vec4 MarginColor = [0, 0, 0, 1],
@@ -69,7 +95,7 @@ Level =
 		{
 			bool Enabled = true,
 			float SampleRadius = 1.4,
-			float Intensity = 3,
+			float Intensity = 1.2,
 		},
 	},
 	Cog = 
@@ -3661,11 +3687,14 @@ Level =
 		Shadow = 
 		{
 			bool Active = true,
-			Quality Quality = UltraHighQuality,
+			Quality Quality = HighQuality,
 			ShadowMapping ShadowMapping = Cascaded,
-			ShadowSoftening ShadowSoftening = Pcf5x5,
+			ShadowSoftening ShadowSoftening = Pcf3x3,
 			Vec4 Color = [0, 0, 0, 1],
-			float SplitPlaneDistribution = 0.67,
+			float NormalOffsetBias = 0.2,
+			float MinFrustumDepth = 1000,
+			float SplitPlaneDistribution = 0.6,
+			bool ShowCascadeColors = false,
 		},
 	},
 	Cog = 
@@ -4892,9 +4921,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.799379, 11.7296, -15.2041],
+			Vec3 Translation = [-31.7687, 20.0809, -35.0852],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.0218268, 0.948681, 0.308245, -0.0671761],
+			Quat Rotation = [0.087758, 0.864903, 0.162643, -0.466679],
 		},
 		Camera = 
 		{
@@ -4909,10 +4938,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 23.4477,
-			float VerticalAngle = 0.628318,
-			float HorizontalAngle = -9.56616,
-			Vec3 LookTarget = [1.8737, -2.05256, 3.5762],
+			float LookDistance = 28.6391,
+			float VerticalAngle = 0.371754,
+			float HorizontalAngle = -10.4144,
+			Vec3 LookTarget = [-9.46691, 9.67775, -20.4358],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 

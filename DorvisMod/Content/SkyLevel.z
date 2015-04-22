@@ -28,7 +28,7 @@ class SkyLevel : ZilchComponent
     
     function OnPreDraw(e : Event)
     {
-        var cameraCog = this.CameraViewport.Camera;
+        var cameraCog = this.CameraViewport.Camera.Cog;
         if (cameraCog != null)
         {
             

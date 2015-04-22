@@ -28,12 +28,19 @@ class BlockCamera : ZilchComponent
         
         if (this.UnsafeActivePlayer == e.Player)
         {
-            this.BlockCameraCog.Camera.Viewport.CameraViewport.Camera = e.Player.CameraCog;
+            var viewport = this.BlockCameraCog.Camera.Viewport.CameraViewport;
+            var cogPath = viewport.Camera;
+            cogPath.Cog = e.Player.CameraCog;
+            viewport.Camera = cogPath;
+            
             this.UnsafeActivePlayer = null;
         }
         else
         {
-            e.Player.CameraCog.Camera.Viewport.CameraViewport.Camera = this.BlockCameraCog;
+            var viewport = e.Player.CameraCog.Camera.Viewport.CameraViewport;
+            var cogPath = viewport.Camera;
+            cogPath.Cog = e.Player.CameraCog;
+            viewport.Camera = cogPath;
             this.UnsafeActivePlayer = e.Player;
         }
     }
