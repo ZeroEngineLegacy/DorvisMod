@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [25.6277, 4.78647, -80.7788],
+		Vec3 Translation = [0.770554, 6.5884, 2.41569],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -162,6 +162,28 @@ Cog =
 					},
 					Named = 
 					{
+						string Name = "Spawner",
+					},
+					Transform = 
+					{
+						Vec3 Translation = [0, 0, 0],
+						Vec3 Scale = [1, 1, 1],
+						Quat Rotation = [0, 0, 0, 1],
+					},
+					SpawnTool = 
+					{
+						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
+						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
+					},
+				},
+				Cog = 
+				{
+					LinkId = 
+					{
+						uint Id = 5,
+					},
+					Named = 
+					{
 						string Name = "Grabber",
 					},
 					Transform = 
@@ -185,7 +207,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 5,
+						uint Id = 6,
 					},
 					Named = 
 					{
@@ -207,7 +229,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 6,
+						uint Id = 7,
 					},
 					Named = 
 					{
@@ -231,7 +253,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 7,
+						uint Id = 8,
 					},
 					Named = 
 					{
@@ -255,7 +277,7 @@ Cog =
 				{
 					LinkId = 
 					{
-						uint Id = 8,
+						uint Id = 9,
 					},
 					Named = 
 					{
@@ -272,28 +294,6 @@ Cog =
 						float FallbackSpawnDistance = 20,
 						string CopyEffect = "5155ad131eb55f13:MiscEffect",
 						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
-					},
-				},
-				Cog = 
-				{
-					LinkId = 
-					{
-						uint Id = 9,
-					},
-					Named = 
-					{
-						string Name = "Spawner",
-					},
-					Transform = 
-					{
-						Vec3 Translation = [0, 0, 0],
-						Vec3 Scale = [1, 1, 1],
-						Quat Rotation = [0, 0, 0, 1],
-					},
-					SpawnTool = 
-					{
-						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
-						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
 					},
 				},
 			},

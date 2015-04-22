@@ -26,7 +26,7 @@ Level =
 		},
 		AmbientLight = 
 		{
-			Vec4 Color = [0.575, 0.575, 0.575, 1],
+			Vec4 Color = [0.775, 0.775, 0.775, 1],
 		},
 		CameraViewport = 
 		{
@@ -68,13 +68,8 @@ Level =
 		Ssao = 
 		{
 			bool Enabled = true,
-			float Adjustment = 0,
-			float SampleCount = 9,
-			float SampleRadius = 0.55,
-			float SampleBias = 0.3,
-			float Intensity = 5.45,
-			SSAOTechnique Technique = Hemisphere,
-			SSAODownSample DownSample = Automatic,
+			float SampleRadius = 1.4,
+			float Intensity = 3,
 		},
 	},
 	Cog = 
@@ -3657,7 +3652,7 @@ Level =
 			bool CastShadows = false,
 			LightType LightType = Directional,
 			Vec4 Color = [1, 1, 1, 1],
-			float Intensity = 1,
+			float Intensity = 0.7,
 			float Range = 1200,
 			float Falloff = 1,
 			float Angle = 10,
@@ -4897,9 +4892,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [19.3702, 25.7204, -59.535],
+			Vec3 Translation = [-0.799379, 11.7296, -15.2041],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.0120601, 0.984432, 0.158562, 0.0748755],
+			Quat Rotation = [0.0218268, 0.948681, 0.308245, -0.0671761],
 		},
 		Camera = 
 		{
@@ -4914,10 +4909,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 70.4406,
-			float VerticalAngle = 0.319395,
-			float HorizontalAngle = -9.27295,
-			Vec3 LookTarget = [9.25525, 3.60256, 6.57379],
+			float LookDistance = 23.4477,
+			float VerticalAngle = 0.628318,
+			float HorizontalAngle = -9.56616,
+			Vec3 LookTarget = [1.8737, -2.05256, 3.5762],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -43230,6 +43225,7 @@ Level =
 			bool VisibilityEvents = false,
 			bool CastShadows = false,
 			string MaterialName = "519e70f3443bfe6b:HeightMapGrass",
+			Vec4 Color = [1, 1, 1, 1],
 		},
 		HeightMapCollider = 
 		{

@@ -131,7 +131,7 @@ class Player : ZilchComponent
         this.HudNotifications = this.Hud.FindObjectByName("NotificationManager").Notifications;
         
         // Add all the initial tools
-        foreach (var tool in  this.ToolContainer.Hierarchy.Children)
+        foreach (var tool in this.ToolContainer.Hierarchy.Children)
         {
             this.Tools.Add(tool);
         }
@@ -149,6 +149,7 @@ class Player : ZilchComponent
         }
     }
     
+    
     function Activate()
     {
         this.Owner.RigidBody.Static = false;
@@ -156,9 +157,6 @@ class Player : ZilchComponent
         this.Owner.DynamicMotor.Activate();
         this.Active = true;
         this.ActivateTool(this.ActiveTool);
-        
-        
-        
         
         var filter = this.Space.PhysicsSpace.CreateDefaultCastFilter();
         
@@ -452,20 +450,12 @@ class Player : ZilchComponent
     {
         var toSend = new PlayerKeyEvent();
         
-        
         this.FillPlayerEvent(toSend);
         toSend.Key = e.Key;
         toSend.AltPressed = e.AltPressed;
         toSend.ShiftPressed = e.ShiftPressed;
         toSend.CtrlPressed = e.CtrlPressed;
         this.Owner.DispatchEvent(eventName, toSend);
-        var g = new StringBuilder();
-        
-        if (true)
-        {
-            var f = new StringBuilder();
-            
-        }
     }
     
     function OnLockStepKeyDown(e : LockStepKeyEvent)
