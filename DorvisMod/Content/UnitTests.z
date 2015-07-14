@@ -83,7 +83,13 @@ class UnitTests : ZilchComponent
     function ScreenShot()
     {
         var fileName = "image`this.ScreenShotsTaken`.png";
-        var filePath = FilePath.CombineDirectoriesAndFile(FilePath.TemporaryDirectory, "ZeroScreenshots", fileName);
+        var builder = Zero.Environment.GetParsedArgument("Builder");
+        var project = Zero.Environment.GetParsedArgument("ProjectName");
+        var filePath = FilePath.CombineDirectoriesAndFile(FilePath.TemporaryDirectory, 
+                                                          "ZeroScreenshots", 
+                                                          builder,
+                                                          project ,
+                                                          fileName);
             
         this.Owner.CameraViewport.Viewport.ScreenCapture(filePath);
         
