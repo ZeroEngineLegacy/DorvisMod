@@ -1,31 +1,98 @@
 [RunInEditor]
-class UnitTests : ZilchComponent
+// We need an editor side component that listens for the RunUnitTests event being run.
+class RunUnitTests : ZilchComponent
 {
     var RunningGame : GameSession = null;
+    
+    var RunTests : Boolean = false;
     
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(Zero.Engine, "RunUnitTests", this.OnRunUnitTests);
     }
-
+    
     function OnRunUnitTests(event : Event)
     {
-        var seq = Actions.Sequence(Zero.Editor.Actions);
-        Action.Delay(seq, 1.0);
-        Action.Call(seq, this.PlayGame);
-        Action.Delay(seq, 20.0);
-        Action.Call(seq, this.QuitRunningGame);
-        Action.Call(seq, this.GameSession.Quit);
+        this.PlayGame();
     }
     
     function PlayGame()
     {
         this.RunningGame = Zero.Editor.PlaySingleGame();
+        // Set the new game's script to signify we want to run unit tests
+        this.RunningGame.RunUnitTests.RunTests = true;
+        
         Zero.Editor.ZoomOnGame(this.RunningGame);
     }
+}
+
+// There are various issues with having a run-in-editor script that tries to do this logic
+// (in particular if it's on the game session). This component is instead in the game and
+// only runs unit test if we have run the RunUnitTests command.
+class UnitTests : ZilchComponent
+{
+    [Property]
+    var ScreenShotsToTake : Integer = 10;
     
-    function QuitRunningGame()
+    var ScreenShotsTaken : Integer = 0;
+    
+    function Initialize(init : CogInitializer)
     {
-        this.RunningGame.Quit();
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        // There seems to be some order issues with trying to check on level started so
+        // check every frame if we want to run unit tests, if we do then start the tests and
+        // stop listening for logic update (so we don't run the tests more than once).
+        // Don't always disconnect from logic update because I'm unsure of the order and there's
+        // a chance this variable wouldn't be sent the first frame.
+        if(this.GameSession.RunUnitTests.RunTests == true)
+        {
+            Zero.Disconnect(this.Space, Events.LogicUpdate, this);
+            
+            this.StartScreenShots();
+        }
+    }
+    
+    function StartScreenShots()
+    {
+        var seq = Actions.Sequence(this.Owner.Actions);
+        
+        Action.Delay(seq, 1.0);
+        
+        Action.Call(seq, this.ScreenshotActions);
+    }
+    
+    function ScreenshotActions()
+    {
+        if (this.ScreenShotsTaken >= this.ScreenShotsToTake)
+        {
+            this.GameSession.Quit();
+            Zero.Editor.EditGameSession.Quit();
+            return;
+        }
+        
+        var seq = Actions.Sequence(this.Owner.Actions);
+        Action.Delay(seq, 1.0);
+        Action.Call(seq, this.ScreenShot);
+        Action.Call(seq, this.ScreenshotActions);
+    }
+    
+    function ScreenShot()
+    {
+        var fileName = "image`this.ScreenShotsTaken`.png";
+        var builder = Zero.Environment.GetParsedArgument("Builder");
+        var project = Zero.Environment.GetParsedArgument("ProjectName");
+        var filePath = FilePath.CombineDirectoriesAndFile(FilePath.TemporaryDirectory, 
+                                                          "ZeroScreenshots", 
+                                                          builder,
+                                                          project ,
+                                                          fileName);
+            
+        this.Owner.CameraViewport.Viewport.ScreenCapture(filePath);
+        
+        ++this.ScreenShotsTaken;
     }
 }
