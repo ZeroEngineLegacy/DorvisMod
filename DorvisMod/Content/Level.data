@@ -1,6 +1,6 @@
 Level = 
 {
-	LevelSettings = 
+	Cog = 
 	{
 		LinkId = 
 		{
@@ -41,7 +41,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [2.36154, 10.5252, 10.7725],
+			Vec3 Translation = [2.36153, 10.5252, 10.7725],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0.175526, 0.159913, 0.028908, 0.97097],
 		},
