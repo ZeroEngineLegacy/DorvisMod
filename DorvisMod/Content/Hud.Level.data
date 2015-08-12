@@ -1,6 +1,6 @@
 Level = 
 {
-	LevelSettings = 
+	Cog = 
 	{
 		LinkId = 
 		{
@@ -32,8 +32,36 @@ Level =
 			int Layer = 0,
 			bool Active = true,
 			bool Blocking = false,
-			uint Renderer = 1,
-			uint Camera = 2,
+			CogPath Renderer = 
+			{
+				string Path = ".",
+				bool ErrorOnResolveToNull = false,
+				bool ErrorOnPathCantCompute = false,
+				bool ErrorOnDirectLinkFail = false,
+				bool UpdateCogOnPathChange = true,
+				bool UpdatePathOnCogChange = true,
+				bool UpdateCogOnInitialize = true,
+				bool ResolvedNullErrorOccurred = false,
+				uint ResolvedCog = 1,
+				CogPathPreference PathPreference0 = CogRelative,
+				CogPathPreference PathPreference1 = SpaceRelative,
+				CogPathPreference PathPreference2 = Absolute,
+			},
+			CogPath Camera = 
+			{
+				string Path = ":/HudCamera",
+				bool ErrorOnResolveToNull = false,
+				bool ErrorOnPathCantCompute = false,
+				bool ErrorOnDirectLinkFail = false,
+				bool UpdateCogOnPathChange = true,
+				bool UpdatePathOnCogChange = true,
+				bool UpdateCogOnInitialize = true,
+				bool ResolvedNullErrorOccurred = false,
+				uint ResolvedCog = 2,
+				CogPathPreference PathPreference0 = CogRelative,
+				CogPathPreference PathPreference1 = SpaceRelative,
+				CogPathPreference PathPreference2 = Absolute,
+			},
 			ViewportScaling Scaling = Letterbox,
 			Vec2 Resolution = [1280, 720],
 			Vec4 MarginColor = [0, 0, 0, 1],
@@ -64,9 +92,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [13.6308, 25.7856, 61.1244],
+			Vec3 Translation = [25.991, 46.5422, 42.9107],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.197901, 0.0861346, 0.0174604, 0.976274],
+			Quat Rotation = [-0.362533, 0.227385, 0.0916812, 0.899144],
 		},
 		Camera = 
 		{
@@ -82,9 +110,9 @@ Level =
 		{
 			ControlMode ControlMode = Orbit,
 			float LookDistance = 67.5981,
-			float VerticalAngle = 0.400001,
-			float HorizontalAngle = -0.176,
-			Vec3 LookTarget = [2.72921, -0.538372, -0.17574],
+			float VerticalAngle = 0.76652,
+			float HorizontalAngle = -0.495395,
+			Vec3 LookTarget = [2.84342, -0.346046, 0.0716193],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -139,6 +167,10 @@ Level =
 			float NearPlane = 0.5,
 			float FarPlane = 200,
 			float Size = 20,
+		},
+		Microphone = 
+		{
+			bool Active = true,
 		},
 	},
 	Cog = 

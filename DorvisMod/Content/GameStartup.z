@@ -58,7 +58,7 @@ class GameStartup : ZilchComponent
             if (unsafeIsLocal)
             {
                 var camCog = player.FindChildByName("Camera");
-                camCog.Microphone.Active = true;
+                camCog.SoundListener.Active = true;
                 var levelSettings = this.MainSpace.LevelSettings;
                 levelSettings.CameraViewport.Camera = camCog;
                 this.Owner.LockStepMouse.InputCameraViewport = levelSettings;

@@ -24,7 +24,7 @@ class Cannon : ZilchComponent
         bullet.RigidBody.Velocity = this.Owner.Orientation.WorldForward * local Real3(this.Speed);
         bullet.Team.Id = Team.GetTeamIdFrom(this.Owner);
         
-        this.Owner.SoundEmitter.Play();
+        this.Owner.SimpleSound.Play();
         
         var body = this.Owner.Collider.ActiveBody;
         if (body != null)
