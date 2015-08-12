@@ -41,6 +41,7 @@ Level =
 				string Path = ".",
 				bool ErrorOnResolveToNull = false,
 				bool ErrorOnPathCantCompute = true,
+				bool ErrorOnDirectLinkFail = false,
 				bool UpdateCogOnPathChange = true,
 				bool UpdatePathOnCogChange = true,
 				bool UpdateCogOnInitialize = true,
@@ -55,6 +56,7 @@ Level =
 				string Path = "",
 				bool ErrorOnResolveToNull = false,
 				bool ErrorOnPathCantCompute = false,
+				bool ErrorOnDirectLinkFail = false,
 				bool UpdateCogOnPathChange = true,
 				bool UpdatePathOnCogChange = true,
 				bool UpdateCogOnInitialize = true,
@@ -96,6 +98,10 @@ Level =
 			bool Enabled = true,
 			float SampleRadius = 1.4,
 			float Intensity = 1.2,
+		},
+		UnitTests = 
+		{
+			int ScreenShotsToTake = 10,
 		},
 	},
 	Cog = 
@@ -4921,9 +4927,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-31.7687, 20.0809, -35.0852],
+			Vec3 Translation = [-31.7689, 20.0809, -35.0848],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.087758, 0.864903, 0.162643, -0.466679],
+			Quat Rotation = [0.0877592, 0.864899, 0.162642, -0.466686],
 		},
 		Camera = 
 		{
@@ -37502,8 +37508,36 @@ Level =
 																								},
 																								ObjectLink = 
 																								{
-																									uint ObjectA = 746,
-																									uint ObjectB = 747,
+																									CogPath ObjectA = 
+																									{
+																										string Path = "..",
+																										bool ErrorOnResolveToNull = false,
+																										bool ErrorOnPathCantCompute = false,
+																										bool ErrorOnDirectLinkFail = false,
+																										bool UpdateCogOnPathChange = true,
+																										bool UpdatePathOnCogChange = true,
+																										bool UpdateCogOnInitialize = true,
+																										bool ResolvedNullErrorOccurred = false,
+																										uint ResolvedCog = 746,
+																										CogPathPreference PathPreference0 = CogRelative,
+																										CogPathPreference PathPreference1 = SpaceRelative,
+																										CogPathPreference PathPreference2 = Absolute,
+																									},
+																									CogPath ObjectB = 
+																									{
+																										string Path = "../Cylinder",
+																										bool ErrorOnResolveToNull = false,
+																										bool ErrorOnPathCantCompute = false,
+																										bool ErrorOnDirectLinkFail = false,
+																										bool UpdateCogOnPathChange = true,
+																										bool UpdatePathOnCogChange = true,
+																										bool UpdateCogOnInitialize = true,
+																										bool ResolvedNullErrorOccurred = false,
+																										uint ResolvedCog = 747,
+																										CogPathPreference PathPreference0 = CogRelative,
+																										CogPathPreference PathPreference1 = SpaceRelative,
+																										CogPathPreference PathPreference2 = Absolute,
+																									},
 																									Vec3 BodyPointA = [0, 0, 0],
 																									Vec3 BodyPointB = [0, 0, 0],
 																								},
@@ -37914,8 +37948,36 @@ Level =
 																								},
 																								ObjectLink = 
 																								{
-																									uint ObjectA = 753,
-																									uint ObjectB = 754,
+																									CogPath ObjectA = 
+																									{
+																										string Path = "..",
+																										bool ErrorOnResolveToNull = false,
+																										bool ErrorOnPathCantCompute = false,
+																										bool ErrorOnDirectLinkFail = false,
+																										bool UpdateCogOnPathChange = true,
+																										bool UpdatePathOnCogChange = true,
+																										bool UpdateCogOnInitialize = true,
+																										bool ResolvedNullErrorOccurred = false,
+																										uint ResolvedCog = 753,
+																										CogPathPreference PathPreference0 = CogRelative,
+																										CogPathPreference PathPreference1 = SpaceRelative,
+																										CogPathPreference PathPreference2 = Absolute,
+																									},
+																									CogPath ObjectB = 
+																									{
+																										string Path = "../Cylinder",
+																										bool ErrorOnResolveToNull = false,
+																										bool ErrorOnPathCantCompute = false,
+																										bool ErrorOnDirectLinkFail = false,
+																										bool UpdateCogOnPathChange = true,
+																										bool UpdatePathOnCogChange = true,
+																										bool UpdateCogOnInitialize = true,
+																										bool ResolvedNullErrorOccurred = false,
+																										uint ResolvedCog = 754,
+																										CogPathPreference PathPreference0 = CogRelative,
+																										CogPathPreference PathPreference1 = SpaceRelative,
+																										CogPathPreference PathPreference2 = Absolute,
+																									},
 																									Vec3 BodyPointA = [0, 0, 0],
 																									Vec3 BodyPointB = [0, 0, 0],
 																								},
@@ -38326,8 +38388,36 @@ Level =
 																								},
 																								ObjectLink = 
 																								{
-																									uint ObjectA = 760,
-																									uint ObjectB = 761,
+																									CogPath ObjectA = 
+																									{
+																										string Path = "..",
+																										bool ErrorOnResolveToNull = false,
+																										bool ErrorOnPathCantCompute = false,
+																										bool ErrorOnDirectLinkFail = false,
+																										bool UpdateCogOnPathChange = true,
+																										bool UpdatePathOnCogChange = true,
+																										bool UpdateCogOnInitialize = true,
+																										bool ResolvedNullErrorOccurred = false,
+																										uint ResolvedCog = 760,
+																										CogPathPreference PathPreference0 = CogRelative,
+																										CogPathPreference PathPreference1 = SpaceRelative,
+																										CogPathPreference PathPreference2 = Absolute,
+																									},
+																									CogPath ObjectB = 
+																									{
+																										string Path = "../Cylinder",
+																										bool ErrorOnResolveToNull = false,
+																										bool ErrorOnPathCantCompute = false,
+																										bool ErrorOnDirectLinkFail = false,
+																										bool UpdateCogOnPathChange = true,
+																										bool UpdatePathOnCogChange = true,
+																										bool UpdateCogOnInitialize = true,
+																										bool ResolvedNullErrorOccurred = false,
+																										uint ResolvedCog = 761,
+																										CogPathPreference PathPreference0 = CogRelative,
+																										CogPathPreference PathPreference1 = SpaceRelative,
+																										CogPathPreference PathPreference2 = Absolute,
+																									},
 																									Vec3 BodyPointA = [0, 0, 0],
 																									Vec3 BodyPointB = [0, 0, 0],
 																								},
@@ -43203,8 +43293,36 @@ Level =
 						},
 						ObjectLink = 
 						{
-							uint ObjectA = 831,
-							uint ObjectB = 832,
+							CogPath ObjectA = 
+							{
+								string Path = "..",
+								bool ErrorOnResolveToNull = false,
+								bool ErrorOnPathCantCompute = false,
+								bool ErrorOnDirectLinkFail = false,
+								bool UpdateCogOnPathChange = true,
+								bool UpdatePathOnCogChange = true,
+								bool UpdateCogOnInitialize = true,
+								bool ResolvedNullErrorOccurred = false,
+								uint ResolvedCog = 831,
+								CogPathPreference PathPreference0 = CogRelative,
+								CogPathPreference PathPreference1 = SpaceRelative,
+								CogPathPreference PathPreference2 = Absolute,
+							},
+							CogPath ObjectB = 
+							{
+								string Path = "../Cylinder",
+								bool ErrorOnResolveToNull = false,
+								bool ErrorOnPathCantCompute = false,
+								bool ErrorOnDirectLinkFail = false,
+								bool UpdateCogOnPathChange = true,
+								bool UpdatePathOnCogChange = true,
+								bool UpdateCogOnInitialize = true,
+								bool ResolvedNullErrorOccurred = false,
+								uint ResolvedCog = 832,
+								CogPathPreference PathPreference0 = CogRelative,
+								CogPathPreference PathPreference1 = SpaceRelative,
+								CogPathPreference PathPreference2 = Absolute,
+							},
 							Vec3 BodyPointA = [0, 0, 0],
 							Vec3 BodyPointB = [0, 0, 0],
 						},
