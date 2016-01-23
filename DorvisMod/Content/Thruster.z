@@ -27,7 +27,7 @@ class Thruster : ZilchComponent
     function OnActivate(e : PlayerEvent)
     {
         this.Owner.ThrustEffect.Active = true;
-        this.Owner.SoundEmitter.Play();
+        this.Owner.SimpleSound.Play();
         
         //this.VolumeAction.Cancel();
         //this.VolumeAction = Action.Property(this.Owner.Actions, @this.Owner.SoundEmitter.Volume, 1.0, 1.0, Ease.SinInOut);
