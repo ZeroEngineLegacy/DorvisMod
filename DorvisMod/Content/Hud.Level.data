@@ -1,6 +1,6 @@
 Level = 
 {
-	LevelSettings = 
+	Cog = 
 	{
 		LinkId = 
 		{
@@ -32,8 +32,36 @@ Level =
 			int Layer = 0,
 			bool Active = true,
 			bool Blocking = false,
-			uint Renderer = 1,
-			uint Camera = 2,
+			CogPath Renderer = 
+			{
+				string Path = ".",
+				bool ErrorOnResolveToNull = false,
+				bool ErrorOnPathCantCompute = false,
+				bool ErrorOnDirectLinkFail = false,
+				bool UpdateCogOnPathChange = true,
+				bool UpdatePathOnCogChange = true,
+				bool UpdateCogOnInitialize = true,
+				bool ResolvedNullErrorOccurred = false,
+				uint ResolvedCog = 1,
+				CogPathPreference PathPreference0 = CogRelative,
+				CogPathPreference PathPreference1 = SpaceRelative,
+				CogPathPreference PathPreference2 = Absolute,
+			},
+			CogPath Camera = 
+			{
+				string Path = ":/HudCamera",
+				bool ErrorOnResolveToNull = false,
+				bool ErrorOnPathCantCompute = false,
+				bool ErrorOnDirectLinkFail = false,
+				bool UpdateCogOnPathChange = true,
+				bool UpdatePathOnCogChange = true,
+				bool UpdateCogOnInitialize = true,
+				bool ResolvedNullErrorOccurred = false,
+				uint ResolvedCog = 2,
+				CogPathPreference PathPreference0 = CogRelative,
+				CogPathPreference PathPreference1 = SpaceRelative,
+				CogPathPreference PathPreference2 = Absolute,
+			},
 			ViewportScaling Scaling = Letterbox,
 			Vec2 Resolution = [1280, 720],
 			Vec4 MarginColor = [0, 0, 0, 1],
@@ -64,9 +92,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [13.6308, 25.7856, 61.1244],
+			Vec3 Translation = [32.1193, 15.3569, 9.40703],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.197901, 0.0861346, 0.0174604, 0.976274],
+			Quat Rotation = [-0.152816, 0.574372, 0.110182, 0.79662],
 		},
 		Camera = 
 		{
@@ -81,10 +109,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 67.5981,
-			float VerticalAngle = 0.400001,
-			float HorizontalAngle = -0.176,
-			Vec3 LookTarget = [2.72921, -0.538372, -0.17574],
+			float LookDistance = 33.5682,
+			float VerticalAngle = 0.379057,
+			float HorizontalAngle = -1.24938,
+			Vec3 LookTarget = [2.53098, 2.93513, -0.444812],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -96,22 +124,83 @@ Level =
 			bool Wireframe = false,
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "515539d215bf3be2:ShadowText",
 		LinkId = 
 		{
 			uint Id = 4,
 		},
-		Transform = 
-		{
-			Vec3 Translation = [0, -5.69058, 0],
-			Vec3 Scale = [0.5, 0.5, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
 		Named = 
 		{
 			string Name = "ContextText",
+		},
+		Archetyped = 
+		{
+			string Name = "515539d215bf3be2:ShadowText",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, -5.203, 0],
+			Vec3 Scale = [0.5, 0.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		SpriteText = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string FontName = "5154fda3d0e09e6c:HemiHead",
+			uint FontSize = 90,
+			string Text = "Hello",
+			TextAlign Align = Center,
+			float PixelsPerUnit = 64,
+			bool Smoothing = true,
+		},
+		ShadowText = 
+		{
+			string InitialText = "",
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 5,
+				},
+				Named = 
+				{
+					string Name = "Shadow",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.1, -0.1, -0.2],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [0, 0, 0, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string FontName = "5154fda3d0e09e6c:HemiHead",
+					uint FontSize = 90,
+					string Text = "Hello",
+					TextAlign Align = Center,
+					float PixelsPerUnit = 64,
+					bool Smoothing = true,
+				},
+			},
 		},
 	},
 	Cog = 
@@ -145,7 +234,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 5,
+			uint Id = 6,
 		},
 		Named = 
 		{
@@ -180,7 +269,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 6,
+			uint Id = 7,
 		},
 		Named = 
 		{
@@ -223,7 +312,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 7,
+					uint Id = 8,
 				},
 				Named = 
 				{
@@ -259,7 +348,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 8,
+			uint Id = 9,
 		},
 		Named = 
 		{
@@ -302,7 +391,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 9,
+					uint Id = 10,
 				},
 				Named = 
 				{
@@ -338,7 +427,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 10,
+			uint Id = 11,
 		},
 		Named = 
 		{
@@ -365,7 +454,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 11,
+			uint Id = 12,
 		},
 		Named = 
 		{
@@ -393,29 +482,90 @@ Level =
 			string Text = "5156e45015e435cf:ShadowTextFadeRed",
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "51553868096c8e02:ShadowTextSmall",
 		LinkId = 
 		{
-			uint Id = 12,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [0, -6.69058, 0],
-			Vec3 Scale = [0.5, 0.5, 1],
-			Quat Rotation = [0, 0, 0, 1],
+			uint Id = 13,
 		},
 		Named = 
 		{
 			string Name = "UndoText",
+		},
+		Archetyped = 
+		{
+			string Name = "51553868096c8e02:ShadowTextSmall",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0, -6.203, 0],
+			Vec3 Scale = [0.5, 0.5, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		SpriteText = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string FontName = "5154fda3d0e09e6c:HemiHead",
+			uint FontSize = 60,
+			string Text = "Hello",
+			TextAlign Align = Center,
+			float PixelsPerUnit = 64,
+			bool Smoothing = true,
+		},
+		ShadowText = 
+		{
+			string InitialText = "",
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 14,
+				},
+				Named = 
+				{
+					string Name = "Shadow",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0.1, -0.1, -0.2],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [0, 0, 0, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string FontName = "5154fda3d0e09e6c:HemiHead",
+					uint FontSize = 60,
+					string Text = "Hello",
+					TextAlign Align = Center,
+					float PixelsPerUnit = 64,
+					bool Smoothing = true,
+				},
+			},
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 13,
+			uint Id = 15,
 		},
 		Named = 
 		{

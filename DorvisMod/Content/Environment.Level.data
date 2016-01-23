@@ -3672,9 +3672,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-123.487, 257.646, -295.693],
+			Vec3 Translation = [-123.487, 257.646, 277.172],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.906249, 0.0824548, 0.223012, 0.349543],
+			Quat Rotation = [-0.189077, 0.350972, 0.913931, 0.076142],
 		},
 		Light = 
 		{
@@ -3684,7 +3684,7 @@ Level =
 			bool CastShadows = false,
 			LightType LightType = Directional,
 			Vec4 Color = [1, 1, 1, 1],
-			float Intensity = 0.7,
+			float Intensity = 0.6,
 			float Range = 1200,
 			float Falloff = 1,
 			float Angle = 10,
@@ -3693,13 +3693,13 @@ Level =
 		Shadow = 
 		{
 			bool Active = true,
-			Quality Quality = HighQuality,
+			Quality Quality = UltraHighQuality,
 			ShadowMapping ShadowMapping = Cascaded,
-			ShadowSoftening ShadowSoftening = Pcf3x3,
+			ShadowSoftening ShadowSoftening = Pcf5x5,
 			Vec4 Color = [0, 0, 0, 1],
 			float NormalOffsetBias = 0.2,
 			float MinFrustumDepth = 1000,
-			float SplitPlaneDistribution = 0.6,
+			float SplitPlaneDistribution = 0.78,
 			bool ShowCascadeColors = false,
 		},
 	},
@@ -4927,9 +4927,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-31.7689, 20.0809, -35.0848],
+			Vec3 Translation = [566.031, 646.126, 163.188],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0.0877592, 0.864899, 0.162642, -0.466686],
+			Quat Rotation = [-0.225014, 0.593131, 0.177383, 0.752396],
 		},
 		Camera = 
 		{
@@ -4944,10 +4944,10 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 28.6391,
-			float VerticalAngle = 0.371754,
-			float HorizontalAngle = -10.4144,
-			Vec3 LookTarget = [-9.46691, 9.67775, -20.4358],
+			float LookDistance = 1000,
+			float VerticalAngle = 0.581194,
+			float HorizontalAngle = -20.1847,
+			Vec3 LookTarget = [-246.68, 97.1038, -31.9415],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 

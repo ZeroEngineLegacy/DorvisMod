@@ -22,18 +22,14 @@ class BlockCamera : ZilchComponent
             return;
         }
         
-        //var i = ViewportScaling.Fill;
-        //i = 5;
-        //var i : Integer = ViewportScaling.Fill;
-        
         if (this.UnsafeActivePlayer == e.Player)
         {
-            this.BlockCameraCog.Camera.Viewport.CameraViewport.Camera = e.Player.CameraCog;
+            this.LevelSettings.CameraViewport.Camera = e.Player.CameraCog;
             this.UnsafeActivePlayer = null;
         }
         else
         {
-            e.Player.CameraCog.Camera.Viewport.CameraViewport.Camera = this.BlockCameraCog;
+            this.LevelSettings.CameraViewport.Camera = this.BlockCameraCog;
             this.UnsafeActivePlayer = e.Player;
         }
     }
