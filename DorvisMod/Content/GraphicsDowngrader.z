@@ -1,0 +1,100 @@
+class GraphicsDowngrader : ZilchComponent
+{
+    [Property]
+    var Enabled : Boolean = true;
+    
+    [Property]
+    var MaxSlowFrames : Integer = 30;
+    
+    var SlowFrames : Integer = 0;
+    
+    var AttemptedDeferredRemoval : Boolean;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.Enabled == false)
+            return;
+        
+        var dt = this.Space.TimeSpace.RealDt;
+        var expectedDt = 1.0 / 59.0;
+        
+        if (dt > expectedDt)
+        {
+            ++this.SlowFrames;
+            
+            if (this.SlowFrames > this.MaxSlowFrames)
+            {
+                this.DumbDownGraphics();
+                this.SlowFrames = 0;
+            }
+        }
+        else
+        {
+            --this.SlowFrames;
+            if (this.SlowFrames < 0)
+                this.SlowFrames = 0;
+        }
+    }
+    
+    function DumbDownGraphics()
+    {
+        // First try and disable Ssao because it is a very expensive technique
+        var ssao = this.LevelSettings.Ssao;
+        if (ssao != null && ssao.Enabled)
+        {
+            Console.WriteLine("Automatically disabling Ssao for performance...");
+            this.LevelSettings.RemoveComponentByName("Ssao");
+            return;
+        }
+        
+        var deferred = this.LevelSettings.DeferredRenderer;
+        if (deferred != null)
+        {
+            if (deferred.GodRays)
+            {
+                Console.WriteLine("Automatically disabling GodRays for performance...");
+                deferred.GodRays = false;
+                return;
+            }
+            
+            if (deferred.Reflections || deferred.Refraction)
+            {
+                Console.WriteLine("Automatically disabling Reflection/Refraction for performance...");
+                deferred.Reflections = false;
+                deferred.Refraction = false;
+                return;
+            }
+            
+            if (deferred.Hdr || deferred.Glow)
+            {
+                Console.WriteLine("Automatically disabling Hdr/Glow for performance...");
+                deferred.Hdr = false;
+                deferred.Glow = false;
+                return;
+            }
+            
+            //if (deferred.Shadows)
+            //{
+            //    Console.WriteLine("Automatically disabling Shadows for performance...");
+            //    deferred.Shadows = false;
+            //    return;
+            //}
+            
+            if (this.AttemptedDeferredRemoval == false)
+            {
+                this.LevelSettings.RemoveComponentByName("DeferredRenderer");
+                this.LevelSettings.AddComponentByName("ForwardRenderer");
+                this.AttemptedDeferredRemoval = true;
+                Console.WriteLine("Automatically switching to ForwardRenderer for performance...");
+            }
+        }
+        
+        // Don't try and slow down graphics any more
+        this.MaxSlowFrames = Integer.PositiveMax;
+    }
+}

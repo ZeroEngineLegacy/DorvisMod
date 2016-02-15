@@ -249,11 +249,17 @@ class SpawnTool : ZilchComponent
         }
         
         var newObj = this.Space.Create(objToSpawn);
+        var newTx = newObj.Transform;
+        
+        if (newObj.RigidBody != null)
+            newObj.RigidBody.Static = true;
         
         if (attach)
         {
-            var tx = result.Object.Transform;
-            var localNormal = tx.TransformNormalInverse(result.WorldNormal);
+            var root = result.Object.FindRoot();
+            var rootTx = root.Transform;
+            
+            var localNormal = rootTx.TransformNormalInverse(result.WorldNormal);
             
             localNormal = SpawnTool.SnapToCardinalDirection(localNormal);
             
@@ -262,10 +268,8 @@ class SpawnTool : ZilchComponent
                 return;
             }
             
-            newObj.Transform.Translation = localNormal;
-            
             var worldForward = this.Player.WorldLookForward;
-            var localForward = tx.TransformNormalInverse(worldForward);
+            var localForward = rootTx.TransformNormalInverse(worldForward);
             
             // Project the forward vector onto the plane made by the normal
             localForward -= Math.Project(localForward, localNormal);
@@ -278,18 +282,24 @@ class SpawnTool : ZilchComponent
             localRight = localRight * local Real3(-1.0);
             localForward = localForward * local Real3(-1.0);
             
-            newObj.Transform.SetRotationBases(localForward, localNormal, localRight);
+            newTx.SetRotationBases(localForward, localNormal, localRight);
             //newObj.Transform.Rotation = Math.RotationQuaternionBetween(local Real3(0.0, 1.0, 0.0), localNormal);
-            if (newObj.RigidBody != null)
-            {
-                newObj.RigidBody.Static = true;
-            }
-            newObj.AttachTo(result.Object);
+            
+            newObj.AttachTo(root);
+            newObj.Transform.LocalTranslation = localNormal + result.Object.Transform.LocalTranslation;
         }
         else
         {
-            newObj.Transform.WorldTranslation = result.WorldPosition + result.WorldNormal * local Real3(0.5);
-            newObj.Transform.WorldRotation = this.PlayerCog.Transform.WorldRotation;
+            var root = this.Space.Create(Archetype.HierarchyRoot);
+            root.ModifiedFromArchetype();
+            var rootTx = root.Transform;
+            
+            rootTx.WorldTranslation = result.WorldPosition + result.WorldNormal * local Real3(0.5);
+            rootTx.WorldRotation = this.PlayerCog.Transform.WorldRotation;
+            
+            newObj.AttachTo(root);
+            newTx.LocalTranslation = Real3.Zero;
+            newTx.LocalRotation = Quaternion.Identity;
         }
         
         this.Space.CreateAtPosition(this.SpawnEffect, newObj.Transform.WorldTranslation);

@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0.770554, 6.5884, 2.41569],
+		Vec3 Translation = [-124.6446, 62.2137871, 77.8521729],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -39,7 +39,7 @@ Cog =
 	Player = 
 	{
 		float Speed = 7.5,
-		float LookSpeed = 0.01,
+		float LookSpeed = 0.00999999978,
 		float JumpVelocity = 6,
 		float InteractDistance = 6,
 		bool Active = true,
@@ -47,7 +47,7 @@ Cog =
 		string ChangeToolSound = "515590df86e8a396:ChangeTool",
 		float FovToSpeed = 0.5,
 		float MaxFovChange = 0,
-		float FovSmoothing = 0.3,
+		float FovSmoothing = 0.300000012,
 		float MinSpeedForFovChange = 18,
 		string HudToCreate = "5154e5529a722c1b:Hud",
 		string HudSpace = "519e634c69a6ca5c:Space",
@@ -60,8 +60,8 @@ Cog =
 		string MaterialName = "5155a62385c0e753:Player",
 		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 		Vec3 Offset = [0, 0, 0],
-		float Radius = 0.3,
-		float Height = 1.4,
+		float Radius = 0.300000012,
+		float Height = 1.39999998,
 		uint Direction = 1,
 	},
 	DynamicMotor = 
@@ -70,6 +70,10 @@ Cog =
 	LockStepSyncChecker = 
 	{
 		bool IncludeHierarchy = true,
+	},
+	Team = 
+	{
+		int Id = -1,
 	},
 	Hierarchy = 
 	{
@@ -85,7 +89,7 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, 0.8, 0],
+				Vec3 Translation = [0, 0.800000012, 0],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -95,7 +99,7 @@ Cog =
 				Facing Facing = NegativeZ,
 				CameraTransparentSort TransparentSort = InheritFromSpace,
 				float FieldOfView = 70,
-				float NearPlane = 0.2,
+				float NearPlane = 0.200000003,
 				float FarPlane = 1000,
 				float Size = 20,
 			},
@@ -128,7 +132,7 @@ Cog =
 				Vec3 Velocity = [0, 0, 0],
 				Vec3 AngularVelocity = [0, 0, 0],
 			},
-			Microphone = 
+			SoundListener = 
 			{
 				bool Active = true,
 			},
@@ -148,7 +152,7 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [-1.43051e-006, -2.38419e-007, 1.54972e-005],
+				Vec3 Translation = [-1.43051e-006, -2.38419005e-007, 1.54972004e-005],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -196,7 +200,7 @@ Cog =
 					{
 						float MinDistance = 3,
 						float MaxDistance = 100,
-						float RotationSpeed = 0.05,
+						float RotationSpeed = 0.0500000007,
 						string Effect = "5155ad131eb55f13:MiscEffect",
 					},
 					Hierarchy = 

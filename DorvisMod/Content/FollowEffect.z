@@ -1,0 +1,35 @@
+class FollowEffect : ZilchComponent
+{
+    [Dependency]
+    var Fader : TimedDestroyEffectFader;
+    
+    var Follow : Cog;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.FrameUpdate, this.OnFrameUpdate);
+    }
+
+    function OnFrameUpdate(event : UpdateEvent)
+    {
+        if (this.Owner.Parent != null)
+        {
+            this.Follow = this.Owner.Parent;
+            this.Owner.DetachRelative();
+        }
+        else if (this.Follow == null)
+        {
+            Zero.Disconnect(this.Space, Events.LogicUpdate, this);
+            this.Fader.Activate();
+            return;
+        }
+        
+        if (this.Follow != null)
+        {
+            var tx = this.Owner.Transform;
+            var followTx = this.Follow.Transform;
+            tx.WorldTranslation = followTx.WorldTranslation;
+            tx.WorldRotation = followTx.WorldRotation;
+        }
+    }
+}

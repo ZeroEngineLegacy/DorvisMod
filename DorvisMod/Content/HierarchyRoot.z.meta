@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "HierarchyRoot",
+		uint64 ResourceId = 56462b02f0af4bb2,
+	},
+},

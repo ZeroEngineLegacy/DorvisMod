@@ -1,0 +1,15 @@
+class HierarchyRoot : ZilchComponent
+{
+    function Initialize(init : CogInitializer)
+    {
+        // Currently ChildDetached is not sent out when a child is destroyed
+        // so this is our workaround for now
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (!this.Owner.Children.IsNotEmpty)
+            this.Owner.Destroy();
+    }
+}
