@@ -1,0 +1,27 @@
+ImageContent = 
+{
+	ContentTags = 
+	{
+		Array Tags = 
+		[
+			"Konsole",
+		],
+	},
+	SpriteSourceBuilder = 
+	{
+		string Name = "KonsoleWhite",
+		uint64 ResourceId = 551eb9e4ad44bf73,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 256,
+		uint FrameSizeY = 256,
+		uint FrameCount = 1,
+		float FrameDelay = 0.0833332986,
+		float OriginX = 128,
+		float OriginY = 128,
+		float PixelsPerUnit = 64,
+		bool Smoothing = true,
+		bool Looping = true,
+		Vec4 Slices = [0, 0, 0, 0],
+		SpriteFill Fill = Stretch,
+	},
+},

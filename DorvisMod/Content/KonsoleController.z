@@ -1,0 +1,76 @@
+class KonsoleController : ZilchComponent
+{
+    [Dependency]
+    var Transform : Transform;
+    
+    [Dependency]
+    var Area : Area;
+    
+    var Konsole : Konsole;
+    
+    var Camera : Camera;
+    var CameraViewport : CameraViewport;
+    
+    var Output : Cog;
+    var Help : Cog;
+    var CommandText : Cog;
+    
+    var LastViewSize : Real2 = Real2(32, 20);
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.Output = this.Owner.FindChildByName("Output");
+        this.Help = this.Owner.FindChildByName("Help");
+        this.CommandText = this.Owner.FindChildByName("CommandText");
+        
+        this.Konsole = this.GameSession.Konsole;
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+        this.Camera = this.Space.FindObjectByName("Camera").Camera;
+        this.CameraViewport = this.LevelSettings.CameraViewport;
+        this.OnLogicUpdate(null);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var size = this.CameraViewport.ViewPlaneSize(0);
+        
+        // This is to fix an issue where the camera viewport will return 0,0 if it is not visible
+        if (size == Real2(0, 0))
+            size = this.LastViewSize;
+        else
+            this.LastViewSize = size;
+        
+        size.Y *= 0.5;
+        
+        // Not visible
+        var targetPosition = Real3(-size.X / 2, size.Y, 0);
+        
+        if (event == null)
+            this.Transform.WorldTranslation = targetPosition;
+        
+        if (this.Konsole.Visible)
+            targetPosition = Real3(-size.X / 2, 0, 0);
+        
+        this.Transform.WorldTranslation = Math.Lerp(this.Transform.WorldTranslation, targetPosition, 0.3);
+        
+        this.Area.Size = size;
+        
+        var outputHelpSize = this.Output.Area.Size;
+        outputHelpSize.X = size.X / 2.0 - 0.15;
+        this.Output.Area.Size = outputHelpSize;
+        this.Help.Area.Size = outputHelpSize;
+        
+        var helpTranslation = this.Help.Transform.LocalTranslation;
+        helpTranslation.X = 0.2 + outputHelpSize.X;
+        this.Help.Transform.LocalTranslation = helpTranslation;
+        
+        var commandTextSize = this.CommandText.Area.Size;
+        commandTextSize.X = size.X - 0.2;
+        this.CommandText.Area.Size = commandTextSize;
+        
+        var visible = (this.Transform.WorldTranslation.Y < size.Y - 0.1);
+        
+        this.CameraViewport.Active = visible;
+    }
+}

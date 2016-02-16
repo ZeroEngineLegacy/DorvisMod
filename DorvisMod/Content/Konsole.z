@@ -1,0 +1,92 @@
+class Konsole : ZilchComponent
+{
+    [Static]
+    var Game : GameSession;
+    
+    [Property]
+    var ToggleCtrl : Boolean = false;
+    
+    [Property]
+    var ToggleShift : Boolean = false;
+    
+    [Property]
+    var ToggleKey : Keys = Keys.F1;
+    
+    var KonsoleSpace : Space;
+    var CameraViewport : CameraViewport;
+    
+    [Property]
+    var Visible : Boolean;
+    
+    var CursorTrapped : Boolean;
+    
+    var OutputText : String
+    {
+        get
+        {
+            return this.KonsoleSpace.FindObjectByName("Output").SpriteText.Text;
+        }
+        set
+        {
+            if (this.KonsoleSpace != null)
+                this.KonsoleSpace.FindObjectByName("Output").SpriteText.Text = value;
+            else
+                this.InternalOutputText = value;
+        }
+    }
+    var InternalOutputText : String;
+    
+    var HelpText : String
+    {
+        get
+        {
+            return this.KonsoleSpace.FindObjectByName("Help").SpriteText.Text;
+        }
+        set
+        {
+            if (this.KonsoleSpace != null)
+                this.KonsoleSpace.FindObjectByName("Help").SpriteText.Text = value;
+            else
+                this.InternalHelpText = value;
+        }
+    }
+    var InternalHelpText : String;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Konsole.Game = this.GameSession;
+        
+        Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+        Zero.Connect(this.GameSession, Events.GameStarted, this.OnGameStarted);
+    }
+
+    function OnGameStarted(event : GameEvent)
+    {
+        this.KonsoleSpace = this.GameSession.CreateNamedSpace("Konsole", Archetype.DefaultSpace);
+        this.KonsoleSpace.LoadLevel(Level.Konsole);
+        this.CameraViewport = this.KonsoleSpace.LevelSettings.CameraViewport;
+        
+        if (this.InternalOutputText != null)
+            this.OutputText = this.InternalOutputText;
+        if (this.InternalHelpText != null)
+            this.HelpText = this.InternalHelpText;
+    }
+
+    function OnKeyDown(event : KeyboardEvent)
+    {
+        if (event.Key == this.ToggleKey && event.CtrlPressed == this.ToggleCtrl && event.ShiftPressed == this.ToggleShift)
+        {
+            this.Visible = !this.Visible;
+            
+            if (this.Visible)
+            {
+                this.CursorTrapped = Zero.Mouse.Trapped;
+                Zero.Mouse.Trapped = false;
+            }
+            else
+            {
+                Zero.Mouse.Trapped = this.CursorTrapped;
+            }
+        }
+    }
+}

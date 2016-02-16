@@ -1,0 +1,15 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "CommandHistory",
+	},
+	Archetyped = 
+	{
+		string Name = "551f69e55a97cab1:CommandHistory",
+	},
+},

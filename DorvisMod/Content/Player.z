@@ -32,13 +32,16 @@ class Player : ZilchComponent
     [Property]
     var MinSpeedForFovChange : Real = 20.0;
     
+    [Dependency]
+    var NetObject : NetObject;
     
-    var Peer : LockStepPeer = null;
+    [Dependency]
+    var NetUser : NetUser;
+    
     var CameraCog : Cog = null;
     
     var RotationAngles : Real2 = local Real2(0.0, 0.0);
     var ToolContainer : Cog = null;
-    var Id : Integer = 0;
     var UndoCounter : Integer = 0;
     
     var Movement : Real3 = local Real3();
@@ -58,9 +61,6 @@ class Player : ZilchComponent
     
     var FreezeKeyboardInput : Boolean = false;
     var FreezeMouseInput : Boolean = false;
-    
-    // Only used for client side effects that have absolutely no baring on gameplay
-    var UnsafeIsLocal : Boolean = false;
     
     var InitialFieldOfView : Real = 80.0;
     var FovTarget : Real = 80.0;
@@ -99,25 +99,17 @@ class Player : ZilchComponent
 
     function Initialize(init : CogInitializer)
     {
+        Zero.Connect(this.Owner, Events.NetInitialized, this.OnNetInitialized);
     }
-    
-    function LockStepInitialize(peer : LockStepPeer, id : Integer, unsafeIsLocal : Boolean)
+
+    function OnNetInitialized(event : NetInitialized)
     {
-        this.UnsafeIsLocal = unsafeIsLocal;
-        this.Id = id;
-        this.Peer = peer;
         this.CameraCog = this.Owner.FindChildByName("Camera");
         
         this.InitialFieldOfView = this.CameraCog.Camera.FieldOfView;
         this.FovTarget = this.InitialFieldOfView;
         
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-        Zero.Connect(peer, Events.LockStepMouseMove, this.OnLockStepMouseMove);
-        Zero.Connect(peer, Events.LockStepMouseDown, this.OnLockStepMouseDown);
-        Zero.Connect(peer, Events.LockStepMouseScroll, this.OnLockStepMouseScroll);
-        Zero.Connect(peer, Events.LockStepMouseUp, this.OnLockStepMouseUp);
-        Zero.Connect(peer, Events.LockStepKeyDown, this.OnLockStepKeyDown);
-        Zero.Connect(peer, Events.LockStepKeyUp, this.OnLockStepKeyUp);
         
         this.ToolContainer = this.Owner.FindChildByName("ToolContainer");
         
@@ -139,6 +131,11 @@ class Player : ZilchComponent
         // Call this to sign up for most events, as well as setup the first tool
         this.ActiveTool = this.Tools.Get(0);
         this.Activate();
+        
+        if (this.GameSession.NetPeer.IsClient && this.NetUser.AddedByMyPeer)
+        {
+            this.LevelSettings.CameraViewport.Camera = this.CameraCog;
+        }
     }
     
     function Destroyed()
@@ -214,7 +211,7 @@ class Player : ZilchComponent
         ++this.UndoCounter;
         
         var builder = new StringBuilder();
-        builder.Write(this.Id);
+        builder.Write(this);
         builder.Write("_");
         builder.Write(this.UndoCounter);
         

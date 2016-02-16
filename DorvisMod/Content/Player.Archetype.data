@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-78.6286545, 20.0523033, -41.6071281],
+		Vec3 Translation = [6.19512939, -1.00518799, -45.455616],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -35,6 +35,26 @@ Cog =
 		bool Inherit2DMode = true,
 		Vec3 Velocity = [0, 0, 0],
 		Vec3 AngularVelocity = [0, 0, 0],
+	},
+	NetObject = 
+	{
+		string AutomaticChannelName = "56f22bdc94800e65:DefaultChannel",
+		Array NetPropertyConfigs = 
+		[
+			{
+				string ComponentName = "Transform",
+				string PropertyName = "Translation",
+				string NetChannelConfigName = "56f22bdc957a8572:TransformChannel",
+			},
+			{
+				string ComponentName = "Transform",
+				string PropertyName = "Rotation",
+				string NetChannelConfigName = "56f22bdc957a8572:TransformChannel",
+			},
+		],
+	},
+	NetUser = 
+	{
 	},
 	Player = 
 	{
@@ -66,10 +86,6 @@ Cog =
 	},
 	DynamicMotor = 
 	{
-	},
-	LockStepSyncChecker = 
-	{
-		bool IncludeHierarchy = true,
 	},
 	Hierarchy = 
 	{

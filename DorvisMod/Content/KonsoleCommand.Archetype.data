@@ -1,0 +1,7 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+},

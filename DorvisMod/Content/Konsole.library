@@ -1,0 +1,7 @@
+ContentLibrary = 
+{
+	string Name = "Konsole",
+	uint64 LibraryId = 551ebb196e286c96,
+	string SourceControlType = "",
+	bool ReadOnly = false,
+},

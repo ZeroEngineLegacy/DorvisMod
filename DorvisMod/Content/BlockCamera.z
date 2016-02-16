@@ -17,11 +17,6 @@ class BlockCamera : ZilchComponent
 
     function OnActivate(e : PlayerEvent)
     {
-        if (e.Player.UnsafeIsLocal == false)
-        {
-            return;
-        }
-        
         if (this.UnsafeActivePlayer == e.Player)
         {
             this.LevelSettings.CameraViewport.Camera = e.Player.CameraCog;

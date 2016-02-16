@@ -1,0 +1,15 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "KonsoleController",
+		uint64 ResourceId = 551ebb467e2c391d,
+	},
+	ContentTags = 
+	{
+		Array Tags = 
+		[
+			"Konsole",
+		],
+	},
+},

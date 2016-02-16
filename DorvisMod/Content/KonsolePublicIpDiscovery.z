@@ -1,0 +1,75 @@
+class KonsolePublicIpDiscovery : ZilchComponent
+{
+    [Dependency]
+    var WebRequester : WebRequester;
+    
+    [Property]
+    var ImmediateDiscovery : Boolean = true;
+    
+    [Property]
+    var DiscoveredIp : String;
+    
+    sends PublicIpDiscovered : IpEvent;
+    sends PublicIpDiscoveryFailed : Event;
+    
+    var TryIndex : Integer = 0;
+    var Urls : Array[String] = Array[String]()
+    {
+        "http://ipinfo.io/ip",
+        "http://api.ipify.org/",
+        "http://icanhazip.com/",
+        "http://curlmyip.com/",
+    };
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Console.DumpValue(typeid(Foodle).GetProperty("Boodle"));
+        
+        Zero.Connect(this.Owner, Events.WebResponse, this.OnWebResponse);
+        
+        if (this.ImmediateDiscovery)
+            this.DoAttempt();
+    }
+    
+    function DiscoverIp()
+    {
+        this.TryIndex = 0;
+        this.DoAttempt();
+    }
+    
+    function DoAttempt()
+    {
+        timeout (500)
+        {
+            this.WebRequester.Url = this.Urls[this.TryIndex];
+            this.WebRequester.Run();
+        }
+    }
+
+    function OnWebResponse(event : WebResponseEvent)
+    {
+        if (event.ResponseCode == 200)
+        {
+            var address = IpAddress(event.Data, 1);
+            
+            if (address.IsValid)
+            {
+                this.DiscoveredIp = address.Host;
+                this.Owner.DispatchEvent(Events.PublicIpDiscovered, IpEvent() { IpAddress = address.Host });
+                return;
+            }
+        }
+        
+        ++this.TryIndex;
+        if (this.TryIndex < this.Urls.Count)
+            this.DoAttempt();
+        else
+            this.Owner.DispatchEvent(Events.PublicIpDiscovered, Event());
+    }
+}
+
+class IpEvent : ZilchEvent
+{
+    [Property]
+    var IpAddress : String;
+}

@@ -6,7 +6,7 @@ Space =
 	},
 	Archetyped = 
 	{
-		string Name = "519e634c69a6ca5c:Space",
+		string Name = "56dc1ab557b4f11a:NetSpace",
 	},
 	TimeSpace = 
 	{
@@ -41,6 +41,26 @@ Space =
 	{
 	},
 	ReactiveSpace = 
+	{
+	},
+	NetObject = 
+	{
+		string AutomaticChannelName = "56f22bdc94800e65:DefaultChannel",
+		Array NetPropertyConfigs = 
+		[
+			{
+				string ComponentName = "Transform",
+				string PropertyName = "Translation",
+				string NetChannelConfigName = "56f22bdc957a8572:TransformChannel",
+			},
+			{
+				string ComponentName = "Transform",
+				string PropertyName = "Rotation",
+				string NetChannelConfigName = "56f22bdc957a8572:TransformChannel",
+			},
+		],
+	},
+	NetSpace = 
 	{
 	},
 },

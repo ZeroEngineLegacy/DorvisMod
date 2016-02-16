@@ -1,0 +1,11 @@
+DataContent = 
+{
+	DataBuilder = 
+	{
+		string Name = "NetSpace",
+		uint64 ResourceId = 56dc1ab557b4f11a,
+		string LoaderType = "Space",
+		uint Version = 0,
+		bool ShowInEditor = true,
+	},
+},

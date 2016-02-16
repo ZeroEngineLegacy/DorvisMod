@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "PublicIpDiscovery",
+		uint64 ResourceId = 56c9c6295ea80026,
+	},
+},

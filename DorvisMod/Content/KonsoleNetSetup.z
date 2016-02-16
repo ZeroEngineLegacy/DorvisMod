@@ -1,0 +1,158 @@
+class KonsoleNetSetup : ZilchComponent
+{
+    [Dependency]
+    var NetPeer : NetPeer;
+    
+    var ClientName : String;
+    
+    sends Hosting : Event;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Game.Session = this.GameSession;
+        
+        var text = StringBuilder();
+        text.WriteLine("Commands:");
+        text.WriteLine("  Game.Host()                   - Hosts a game on port 8000");
+        text.WriteLine("  Game.Host(1234)               - Hosts a game on a given port");
+        text.WriteLine("  Game.Join(\"name\")             - Joins a local server on port 8000");
+        text.WriteLine("  Game.Join(\"name\", \"ip\")       - Joins a remote server on port 8000");
+        text.WriteLine("  Game.Join(\"name\", \"ip\", port) - Joins a remote server on a given port");
+        text.WriteLine("  Game.Close()                  - Stops a server or client game");
+        
+        text.WriteLine();
+        
+        this.NetPeer.Open(NetRole.Client, 1000);
+        text.WriteLine("Your local ip is `this.NetPeer.Ipv4Host`");
+        this.NetPeer.Close();
+        
+        if (this.Owner.KonsolePublicIpDiscovery != null)
+          text.WriteLine("Your public ip is `this.Owner.KonsolePublicIpDiscovery.DiscoveredIp`");
+        
+        text.WriteLine();
+        text.WriteLine("Make sure to forward the port on your router for online games!");
+        
+        text.WriteLine();
+        text.WriteLine("Press F1 To open and close the Konsole");
+        
+        this.Owner.Konsole.HelpText = text.ToString();
+    }
+    
+    [Extension(typeid(NetPeerReceivedUserAddRequest))]
+    function GetName() : String
+    {
+        var nameEvent = this.TheirRequestBundle.NameEvent;
+        if (nameEvent == null)
+            return "";
+        
+        return nameEvent.Name;
+    }
+    
+    [Extension(typeid(NetPeer))]
+    function AddUserWithName()
+    {
+        var toSend = NameEvent()
+        {
+            Name = this.Owner.KonsoleNetSetup.ClientName
+        };
+        
+        this.AddUser(toSend);
+    }
+    
+    function Close() : String
+    {
+        this.NetPeer.Close();
+        foreach (var space in this.GameSession.AllSpaces)
+        {
+            if (space.NetSpace != null)
+                space.Destroy();
+        }
+        
+        return "Closing all connections and stopping the game";
+    }
+    
+    function Join(name : String, text : String, port : Integer) : String
+    {
+        if (name.ByteCount > 16)
+            return "That name is too long!";
+        
+        if (this.NetPeer.IsOpen)
+            return "Cannot join, you are already connected to another game or hosting a server";
+        
+        Console.WriteLine("Joining...");
+        
+        if (this.NetPeer.Open(NetRole.Client, 8001, 100) == false)
+            return "Unable to start the client (no ports available?)";
+        
+        if (text == null)
+            text = this.NetPeer.Ipv4Host;
+        
+        if (this.NetPeer.ConnectLink(IpAddress(text, port)) == false)
+            return "We failed to attempt a connection";
+        
+        this.ClientName = name;
+        return "Attempting to join...";
+    }
+    
+    function Host(port : Integer) : String
+    {
+        if (this.NetPeer.IsOpen)
+            return "Cannot join, you are already connected to another game or hosting a server";
+        
+        Console.WriteLine("Hosting...");
+        
+        if (this.NetPeer.Open(NetRole.Server, port, 0) == false)
+            return "Unable to start the server on the specified port (is another program hosting on that port?)";
+        
+        this.Owner.DispatchEvent(Events.Hosting, Event());
+        return "Hosting...";
+    }
+}
+
+class Game
+{
+    [Static]
+    var Session : GameSession;
+    
+    [Static]
+    function Join(name : String) : String
+    {
+        return Game.Join(name, null, 8000);
+    }
+    
+    [Static]
+    function Join(name : String, text : String) : String
+    {
+        return Game.Join(name, text, 8000);
+    }
+    
+    [Static]
+    function Join(name : String, text : String, port : Integer) : String
+    {
+        return Game.Session.KonsoleNetSetup.Join(name, text, port);
+    }
+    
+    [Static]
+    function Host(port : Integer) : String
+    {
+        return Game.Session.KonsoleNetSetup.Host(port);
+    }
+    
+    [Static]
+    function Host() : String
+    {
+        return Game.Host(8000);
+    }
+    
+    [Static]
+    function Close() : String
+    {
+        return Game.Session.KonsoleNetSetup.Close();
+    }
+}
+
+class NameEvent : ZilchEvent
+{
+    [NetProperty]
+    var Name : String;
+}

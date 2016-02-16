@@ -85,7 +85,6 @@ class DuplicatorTool : ZilchComponent
             if (this.ToDuplicate != null)
             {
                 var builder = new StringBuilder();
-                builder.Write(this.Player.Id);
                 builder.Write("_Duplicator_");
                 builder.Write(this.IdCounter);
                 

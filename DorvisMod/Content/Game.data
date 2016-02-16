@@ -11,21 +11,29 @@ GameSession =
 	Viewports = 
 	{
 	},
-	LockStepGame = 
-	{
-		uint BufferFramesAllowed = 5,
-		bool DebugMode = true,
-	},
-	LockStepMouse = 
-	{
-	},
-	LockStepGamepads = 
-	{
-	},
-	LockStepKeyboard = 
-	{
-	},
 	CameraViewports = 
+	{
+	},
+	NetPeer = 
+	{
+	},
+	Konsole = 
+	{
+		bool ToggleCtrl = false,
+		bool ToggleShift = false,
+		Enum ToggleKey = F1,
+		bool Visible = false,
+	},
+	WebRequester = 
+	{
+		string Url = "http://www.w3.org/",
+	},
+	KonsolePublicIpDiscovery = 
+	{
+		bool ImmediateDiscovery = true,
+		string DiscoveredIp = "",
+	},
+	RunUnitTests = 
 	{
 	},
 	GameStartup = 
@@ -37,7 +45,7 @@ GameSession =
 	ZilchState = 
 	{
 	},
-	RunUnitTests = 
+	KonsoleNetSetup = 
 	{
 	},
 },

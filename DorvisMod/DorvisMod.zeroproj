@@ -7,7 +7,7 @@ Cog =
 		string DefaultLevel = "Level",
 		string ProjectSpace = "Space",
 		string ProjectFolder = "C:\Sandbox\DorvisMod\DorvisMod",
-		uint ProjectEngineRevision = 12624,
+		uint ProjectEngineRevision = 12813,
 		bool AutoTakeProjectScreenshot = true,
 	},
 	EditorSettings = 

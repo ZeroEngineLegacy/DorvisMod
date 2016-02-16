@@ -1,0 +1,15 @@
+FontContent = 
+{
+	FontBuilder = 
+	{
+		string Name = "KonsoleFiraMonoRegular",
+		uint64 ResourceId = 551e8ee08c8755dc,
+	},
+	ContentTags = 
+	{
+		Array Tags = 
+		[
+			"Konsole",
+		],
+	},
+},

@@ -1,0 +1,744 @@
+class KonsoleTextEditor : ZilchComponent
+{
+    var Selection : Cog = null;
+    var Cursor : Cog = null;
+    
+    [Dependency]
+    var Transform : Transform;
+    
+    [Dependency]
+    var Reactive : Reactive;
+    
+    [Dependency]
+    var SpriteText : SpriteText;
+
+    var SelectionStart : Integer = 0;
+    var SelectionCount : Integer = 0;
+    
+    var SelectionStartReal : Real = 0.0;
+    var SelectionLengthReal : Real = 0.0;
+    
+    var Selecting : Boolean = false;
+    
+    var SelectWholeWord : Boolean = false;
+    
+    [Property]
+    var CursorBlinkDelay : Real = 0.4;
+    
+    [Property]
+    var SelectionPaddingLeft : Real = 0.03;
+    [Property]
+    var SelectionPaddingRight : Real = 0.03;
+    [Property]
+    var SelectionPaddingTop : Real = 0.03;
+    [Property]
+    var SelectionPaddingBottom : Real = 0.02;
+    
+    //HACK until we get proper action canceling
+    var CancelNextCursorBlink : Boolean = false;
+    
+    var Konsole : Konsole;
+    
+    var SelectedCommand : Cog;
+    var Output : Cog;
+    
+    constructor() : base()
+    {
+    }
+
+    function Initialize(init : CogInitializer)
+    {
+        this.Output = this.Owner.FindRoot().FindChildByName("Output");
+        
+        // The text editor requires the reactive to capture the mouse
+        this.Reactive.CaptureMouse = true;
+        
+        this.Konsole = this.GameSession.Konsole;
+        
+        Zero.Connect(this.Owner, Events.LeftMouseDown, this.OnLeftMouseDown);
+        Zero.Connect(this.Owner, Events.DoubleClick, this.OnDoubleClick);
+        Zero.Connect(this.Owner, Events.MouseUp, this.OnMouseUp);
+        Zero.Connect(this.Owner, Events.MouseUpdate, this.OnMouseUpdate);
+        Zero.Connect(this.Owner, Events.MouseEnter, this.OnMouseEnter);
+        Zero.Connect(this.Owner, Events.MouseExit, this.OnMouseExit);
+        
+        Zero.Connect(Zero.Keyboard, Events.TextTyped, this.OnTextTyped);
+        Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+        
+        Zero.Connect(init, Events.AllObjectsInitialized, this.OnAllObjectsInitialized);
+    }
+    
+    function OnAllObjectsInitialized(e : CogInitializerEvent)
+    {
+        Zero.Connect(this.Owner, Events.SpriteTextChanged, this.OnSpriteTextChanged);
+        
+        this.Selection = this.Space.Create(Archetype.KonsoleSprite);
+        this.Cursor = this.Space.Create(Archetype.KonsoleSprite);
+        
+        this.Selection.AttachTo(this.Owner);
+        this.Cursor.AttachTo(this.Owner);
+        
+        this.Selection.Sprite.Visible = false;
+        this.Selection.Sprite.Color = local Real4(1.0, 1.0, 1.0, 0.2);
+        this.Cursor.Sprite.Visible = false;
+        
+        var cursorWidth = 0.03;
+        
+        this.Cursor.Transform.Scale = local Real3(cursorWidth, 1.0, 1.0);
+        
+        // HACK, we actually only want to queue this after the cursor has been 'idle'
+        this.QueueCursorBlink();
+        
+        this.RefreshSelectionGraphical();
+    }
+    
+    function AttemptShowCursor()
+    {
+        if (this.Konsole.Visible)
+        {
+            this.CancelNextCursorBlink = true;
+            this.Cursor.Sprite.Visible = true;
+        }
+    }
+    
+    function Focus()
+    {
+        this.AttemptShowCursor();
+        this.RefreshSelectionGraphical();
+    }
+    
+    function Unfocus()
+    {
+        this.Selecting = false;
+        this.RefreshSelectionGraphical();
+    }
+    
+    function QueueCursorBlink()
+    {
+        if (this.CancelNextCursorBlink)
+        {
+            this.CancelNextCursorBlink = false;
+        }
+        else
+        {
+            this.Cursor.Sprite.Visible = !this.Cursor.Sprite.Visible;
+        }
+        
+        var sequence = Action.Sequence(this.Owner.Actions);
+        Action.Delay(sequence, this.CursorBlinkDelay);
+        Action.Call(sequence, this.QueueCursorBlink);
+    }
+    
+    function OnMouseEnter(e : MouseEvent)
+    {
+        Zero.Mouse.Cursor = Cursor.TextBeam;
+    }
+    
+    function OnMouseExit(e : MouseEvent)
+    {
+        Zero.Mouse.Cursor = Cursor.Arrow;
+    }
+    
+    function MoveSelectionTo(index : Integer, shiftPressed : Boolean)
+    {
+        var count = this.SpriteText.Text.ByteCount;
+        
+        index = Math.Clamp(index, 0, count);
+        
+        if (shiftPressed)
+        {
+            this.SelectionCount += this.SelectionStart - index;
+        }
+        else
+        {
+            this.SelectionCount = 0;
+        }
+        
+        this.SelectionStart = index;
+        this.AttemptShowCursor();
+        this.RefreshSelectionGraphical();
+    }
+    
+    function ClearSelection()
+    {
+        this.SelectionCount = 0;
+        this.RefreshSelectionGraphical();
+    }
+    
+    function MoveSelectionBy(delta : Integer, shiftPressed : Boolean)
+    {
+        this.MoveSelectionTo(this.SelectionStart + delta, shiftPressed);
+    }
+    
+    function OnSpriteTextChanged(e : TextEvent)
+    {
+        this.RefreshSelectionGraphical();
+    }
+    
+    var SelectedText : String
+    {
+        get
+        {
+            var text = this.SpriteText.Text;
+            if (text.ByteCount == 0)
+            {
+                return text;
+            }
+            
+            var startIndexRaw = this.SelectionStart;
+            var endIndexRaw = this.SelectionStart + this.SelectionCount;
+            var startIndex = Math.Min(startIndexRaw, endIndexRaw);
+            var endIndex = Math.Max(startIndexRaw, endIndexRaw);
+            
+            if (startIndex < 0)
+            {
+                startIndex = 0;
+            }
+            
+            if (endIndex > text.ByteCount)
+            {
+                endIndex = text.ByteCount;
+            }
+            
+            return text.SubString(startIndex, endIndex - startIndex);
+        }
+    }
+    
+    function ReplaceSubStringWith(index : Integer, count : Integer, replace : String)
+    {
+        var text = this.SpriteText.Text;
+        
+        var startIndex = Math.Min(index, index + count);
+        var endIndex = Math.Max(index, index + count);
+        
+        startIndex = Math.Clamp(startIndex, 0, text.ByteCount);
+        endIndex = Math.Clamp(endIndex, 0, text.ByteCount);
+        
+        var first = text.SubString(0, startIndex);
+        var second = text.SubString(endIndex, text.ByteCount - endIndex);
+        
+        this.SpriteText.Text = String.Concatenate(first, String.Concatenate(replace, second));
+    }
+    
+    function ReplaceSelectionWith(replace : String)
+    {
+        var index = this.SelectionStart;
+        var count = this.SelectionCount;
+        
+        // This will graphically refresh our selection, so we're just going to pre-setup our selection to be where it should
+        if (this.SelectionCount > 0)
+        {
+            this.SelectionStart += replace.ByteCount;
+        }
+        else
+        {
+            this.SelectionStart += this.SelectionCount + replace.ByteCount;
+        }
+        
+        this.SelectionCount = 0;
+        
+        this.ReplaceSubStringWith(index, count, replace);
+    }
+    
+    function OnTextTyped(e : KeyboardTextEvent)
+    {
+        if (this.Konsole.Visible == false)
+        {
+            return;
+        }
+        
+        var text = this.SpriteText.Text;
+        
+        if (e.Character == 8)
+        {
+            if (this.SelectionCount != 0)
+            {
+                this.ReplaceSelectionWith("");
+            }
+            else if (this.SelectionStart > 0)
+            {
+                --this.SelectionStart;
+                ++this.SelectionCount;
+                this.ReplaceSelectionWith("");
+            }
+        }
+        else if (e.Character >= 32)
+        {
+            var char = String.FromChar(e.Character);
+            this.ReplaceSelectionWith(char);
+        }
+        
+        // If the text changed...
+        if (text != this.SpriteText.Text)
+        {
+            this.AttemptShowCursor();
+            this.SelectedCommand = null;
+        }
+    }
+    
+    [Static]
+    function IsWhiteSpace(char : Integer) : Boolean
+    {
+        return char == 32 || (char >= 9 && char <= 13);
+    }
+    
+    [Static]
+    function IsNumber(char : Integer) : Boolean
+    {
+        return char >= 48 && char <= 57;
+    }
+    
+    [Static]
+    function IsAlpha(char : Integer) : Boolean
+    {
+        return (char >= 65 && char <= 90) || (char >= 97 && char <= 122);
+    }
+    
+    [Static]
+    function IsAlphaNumeric(char : Integer) : Boolean
+    {
+        return KonsoleTextEditor.IsAlpha(char) || KonsoleTextEditor.IsNumber(char);
+    }
+    
+    [Static]
+    function IsSymbol(char : Integer) : Boolean
+    {
+        return !KonsoleTextEditor.IsAlpha(char) && !KonsoleTextEditor.IsNumber(char) && !KonsoleTextEditor.IsWhiteSpace(char);
+    }
+    
+    [Static]
+    function GetCharacterType(char : Integer) : KonsoleCharacterType
+    {
+        if (KonsoleTextEditor.IsAlphaNumeric(char))
+        {
+            return KonsoleCharacterType.AlphaNumeric;
+        }
+        else if (KonsoleTextEditor.IsWhiteSpace(char))
+        {
+            return KonsoleCharacterType.WhiteSpace;
+        }
+        else
+        {
+            return KonsoleCharacterType.Symbol;
+        }
+    }
+    
+    function GetWholeWordDelta(delta : Integer) : Integer
+    {
+        var text = this.SpriteText.Text;
+        var index = this.SelectionStart;
+        
+        var finalDelta = 0;
+        
+        // If we're trying to move outside the string, just return a delta of 0
+        var movedByOne = index + delta;
+        if (movedByOne < 0 || movedByOne > text.ByteCount)
+        {
+            return 0;
+        }
+        
+        // If we're moving backwards, we have to accuont for the cursor actually being 
+        // before the character we want to detect (this also solves the cursor being at text.Count, the end)
+        if (delta < 0)
+        {
+            --index;
+        }
+        
+        var startChar = text.Get(index);
+        var startCharType = KonsoleTextEditor.GetCharacterType(startChar);
+        
+        while (index >= 0 && index < text.ByteCount)
+        {
+            var char = text.Get(index);
+            
+            var charType = KonsoleTextEditor.GetCharacterType(char);
+            
+            if (charType != startCharType)
+            {
+                break;
+            }
+            
+            index += delta;
+            finalDelta += delta;
+        }
+        
+        return finalDelta;
+    }
+    
+    function OnKeyDown(e : KeyboardEvent)
+    {
+        if (this.Konsole.Visible == false)
+            return;
+        
+        var text = this.SpriteText.Text;
+        
+        if (e.CtrlPressed)
+        {
+            if (e.Key == Keys.C)
+            {
+                Zero.Shell.ClipboardText = this.SelectedText;
+                e.HandledEvent = true;
+            }
+            else if (e.Key == Keys.X)
+            {
+                Zero.Shell.ClipboardText = this.SelectedText;
+                this.ReplaceSelectionWith("");
+                e.HandledEvent = true;
+            }
+            else if (e.Key == Keys.V)
+            {
+                if (Zero.Shell.IsClipboardText())
+                {
+                    this.ReplaceSelectionWith(Zero.Shell.ClipboardText);
+                    e.HandledEvent = true;
+                }
+            }
+            else if (e.Key == Keys.A)
+            {
+                // The standard behavior is to put the cursor at the end instead of the front
+                this.SelectionStart = text.ByteCount;
+                this.SelectionCount = -text.ByteCount;
+                this.RefreshSelectionGraphical();
+                e.HandledEvent = true;
+            }
+            else if (e.Key == Keys.Left)
+            {
+                var delta = this.GetWholeWordDelta(-1);
+                this.MoveSelectionBy(delta, e.ShiftPressed);
+                e.HandledEvent = true;
+            }
+            else if (e.Key == Keys.Right)
+            {
+                var delta = this.GetWholeWordDelta(+1);
+                this.MoveSelectionBy(delta, e.ShiftPressed);
+                e.HandledEvent = true;
+            }
+            else if (e.Key == Keys.Delete)
+            {
+                var commands = this.GetCommandHistory();
+                foreach (var command in commands.Children)
+                {
+                    command.Destroy();
+                }
+                this.SelectedCommand = null;
+            }
+        }
+        else
+        {
+            if (e.Key == Keys.Delete)
+            {
+                if (this.SelectionCount != 0)
+                {
+                    this.ReplaceSelectionWith("");
+                    e.HandledEvent = true;
+                }
+                else if (this.SelectionStart < text.ByteCount)
+                {
+                    ++this.SelectionStart;
+                    --this.SelectionCount;
+                    this.ReplaceSelectionWith("");
+                    e.HandledEvent = true;
+                }
+            }
+            else if (e.Key == Keys.Left)
+            {
+                this.MoveSelectionBy(-1, e.ShiftPressed);
+                e.HandledEvent = true;
+            }
+            else if (e.Key == Keys.Right)
+            {
+                this.MoveSelectionBy(+1, e.ShiftPressed);
+                e.HandledEvent = true;
+            }
+            else if (e.Key == Keys.Home)
+            {
+                this.MoveSelectionTo(0, e.ShiftPressed);
+                e.HandledEvent = true;
+            }
+            else if (e.Key == Keys.End)
+            {
+                this.MoveSelectionTo(text.ByteCount, e.ShiftPressed);
+                e.HandledEvent = true;
+            }
+            else if (e.Key == Keys.Enter)
+            {
+                var state = ExecutableState.CallingState;
+                var result = state.ExecuteStatement(text);
+                var outputCog = this.Output;
+                outputCog.SpriteText.Text = "`text`\n`result`";
+                
+                var commands = this.GetCommandHistory();
+                
+                var children = Array[Cog]();
+                foreach (var child in commands.Children)
+                    children.Add(child);
+                
+                if (children.Count == 0 || children[children.LastIndex].Name != text)
+                {
+                    var command = this.Space.Create(Archetype.KonsoleCommand);
+                    command.AttachTo(commands);
+                    command.Name = text;
+                    Zero.ObjectStore.Store("CommandHistory", commands);
+                }
+                
+                this.SpriteText.Text = "";
+                this.SelectionCount = 0;
+                this.SelectionStart = 0;
+                e.HandledEvent = true;
+            }
+            else if (e.Key == Keys.Up || e.Key == Keys.Down)
+            {
+                var commands = this.GetCommandHistory();
+                
+                var index = -1;
+                
+                var children = Array[Cog]();
+                foreach (var child in commands.Children)
+                {
+                    if (child == this.SelectedCommand)
+                    {
+                        index = children.Count;
+                    }
+                    children.Add(child);
+                }
+                
+                if (children.Count != 0)
+                {
+                    if (index == -1)
+                    {
+                        if (e.Key == Keys.Up)
+                        {
+                            index = children.LastIndex;
+                        }
+                        else
+                        {
+                            index = 0;
+                        }
+                    }
+                    else
+                    {
+                        if (e.Key == Keys.Up)
+                        {
+                            --index;
+                            
+                            if (index < 0)
+                            {
+                                index += children.Count;
+                            }
+                        }
+                        else
+                        {
+                            index = (index + 1) % children.Count;
+                        }
+                    }
+                    
+                    this.SelectedCommand = children[index];
+                }
+                else
+                {
+                    
+                    this.SelectedCommand = null;
+                }
+                
+                if (this.SelectedCommand != null)
+                {
+                    this.SpriteText.Text = this.SelectedCommand.Name;
+                    this.SelectionStart = this.SpriteText.Text.ByteCount;
+                    this.SelectionCount = -this.SpriteText.Text.ByteCount;
+                    this.AttemptShowCursor();
+                    this.RefreshSelectionGraphical();
+                }
+            }
+        }
+    }
+    
+    function GetCommandHistory() : Cog
+    {
+        var commands = this.Space.FindObjectByName("CommandHistory");
+        
+        if (commands == null)
+        {
+            commands = Zero.ObjectStore.RestoreOrArchetype("CommandHistory", Archetype.KonsoleCommandHistory.Name, this.Space);
+        }
+        
+        return commands;
+    }
+    
+    function ComputeCursorFromIndex(index : Integer) : Real
+    {
+        var textUpToCursor = this.SpriteText.Text.SubString(0, Math.Min(index, this.SpriteText.Text.ByteCount));
+        
+        var width = this.SpriteText.MeasureGivenText(textUpToCursor).X;
+        
+        return width;
+    }
+    
+    function ComputeCursorFromPosition(x : Real) : KonsoleCursorPosition
+    {
+        var cursorOffset = 0.05;
+        
+        var offsetX = x + cursorOffset;
+        
+        var originalText = this.SpriteText.Text;
+        
+        var result = KonsoleCursorPosition();
+        result.Index = originalText.ByteCount;
+        
+        for (var i = 0; i <= originalText.ByteCount; ++i)
+        {
+            var textUpToIndex = this.SpriteText.Text.SubString(0, i);
+            
+            var width = this.SpriteText.MeasureGivenText(textUpToIndex).X;
+            
+            if (width > offsetX)
+            {
+                if (i == 0)
+                {
+                    result.Index = 0;
+                }
+                else
+                {
+                    result.Index = i - 1;
+                }
+                
+                break;
+            }
+            
+            result.Position = width;
+        }
+        
+        return result;
+    }
+    
+    function ComputeCursorFromEvent(e : ViewportMouseEvent) : KonsoleCursorPosition
+    {
+        // Get the mouse position in local space (relative to the top left corner)
+        var mousePositionLocal = KonsoleTextEditor.GetLocalPointOnPlane(e, this.Transform);
+        
+        return this.ComputeCursorFromPosition(mousePositionLocal.X);
+    }
+    
+    function OnLeftMouseDown(e : ViewportMouseEvent)
+    {
+        var cursorPosition = this.ComputeCursorFromEvent(e);
+        this.MoveSelectionTo(cursorPosition.Index, e.ShiftPressed);
+        
+        this.Selecting = true;
+    }
+    
+    function OnDoubleClick(e : ViewportMouseEvent)
+    {
+        this.SelectWholeWord = true;
+    }
+    
+    function OnMouseUp(e : ViewportMouseEvent)
+    {
+        this.OnMouseUpdate(e);
+        this.Selecting = false;
+        
+        if (this.SelectWholeWord)
+        {
+            var startDelta = this.GetWholeWordDelta(-1);
+            var endDelta = this.GetWholeWordDelta(+1);
+            
+            this.MoveSelectionBy(startDelta, false);
+            this.MoveSelectionBy(endDelta - startDelta, true);
+            this.SelectWholeWord = false;
+        }
+    }
+    
+    function OnMouseUpdate(e : ViewportMouseEvent)
+    {
+        if (this.Selecting)
+        {
+            var cursorPosition = this.ComputeCursorFromEvent(e);
+            
+            this.MoveSelectionTo(cursorPosition.Index, true);
+        }
+    }
+    
+    function RefreshSelectionGraphical()
+    {
+        this.SelectionStartReal = this.ComputeCursorFromIndex(this.SelectionStart);
+        
+        var lengthPosition = this.ComputeCursorFromIndex(this.SelectionStart + this.SelectionCount);
+        
+        this.SelectionLengthReal = lengthPosition - this.SelectionStartReal;
+        
+        if (this.SelectionStart != -1)
+        {
+            var lineHeight = this.SpriteText.MeasureGivenText("|").Y;
+            
+            var scale = this.Cursor.Transform.Scale;
+            scale.Y = lineHeight;
+            this.Cursor.Transform.Scale = scale;
+            
+            this.Cursor.Transform.Translation = local Real3(this.SelectionStartReal, 0.0, 0.0);
+            this.Selection.Sprite.Visible = (this.SelectionCount != 0);
+            
+            var visualStart = Math.Min(this.SelectionStartReal, this.SelectionStartReal + this.SelectionLengthReal);
+            
+            this.Selection.Transform.Translation = local Real3(visualStart - this.SelectionPaddingLeft, this.SelectionPaddingTop, 0.0);
+            var selectionArea = this.Selection.Area.Size;
+            selectionArea.X = Math.Abs(this.SelectionLengthReal) + this.SelectionPaddingLeft + this.SelectionPaddingRight;
+            selectionArea.Y = lineHeight + this.SelectionPaddingTop + this.SelectionPaddingBottom;
+            this.Selection.Area.Size = selectionArea;
+        }
+        else
+        {
+            this.Selection.Sprite.Visible = false;
+            this.Cursor.Sprite.Visible = false;
+        }
+    }
+    
+    [Static]
+    function GetWorldPointOnPlane(viewport : CameraViewport, screenPos : Real2, tx : Transform) : Real3
+    {
+        // Get the forward vector
+        var worldPlaneNormal = tx.TransformNormal(local Real3(0.0, 0.0, 1.0));
+        
+        // We want to select anywhere on our plane
+        var mousePositionWorld = viewport.ScreenToWorldPlane(screenPos, worldPlaneNormal, tx.WorldTranslation);
+        return mousePositionWorld;
+    }
+    
+    [Static]
+    function GetWorldPointOnPlane(e : ViewportMouseEvent, tx : Transform) : Real3
+    {
+        return KonsoleTextEditor.GetWorldPointOnPlane(e.CameraViewport, e.Position, tx);
+    }
+    
+    [Static]
+    function GetLocalPointOnPlane(viewport : CameraViewport, screenPos : Real2, tx : Transform) : Real3
+    {
+        // Get the mouse point in world on the plane
+        var mousePositionWorld = KonsoleTextEditor.GetWorldPointOnPlane(viewport, screenPos, tx);
+        
+        // Get the mouse position in local space (relative to the top left corner)
+        var mousePositionLocal = tx.TransformPointInverse(mousePositionWorld);
+        return mousePositionLocal;
+    }
+    
+    [Static]
+    function GetLocalPointOnPlane(e : ViewportMouseEvent, tx : Transform) : Real3
+    {
+        return KonsoleTextEditor.GetLocalPointOnPlane(e.CameraViewport, e.Position, tx);
+    }
+}
+
+enum KonsoleCharacterType
+{
+    Symbol,
+    AlphaNumeric,
+    WhiteSpace,
+}
+
+struct KonsoleCursorPosition
+{
+    constructor()
+    {
+    }
+    
+    var Index : Integer = 0;
+    var Position : Real = 0.0;
+}
