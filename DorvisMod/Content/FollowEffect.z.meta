@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "FollowEffect",
+		uint64 ResourceId = 564601da3575ad2f,
+	},
+},

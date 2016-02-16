@@ -34,12 +34,16 @@ class Health : ZilchComponent
             return;
         }
         
-        
         this.Current += amount;
         
         var toSend = new HealthEvent();
         toSend.Amount = amount;
         toSend.Health = this;
+        
+        var root = this.Owner.FindRoot();
+        var body = root.RigidBody;
+        if (body != null)
+            body.ForceAwake();
         
         // If we just died...
         if (this.IsDead)

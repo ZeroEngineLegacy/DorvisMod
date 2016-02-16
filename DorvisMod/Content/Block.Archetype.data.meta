@@ -1,13 +1,5 @@
 DataContent = 
 {
-	ContentTags = 
-	{
-		object Tags = 
-		[
-			"Cog",
-			"Blocks",
-		],
-	},
 	DataBuilder = 
 	{
 		string Name = "Block",
@@ -15,5 +7,13 @@ DataContent =
 		string LoaderType = "Cog",
 		uint Version = 0,
 		bool ShowInEditor = true,
+	},
+	ContentTags = 
+	{
+		Array Tags = 
+		[
+			"Cog",
+			"Blocks",
+		],
 	},
 },

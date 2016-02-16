@@ -3,39 +3,70 @@ class Team : ZilchComponent
     [Property]
     var Id : Integer = -1;
     
-    constructor() : base()
+    var CreatorRoot : Cog;
+    
+    [Static]
+    function SetTeam(toBeSet : Cog, creator : Cog)
     {
+        var creatorTeamId = Team.GetTeamIdFrom(creator);
+        var teamToBeSet = Team.GetTeamFrom(toBeSet);
+        
+        if (teamToBeSet != null)
+        {
+            teamToBeSet.CreatorRoot = creator.FindRoot();
+            teamToBeSet.Id = creatorTeamId;
+        }
+        else
+        {
+            throw new Exception("Attempting to set a team on an object that did not have the Team component");
+        }
+    }
+    
+    [Static]
+    function GetTeamFrom(cog : Cog) : Team
+    {
+        var team = cog.Team;
+        
+        if (team != null)
+            return team;
+        
+        return cog.FindRoot().Team;
     }
     
     [Static]
     function GetTeamIdFrom(cog : Cog) : Integer
     {
-        var team = cog.Team;
+        var team = Team.GetTeamFrom(cog);
         
         if (team == null)
-        {
-            var root = cog.FindRoot();
-            team = root.Team;
-        }
+            return -1;
         
-        if (team != null)
-        {
-            return team.Id;
-        }
-        
-        return -1;
+        return team.Id;
     }
     
     [Static]
     function IsDifferentTeam(a : Cog, b : Cog) : Boolean
     {
+        // If both objects belong to the same root, then they are the same team
+        // This prevents damage done to your own vehicles (from itself)
+        var aRoot = a.FindRoot();
+        var bRoot = b.FindRoot();
+        if (a == b || aRoot == bRoot)
+            return false;
+        
+        var teamA = Team.GetTeamFrom(a);
+        var teamB = Team.GetTeamFrom(b);
+        
+        if (teamA != null && teamA.CreatorRoot == bRoot)
+            return false;
+        if (teamB != null && teamB.CreatorRoot == aRoot)
+            return false;
+        
         var teamIdA = Team.GetTeamIdFrom(a);
         var teamIdB = Team.GetTeamIdFrom(b);
         
-        //if (teamIdA == -1 || teamIdB == -1)
-        //{
-        //    return true;
-        //}
+        if (teamIdA == -1 || teamIdB == -1)
+            return true;
         
         return teamIdA != teamIdB;
     }

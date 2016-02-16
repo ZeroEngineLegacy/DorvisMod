@@ -1,8 +1,7 @@
 class DestroyOnDeath : ZilchComponent
 {
-    constructor() : base()
-    {
-    }
+    [Property]
+    var CreateOnDeath : Archetype = Archetype.Explosion;
 
     function Initialize(init : CogInitializer)
     {
@@ -11,6 +10,13 @@ class DestroyOnDeath : ZilchComponent
 
     function OnDeath(e : HealthEvent)
     {
+        if (this.CreateOnDeath != null && this.CreateOnDeath != Archetype.DefaultArchetype)
+        {
+            var created = this.Space.Create(this.CreateOnDeath);
+            created.Transform.WorldTranslation = this.Owner.Transform.WorldTranslation;
+            created.Transform.WorldRotation = this.Owner.Transform.WorldRotation;
+        }
+        
         this.Owner.Destroy();
     }
 }

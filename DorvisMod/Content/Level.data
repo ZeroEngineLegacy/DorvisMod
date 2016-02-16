@@ -22,7 +22,7 @@ Level =
 		{
 			bool Active = true,
 			bool WakeUpOnChange = false,
-			float Drag = 0.7,
+			float Drag = 0.699999988,
 		},
 	},
 	Cog = 
@@ -41,9 +41,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [2.36153, 10.5252, 10.7725],
+			Vec3 Translation = [-3.06174564, 10.0529766, 11.210331],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0.175526, 0.159913, 0.028908, 0.97097],
+			Quat Rotation = [-0.153693646, -0.110088333, -0.0172332563, 0.981815577],
 		},
 		Camera = 
 		{
@@ -58,15 +58,15 @@ Level =
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = Orbit,
-			float LookDistance = 10.6075,
-			float VerticalAngle = 0.357684,
-			float HorizontalAngle = -0.326457,
-			Vec3 LookTarget = [-0.824883, 6.81141, 1.36108],
+			float LookDistance = 10.6075001,
+			float VerticalAngle = 0.310560077,
+			float HorizontalAngle = 0.223321781,
+			Vec3 LookTarget = [-0.824882984, 6.81140995, 1.36108005],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
 		{
-			Vec4 ClearColor = [0.278431, 0.278431, 0.278431, 1],
+			Vec4 ClearColor = [0.278430998, 0.278430998, 0.278430998, 1],
 			bool DrawNonVisible = true,
 			bool DrawDebugObjects = true,
 			bool DrawEditorIcons = true,
@@ -82,7 +82,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.113903, 8.23737, 0.944318],
+			Vec3 Translation = [-0.113903001, 8.23736954, 0.944317997],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},

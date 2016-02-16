@@ -3,6 +3,12 @@ class DamageOnCollide : ZilchComponent
     [Property]
     var Damage : Real = 10.0;
     
+    [Property]
+    var Create : Archetype;
+    
+    [Property]
+    var DestroySelf : Boolean = true;
+    
     constructor() : base()
     {
     }
@@ -20,7 +26,6 @@ class DamageOnCollide : ZilchComponent
             return;
         }
         
-        
         var health = e.OtherObject.Health;
         if (health != null)
         {
@@ -33,6 +38,16 @@ class DamageOnCollide : ZilchComponent
             health.Change(-this.Damage);
         }
         
-        this.Owner.Destroy();
+        if (this.Create != null && this.Create != Archetype.DefaultArchetype)
+        {
+            var tx = this.Owner.Transform;
+            var created = this.Space.Create(this.Create);
+            var createdTx = created.Transform;
+            createdTx.WorldTranslation = tx.WorldTranslation;
+            createdTx.WorldRotation = tx.WorldRotation;
+        }
+        
+        if (this.DestroySelf)
+            this.Owner.Destroy();
     }
 }

@@ -10,16 +10,19 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-0.0557215, 5.46486, 0.602899],
+		Vec3 Translation = [-14.2215881, 20.9904594, -26.0382328],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Model = 
 	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = true,
+		bool CastShadows = true,
 		string MaterialName = "519e7a6c96244177:DiamondDiffuse",
 		string MeshName = "4de0354322b345ae:Cube",
 		Vec4 Color = [1, 1, 1, 1],
-		bool Visible = true,
 	},
 	RigidBody = 
 	{
@@ -48,6 +51,7 @@ Cog =
 	},
 	DestroyOnDeath = 
 	{
+		string CreateOnDeath = "4ed29ae3e05453cb:Explosion",
 	},
 	Health = 
 	{

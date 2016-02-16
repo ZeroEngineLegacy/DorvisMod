@@ -12,6 +12,6 @@ Material =
 		string Texture2Name = "519e70c64cace7fa:Rocks",
 		Vec2 Tile2 = [1, 1],
 		string Texture3Name = "519e734b64186543:Dirt",
-		Vec2 Tile3 = [1, 1],
+		Vec2 Tile3 = [2, 2],
 	},
 },
