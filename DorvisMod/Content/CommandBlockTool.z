@@ -1,3 +1,4 @@
+/*
 class CommandBlockTool : ZilchComponent
 {
     var Player : Player = null;
@@ -17,7 +18,7 @@ class CommandBlockTool : ZilchComponent
         Zero.Connect(this.Owner, "DeactivateTool", this.OnDeactivateTool);
     }
     
-    function OnActivateTool(e : ToolChangeEvent)
+    function OnActivateTool(e : PlayerEvent)
     {
         this.Player = e.Player;
         this.HudText = e.HudText;
@@ -25,7 +26,7 @@ class CommandBlockTool : ZilchComponent
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
     
-    function OnDeactivateTool(e : ToolChangeEvent)
+    function OnDeactivateTool(e : PlayerEvent)
     {
         this.Player = null;
         this.HudText = null;
@@ -76,3 +77,4 @@ class CommandBlockTool : ZilchComponent
         }
     }
 }
+*/

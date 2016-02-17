@@ -16,9 +16,9 @@ class Player : ZilchComponent
     var Active : Boolean = true;
     
     [Property]
-    var InteractSound : SoundCue = SoundCue.Find("Interact");
+    var InteractSound : SoundCue = SoundCue.Interact;
     [Property]
-    var ChangeToolSound : SoundCue = SoundCue.Find("ChangeTool");
+    var ChangeToolSound : SoundCue = SoundCue.ChangeTool;
     
     [Property]
     var FovToSpeed : Real = 3.0;
@@ -38,41 +38,35 @@ class Player : ZilchComponent
     [Dependency]
     var NetUser : NetUser;
     
-    var CameraCog : Cog = null;
+    sends ActivateTool : PlayerEvent;
+    sends DeactivateTool : PlayerEvent;
     
-    var RotationAngles : Real2 = local Real2(0.0, 0.0);
-    var ToolContainer : Cog = null;
-    var UndoCounter : Integer = 0;
+    var CameraCog : Cog;
     
-    var Movement : Real3 = local Real3();
+    var RotationAngles : Real2;
+    var ToolContainer : Cog;
+    var UndoCounter : Integer;
     
-    var Hud : Space = null;
-    var HudContextText : ShadowText = null;
-    var HudToolText : ShadowText = null;
-    var HudToolSubText : ShadowText = null;
-    var HudUndoText : ShadowText = null;
-    var HudNotifications : Notifications = null;
+    var Movement : Real3;
     
-    var InteractMessage : String = null;
-    var InteractCog : Cog = null;
+    var InteractMessage : String;
+    var InteractCog : Cog;
     
-    var Tools : Array[Cog] = new Array[Cog]();
-    var ActiveTool : Cog = null;
+    // Both
+    var Tools : Array[Cog] = Array[Cog]();
+    var ActiveTool : Cog;
     
-    var FreezeKeyboardInput : Boolean = false;
-    var FreezeMouseInput : Boolean = false;
+    var FreezeKeyboardInput : Boolean;
+    var FreezeMouseInput : Boolean;
     
     var InitialFieldOfView : Real = 80.0;
     var FovTarget : Real = 80.0;
-    
-    [Property]
-    var HudToCreate : Level = Level.Find("Hud");
-    [Property]
-    var HudSpace : Archetype = Archetype.Find("Space");
-    
+
+    var IsServer : Boolean;
+    var IsMyClient : Boolean;
+    var IsOtherClient : Boolean;
     
     // For some reason this results in a type not found error
-    //var UndoStack : Array[delegate()] = new Array[delegate()]();
     var UndoStack : Array[Undo] = new Array[Undo]();
     
     var WorldLookForward : Real3
@@ -104,87 +98,82 @@ class Player : ZilchComponent
 
     function OnNetInitialized(event : NetInitialized)
     {
+        this.IsServer = this.GameSession.NetPeer.IsServer;
+        if (this.GameSession.NetPeer.IsClient)
+        {
+            this.IsMyClient = this.NetUser.AddedByMyPeer;
+            this.IsOtherClient = !this.IsMyClient;
+        }
+        
+        // Things that both server and clients do
         this.CameraCog = this.Owner.FindChildByName("Camera");
-        
-        this.InitialFieldOfView = this.CameraCog.Camera.FieldOfView;
-        this.FovTarget = this.InitialFieldOfView;
-        
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         
         this.ToolContainer = this.Owner.FindChildByName("ToolContainer");
-        
-        this.Hud = this.GameSession.CreateSpace(this.HudSpace);
-        
-        this.Hud.LoadLevel(this.HudToCreate);
-        this.HudContextText = this.Hud.FindObjectByName("ContextText").ShadowText;
-        this.HudToolText = this.Hud.FindObjectByName("ToolText").ShadowText;
-        this.HudToolSubText = this.Hud.FindObjectByName("ToolSubText").ShadowText;
-        this.HudUndoText = this.Hud.FindObjectByName("UndoText").ShadowText;
-        this.HudNotifications = this.Hud.FindObjectByName("NotificationManager").Notifications;
         
         // Add all the initial tools
         foreach (var tool in this.ToolContainer.Hierarchy.Children)
         {
             this.Tools.Add(tool);
         }
-        
-        // Call this to sign up for most events, as well as setup the first tool
         this.ActiveTool = this.Tools.Get(0);
-        this.Activate();
         
-        if (this.GameSession.NetPeer.IsClient && this.NetUser.AddedByMyPeer)
+        if (this.IsServer)
         {
+            // Things that only server players do
+        }
+        else if (this.IsMyClient)
+        {
+            // Things that only my client player does
             this.LevelSettings.CameraViewport.Camera = this.CameraCog;
+            
+            this.InitialFieldOfView = this.CameraCog.Camera.FieldOfView;
+            this.FovTarget = this.InitialFieldOfView;
         }
-    }
-    
-    function Destroyed()
-    {
-        if (this.Hud != null)
-        {
-            this.Hud.Destroy();
-        }
+        
+        this.Activate();
     }
     
     
     function Activate()
     {
+        // Both client and servers call this function!
         this.Owner.RigidBody.Static = false;
         this.Owner.Collider.Ghost = false;
-        this.Owner.DynamicMotor.Activate();
+        
         this.Active = true;
         this.ActivateTool(this.ActiveTool);
         
-        var filter = this.Space.PhysicsSpace.CreateDefaultCastFilter();
-        
-        for (var i = 0; i < 100; ++i)
+        // This only occurs on the server
+        if (this.IsServer)
         {
-            var results = this.Space.PhysicsSpace.CastColliderResults(local Real3(), this.Owner.Collider, filter);
-            // Because when activating, we could be inside something, attempt to resolve a portion of the collision
-            foreach (var contact in results)
+            // Only activate the dynamic motor on the server (we still allow rigid body simulation on the client)
+            this.Owner.DynamicMotor.Activate();
+            
+            // Push ourselves out of any geometry (pops us out of vehicles)
+            var filter = this.Space.PhysicsSpace.CreateDefaultCastFilter();
+            for (var i = 0; i < 100; ++i)
             {
-                if (contact.Collider.Ghost)
+                var results = this.Space.PhysicsSpace.CastColliderResults(local Real3(), this.Owner.Collider, filter);
+                // Because when activating, we could be inside something, attempt to resolve a portion of the collision
+                foreach (var contact in results)
                 {
-                    continue;
+                    if (contact.Collider.Ghost)
+                    {
+                        continue;
+                    }
+                    
+                    var hitRoot = contact.ObjectHit.FindRoot();
+                    
+                    if (hitRoot == this.Owner.FindRoot())
+                    {
+                        continue;
+                    }
+                    
+                    this.Owner.Transform.WorldTranslation += contact.Normal * local Real3(0.5);
                 }
-                
-                var hitRoot = contact.ObjectHit.FindRoot();
-                
-                if (hitRoot == this.Owner.FindRoot())
-                {
-                    continue;
-                }
-                
-                this.Owner.Transform.WorldTranslation += contact.Normal * local Real3(0.5);
             }
         }
-        
-        
-        //foreach (var contact in this.Owner.Collider.Contacts)
-        //{
-        //    Console.WriteLine(contact.FirstPoint.WorldNormalTowardsOther);
-        //    this.Owner.Transform.WorldTranslation -= contact.FirstPoint.WorldNormalTowardsOther * local Real3(0.75);
-        //}
     }
     
     function Deactivate()
@@ -194,17 +183,16 @@ class Player : ZilchComponent
         this.Owner.DynamicMotor.Deactivate();
         this.Active = false;
         this.DeactivateTool();
-        this.HudContextText.Text = "";
     }
     
-    function QueueUndo(name : String, action : delegate(undo : Undo) : Boolean) : Undo
+    function Server_QueueUndo(name : String, action : delegate(undo : Undo) : Boolean) : Undo
     {
-        var undo = this.QueueUndo(name);
+        var undo = this.Server_QueueUndo(name);
         undo.Action = action;
         return undo;
     }
     
-    function QueueUndo(name : String) : Undo
+    function Server_QueueUndo(name : String) : Undo
     {
         var undo = new Undo();
         undo.Name = name;
@@ -218,22 +206,13 @@ class Player : ZilchComponent
         undo.UniqueName = builder.ToString();
         this.UndoStack.Add(undo);
         
-        this.HudUndoText.Text = String.Concatenate("Press [Z] to undo ", name);
-        
         return undo;
     }
     
     function AddMovement(e : LockStepKeyEvent, key : Integer, movement : Real3)
     {
         if (e.Key == key)
-        {
             this.Movement += movement;
-        }
-    }
-    
-    function Notify(message : String)
-    {
-        this.HudNotifications.Notify(message);
     }
     
     function ResetRotationAngles()
@@ -252,12 +231,6 @@ class Player : ZilchComponent
     
     function OnLogicUpdate(e : UpdateEvent)
     {
-        // PURPOSEFUL DESYNC
-        if (Zero.Keyboard.KeyIsDown(Keys.P))
-        {
-            this.Owner.Transform.Translation += local Real3(0.0, 1.0, 0.0);
-        }
-        
         if (this.FreezeMouseInput == false)
         {
             this.UpdateRotationAngles();
@@ -271,17 +244,13 @@ class Player : ZilchComponent
         }
         
         this.InteractCog = null;
-        this.HudContextText.Text = "";
         
         // Only do interactions if the player is active
         this.InteractMessage = null;
         var result = this.RayCast(this.InteractFilter, this.InteractDistance);
         
         if (result != null)
-        {
             this.InteractCog = result.Object;
-            this.HudContextText.Text = String.Concatenate("Press [E] to ", this.InteractMessage);
-        }
         
         this.FovTarget = this.InitialFieldOfView;
         
@@ -515,22 +484,6 @@ class Player : ZilchComponent
             {
                 this.UndoStack.Clear();
             }
-            
-            // If that was the last undo...
-            if (this.UndoStack.Count == 0)
-            {
-                this.HudUndoText.Text = "";
-            }
-            else
-            {
-                var nextUndo = this.UndoStack.Get(this.UndoStack.LastIndex);
-                this.HudUndoText.Text = String.Concatenate("Press [Z] to undo ", nextUndo.Name);
-            }
-        }
-        
-        if (e.Key == Keys.H)
-        {
-            this.Notify("Test of the notification system");
         }
         
         if (e.Key == Keys.E && this.InteractCog != null)
@@ -550,30 +503,23 @@ class Player : ZilchComponent
         this.SendKeyEvent("PlayerKeyUp", e);
     }
     
+    function ActivateTool(tool : Cog)
+    {
+        this.ActiveTool = tool;
+        this.SendToolEvent(Events.ActivateTool, this.ActiveTool);
+        
+        if (this.IsMyClient)
+            this.Space.SoundSpace.PlayCue(this.ChangeToolSound);
+    }
     
     function DeactivateTool()
     {
-        this.SendToolEvent("DeactivateTool", this.ActiveTool);
-        this.HudToolText.Text = "";
-        this.HudToolSubText.Text = "";
-    }
-    
-    function ActivateTool(tool : Cog)
-    {
-        this.HudToolText.Text = tool.Name;
-        this.HudToolSubText.Text = "";
-        this.ActiveTool = tool;
-        this.SendToolEvent("ActivateTool", this.ActiveTool);
-        this.Space.SoundSpace.PlayCue(this.ChangeToolSound);
+        this.SendToolEvent(Events.DeactivateTool, this.ActiveTool);
     }
     
     function SendToolEvent(eventName : String, to : Cog)
     {
-        var toSend = new ToolChangeEvent();
-        this.FillPlayerEvent(toSend);
-        toSend.HudText = this.HudToolSubText;
-        toSend.Hud = this.Hud;
-        to.DispatchEvent(eventName, toSend);
+        this.SendPlayerEventTo(eventName, to);
     }
     
     function SendPlayerEventTo(eventName : String, to : Cog)
@@ -586,13 +532,9 @@ class Player : ZilchComponent
 
 class HitResult
 {
-    var Object : Cog = null;
-    var WorldNormal : Real3 = local Real3();
-    var WorldPosition : Real3 = local Real3();
-    
-    constructor()
-    {
-    }
+    var Object : Cog;
+    var WorldNormal : Real3;
+    var WorldPosition : Real3;
 }
 
 class Undo
@@ -606,72 +548,38 @@ class Undo
     {
         return false;
     }
-    
-    constructor()
-    {
-    }
 }
 
 class PlayerEvent : ZilchEvent
 {
-    var Player : Player = null;
-    var PlayerCog : Cog = null;
-    
-    constructor() : base()
-    {
-    }
+    var Player : Player;
+    var PlayerCog : Cog;
 }
 
 class InteractEvent : PlayerEvent
 {
     // If this gets set to anything but null, it means someone responded
-    var Message : String = null;
-    
-    constructor() : base()
-    {
-    }
-}
-
-class ToolChangeEvent : PlayerEvent
-{
-    var HudText : ShadowText = null;
-    var Hud : Space = null;
-    
-    constructor() : base()
-    {
-    }
+    var Message : String;
 }
 
 class PlayerInputEvent : PlayerEvent
 {
-    var AltPressed : Boolean = false;
-    var ShiftPressed : Boolean = false;
-    var CtrlPressed : Boolean = false;
-    
-    constructor() : base()
-    {
-    }
+    var AltPressed : Boolean;
+    var ShiftPressed : Boolean;
+    var CtrlPressed : Boolean;
 }
 
 class PlayerKeyEvent : PlayerInputEvent
 {
-    var Key : Integer = 0;
-    
-    constructor() : base()
-    {
-    }
+    var Key : Integer;
 }
 
 class PlayerMouseEvent : PlayerInputEvent
 {
-    var ScreenDelta : Real2 = local Real2();
-    var WorldStart : Real3 = local Real3();
-    var WorldDirection : Real3 = local Real3();
-    var Button : Integer = 0;
-    var ScrollDelta : Real2 = local Real2();
-    
-    constructor() : base()
-    {
-    }
+    var ScreenDelta : Real2;
+    var WorldStart : Real3;
+    var WorldDirection : Real3;
+    var Button : Integer;
+    var ScrollDelta : Real2;
 }
 

@@ -1,3 +1,4 @@
+/*
 class SpawnTool : ZilchComponent
 {
     var Index : Integer = 0;
@@ -12,12 +13,6 @@ class SpawnTool : ZilchComponent
     
     var ObjToSpawn : Archetype = null;
     
-    [Property]
-    var SpawnEffect : Archetype = Archetype.Find("SpawnEffect");
-    
-    [Property]
-    var DestroyEffect : Archetype = Archetype.Find("DestroyEffect");
-    
     constructor() : base()
     {
     }
@@ -28,7 +23,7 @@ class SpawnTool : ZilchComponent
         Zero.Connect(this.Owner, "DeactivateTool", this.OnDeativateTool);
     }
     
-    function OnActivateTool(e : ToolChangeEvent)
+    function OnActivateTool(e : PlayerEvent)
     {
         this.PlayerCog = e.PlayerCog;
         this.Player = e.Player;
@@ -44,7 +39,7 @@ class SpawnTool : ZilchComponent
         this.UpdateObjectToSpawn();
     }
     
-    function OnDeativateTool(e : ToolChangeEvent)
+    function OnDeativateTool(e : PlayerEvent)
     {
         this.HudElement.SpawnToolHud.Deactivate();
         
@@ -68,26 +63,22 @@ class SpawnTool : ZilchComponent
         if (result == null)
         {
             if (this.DestroyMode == false)
-            {
-                this.HudText.Text = String.Concatenate("Press [Left Mouse] to spawn a ", this.ObjToSpawn.Name);
-            }
+                this.HudText.Text = "Press [Left Mouse] to spawn a `this.ObjToSpawn.Name`";
             else
-            {
                 this.HudText.Text = "";
-            }
             return;
         }
         
         this.IsOverBlock = true;
         var pos = result.Object.Transform.WorldTranslation;
-        var color = local Real4(1.0, 0.0, 0.0, 1.0);
+        var color = Real4(1.0, 0.0, 0.0, 1.0);
         
         
         if (this.DestroyMode == false)
         {
             this.HudText.Text = String.Concatenate("Press [Left Mouse] to attach a ", this.ObjToSpawn.Name);
             pos  += result.WorldNormal;
-            color = local Real4(1.0);
+            color = Real4(1.0);
         }
         else
         {
@@ -243,9 +234,7 @@ class SpawnTool : ZilchComponent
             attach = false;
             
             if (result == null)
-            {
                 return;
-            }
         }
         
         var newObj = this.Space.Create(objToSpawn);
@@ -264,9 +253,7 @@ class SpawnTool : ZilchComponent
             localNormal = SpawnTool.SnapToCardinalDirection(localNormal);
             
             if (Math.LengthSq(localNormal) < 0.5)
-            {
                 return;
-            }
             
             var worldForward = this.Player.WorldLookForward;
             var localForward = rootTx.TransformNormalInverse(worldForward);
@@ -302,12 +289,12 @@ class SpawnTool : ZilchComponent
             newTx.LocalRotation = Quaternion.Identity;
         }
         
-        this.Space.CreateAtPosition(this.SpawnEffect, newObj.Transform.WorldTranslation);
+        this.Space.CreateAtPosition(Archetype.SpawnEffect, newObj.Transform.WorldTranslation);
         
         var undoName = String.Concatenate("spawning a ", this.ObjToSpawn.Name);
         var undo = new SpawnUndo();
         undo.Object = newObj;
-        this.Player.QueueUndo(undoName, undo.Action);
+        this.Player.Server_QueueUndo(undoName, undo.Action);
         
         if (newObj.Swivel != null)
         {
@@ -325,7 +312,7 @@ class SpawnTool : ZilchComponent
         }
         
         var undoName = String.Concatenate("destroying a ", this.ObjToSpawn.Name);
-        var undoInfo = this.Player.QueueUndo(undoName);
+        var undoInfo = this.Player.Server_QueueUndo(undoName);
         
         // Store it in the object store for undo purposes
         Zero.ObjectStore.Store(undoInfo.UniqueName, result.Object);
@@ -339,7 +326,7 @@ class SpawnTool : ZilchComponent
         undo.WorldRotation = result.Object.Transform.WorldRotation;
         undoInfo.Action = undo.Action;
         
-        this.Space.CreateAtPosition(this.DestroyEffect, worldPosition);
+        this.Space.CreateAtPosition(Archetype.DestroyEffect, worldPosition);
         result.Object.Destroy();
     }
 }
@@ -412,3 +399,4 @@ class DestroyUndo
         return false;
     }
 }
+*/

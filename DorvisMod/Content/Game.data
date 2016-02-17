@@ -21,7 +21,7 @@ GameSession =
 	{
 		bool ToggleCtrl = false,
 		bool ToggleShift = false,
-		Enum ToggleKey = F1,
+		string ToggleKey = "F1",
 		bool Visible = false,
 	},
 	WebRequester = 
@@ -33,16 +33,12 @@ GameSession =
 		bool ImmediateDiscovery = true,
 		string DiscoveredIp = "",
 	},
-	RunUnitTests = 
-	{
-	},
 	GameStartup = 
 	{
 		string Level = "519e74c9087e821d:Environment",
-		string SpaceToCreate = "519e634c69a6ca5c:Space",
 		string Player = "519e623f0e5efbef:Player",
 	},
-	ZilchState = 
+	RunUnitTests = 
 	{
 	},
 	KonsoleNetSetup = 

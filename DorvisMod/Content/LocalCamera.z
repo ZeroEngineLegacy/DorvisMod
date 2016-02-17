@@ -1,0 +1,18 @@
+class LocalCamera : ZilchComponent
+{
+    [Dependency]
+    var Camera : Camera;
+    [Dependency]
+    var NetObject : NetObject;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.NetInitialized, this.OnNetInitialized);
+    }
+
+    function OnNetInitialized(event : NetInitialized)
+    {
+        if (this.NetObject.IsClientAndMine)
+            this.LevelSettings.CameraViewport.Camera = this.Owner;
+    }
+}

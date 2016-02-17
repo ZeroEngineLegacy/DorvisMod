@@ -44,7 +44,6 @@ class GameStartup : ZilchComponent
         var player = this.MainSpace.Create(this.Player);
         player.Transform.WorldTranslation = position;
         event.ReturnTheirNetUser = player;
-        player.NetObject.SetNetUserOwner(event.TheirNetUserId);
         
         //var label = this.Main.Create(Archetype.Label);
         //label.FollowingLabel.Target.Cog = player;

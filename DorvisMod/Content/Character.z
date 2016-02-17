@@ -1,0 +1,47 @@
+class Character : ZilchComponent
+{
+    // We have to be careful to not allow the client to make this length of greater than 1.0
+    // This supports controllers in the future
+    [NetProperty(channel : "ClientAuthority")]
+    var Movement : Real2;
+    
+    [Property]
+    var Speed : Real = 10.0;
+    
+    [Dependency]
+    var Transform : Transform;
+    
+    [Dependency]
+    var Orientation : Orientation;
+    
+    [Dependency]
+    var NetObject : NetObject;
+    
+    [Dependency]
+    var DynamicMotor : DynamicMotor;
+    
+    function Initialize(init : CogInitializer)
+    {
+        var channel = this.NetObject.GetNetChannel("ClientAuthority");
+        channel.ChangeAuthority = ChangeAuthority.Client;
+        channel.EventOnIncomingPropertyChange = true;
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.NetObject.IsServer)
+        {
+            // Make sure the client doesn't try and do anything tricky with movement
+            // Also use the character's rotation to determine the forward movement
+            var movement =
+                this.Orientation.WorldForward * this.Movement.Y +
+                this.Orientation.WorldRight * this.Movement.X;
+            movement = Math.Normalize(movement);
+            movement *= this.Speed;
+            
+            this.DynamicMotor.MoveInDirection(movement, this.Orientation.WorldUp);
+        }
+    }
+}

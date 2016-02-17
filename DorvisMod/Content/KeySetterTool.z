@@ -1,7 +1,8 @@
+/*
 class KeySetterTool : ZilchComponent
 {
-    var Player : Player = null;
-    var HudText : ShadowText = null;
+    var Player : Player;
+    var HudText : ShadowText;
     
     var CurrentActivatable : Cog = null;
     var IsBindingKeys : Boolean = false;
@@ -17,11 +18,11 @@ class KeySetterTool : ZilchComponent
 
     function Initialize(init : CogInitializer)
     {
-        Zero.Connect(this.Owner, "ActivateTool", this.OnActivateTool);
-        Zero.Connect(this.Owner, "DeactivateTool", this.OnDeactivateTool);
+        Zero.Connect(this.Owner, Events.ActivateTool, this.OnActivateTool);
+        Zero.Connect(this.Owner, Events.DeactivateTool, this.OnDeactivateTool);
     }
     
-    function OnActivateTool(e : ToolChangeEvent)
+    function OnActivateTool(e : PlayerEvent)
     {
         this.Player = e.Player;
         this.HudText = e.HudText;
@@ -31,7 +32,7 @@ class KeySetterTool : ZilchComponent
         Zero.Connect(e.PlayerCog, "PlayerMouseUp", this.OnPlayerMouseUp);
     }
     
-    function OnDeactivateTool(e : ToolChangeEvent)
+    function OnDeactivateTool(e : Player)
     {
         this.Player = null;
         this.HudText = null;
@@ -108,3 +109,4 @@ class KeySetterTool : ZilchComponent
         }
     }
 }
+*/

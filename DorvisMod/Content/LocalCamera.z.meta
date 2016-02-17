@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "LocalCamera",
+		uint64 ResourceId = 56a1f7af520bbd0c,
+	},
+},

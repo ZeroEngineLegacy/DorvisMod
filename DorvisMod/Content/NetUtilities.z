@@ -1,0 +1,102 @@
+class NetUtilities : ZilchComponent
+{
+    [Extension(typeid(NetObject))]
+    var IsServer : Boolean
+    {
+        get
+        {
+            var self = this as ZeroObject as NetObject;
+            return self.GameSession.NetPeer.IsServer;
+        }
+    }
+    
+    [Extension(typeid(NetObject))]
+    var IsClient : Boolean
+    {
+        get
+        {
+            var self = this as ZeroObject as NetObject;
+            return self.GameSession.NetPeer.IsClient;
+        }
+    }
+    
+    [Extension(typeid(NetObject))]
+    var IsMine : Boolean
+    {
+        get
+        {
+            var self = this as ZeroObject as NetObject;
+            var userOwner = self.NetUserOwner;
+            if (userOwner == null)
+                return false;
+            var user = userOwner.NetUser;
+            if (user == null)
+                return false;
+            return user.AddedByMyPeer;
+        }
+    }
+    
+    [Extension(typeid(NetObject))]
+    var IsNotMine : Boolean
+    {
+        get
+        {
+            var self = this as ZeroObject as NetObject;
+            var userOwner = self.NetUserOwner;
+            if (userOwner == null)
+                return true;
+            var user = userOwner.NetUser;
+            if (user == null)
+                return true;
+            return !user.AddedByMyPeer;
+        }
+    }
+    
+    [Extension(typeid(NetObject))]
+    var IsClientAndMine : Boolean
+    {
+        get
+        {
+            var self = this as ZeroObject as NetObject;
+            if (self.IsClient == false)
+                return false;
+            return self.IsMine;
+        }
+    }
+    
+    [Extension(typeid(NetObject))]
+    var IsClientButNotMine : Boolean
+    {
+        get
+        {
+            var self = this as ZeroObject as NetObject;
+            if (self.IsClient == false)
+                return false;
+            return self.IsNotMine;
+        }
+    }
+    
+    [Extension(typeid(NetObject))]
+    var IsServerAndMine : Boolean
+    {
+        get
+        {
+            var self = this as ZeroObject as NetObject;
+            if (self.IsServer == false)
+                return false;
+            return self.IsMine;
+        }
+    }
+    
+    [Extension(typeid(NetObject))]
+    var IsServerButNotMine : Boolean
+    {
+        get
+        {
+            var self = this as ZeroObject as NetObject;
+            if (self.IsServer == false)
+                return false;
+            return self.IsNotMine;
+        }
+    }
+}

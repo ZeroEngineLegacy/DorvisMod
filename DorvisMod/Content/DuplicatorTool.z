@@ -1,3 +1,4 @@
+/*
 class DuplicatorTool : ZilchComponent
 {
     [Property]
@@ -28,7 +29,7 @@ class DuplicatorTool : ZilchComponent
         Zero.Connect(this.Owner, "DeactivateTool", this.OnDeactivateTool);
     }
     
-    function OnActivateTool(e : ToolChangeEvent)
+    function OnActivateTool(e : PlayerEvent)
     {
         this.Player = e.Player;
         this.HudText = e.HudText;
@@ -36,7 +37,7 @@ class DuplicatorTool : ZilchComponent
         Zero.Connect(e.PlayerCog, "PlayerMouseDown", this.OnPlayerMouseDown);
     }
     
-    function OnDeactivateTool(e : ToolChangeEvent)
+    function OnDeactivateTool(e : PlayerEvent)
     {
         this.Player = null;
         this.HudText = null;
@@ -118,8 +119,9 @@ class DuplicatorTool : ZilchComponent
                 
                 var undo = new SpawnUndo();
                 undo.Object = object;
-                this.Player.QueueUndo("duplication", undo.Action);
+                this.Player.Server_QueueUndo("duplication", undo.Action);
             }
         }
     }
 }
+*/

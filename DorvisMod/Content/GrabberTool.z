@@ -40,7 +40,7 @@ class GrabberTool : ZilchComponent
         Zero.Connect(this.Owner, "DeactivateTool", this.OnDeactivateTool);
     }
     
-    function OnActivateTool(e : ToolChangeEvent)
+    function OnActivateTool(e : PlayerEvent)
     {
         this.Player = e.Player;
         Zero.Connect(e.PlayerCog, "PlayerMouseMove", this.OnPlayerMouseMove);
@@ -52,7 +52,7 @@ class GrabberTool : ZilchComponent
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
     }
     
-    function OnDeactivateTool(e : ToolChangeEvent)
+    function OnDeactivateTool(e : PlayerEvent)
     {
         this.Player = null;
         this.DeselectObj();

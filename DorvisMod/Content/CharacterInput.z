@@ -1,0 +1,37 @@
+class CharacterInput : ZilchComponent
+{
+    [Dependency]
+    var Character : Character;
+    
+    [Dependency]
+    var NetObject : NetObject;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.NetInitialized, this.OnNetInitialized);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnNetInitialized(event : NetInitialized)
+    {
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if (this.NetObject.IsNotMine)
+            return;
+        
+        var movement = Real2.Zero;
+        
+        if (Zero.Keyboard.KeyIsDown(Keys.D))
+            movement.X += 1.0;
+        if (Zero.Keyboard.KeyIsDown(Keys.A))
+            movement.X -= 1.0;
+        if (Zero.Keyboard.KeyIsDown(Keys.W))
+            movement.Y += 1.0;
+        if (Zero.Keyboard.KeyIsDown(Keys.S))
+            movement.Y -= 1.0;
+        
+        this.Character.Movement = movement;
+    }
+}

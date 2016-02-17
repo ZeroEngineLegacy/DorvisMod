@@ -10,7 +10,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [6.19512939, -1.00518799, -45.455616],
+		Vec3 Translation = [-84.4580536, 54.3158607, 42.6883011],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -56,22 +56,6 @@ Cog =
 	NetUser = 
 	{
 	},
-	Player = 
-	{
-		float Speed = 7.5,
-		float LookSpeed = 0.00999999978,
-		float JumpVelocity = 6,
-		float InteractDistance = 6,
-		bool Active = true,
-		string InteractSound = "51559bcf8afbfa45:Interact",
-		string ChangeToolSound = "515590df86e8a396:ChangeTool",
-		float FovToSpeed = 0.5,
-		float MaxFovChange = 0,
-		float FovSmoothing = 0.300000012,
-		float MinSpeedForFovChange = 18,
-		string HudToCreate = "5154e5529a722c1b:Hud",
-		string HudSpace = "519e634c69a6ca5c:Space",
-	},
 	CapsuleCollider = 
 	{
 		bool Ghost = false,
@@ -85,6 +69,20 @@ Cog =
 		uint Direction = 1,
 	},
 	DynamicMotor = 
+	{
+	},
+	Orientation = 
+	{
+		Vec3 GlobalUp = [0, 1, 0],
+		Vec3 UpVector = [0, 1, 0],
+		Vec3 ForwardVector = [0, 0, 1],
+		OrientationBases DefaultBases = ForwardZUpY,
+	},
+	Character = 
+	{
+		float Speed = 10,
+	},
+	CharacterInput = 
 	{
 	},
 	Hierarchy = 
@@ -108,7 +106,7 @@ Cog =
 			Camera = 
 			{
 				ProjectionMode ProjectionMode = Perspective,
-				Facing Facing = NegativeZ,
+				Facing Facing = PositiveZ,
 				CameraTransparentSort TransparentSort = InheritFromSpace,
 				float FieldOfView = 70,
 				float NearPlane = 0.200000003,
@@ -147,6 +145,26 @@ Cog =
 			SoundListener = 
 			{
 				bool Active = true,
+			},
+			NetObject = 
+			{
+				string AutomaticChannelName = "56f22bdc94800e65:DefaultChannel",
+				Array NetPropertyConfigs = 
+				[
+					{
+						string ComponentName = "Transform",
+						string PropertyName = "Translation",
+						string NetChannelConfigName = "56f22bdc957a8572:TransformChannel",
+					},
+					{
+						string ComponentName = "Transform",
+						string PropertyName = "Rotation",
+						string NetChannelConfigName = "56f22bdc957a8572:TransformChannel",
+					},
+				],
+			},
+			LocalCamera = 
+			{
 			},
 			Hierarchy = 
 			{
@@ -194,7 +212,7 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [-1.43051e-006, -2.38419005e-007, 1.54972004e-005],
+				Vec3 Translation = [0, 0, 0],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -216,11 +234,6 @@ Cog =
 						Vec3 Scale = [1, 1, 1],
 						Quat Rotation = [0, 0, 0, 1],
 					},
-					SpawnTool = 
-					{
-						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
-						string DestroyEffect = "5154e67a24d85b3d:DestroyEffect",
-					},
 				},
 				Cog = 
 				{
@@ -237,13 +250,6 @@ Cog =
 						Vec3 Translation = [0, 0, 0],
 						Vec3 Scale = [1, 1, 1],
 						Quat Rotation = [0, 0, 0, 1],
-					},
-					GrabberTool = 
-					{
-						float MinDistance = 3,
-						float MaxDistance = 100,
-						float RotationSpeed = 0.0500000007,
-						string Effect = "5155ad131eb55f13:MiscEffect",
 					},
 					Hierarchy = 
 					{
@@ -265,11 +271,6 @@ Cog =
 						Vec3 Scale = [1, 1, 1],
 						Quat Rotation = [0, 0, 0, 1],
 					},
-					KeySetterTool = 
-					{
-						string GeneralEffect = "5155ad131eb55f13:MiscEffect",
-						string KeyEffect = "5155a9c3f0149967:KeyEffect",
-					},
 				},
 				Cog = 
 				{
@@ -286,10 +287,6 @@ Cog =
 						Vec3 Translation = [0, 0, 0],
 						Vec3 Scale = [1, 1, 1],
 						Quat Rotation = [0, 0, 0, 1],
-					},
-					RopeTool = 
-					{
-						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
 					},
 					Hierarchy = 
 					{
@@ -311,10 +308,6 @@ Cog =
 						Vec3 Scale = [1, 1, 1],
 						Quat Rotation = [0, 0, 0, 1],
 					},
-					CommandBlockTool = 
-					{
-						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
-					},
 					Hierarchy = 
 					{
 					},
@@ -334,12 +327,6 @@ Cog =
 						Vec3 Translation = [0, 0, 0],
 						Vec3 Scale = [1, 1, 1],
 						Quat Rotation = [0, 0, 0, 1],
-					},
-					DuplicatorTool = 
-					{
-						float FallbackSpawnDistance = 20,
-						string CopyEffect = "5155ad131eb55f13:MiscEffect",
-						string SpawnEffect = "5154e664274fb96e:SpawnEffect",
 					},
 				},
 			},

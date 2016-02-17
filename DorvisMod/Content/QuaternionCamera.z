@@ -150,6 +150,11 @@ class QuaternionCamera : ZilchComponent
             movement.Z += 1.0;
         }
         
+        if (Zero.Keyboard.KeyIsDown(Keys.Shift))
+        {
+            movement *= 5.0;
+        }
+        
         // We computed the direction in local space, bring it to the camera's world space
         var current = this.Owner.Transform.Translation;
         movement = this.Owner.Transform.TransformNormal(movement);
